@@ -12,6 +12,17 @@ async function loadComponent(elementId, filePath) {
         const html = await response.text();
         document.getElementById(elementId).innerHTML = html;
 
+        // Update language switcher links if root is defined
+        if (window.resRoot) {
+            const langLinks = document.getElementById(elementId).querySelectorAll('[data-lang-link="true"]');
+            langLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    link.setAttribute('href', window.resRoot + href);
+                }
+            });
+        }
+
         // Highlight active link based on current path
         if (elementId === 'header-placeholder') {
             highlightActiveLink();
@@ -40,6 +51,7 @@ function highlightActiveLink() {
 
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('header-placeholder', 'components/header.html');
-    loadComponent('footer-placeholder', 'components/footer.html');
+    const root = window.resRoot || '';
+    loadComponent('header-placeholder', root + 'components/header.html');
+    loadComponent('footer-placeholder', root + 'components/footer.html');
 });
