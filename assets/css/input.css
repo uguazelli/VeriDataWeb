@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default / Index Theme (Purple-ish) */
+    --color-primary: #5048e5;
+    --color-primary-hover: #4338ca;
+    --color-primary-dark: #2a12ad; /* Fallback */
+    --color-primary-light: #e0e7ff; /* Fallback */
+    --color-secondary: #4f46e5;
+  }
+
+  body.page-revops {
+    /* RevOps Theme (Blue) */
+    --color-primary: #607AFB;
+    --color-primary-hover: #4f64d1; /* Auto-generated darker shade */
+    --color-primary-dark: #2a12ad;
+    --color-primary-light: #e0e7ff;
+    --color-secondary: #4f46e5;
+  }
+
+  body.page-integrations {
+    /* Integrations Theme (Strong Blue) */
+    --color-primary: #062ff9;
+    --color-primary-hover: #0526cc;
+    --color-primary-dark: #001a8f;
+    --color-primary-light: #dbe4ff;
+    --color-secondary: #47569e;
+  }
+}
