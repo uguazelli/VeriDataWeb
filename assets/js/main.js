@@ -21,6 +21,15 @@ async function loadComponent(elementId, filePath) {
                     link.setAttribute('href', window.resRoot + href);
                 }
             });
+
+            // Update relative image sources
+            const relativeImages = document.getElementById(elementId).querySelectorAll('[data-relative-src="true"]');
+            relativeImages.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    img.setAttribute('src', window.resRoot + src);
+                }
+            });
         }
 
         // Highlight active link based on current path
