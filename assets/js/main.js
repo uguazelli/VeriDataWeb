@@ -14,13 +14,7 @@ async function loadComponent(elementId, filePath) {
 
         // Update language switcher links if root is defined
         if (window.resRoot) {
-            const langLinks = document.getElementById(elementId).querySelectorAll('[data-lang-link="true"]');
-            langLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href) {
-                    link.setAttribute('href', window.resRoot + href);
-                }
-            });
+            updateLanguageSwitcher();
 
             // Update relative image sources
             const relativeImages = document.getElementById(elementId).querySelectorAll('[data-relative-src="true"]');
@@ -42,16 +36,53 @@ async function loadComponent(elementId, filePath) {
 }
 
 /**
+ * Updates language switcher links to point to the current page in different languages.
+ */
+function updateLanguageSwitcher() {
+    const currentPath = window.location.pathname;
+    let fileName = currentPath.split('/').pop();
+    if (!fileName || fileName === '') fileName = 'index.html';
+
+    // Ensure we have .html if missing (though user wants it present)
+    if (!fileName.includes('.')) fileName += '.html';
+
+    const enLink = document.getElementById('lang-link-en');
+    const ptLink = document.getElementById('lang-link-pt');
+    const esLink = document.getElementById('lang-link-es');
+
+    const root = window.resRoot || '';
+
+    if (enLink) enLink.setAttribute('href', root + fileName);
+    if (ptLink) ptLink.setAttribute('href', root + 'pt/' + fileName);
+    if (esLink) esLink.setAttribute('href', root + 'es/' + fileName);
+}
+
+/**
  * Highlights the navigation link corresponding to the current page.
  */
 function highlightActiveLink() {
-    const currentPath = window.location.pathname;
+    let currentPath = window.location.pathname;
+    // Normalize index.html and root
+    if (currentPath === '/' || currentPath === '') currentPath = '/index.html';
+
     const navLinks = document.querySelectorAll('nav a');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        // Simple check: if href matches the end of the current path
-        if (href === currentPath || (currentPath === '/' && href === '/index.html') || (currentPath === '/' && href === 'index.html')) {
+        if (!href) return;
+
+        // Create a normalized href for comparison (absolute-like for current dir)
+        let normalizedHref = href;
+        if (!href.startsWith('/') && !href.startsWith('http')) {
+            // It's a relative link in the current directory
+            const pathParts = window.location.pathname.split('/');
+            pathParts.pop(); // Remove current filename
+            normalizedHref = pathParts.join('/') + '/' + href;
+            // Clean double slashes
+            normalizedHref = normalizedHref.replace(/\/+/g, '/');
+        }
+
+        if (normalizedHref === currentPath || currentPath.endsWith('/' + href)) {
             link.classList.add('text-primary');
             link.classList.remove('text-slate-600', 'dark:text-slate-300');
         }
