@@ -27,7 +27,41 @@
 
 <body class="bg-background-light dark:bg-background-dark text-slate-900 font-display antialiased overflow-x-hidden">
     <!-- Top Navigation -->
-    <div id="header-placeholder"></div>
+    <header
+        class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/90">
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="../assets/images/logo.png" alt="Veridata Pro Logo" class="h-8 w-auto">
+                    <span
+                        class="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-primary transition-colors">Veridata
+                        Pro</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                    href="index.html">Início</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                    href="revops.html">RevOps</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+                    href="integrations.html">Integrações</a>
+                <div
+                    class="flex items-center gap-2 border-l pl-6 border-slate-200 dark:border-slate-700 h-6 text-xs font-bold">
+                    <a href="../en/index.html" class="hover:text-primary transition-colors" title="English">EN</a>
+                    <span class="text-slate-300">|</span>
+                    <a href="index.html" class="text-primary transition-colors" title="Português">PT</a>
+                    <span class="text-slate-300">|</span>
+                    <a href="../es/index.html" class="hover:text-primary transition-colors" title="Español">ES</a>
+                </div>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/17405208080" target="_blank"
+                    class="hidden sm:inline-flex items-center justify-center rounded-lg bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-hover transition-all">
+                    Agendar Reunião
+                </a>
+            </div>
+        </div>
+    </header>
     <!-- Hero Section -->
     <section class="relative flex flex-col items-center justify-center pt-24 pb-36 px-4 overflow-hidden hero-pattern">
         <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none">
@@ -71,17 +105,17 @@
         </div>
     </section>
 
-    <!-- The 3 Pillars Section -->
+    <!-- The Pillars Section -->
     <section class="py-24 bg-surface-offwhite" id="pillars">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-primary font-bold uppercase tracking-wider text-sm">Capacidades</span>
-                <h2 class="text-3xl md:text-5xl font-black text-text-main mt-2 tracking-tight">Os 3 Pilares da Veridata
+                <h2 class="text-3xl md:text-5xl font-black text-text-main mt-2 tracking-tight">Os Pilares da Veridata
                 </h2>
                 <p class="mt-4 text-xl text-text-muted">Escolha seu caminho para automação e eficiência.</p>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <!-- Card 1: RevOps -->
                 <a href="revops.html"
                     class="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
@@ -124,26 +158,6 @@
                     </div>
                 </a>
 
-                <!-- Card 3: Academy -->
-                <a href="veriacademy.html"
-                    class="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
-                    <div
-                        class="absolute top-0 right-0 p-24 bg-orange-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    </div>
-                    <div
-                        class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 group-hover:scale-110 transition-transform duration-300">
-                        <span class="material-symbols-outlined text-4xl">school</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text-main mb-3 relative z-10">VeriAcademy</h3>
-                    <p class="text-text-muted leading-relaxed mb-8 flex-1 relative z-10">
-                        Domine as ferramentas você mesmo. Cursos práticos de IA para Produtividade, Segurança Familiar e
-                        Automação Empresarial.
-                    </p>
-                    <div
-                        class="flex items-center text-sm font-bold text-orange-600 group-hover:translate-x-2 transition-transform relative z-10">
-                        Começar a Aprender <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-                    </div>
-                </a>
             </div>
         </div>
     </section>
