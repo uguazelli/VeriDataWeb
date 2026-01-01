@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
     <style>
         .hero-pattern {
             background-color: #f8fafc;
@@ -23,10 +23,10 @@
     <meta property="og:title" content="Veri Data Integrations - Enterprise API Orchestration" />
     <meta property="og:description"
         content="We don't just build bots. We orchestrate your entire business. Connect ERP, CRM, and WMS into a unified ecosystem." />
-    <meta property="og:image" content="assets/images/integrations-hero.webp" />
+    <meta property="og:image" content="../assets/images/integrations-hero.webp" />
     <meta property="og:url" content="https://veridata.pro/integrations.html" />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
 <body
@@ -69,7 +69,7 @@
                 <!-- Hero Image -->
                 <div class="mt-12 relative w-full max-w-5xl mx-auto">
                     <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-                    <img src="assets/images/integrations-hero.webp" alt="Veri Data Architect Network"
+                    <img src="../assets/images/integrations-hero.webp" alt="Veri Data Architect Network"
                         class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/50 backdrop-blur-sm transform transition-transform hover:scale-[1.01] duration-500">
                 </div>
             </div>
@@ -299,7 +299,7 @@
                             <p class="text-text-muted text-sm">Your Fractional Integration Team. We fix API breaks
                                 before you know.</p>
                             <div class="mt-6 flex items-baseline">
-                                <span class="text-4xl font-black text-text-main">$497</span>
+                                <span class="text-4xl font-black text-text-main">$997</span>
                                 <span class="text-sm text-text-muted ml-1">/ month</span>
                             </div>
                             <p class="text-xs text-primary font-bold mt-2">Starts at</p>
@@ -366,7 +366,10 @@
             </div>
         </section>
         <div id="footer-placeholder"></div>
-        <script src="assets/js/main.js"></script>
+        <script>
+            window.resRoot = '../';
+        </script>
+        <script src="../assets/js/main.js"></script>
     </div>
 </body>
 

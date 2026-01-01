@@ -52,7 +52,7 @@ function updateLanguageSwitcher() {
 
     const root = window.resRoot || '';
 
-    if (enLink) enLink.setAttribute('href', root + fileName);
+    if (enLink) enLink.setAttribute('href', root + 'en/' + fileName);
     if (ptLink) ptLink.setAttribute('href', root + 'pt/' + fileName);
     if (esLink) esLink.setAttribute('href', root + 'es/' + fileName);
 }

@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
     <style>
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
@@ -37,10 +37,10 @@
     <meta property="og:title" content="Veridata RevOps - Revenue Infrastructure" />
     <meta property="og:description"
         content="Replace the 'Black Hole' of WhatsApp with a structured Data Pipeline. Single Tenant. Zero Trust." />
-    <meta property="og:image" content="assets/images/revops-hero.webp" />
+    <meta property="og:image" content="../assets/images/revops-hero.webp" />
     <meta property="og:url" content="https://veridata.pro/revops.html" />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
 <body
@@ -81,7 +81,7 @@
                         @veridatapro_bot </a></div>
                 <div class="mt-12 relative w-full max-w-4xl mx-auto">
                     <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div><img
-                        src="assets/images/revops-hero.webp" alt="VeriData Revenue Infrastructure Visualization"
+                        src="../assets/images/revops-hero.webp" alt="VeriData Revenue Infrastructure Visualization"
                         class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/50 backdrop-blur-sm transform transition-transform hover:scale-[1.01] duration-500">
                 </div>
             </div>
@@ -588,20 +588,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- AI Message Top-up -->
-                        <div
-                            class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group">
-                            <div
-                                class="size-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                                <span class="material-symbols-outlined">bolt</span>
-                            </div>
-                            <h4 class="font-bold text-text-main mb-1">AI Message Top-up</h4>
-                            <p class="text-xs text-text-muted mb-4">Add 5,000 extra AI interactions (messages/audios).
-                            </p>
-                            <div class="text-2xl font-black text-text-main">$20 <span
-                                    class="text-[10px] font-bold uppercase text-orange-600 ml-1">Per Pack</span></div>
-                        </div>
-
                         <!-- Knowledge Update -->
                         <div
                             class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group">
@@ -614,6 +600,20 @@
                                 (1x/month).</p>
                             <div class="text-2xl font-black text-text-main">$0 <span
                                     class="text-[10px] font-bold uppercase text-blue-500 ml-1">Included</span></div>
+                        </div>
+
+                        <!-- AI Message Top-up -->
+                        <div
+                            class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group">
+                            <div
+                                class="size-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">bolt</span>
+                            </div>
+                            <h4 class="font-bold text-text-main mb-1">AI Message Top-up</h4>
+                            <p class="text-xs text-text-muted mb-4">Add 5,000 extra AI interactions (messages/audios).
+                            </p>
+                            <div class="text-2xl font-black text-text-main">$20 <span
+                                    class="text-[10px] font-bold uppercase text-orange-600 ml-1">Per Pack</span></div>
                         </div>
 
                         <!-- New Slot -->
@@ -687,7 +687,10 @@
             </div>
         </section>
         <div id="footer-placeholder"></div>
-        <script src="assets/js/main.js"></script>
+        <script>
+            window.resRoot = '../';
+        </script>
+        <script src="../assets/js/main.js"></script>
     </div>
 </body>
 
