@@ -21,13 +21,13 @@
             <!-- Language Switcher -->
             <div
                 class="flex items-center gap-2 border-l pl-6 border-slate-200 dark:border-slate-700 h-6 text-xs font-bold">
-                <a href="revops.html" id="lang-link-en" class="hover:text-primary transition-colors" title="English"
+                <a href="index.html" id="lang-link-en" class="hover:text-primary transition-colors" title="English"
                     data-lang-link="true">EN</a>
                 <span class="text-slate-300">|</span>
-                <a href="pt/revops.html" id="lang-link-pt" class="hover:text-primary transition-colors"
-                    title="Português" data-lang-link="true">PT</a>
+                <a href="pt/index.html" id="lang-link-pt" class="hover:text-primary transition-colors" title="Português"
+                    data-lang-link="true">PT</a>
                 <span class="text-slate-300">|</span>
-                <a href="es/revops.html" id="lang-link-es" class="hover:text-primary transition-colors" title="Español"
+                <a href="es/index.html" id="lang-link-es" class="hover:text-primary transition-colors" title="Español"
                     data-lang-link="true">ES</a>
             </div>
         </nav>
@@ -36,6 +36,64 @@
                 class="hidden sm:inline-flex items-center justify-center rounded-lg bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all">
                 Contact Us
             </button>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-open"
+                class="inline-flex md:hidden items-center justify-center p-2 rounded-md text-slate-600 hover:text-primary hover:bg-slate-100 focus:outline-none transition-colors dark:text-slate-400 dark:hover:bg-slate-800">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+        <!-- Backdrop -->
+        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+
+        <!-- Menu Content -->
+        <nav class="fixed inset-y-0 right-0 w-full max-w-xs bg-white dark:bg-slate-900 shadow-xl flex flex-col p-6 transition-transform duration-300 translate-x-full"
+            id="mobile-menu-content">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-2">
+                    <img src="assets/images/logo.png" alt="Veridata Pro Logo" class="h-8 w-auto"
+                        data-relative-src="true">
+                    <span class="text-lg font-bold text-slate-900 dark:text-white">Veridata Pro</span>
+                </div>
+                <button id="mobile-menu-close"
+                    class="p-2 rounded-md text-slate-600 hover:text-primary hover:bg-slate-100 focus:outline-none transition-colors dark:text-slate-400 dark:hover:bg-slate-800">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-4 mb-8">
+                <a class="mobile-nav-link text-lg font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                    href="index.html">Home</a>
+                <a class="mobile-nav-link text-lg font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                    href="revops.html">RevOps</a>
+                <a class="mobile-nav-link text-lg font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                    href="integrations.html">Integrations</a>
+            </div>
+
+            <!-- Language Switcher for Mobile -->
+            <div class="border-t pt-6 border-slate-100 dark:border-slate-800">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Language Select</p>
+                <div class="flex items-center gap-4 font-bold text-sm">
+                    <a href="index.html" id="mobile-lang-link-en" class="hover:text-primary transition-colors py-2 px-1"
+                        data-lang-link="true">EN</a>
+                    <span class="text-slate-300">|</span>
+                    <a href="pt/index.html" id="mobile-lang-link-pt"
+                        class="hover:text-primary transition-colors py-2 px-1" data-lang-link="true">PT</a>
+                    <span class="text-slate-300">|</span>
+                    <a href="es/index.html" id="mobile-lang-link-es"
+                        class="hover:text-primary transition-colors py-2 px-1" data-lang-link="true">ES</a>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6">
+                <a href="https://wa.me/17405208080" target="_blank"
+                    class="w-full flex items-center justify-center rounded-lg bg-green-500 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-hover transition-all">
+                    Schedule Meeting
+                </a>
+            </div>
+        </nav>
     </div>
 </header>
