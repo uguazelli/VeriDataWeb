@@ -24,6 +24,11 @@ async function loadComponent(elementId, filePath) {
                     img.setAttribute('src', window.resRoot + src);
                 }
             });
+
+            // Translate footer links if applicable
+            if (elementId === 'footer-placeholder') {
+                translateFooter();
+            }
         }
 
         // Highlight active link based on current path
@@ -148,3 +153,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadComponent('footer-placeholder', root + 'components/footer.html');
 });
+
+/**
+ * Translates footer links based on the current language folder.
+ */
+function translateFooter() {
+    const validLangs = ['en', 'pt', 'es'];
+    // Get language from path or default to en
+    const pathParts = window.location.pathname.split('/');
+    // Check if any of the path parts is a valid language
+    const currentLang = pathParts.find(part => validLangs.includes(part)) || 'en';
+
+    if (currentLang === 'en') return; // Default is English
+
+    const translations = {
+        'pt': {
+            'footer.home': 'Início',
+            'footer.revops': 'RevOps',
+            'footer.integrations': 'Integrações',
+            'footer.academy': 'Academia',
+            'footer.privacy': 'Política de Privacidade'
+        },
+        'es': {
+            'footer.home': 'Inicio',
+            'footer.revops': 'RevOps',
+            'footer.integrations': 'Integraciones',
+            'footer.academy': 'Academia',
+            'footer.privacy': 'Política de Privacidad'
+        }
+    };
+
+    const strings = translations[currentLang];
+    if (!strings) return;
+
+    const links = document.querySelectorAll('[data-i18n]');
+    links.forEach(link => {
+        const key = link.getAttribute('data-i18n');
+        if (strings[key]) {
+            link.textContent = strings[key];
+        }
+    });
+}
