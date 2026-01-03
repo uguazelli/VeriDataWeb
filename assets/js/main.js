@@ -27,7 +27,11 @@ async function loadComponent(elementId, filePath) {
 
             // Translate footer links if applicable
             if (elementId === 'footer-placeholder') {
-                translateFooter();
+                translateUI('footer');
+            }
+            // Translate header links if applicable
+            if (elementId === 'header-placeholder') {
+                translateUI('header');
             }
         }
 
@@ -91,13 +95,38 @@ function updateLanguageSwitcher() {
     // Ensure we have .html if missing (though user wants it present)
     if (!fileName.includes('.')) fileName += '.html';
 
+    // Map of specific page names that change across languages
+    const pageMap = {
+        'leadership.html': { 'pt': 'lideranca.html', 'es': 'liderazgo.html' },
+        'lideranca.html': { 'en': 'leadership.html', 'es': 'liderazgo.html' },
+        'liderazgo.html': { 'en': 'leadership.html', 'pt': 'lideranca.html' }
+    };
+
     const root = window.resRoot || '';
     const langs = ['en', 'pt', 'es'];
 
     langs.forEach(lang => {
         const desktopLink = document.getElementById(`lang-link-${lang}`);
         const mobileLink = document.getElementById(`mobile-lang-link-${lang}`);
-        const href = root + lang + '/' + fileName;
+
+        let targetFile = fileName;
+        // If the current file has a translation mapping, use it
+        if (pageMap[fileName] && pageMap[fileName][lang]) {
+            targetFile = pageMap[fileName][lang];
+        } else if (pageMap[fileName] && lang === 'en' && fileName === 'leadership.html') {
+            // Already correct
+        } else if (pageMap[fileName] && lang === 'pt' && fileName === 'lideranca.html') {
+            // Already correct
+        } else if (pageMap[fileName] && lang === 'es' && fileName === 'liderazgo.html') {
+            // Already correct
+        } else if (pageMap[fileName]) {
+            // Fallback if needed, but the map above covers cross-lang
+            if (fileName === 'leadership.html' && lang === 'en') targetFile = 'leadership.html';
+            if (fileName === 'lideranca.html' && lang === 'pt') targetFile = 'lideranca.html';
+            if (fileName === 'liderazgo.html' && lang === 'es') targetFile = 'liderazgo.html';
+        }
+
+        const href = root + lang + '/' + targetFile;
 
         if (desktopLink) desktopLink.setAttribute('href', href);
         if (mobileLink) mobileLink.setAttribute('href', href);
@@ -129,7 +158,19 @@ function highlightActiveLink() {
             normalizedHref = normalizedHref.replace(/\/+/g, '/');
         }
 
+        // Handle specific mapped pages for highlighting
+        let isMatch = false;
         if (normalizedHref === currentPath || currentPath.endsWith('/' + href)) {
+            isMatch = true;
+        } else {
+            // Check if we are on a localized version of the link
+            const fileName = currentPath.split('/').pop();
+            if (href === 'leadership.html' && (fileName === 'lideranca.html' || fileName === 'liderazgo.html')) {
+                isMatch = true;
+            }
+        }
+
+        if (isMatch) {
             link.classList.add('text-primary');
             link.classList.remove('text-slate-600', 'dark:text-slate-300');
         }
@@ -155,9 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Translates footer links based on the current language folder.
+ * Translates UI elements based on the current language folder.
+ * @param {string} context - 'header' or 'footer' or both/undefined
  */
-function translateFooter() {
+function translateUI(context) {
     const validLangs = ['en', 'pt', 'es'];
     // Get language from path or default to en
     const pathParts = window.location.pathname.split('/');
@@ -168,16 +210,26 @@ function translateFooter() {
 
     const translations = {
         'pt': {
+            'header.home': 'Início',
+            'header.revops': 'RevOps',
+            'header.integrations': 'Integrações',
+            'header.leadership': 'Liderança',
             'footer.home': 'Início',
             'footer.revops': 'RevOps',
             'footer.integrations': 'Integrações',
+            'footer.leadership': 'Liderança',
             'footer.academy': 'Academia',
             'footer.privacy': 'Política de Privacidade'
         },
         'es': {
+            'header.home': 'Inicio',
+            'header.revops': 'RevOps',
+            'header.integrations': 'Integraciones',
+            'header.leadership': 'Liderazgo',
             'footer.home': 'Inicio',
             'footer.revops': 'RevOps',
             'footer.integrations': 'Integraciones',
+            'footer.leadership': 'Liderazgo',
             'footer.academy': 'Academia',
             'footer.privacy': 'Política de Privacidad'
         }
@@ -186,11 +238,27 @@ function translateFooter() {
     const strings = translations[currentLang];
     if (!strings) return;
 
+    // Select all elements with data-i18n
+    // If context is provided, we can scope it, but for now global replacement is fine within the loaded component
+    // effectively we are calling this inside loadComponent which targets specific ID,
+    // BUT we need to target the elementId passed to loadComponent.
+    // However, the function `translateFooter` before was global.
+    // Let's stick to valid document querySelector since loadComponent injects into document.
+
+    // We should only translate elements relevant to the component we just loaded if we want to be safe,
+    // or just run it on everything.
     const links = document.querySelectorAll('[data-i18n]');
     links.forEach(link => {
         const key = link.getAttribute('data-i18n');
+        // Only translate if key starts with the context (header. or footer.) if context is strict,
+        // but here we can just check if key exists in strings
         if (strings[key]) {
             link.textContent = strings[key];
         }
     });
+}
+
+// Deprecated: kept for backward compatibility if needed, but translateUI replaces it
+function translateFooter() {
+    translateUI('footer');
 }
