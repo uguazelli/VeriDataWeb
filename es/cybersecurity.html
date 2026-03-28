@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Veridata Pro - El Escudo (Ciberseguridad)</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <style>
+        .hero-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="page-cybersecurity bg-background-light text-text-main font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+        <div id="header-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="relative flex flex-col items-center justify-center pt-24 pb-20 px-4 overflow-hidden hero-pattern">
+            <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none"></div>
+            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8">
+                <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    El Escudo • Arquitectura Lista para Auditorías
+                </div>
+                <h1 class="text-text-main text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
+                    Deja de temer las evaluaciones <br/><span class="text-primary">de seguridad de clientes.</span>
+                </h1>
+                <p class="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+                    Hacemos que tu infraestructura esté "Lista para la Auditoría" y sean "Seguras para Contratos". Con la arquitectura "Strangler Fig" mediante APISIX y Authentik, cubrimos tus sistemas legacy con seguridad de grado empresarial, sin alterar tu código original.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <a href="https://wa.me/17405208080" target="_blank" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-600/20">
+                        Agendar Llamada de Arquitectura
+                    </a>
+                    <a href="#pricing" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-sm">
+                        Ver Paquetes de Seguridad
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The 2026 Business Case -->
+        <section class="bg-white py-20 px-4 border-t border-gray-100">
+            <div class="max-w-6xl mx-auto flex flex-col gap-12 text-center md:text-left">
+                <div>
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm">El Caso Empresarial de 2026</span>
+                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-black leading-tight mt-2">La Seguridad es Tu Motor de Ventas</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Point 1 -->
+                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+                        <div class="size-14 rounded-lg bg-blue-50 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined text-3xl">public</span>
+                        </div>
+                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Contratos Globales</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Las empresas internacionales globales requieren pruebas de estricta seguridad documental y técnica (SOC 2, ISO 27001 o cuestionarios profundos) previo al negocio.
+                        </p>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+                        <div class="size-14 rounded-lg bg-green-50 flex items-center justify-center text-green-600">
+                            <span class="material-symbols-outlined text-3xl">shield</span>
+                        </div>
+                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Ciberseguros</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Aumento de costos repentinos al no contar con MFA, detección de endpoints (EDR) ni backups inmutables.
+                        </p>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+                        <div class="size-14 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600">
+                            <span class="material-symbols-outlined text-3xl">terminal</span>
+                        </div>
+                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Protección Legacy</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Securizamos y aplicamos tecnología moderna a sus sistemas antiguos ERP o aplicaciones en la web al no tener costes de renovación interna profundas de software.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Veridata Architecture -->
+        <section class="bg-surface-offwhite py-24 px-4 border-y border-gray-100" id="architecture">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+                <div class="flex-1 text-center md:text-left flex flex-col gap-6">
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Nuestro Enfoque</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-text-main leading-tight">La Arquitectura Veridata</h2>
+                    <p class="text-lg text-text-muted leading-relaxed">
+                        No solo protegemos laptops; protegemos tu arquitectura digital en todo nivel. Actuando y resolviendo sobre respuestas rápidas de automatización para evitar intrusos reales.
+                    </p>
+                    <ul class="flex flex-col gap-4 mt-4">
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary text-2xl mt-1">fingerprint</span>
+                            <div>
+                                <strong class="text-text-main">Identidad y Accesos (SSO/MFA):</strong>
+                                <span class="text-text-muted block text-sm">Control e Inicio Centralizado contra accesos remotos dudosos en aplicaciones modernas y antiguas.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary text-2xl mt-1">troubleshoot</span>
+                            <div>
+                                <strong class="text-text-main">Detección y Eventos (EDR):</strong>
+                                <span class="text-text-muted block text-sm">Análisis por máquina e inteligencia sobre eventos antes que el randsomware logre un accionar.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary text-2xl mt-1">dns</span>
+                            <div>
+                                <strong class="text-text-main">API Gateways:</strong>
+                                <span class="text-text-muted block text-sm">Wrappers arquitecturales y performance para el escudo con integraciones internas pasadas.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="material-symbols-outlined text-primary text-2xl mt-1">admin_panel_settings</span>
+                            <div>
+                                <strong class="text-text-main">Liderazgo Fraccional (vCISO):</strong>
+                                <span class="text-text-muted block text-sm">Ejecuto, documento de seguridad transversal al ámbito técnico de ventas del negocio.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 relative w-full group">
+                    <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity duration-700"></div>
+                    <div class="relative z-10 w-full h-auto min-h-[400px] rounded-2xl shadow-xl border border-white/50 backdrop-blur-sm bg-white p-8 flex items-center justify-center transform transition-transform hover:-translate-y-2 duration-500">
+                        <div class="text-center text-text-muted flex flex-col items-center gap-4">
+                            <span class="material-symbols-outlined text-6xl text-blue-200">architecture</span>
+                            <span class="font-bold text-lg text-slate-400 uppercase tracking-widest">Modelo Zero-Trust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Tiers -->
+        <section class="bg-white py-24 px-4" id="pricing">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Modelos de Compromiso</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-text-main mt-2 tracking-tight">Paquetes de Seguridad Gestionada</h2>
+                    <p class="text-xl text-text-muted mt-4">Protección a escala para grandes firmas emergentes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
+                    <!-- Tier 1 -->
+                    <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-shadow bg-surface-offwhite flex flex-col h-full">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-text-main mb-2">Pilar 1: Base</h3>
+                            <p class="text-text-muted text-sm">Operaciones pequeñas logrando calificación con aseguradoras.</p>
+                            <div class="mt-6 flex flex-col items-start gap-1">
+                                <div>
+                                    <span class="text-4xl font-black text-text-main">$45-$75</span>
+                                    <span class="text-sm text-text-muted ml-2">/usuario/mes</span>
+                                </div>
+                                <span class="text-xs text-text-muted font-bold mt-2">Integración inicia en $400 USD</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-start text-sm text-text-muted">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                MFA / E-Mail + Cloud
+                            </li>
+                            <li class="flex items-start text-sm text-text-muted">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Protección AI Avanzada (24/7)
+                            </li>
+                            <li class="flex items-start text-sm text-text-muted">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Backups Cifrados Externos
+                            </li>
+                            <li class="flex items-start text-sm text-text-muted">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Monitoreo Semanal
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/17405208080" class="w-full flex items-center justify-center py-4 px-4 bg-white hover:bg-gray-50 text-text-main font-bold rounded-lg border border-gray-200 transition-colors shadow-sm">
+                            Hablémos
+                        </a>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="rounded-2xl border-2 border-primary p-8 shadow-2xl bg-white flex flex-col relative transform md:-translate-y-4 h-full">
+                        <div class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-bold text-center py-1.5 rounded-t-lg uppercase tracking-widest">
+                            Estabilidad Corporativa
+                        </div>
+                        <div class="mb-6 mt-4">
+                            <h3 class="text-2xl font-bold text-text-main mb-2">Pilar 2: Avanzado</h3>
+                            <p class="text-text-muted text-sm">Especial B2B negociando en mercado y contratos internacionales.</p>
+                            <div class="mt-6 flex flex-col items-start gap-1">
+                                <div>
+                                    <span class="text-4xl font-black text-text-main">$85-$125</span>
+                                    <span class="text-sm text-text-muted ml-2">/usuario/mes</span>
+                                </div>
+                                <span class="text-xs text-text-muted font-bold mt-2">Integración inicia en $650 USD</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-start text-sm text-text-main font-bold">
+                                <span class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">verified</span>
+                                Todo el Pilar 1 o Base.
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Legacy App SSO Wrappers
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Gestión del Perímetro de Ataque
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Soporte de Contratación Documentada
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                vCISO Analíticas Ligeras
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/17405208080" class="w-full flex items-center justify-center py-4 px-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-colors shadow-lg shadow-primary/30">
+                            Agendar la Llamada
+                        </a>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-shadow bg-surface-offwhite flex flex-col h-full">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-text-main mb-2">Pilar 3: Enterprise</h3>
+                            <p class="text-text-muted text-sm">Fintechs, SaaS para la pre-certificación de estándares internacionales.</p>
+                            <div class="mt-6 flex flex-col items-start gap-1">
+                                <div>
+                                    <span class="text-4xl font-black text-text-main">$140-$190</span>
+                                    <span class="text-sm text-text-muted ml-2">/usuario/mes</span>
+                                </div>
+                                <span class="text-xs text-text-muted font-bold mt-2">Inversión arranca en $1,200 USD</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-start text-sm text-text-muted font-bold">
+                                <span class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">verified</span>
+                                Todo desde Pilar Avanzado.
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Vanta/Scytale (Autos)
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                MDR (Análisis Manual + Red Team)
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Pentesting Certificado Anual
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                Respaldo Presencial Pre-Auditorías
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/17405208080" class="w-full flex items-center justify-center py-4 px-4 bg-white hover:bg-gray-50 text-text-main font-bold rounded-lg border border-gray-200 transition-colors shadow-sm">
+                            Detalles Aquí
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Table -->
+        <section class="bg-surface-offwhite py-20 px-4 border-t border-gray-100">
+            <div class="max-w-5xl mx-auto flex flex-col gap-10">
+                <div class="text-center md:text-left">
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm">A La Carta</span>
+                    <h2 class="text-[#0d0f1c] text-3xl font-bold leading-tight mt-2">Proyectos Especiales Dedicados</h2>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                        <thead>
+                            <tr class="bg-blue-50 text-primary uppercase text-xs tracking-wider">
+                                <th class="p-6 font-bold border-b border-gray-200">Proyecto</th>
+                                <th class="p-6 font-bold border-b border-gray-200">Meta y Estructura</th>
+                                <th class="p-6 font-bold border-b border-gray-200 text-right">Inversión (Desde)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-text-muted">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-6 font-bold text-text-main border-b border-gray-100">Implementación de SSO</td>
+                                <td class="p-6 border-b border-gray-100">Llevar Aplicaciones locales bajo escudos de Autenticación de Múltiples factores (MFA).</td>
+                                <td class="p-6 font-bold text-primary text-right border-b border-gray-100">$2,500 USD</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-6 font-bold text-text-main border-b border-gray-100">Tunelización Zero Trust</td>
+                                <td class="p-6 border-b border-gray-100">Cortafuegos mediante una nube de encapsulamiento que remueve internet a su interior de archivos red.</td>
+                                <td class="p-6 font-bold text-primary text-right border-b border-gray-100">$1,800 USD</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-6 font-bold text-text-main">Analítica Brecha de SOC 2 Tipo 1</td>
+                                <td class="p-6">Preparativos en los entornos técnicos para presentar antes de consultoría legal y oficialismos.</td>
+                                <td class="p-6 font-bold text-primary text-right">$6,000 USD</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="bg-blue-50 border-t border-blue-100 relative overflow-hidden">
+            <div class="relative z-10 px-4 py-24 flex flex-col items-center text-center gap-8">
+                <h2 class="text-[#0d0f1c] text-4xl md:text-5xl font-black tracking-tight leading-tight">Proteja su Avance a Escala.</h2>
+                <p class="text-text-muted text-lg max-w-xl leading-relaxed">
+                    No permita que huecos invisibles logren un desvío o la falta de firmas a grandes propuestas económicas.<br> Hablemos de su estructura y modelo.
+                </p>
+                <a href="https://wa.me/17405208080" target="_blank"
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-16 px-10 bg-primary text-white text-xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:scale-105 active:scale-95">
+                    Reservar la Llamada
+                </a>
+            </div>
+        </section>
+
+        <div id="footer-placeholder"></div>
+        <script>
+            window.resRoot = '../';
+        </script>
+        <script src="../assets/js/main.js"></script>
+    </div>
+</body>
+</html>
