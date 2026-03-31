@@ -7,17 +7,12 @@
     <title>Veridata Pro - The Shield (Cybersecurity)</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..800&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link href="../assets/css/styles.css" rel="stylesheet">
-    <style>
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-    </style>
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
@@ -28,35 +23,38 @@
 
         <!-- Hero Section -->
         <section
-            class="relative flex flex-col items-center justify-center pt-24 pb-20 px-4 overflow-hidden hero-pattern">
+            class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
+            <!-- Fullscreen Background Image -->
+            <img src="../assets/images/cybersecurity-hero.webp" alt="Veri Data Architecture Shield"
+                class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
+            <!-- Gradient Overlay for Readability -->
             <div
-                class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none">
+                class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none">
             </div>
-            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8">
+
+            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
                 <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
+                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
+                    <span
+                        class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
                     The Shield • Audit-Ready Architecture
                 </div>
-                <h1 class="text-text-main text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
-                    Stop fearing the vendor <br /><span class="text-primary">security assessment.</span>
+                <h1
+                    class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
+                    Stop fearing the vendor <br /><span class="text-blue-400">security assessment.</span>
                 </h1>
-                <p class="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+                <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
                     We make your infrastructure "Audit-Ready" and "Contract-Safe". Using a modern "Strangler Fig"
-                    approach with APISIX and Authentik, we wrap legacy systems in enterprise-grade security—without
+                    approach with APISIX and Zitadel, we wrap legacy systems in enterprise-grade security—without
                     touching your existing code.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <a href="https://wa.me/17405208080" target="_blank"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-600/20">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                         Book an Architecture Call
                     </a>
                     <a href="#pricing"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-sm">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                         View Security Packages
                     </a>
                 </div>
@@ -64,42 +62,49 @@
         </section>
 
         <!-- The 2026 Business Case -->
-        <section class="bg-white py-20 px-4 border-t border-gray-100">
+        <section class="bg-surface-white py-20 px-4 border-t border-border-light">
             <div class="max-w-6xl mx-auto flex flex-col gap-12 text-center md:text-left">
                 <div>
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">The 2026 Business Case</span>
-                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-black leading-tight mt-2">Security is Your Sales
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono">The 2026 Business
+                        Case</span>
+                    <h2 class="text-text-main text-3xl md:text-5xl font-black leading-tight mt-2">Security is Your Sales
                         Engine</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-12 gap-6">
                     <!-- Point 1 -->
-                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-                        <div class="size-14 rounded-lg bg-blue-50 flex items-center justify-center text-primary">
+                    <div
+                        class="col-span-12 md:col-span-4 flex flex-col gap-4 rounded border border-border-light bg-surface-white p-8">
+                        <div
+                            class="size-14 rounded bg-background-light border border-border-light flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined text-3xl">public</span>
                         </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Global Contracts</h3>
+                        <h3 class="text-text-main text-xl font-bold mb-1">Global Contracts</h3>
                         <p class="text-text-muted text-sm leading-relaxed">
                             International enterprises now require strict proof of security (SOC 2, ISO 27001, or
                             comprehensive vendor questionnaires) before signing.
                         </p>
                     </div>
                     <!-- Point 2 -->
-                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-                        <div class="size-14 rounded-lg bg-green-50 flex items-center justify-center text-green-600">
+                    <div
+                        class="col-span-12 md:col-span-4 flex flex-col gap-4 rounded border border-border-light bg-surface-white p-8">
+                        <div
+                            class="size-14 rounded bg-background-light border border-border-light flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined text-3xl">shield</span>
                         </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Cyber Insurance</h3>
+                        <h3 class="text-text-main text-xl font-bold mb-1">Cyber Insurance</h3>
                         <p class="text-text-muted text-sm leading-relaxed">
                             Carriers are flatly denying coverage or drastically raising premiums without enforced MFA,
                             endpoint detection, and immutable backups.
                         </p>
                     </div>
                     <!-- Point 3 -->
-                    <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-                        <div class="size-14 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600">
+                    <div
+                        class="col-span-12 md:col-span-4 flex flex-col gap-4 rounded border border-border-light bg-surface-white p-8">
+                        <div
+                            class="size-14 rounded bg-background-light border border-border-light flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined text-3xl">terminal</span>
                         </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-1">Legacy Protection</h3>
+                        <h3 class="text-text-main text-xl font-bold mb-1">Legacy Protection</h3>
                         <p class="text-text-muted text-sm leading-relaxed">
                             We secure your existing systems (ERP/Legacy Web Applications) using modern wrappers, without
                             the need for expensive, multi-year code rewrites.
@@ -156,14 +161,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="flex-1 relative w-full group">
+                <div class="flex-1 w-full mt-10 md:mt-0">
                     <div
-                        class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity duration-700">
-                    </div>
-                    <div
-                        class="relative z-10 w-full h-auto min-h-[400px] rounded-2xl shadow-xl border border-white/50 backdrop-blur-sm bg-white p-8 flex items-center justify-center transform transition-transform hover:-translate-y-2 duration-500">
-                        <div class="text-center text-text-muted flex flex-col items-center gap-4">
-                            <img src="../assets/images/zero-trust-framework.jpg" alt="Cybersecurity">
+                        class="w-full h-auto min-h-[400px] rounded border border-border-light bg-surface-white p-8 flex flex-col items-center justify-center">
+                        <div
+                            class="font-mono text-xs uppercase tracking-widest text-primary border-b border-border-light pb-2 mb-6 w-full text-left">
+                            FIG 1. VERIDATA ARCHITECTURE</div>
+                        <div
+                            class="text-center text-text-muted flex w-full h-full items-center justify-center bg-background-light border border-border-light rounded overflow-hidden">
+                            <img src="../assets/images/zero-trust-framework.jpg" alt="Integration Flow Diagram"
+                                class="w-full h-auto object-cover opacity-90">
                         </div>
                     </div>
                 </div>
@@ -171,159 +178,150 @@
         </section>
 
         <!-- Pricing Tiers -->
-        <section class="bg-white py-24 px-4" id="pricing">
+        <section class="bg-background-light py-24 px-4 border-t border-border-light" id="pricing">
             <div class="max-w-7xl mx-auto relative z-10">
                 <div class="text-center mb-16">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Engagement Models</span>
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono">Engagement
+                        Models</span>
                     <h2 class="text-3xl md:text-5xl font-black text-text-main mt-2 tracking-tight">Managed Security
                         Packages</h2>
                     <p class="text-xl text-text-muted mt-4">Scalable protection for scaling enterprises.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
+                <div class="grid grid-cols-12 gap-0 mb-16 border border-border-light rounded overflow-hidden">
                     <!-- Tier 1 -->
                     <div
-                        class="rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-shadow bg-surface-offwhite flex flex-col h-full">
+                        class="col-span-12 md:col-span-4 bg-surface-white flex flex-col h-full border-b md:border-b-0 md:border-r border-border-light p-8">
                         <div class="mb-6">
-                            <h3 class="text-2xl font-bold text-text-main mb-2">Tier 1: Foundation</h3>
+                            <h3
+                                class="text-2xl font-bold text-text-main mb-2 font-mono uppercase text-sm tracking-widest text-primary">
+                                Foundation</h3>
                             <p class="text-text-muted text-sm">Small teams needing to qualify for cyber insurance and
                                 protect basic operations.</p>
-                            <div class="mt-6 flex flex-col items-start gap-1">
-                                <div>
+                            <div class="mt-6 flex flex-col items-start gap-1 pt-6 border-t border-border-light">
+                                <div class="font-mono">
                                     <span class="text-4xl font-black text-text-main">$45-$75</span>
-                                    <span class="text-sm text-text-muted ml-2">/user/mo</span>
+                                    <span class="text-sm text-text-muted ml-2">/usr/mo</span>
                                 </div>
-                                <span class="text-xs text-text-muted font-bold mt-2">Onboarding starts at $400
-                                    USD</span>
+                                <span class="text-xs text-text-muted font-mono mt-2">> INIT_FEE: $400 USD</span>
                             </div>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                        <ul class="space-y-4 mb-8 flex-1 border-t border-border-light pt-6">
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Managed MFA (Email & Cloud)
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 AI-Endpoint Protection (24/7)
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Ransomware-Proof Backups
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Vulnerability Monitoring
                             </li>
                         </ul>
                         <a href="https://wa.me/17405208080"
-                            class="w-full flex items-center justify-center py-4 px-4 bg-white hover:bg-gray-50 text-text-main font-bold rounded-lg border border-gray-200 transition-colors shadow-sm">
+                            class="w-full flex items-center justify-center py-4 px-4 bg-background-light hover:bg-border-light text-text-main font-bold rounded border border-border-light transition-colors font-mono uppercase text-sm">
                             Get Started
                         </a>
                     </div>
 
                     <!-- Tier 2 -->
                     <div
-                        class="rounded-2xl border-2 border-primary p-8 shadow-2xl bg-white flex flex-col relative transform md:-translate-y-4 h-full">
+                        class="col-span-12 md:col-span-4 bg-surface-white flex flex-col h-full border-b md:border-b-0 md:border-r border-border-light p-8 relative">
                         <div
-                            class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-bold text-center py-1.5 rounded-t-lg uppercase tracking-widest">
-                            The Deal Maker
+                            class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-bold text-center py-1 font-mono uppercase tracking-widest">
+                            [ TARGET BUILD ]
                         </div>
                         <div class="mb-6 mt-4">
-                            <h3 class="text-2xl font-bold text-text-main mb-2">Tier 2: Advanced</h3>
+                            <h3
+                                class="text-2xl font-bold text-text-main mb-2 font-mono uppercase text-sm tracking-widest text-primary">
+                                Advanced</h3>
                             <p class="text-text-muted text-sm">B2B companies selling to larger corporations or
                                 international markets.</p>
-                            <div class="mt-6 flex flex-col items-start gap-1">
-                                <div>
+                            <div class="mt-6 flex flex-col items-start gap-1 pt-6 border-t border-border-light">
+                                <div class="font-mono">
                                     <span class="text-4xl font-black text-text-main">$85-$125</span>
-                                    <span class="text-sm text-text-muted ml-2">/user/mo</span>
+                                    <span class="text-sm text-text-muted ml-2">/usr/mo</span>
                                 </div>
-                                <span class="text-xs text-text-muted font-bold mt-2">Onboarding starts at $650
-                                    USD</span>
+                                <span class="text-xs text-text-muted font-mono mt-2">> INIT_FEE: $650 USD</span>
                             </div>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
+                        <ul class="space-y-4 mb-8 flex-1 border-t border-border-light pt-6">
                             <li class="flex items-start text-sm text-text-main font-bold">
                                 <span
                                     class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">verified</span>
                                 Everything in Foundation
                             </li>
                             <li class="flex items-start text-sm text-text-main">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Legacy SSO Wrapper (APIs)
                             </li>
                             <li class="flex items-start text-sm text-text-main">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Attack Surface Management
                             </li>
                             <li class="flex items-start text-sm text-text-main">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Vendor Questionnaire Help
                             </li>
                             <li class="flex items-start text-sm text-text-main">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 vCISO Lite Assessments
                             </li>
                         </ul>
                         <a href="https://wa.me/17405208080"
-                            class="w-full flex items-center justify-center py-4 px-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-colors shadow-lg shadow-primary/30">
-                            Book an Architecture Call
+                            class="w-full flex items-center justify-center py-4 px-4 bg-primary hover:bg-primary-dark text-white font-bold rounded transition-colors font-mono uppercase text-sm">
+                            Activate Now
                         </a>
                     </div>
 
                     <!-- Tier 3 -->
-                    <div
-                        class="rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-shadow bg-surface-offwhite flex flex-col h-full">
+                    <div class="col-span-12 md:col-span-4 bg-surface-white flex flex-col h-full p-8">
                         <div class="mb-6">
-                            <h3 class="text-2xl font-bold text-text-main mb-2">Tier 3: Enterprise</h3>
+                            <h3
+                                class="text-2xl font-bold text-text-main mb-2 font-mono uppercase text-sm tracking-widest text-primary">
+                                Enterprise</h3>
                             <p class="text-text-muted text-sm">Fintech, Healthtech, or SaaS requiring SOC 2 / ISO 27001
                                 certification.</p>
-                            <div class="mt-6 flex flex-col items-start gap-1">
-                                <div>
+                            <div class="mt-6 flex flex-col items-start gap-1 pt-6 border-t border-border-light">
+                                <div class="font-mono">
                                     <span class="text-4xl font-black text-text-main">$140-$190</span>
-                                    <span class="text-sm text-text-muted ml-2">/user/mo</span>
+                                    <span class="text-sm text-text-muted ml-2">/usr/mo</span>
                                 </div>
-                                <span class="text-xs text-text-muted font-bold mt-2">Project Prep starts at $1,200
-                                    USD</span>
+                                <span class="text-xs text-text-muted font-mono mt-2">> PROJ_PREP: $1,200 USD</span>
                             </div>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
-                            <li class="flex items-start text-sm text-text-muted font-bold">
+                        <ul class="space-y-4 mb-8 flex-1 border-t border-border-light pt-6">
+                            <li class="flex items-start text-sm text-text-main font-bold">
                                 <span
                                     class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">verified</span>
-                                Everything in Advanced
+                                Everything in Foundation
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
-                                Compliance Automation Mgmt
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
+                                Vanta/Scytale (Automated)
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
+                                Attack Surface Management
+                            </li>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 MDR (Human Analysts 24/7)
                             </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
-                                Annual Pentest Management
-                            </li>
-                            <li class="flex items-start text-sm text-text-muted">
-                                <span
-                                    class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>
+                            <li class="flex items-start text-sm text-text-main">
+                                <span class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
                                 Formal Audit Representation
                             </li>
                         </ul>
                         <a href="https://wa.me/17405208080"
-                            class="w-full flex items-center justify-center py-4 px-4 bg-white hover:bg-gray-50 text-text-main font-bold rounded-lg border border-gray-200 transition-colors shadow-sm">
-                            Contact Sales
+                            class="w-full flex items-center justify-center py-4 px-4 bg-background-light hover:bg-border-light text-text-main font-bold rounded border border-border-light transition-colors font-mono uppercase text-sm">
+                            Talk to Expert
                         </a>
                     </div>
                 </div>
@@ -331,40 +329,43 @@
         </section>
 
         <!-- Projects Table -->
-        <section class="bg-surface-offwhite py-20 px-4 border-t border-gray-100">
+        <section class="bg-surface-white py-20 px-4 border-t border-border-light">
             <div class="max-w-5xl mx-auto flex flex-col gap-10">
                 <div class="text-center md:text-left">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">A La Carte</span>
-                    <h2 class="text-[#0d0f1c] text-3xl font-bold leading-tight mt-2">One-Time Strategic Projects</h2>
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono">A La Carte</span>
+                    <h2 class="text-text-main text-3xl font-bold leading-tight mt-2">One-Time Strategic Projects</h2>
                 </div>
-                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
-                    <table class="w-full text-left border-collapse min-w-[600px]">
+                <div class="overflow-x-auto rounded border border-border-light bg-surface-white">
+                    <table class="w-full text-left border-collapse min-w-[600px] font-mono whitespace-nowrap">
                         <thead>
-                            <tr class="bg-blue-50 text-primary uppercase text-xs tracking-wider">
-                                <th class="p-6 font-bold border-b border-gray-200">Project</th>
-                                <th class="p-6 font-bold border-b border-gray-200">Goal</th>
-                                <th class="p-6 font-bold border-b border-gray-200 text-right">Market Value (Starting)
+                            <tr class="bg-background-light text-primary uppercase text-xs tracking-wider">
+                                <th class="p-6 font-bold border-b border-border-light">Project</th>
+                                <th class="p-6 font-bold border-b border-border-light">Goal</th>
+                                <th class="p-6 font-bold border-b border-border-light text-right">Market Value
+                                    (Starting)
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="text-sm text-text-muted">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="p-6 font-bold text-text-main border-b border-gray-100">Legacy SSO
+                            <tr class="hover:bg-background-light transition-colors">
+                                <td class="p-6 font-bold text-text-main border-b border-border-light">Legacy SSO
                                     Modernization</td>
-                                <td class="p-6 border-b border-gray-100">Wrap old apps in SSO/MFA</td>
-                                <td class="p-6 font-bold text-primary text-right border-b border-gray-100">$2,500 USD
+                                <td class="p-6 border-b border-border-light">Wrap old apps in SSO/MFA</td>
+                                <td class="p-6 font-bold text-primary text-right border-b border-border-light">$2,500
+                                    USD
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="p-6 font-bold text-text-main border-b border-gray-100">Zero Trust
+                            <tr class="hover:bg-background-light transition-colors">
+                                <td class="p-6 font-bold text-text-main border-b border-border-light">Zero Trust
                                     Implementation</td>
-                                <td class="p-6 border-b border-gray-100">Hide internal apps behind secure tunnels</td>
-                                <td class="p-6 font-bold text-primary text-right border-b border-gray-100">$1,800 USD
+                                <td class="p-6 border-b border-border-light">Hide internal apps behind tunnels</td>
+                                <td class="p-6 font-bold text-primary text-right border-b border-border-light">$1,800
+                                    USD
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
+                            <tr class="hover:bg-background-light transition-colors">
                                 <td class="p-6 font-bold text-text-main">SOC 2 Type 1 Readiness</td>
-                                <td class="p-6">Full gap analysis and remediation plan</td>
+                                <td class="p-6">Gap analysis and remediation plan</td>
                                 <td class="p-6 font-bold text-primary text-right">$6,000 USD</td>
                             </tr>
                         </tbody>
@@ -374,17 +375,22 @@
         </section>
 
         <!-- Footer CTA -->
-        <section class="bg-blue-50 border-t border-blue-100 relative overflow-hidden">
+        <section class="bg-background-light border-y border-border-light relative overflow-hidden">
             <div class="relative z-10 px-4 py-24 flex flex-col items-center text-center gap-8">
-                <h2 class="text-[#0d0f1c] text-4xl md:text-5xl font-black tracking-tight leading-tight">Secure your
+                <div
+                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded bg-surface-white border border-border-light text-xs font-bold uppercase tracking-wider text-primary font-mono">
+                    <span class="relative inline-flex rounded h-2 w-2 bg-success"></span>
+                    System Ready
+                </div>
+                <h2 class="text-text-main text-4xl md:text-5xl font-black tracking-tight leading-tight">Secure your
                     Foundation.</h2>
                 <p class="text-text-muted text-lg max-w-xl leading-relaxed">
                     Don't let security gaps block your next big contract. <br>Book a call to align your architecture
                     with enterprise standards.
                 </p>
                 <a href="https://wa.me/17405208080" target="_blank"
-                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-16 px-10 bg-primary text-white text-xl font-bold hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:scale-105 active:scale-95">
-                    Book an Architecture Call
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-16 px-10 bg-primary text-white text-xl font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm">
+                    Initiate Sequence
                 </a>
             </div>
         </section>

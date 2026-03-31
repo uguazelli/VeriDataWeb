@@ -29,43 +29,40 @@
     <!-- Top Navigation -->
     <div id="header-placeholder"></div>
     <!-- Hero Section -->
-    <section class="relative flex flex-col items-center justify-center pt-24 pb-36 px-4 overflow-hidden hero-pattern">
-        <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none">
+    <section
+        class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
+        <!-- Fullscreen Background Image -->
+        <img src="../assets/images/veridata-hero.webp" alt="Veri Data Intelligent Architecture"
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
+        <!-- Gradient Overlay for Readability -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none">
         </div>
-        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8">
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
             <div
-                class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
+                class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
+                <span
+                    class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
                 Architecting the Future • 15+ Years Experience
             </div>
-            <h1 class="text-text-main text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center">
-                Secure your Foundation.<br>Scale your <span class="text-primary">Revenue</span>.
+            <h1
+                class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
+                Secure your Foundation.<br>Scale your <span class="text-blue-400">Revenue</span>.
             </h1>
-            <p class="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
-                We take complex architectural problems completely off your plate. From securing legacy infrastructure to orchestrating enterprise data, we build architectures that let you scale without fear.
+            <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
+                We take complex architectural problems completely off your plate. From securing legacy infrastructure to
+                orchestrating enterprise data, we build architectures that let you scale without fear.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                 <a href="#pillars"
-                    class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-600/20">
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                     Explore Solutions
                 </a>
                 <a href="https://wa.me/17405208080" target="_blank"
-                    class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-sm">
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                     Book an Architecture Call
                 </a>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="mt-16 relative w-full max-w-5xl mx-auto group">
-                <div
-                    class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity duration-700">
-                </div>
-                <img src="../assets/images/veridata-hero.webp" alt="Veri Data Intelligent Architecture"
-                    class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/50 backdrop-blur-sm transform transition-transform hover:scale-[1.01] duration-700">
             </div>
         </div>
     </section>
@@ -93,7 +90,8 @@
                     </div>
                     <h3 class="text-2xl font-bold text-text-main mb-3 relative z-10">The Shield (Cybersecurity)</h3>
                     <p class="text-text-muted leading-relaxed mb-8 flex-1 relative z-10">
-                        Stop fearing the vendor security assessment. We make your architecture "Audit-Ready" and "Contract-Safe" with vCISO, Managed MFA, EDR, and Ransomware-proof backups.
+                        Stop fearing the vendor security assessment. We make your architecture "Audit-Ready" and
+                        "Contract-Safe" with vCISO, Managed MFA, EDR, and Ransomware-proof backups.
                     </p>
                     <div
                         class="flex items-center text-sm font-bold text-primary group-hover:translate-x-2 transition-transform relative z-10">
@@ -113,7 +111,8 @@
                     </div>
                     <h3 class="text-2xl font-bold text-text-main mb-3 relative z-10">The Engine (Integration)</h3>
                     <p class="text-text-muted leading-relaxed mb-8 flex-1 relative z-10">
-                        Eliminate manual data entry and connect silos with enterprise-grade stability. We deploy High-Availability (HA) architectures with MuleSoft, n8n, and APISIX.
+                        Eliminate manual data entry and connect silos with enterprise-grade stability. We deploy
+                        High-Availability (HA) architectures with MuleSoft, n8n, and APISIX.
                     </p>
                     <div
                         class="flex items-center text-sm font-bold text-purple-600 group-hover:translate-x-2 transition-transform relative z-10">
@@ -138,7 +137,8 @@
                         <br>for "Scale-Up" APIs
                     </h2>
                     <p class="text-lg text-text-muted leading-relaxed">
-                        15+ Years of Experience. 8+ Years in MuleSoft. <br>We are the technical equal you need to take complex infrastructure problems completely off your plate, so you can scale safely.
+                        15+ Years of Experience. 8+ Years in MuleSoft. <br>We are the technical equal you need to take
+                        complex infrastructure problems completely off your plate, so you can scale safely.
                     </p>
                 </div>
                 <!-- Stats Grid -->

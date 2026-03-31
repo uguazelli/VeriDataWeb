@@ -7,9 +7,8 @@
     <title>Veri Data Integrações - Orquestração de API Corporativa</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="../assets/css/styles.css" rel="stylesheet">
     <style>
         .hero-pattern {
@@ -26,45 +25,36 @@
     <div class="relative flex h-auto min-h-screen w-full flex-col">
         <div id="header-placeholder"></div>
         <!-- Hero Section -->
-        <section
-            class="relative flex flex-col items-center justify-center pt-24 pb-36 px-4 overflow-hidden hero-pattern">
-            <div
-                class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none">
-            </div>
-            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8">
+        <section class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
+            <!-- Fullscreen Background Image -->
+            <img src="../assets/images/integrations-hero.webp" alt="Rede de Arquitetura Veri Data"
+                class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
+            <!-- Gradient Overlay for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none"></div>
+    
+            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
                 <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
+                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
+                    <span class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
                     Orquestração Corporativa • MuleSoft • APISIX • n8n
                 </div>
-                <h1 class="text-text-main text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
-                    Nós Não Construímos Apenas Bots. <br />Nós <span class="text-primary">Orquestramos</span> o Seu
-                    Negócio.
+                <h1 class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
+                    Nós Não Construímos Apenas Bots. <br />Nós <span class="text-blue-400">Orquestramos</span> o Seu Negócio.
                 </h1>
-                <p class="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+                <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
                     Desde MuleSoft para contratos corporativos, a n8n e APISIX para escala ágil. A Veridata conecta seus
                     softwares fragmentados em um ecossistema de Alta Disponibilidade (HA) e automatizado. Liderado por
                     um Arquiteto de Nuvem com +15 anos de experiência.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <a href="https://wa.me/17405208080" target="_blank"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-600/20">
-                        Agendar Chamada de Arquitetura
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
+                        Agendar Reunião de Arquitetura
                     </a>
                     <a href="#stack"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-sm">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                         Ver Nossa Stack
                     </a>
-                </div>
-                <!-- Hero Image -->
-                <div class="mt-12 relative w-full max-w-5xl mx-auto">
-                    <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-                    <img src="../assets/images/integrations-hero.webp" alt="Rede de Arquitetura Veri Data"
-                        class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/50 backdrop-blur-sm transform transition-transform hover:scale-[1.01] duration-500">
                 </div>
             </div>
         </section>
@@ -172,7 +162,7 @@
         <section class="bg-surface-offwhite py-24 px-4" id="stack">
             <div class="max-w-7xl mx-auto flex flex-col gap-16">
                 <div class="flex flex-col gap-4 text-center md:text-left">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Nossas Ferramentas</span>
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono tracking-widest">Nossas Ferramentas</span>
                     <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-black leading-tight">Stack de Nível Corporativo
                     </h2>
                     <p class="text-text-muted max-w-2xl text-lg">Escolhemos a ferramenta certa para o trabalho, não
@@ -299,7 +289,7 @@
                     <div
                         class="rounded-2xl border border-gray-200 p-10 hover:shadow-xl transition-shadow bg-white flex flex-col h-full">
                         <div class="mb-6">
-                            <h3 class="text-2xl font-bold text-text-main mb-2">Projeto Único Oportunizado</h3>
+                            <h3 class="text-2xl font-bold text-text-main mb-2">Desenvolvimento por Projeto</h3>
                             <p class="text-text-muted text-sm">Melhor para migrações específicas, construções novas de
                                 APIs únicas e sem manutenção de fluxo.</p>
                             <div class="mt-6 flex flex-col gap-1 items-start">
@@ -350,8 +340,8 @@
                         </div>
                         <div class="mb-6 mt-4">
                             <h3 class="text-2xl font-bold text-text-main mb-2">SLA & Gestão de Manutenção</h3>
-                            <p class="text-text-muted text-sm">Nós nos tornamos e ficamos ao dispor para manutenir seu
-                                ecossistema API em minutos, e não horas.</p>
+                            <p class="text-text-muted text-sm">Ficamos à disposição para manter seu
+                                ecossistema de APIs operante em minutos, e não horas.</p>
                             <div class="mt-6 flex flex-col gap-2 items-start">
                                 <span class="text-primary text-sm font-bold uppercase tracking-wider">Iniciando
                                     em:</span>
@@ -401,9 +391,9 @@
                 </div>
                 <h2 class="text-2xl font-bold text-[#0d0f1c]">Por que a Veridata?</h2>
                 <p class="text-text-secondary text-lg leading-relaxed">
-                    Você não está contratando um freelancer com um escopo instável. Você está se juntando a um Arquiteto
-                    de Sistemas, nós trazemos a grande arquitetura das companhias das posições iniciais de ranking da
-                    sua rede local (Fortune 500) à sua base diária de ecossistema técnico.
+                    Você não está contratando um freelancer com escopo incerto. Você está fazendo parceria com um Arquiteto
+                    de Integração. Trazemos a arquitetura robusta das empresas Fortune 500 para o ecossistema técnico do
+                    seu negócio.
                 </p>
             </div>
         </section>
@@ -415,8 +405,8 @@
                 <h2 class="text-[#0d0f1c] text-4xl md:text-5xl font-black tracking-tight leading-tight">Chega de lutar
                     contra os limites do seu software.</h2>
                 <p class="text-text-muted text-lg max-w-xl leading-relaxed">
-                    Nós construímos para o software trabalhar a seu favor de todos os lados do servidor. <br>Agenda uma
-                    call conosco rápido (e de graça) de até 15 minutos para descobrirmos a sua possível Arquitetura
+                    Nós construímos para o software trabalhar a seu favor em todos os níveis. <br>Agende uma
+                    conversa rápida (e gratuita) de até 15 minutos para descobrirmos sua possível Arquitetura
                     Atual.
                 </p>
                 <a href="https://wa.me/17405208080" target="_blank"

@@ -26,44 +26,36 @@
     <div class="relative flex h-auto min-h-screen w-full flex-col">
         <div id="header-placeholder"></div>
         <!-- Hero Section -->
-        <section
-            class="relative flex flex-col items-center justify-center pt-24 pb-36 px-4 overflow-hidden hero-pattern">
-            <div
-                class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none">
-            </div>
-            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8">
+        <section class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
+            <!-- Fullscreen Background Image -->
+            <img src="../assets/images/integrations-hero.webp" alt="Red de Arquitectura Veri Data"
+                class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
+            <!-- Gradient Overlay for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none"></div>
+    
+            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
                 <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
+                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
+                    <span class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
                     Orquestación de APIs • MuleSoft • APISIX • n8n
                 </div>
-                <h1 class="text-text-main text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
-                    No Solo Creamos Bots. <br />Nosotros <span class="text-primary">Orquestamos</span> Tu Negocio.
+                <h1 class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
+                    No Solo Creamos Bots. <br />Nosotros <span class="text-blue-400">Orquestamos</span> Tu Negocio.
                 </h1>
-                <p class="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+                <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
                     Desde MuleSoft para ecosistemas completos, hasta n8n o APISIX para implementaciones ágiles. Veridata
-                    une y sincroniza tu entorno de forma estable (HA) guiado bajo las manos de un Arquitecto de Nubes
-                    con más de 15 años de background técnico.
+                    une y sincroniza tu entorno de forma estable (HA) bajo la guía de un Arquitecto Cloud
+                    con más de 15 años de experiencia técnica.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <a href="https://wa.me/17405208080" target="_blank"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-white text-base font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-600/20">
-                        Agenda una Consulta Arquitectural
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
+                        Agendar Sesión de Arquitectura
                     </a>
                     <a href="#stack"
-                        class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-sm">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
                         Ver Nuestras Herramientas
                     </a>
-                </div>
-                <!-- Hero Image -->
-                <div class="mt-12 relative w-full max-w-5xl mx-auto">
-                    <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-                    <img src="../assets/images/integrations-hero.webp" alt="Red de Arquitectura Veri Data"
-                        class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/50 backdrop-blur-sm transform transition-transform hover:scale-[1.01] duration-500">
                 </div>
             </div>
         </section>
@@ -88,8 +80,8 @@
                             <p class="text-text-muted text-lg leading-relaxed">
                                 Tienes un CRM, el ERP, un WMS y muchísimas hojas de cálculo. <strong
                                     class="text-red-600">Ninguno se habla entre sí de forma confiable.</strong>
-                                El equipo gasta horas y horas exportando y consolidando tu base perdiendo dinero con
-                                errores de entrada.
+                                El equipo gasta horas y horas exportando y consolidando tu base, perdiendo dinero por
+                                errores de ingreso manual.
                             </p>
                         </div>
                     </div>
@@ -107,7 +99,7 @@
                             <h3 class="text-[#0d0f1c] text-2xl font-bold">La Solución Veri Data</h3>
                             <p class="text-text-secondary text-lg leading-relaxed">
                                 Nosotros tendemos <strong>Pipelines de Datos Estrictos</strong>. La información de tu
-                                Base Analítica Legacy navega silenciosa hasta la nube.<br><br>
+                                Base Analítica Legacy fluye silenciosamente hacia la nube.<br><br>
                                 <span class="flex items-center gap-2 font-bold text-primary"><span
                                         class="material-symbols-outlined text-sm">bolt</span> Traspaso
                                     Automático.</span>
@@ -349,7 +341,7 @@
                             Socios Tecnológicos
                         </div>
                         <div class="mb-6 mt-4">
-                            <h3 class="text-2xl font-bold text-text-main mb-2">Mantención Con Equipo Extendido (SLA)
+                            <h3 class="text-2xl font-bold text-text-main mb-2">Mantenimiento con Equipo Extendido (SLA)
                             </h3>
                             <p class="text-text-muted text-sm">Monitoreo absoluto si una API externa cambia un
                                 parámetro. Resolvemos el problema antes que tu operación se entera.</p>
@@ -400,7 +392,7 @@
                     class="size-16 rounded-full bg-white border border-[#e6e9f4] flex items-center justify-center shadow-sm">
                     <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
                 </div>
-                <h2 class="text-2xl font-bold text-[#0d0f1c]">¿Por que Apuntar a Veridata?</h2>
+                <h2 class="text-2xl font-bold text-[#0d0f1c]">¿Por qué elegir a Veridata?</h2>
                 <p class="text-text-secondary text-lg leading-relaxed">
                     Estarás ingresando no a un contratista temporal por código a bajo costo. Logramos asentar
                     directrices basadas sobre años construidas dentro del mundo de los Top 500 para acoplarlas en
