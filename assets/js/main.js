@@ -37,12 +37,77 @@ async function loadComponent(elementId, filePath) {
 
         // Highlight active link based on current path
         if (elementId === 'header-placeholder') {
+            const placeholder = document.getElementById(elementId);
+            placeholder.classList.add('sticky', 'top-0', 'z-50', 'w-full');
+            
             highlightActiveLink();
             setupMobileMenu();
         }
     } catch (error) {
         console.error('Error loading component:', error);
     }
+}
+
+/**
+ * Handles Web3Forms contact form submission via AJAX.
+ */
+function handleContactForm() {
+    const form = document.getElementById('contact-form');
+    const result = document.getElementById('form-result');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (!form || !result) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        // Prevent double submission
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+        }
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        result.innerHTML = "Processing...";
+        result.classList.remove('hidden', 'text-red-500', 'text-success');
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.classList.add('text-success');
+                    result.innerHTML = document.querySelector('[data-i18n="contact.success"]')?.textContent || "Success!";
+                    form.reset();
+                } else {
+                    console.log(response);
+                    result.classList.add('text-red-500');
+                    result.innerHTML = document.querySelector('[data-i18n="contact.error"]')?.textContent || "Something went wrong!";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.classList.add('text-red-500');
+                result.innerHTML = document.querySelector('[data-i18n="contact.error"]')?.textContent || "Something went wrong!";
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    const originalText = document.querySelector('[data-i18n="contact.submit"]')?.textContent || "Send Message";
+                    submitBtn.innerHTML = originalText + ' <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>';
+                }
+            });
+    });
 }
 
 /**
@@ -99,7 +164,10 @@ function updateLanguageSwitcher() {
     const pageMap = {
         'leadership.html': { 'pt': 'lideranca.html', 'es': 'liderazgo.html' },
         'lideranca.html': { 'en': 'leadership.html', 'es': 'liderazgo.html' },
-        'liderazgo.html': { 'en': 'leadership.html', 'pt': 'lideranca.html' }
+        'liderazgo.html': { 'en': 'leadership.html', 'pt': 'lideranca.html' },
+        'contact.html': { 'pt': 'contato.html', 'es': 'contacto.html' },
+        'contato.html': { 'en': 'contact.html', 'es': 'contacto.html' },
+        'contacto.html': { 'en': 'contact.html', 'pt': 'contato.html' }
     };
 
     const root = window.resRoot || '';
@@ -177,22 +245,18 @@ function highlightActiveLink() {
     });
 }
 
-// Load components when DOM is ready
+// Main initialization
 document.addEventListener('DOMContentLoaded', () => {
     const root = window.resRoot || '';
 
-    // Check if placeholders exist, if not, try to init menu on hardcoded header
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) {
-        loadComponent('header-placeholder', root + 'components/header.html');
-    } else {
-        // Handle hardcoded header
-        setupMobileMenu();
-        highlightActiveLink();
-        if (window.resRoot) updateLanguageSwitcher();
-    }
-
+    // Load components
+    loadComponent('header-placeholder', root + 'components/header.html');
     loadComponent('footer-placeholder', root + 'components/footer.html');
+
+    // Initialize contact form separately to ensure it only runs once
+    if (document.getElementById('contact-form')) {
+        handleContactForm();
+    }
 });
 
 /**
@@ -215,6 +279,17 @@ function translateUI(context) {
             'header.integrations': 'Integrações',
             'header.cybersecurity': 'Cibersegurança',
             'header.leadership': 'Liderança',
+            'header.contact': 'Fale Conosco',
+            'contact.title': 'Entre em Contato',
+            'contact.subtitle': 'Como podemos ajudar a transformar sua arquitetura?',
+            'contact.label_name': 'Nome Completo',
+            'contact.label_email': 'E-mail Corporativo',
+            'contact.label_subject': 'Assunto',
+            'contact.label_company': 'Empresa',
+            'contact.label_message': 'Mensagem',
+            'contact.submit': 'Enviar Mensagem',
+            'contact.success': 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+            'contact.error': 'Ocorreu um erro. Por favor, tente novamente.',
             'footer.home': 'Início',
             'footer.revops': 'RevOps',
             'footer.integrations': 'Integrações',
@@ -229,6 +304,17 @@ function translateUI(context) {
             'header.integrations': 'Integraciones',
             'header.cybersecurity': 'Ciberseguridad',
             'header.leadership': 'Liderazgo',
+            'header.contact': 'Contacto',
+            'contact.title': 'Póngase en Contacto',
+            'contact.subtitle': '¿Cómo podemos ayudar a transformar su arquitectura?',
+            'contact.label_name': 'Nombre Completo',
+            'contact.label_email': 'Correo Corporativo',
+            'contact.label_subject': 'Asunto',
+            'contact.label_company': 'Empresa',
+            'contact.label_message': 'Mensaje',
+            'contact.submit': 'Enviar Mensaje',
+            'contact.success': '¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.',
+            'contact.error': 'Ocurrió un error. Por favor, inténtelo de nuevo.',
             'footer.home': 'Inicio',
             'footer.revops': 'RevOps',
             'footer.integrations': 'Integraciones',
