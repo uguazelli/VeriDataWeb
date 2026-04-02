@@ -6,12 +6,16 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#2563EB',
-                    hover: '#1D4ED8',
-                    dark: '#1E40AF',
-                    light: '#DBEAFE',
+                    DEFAULT: '#3d6b4f',
+                    hover: '#2f5540',
+                    dark: '#2f5540',
+                    light: '#edf3ef',
                 },
-                secondary: '#1E293B',
+                secondary: {
+                    DEFAULT: '#334155',
+                    dark: '#1e293b',
+                    light: '#f1f5f9',
+                },
                 "background-light": "#F8FAFC",
                 "background-dark": "#0F172A",
                 "surface-white": "#FFFFFF",
