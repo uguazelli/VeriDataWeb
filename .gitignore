@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Agent/AI files
+.agent/
+
+# Build artifacts
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# npm debug logs
+npm-debug.log*
+
+# Optional: Tailwind output (regenerated via build)
+# assets/css/styles.css
