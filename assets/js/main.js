@@ -160,15 +160,8 @@ function updateLanguageSwitcher() {
     // Ensure we have .html if missing (though user wants it present)
     if (!fileName.includes('.')) fileName += '.html';
 
-    // Map of specific page names that change across languages
-    const pageMap = {
-        'leadership.html': { 'pt': 'lideranca.html', 'es': 'liderazgo.html' },
-        'lideranca.html': { 'en': 'leadership.html', 'es': 'liderazgo.html' },
-        'liderazgo.html': { 'en': 'leadership.html', 'pt': 'lideranca.html' },
-        'contact.html': { 'pt': 'contato.html', 'es': 'contacto.html' },
-        'contato.html': { 'en': 'contact.html', 'es': 'contacto.html' },
-        'contacto.html': { 'en': 'contact.html', 'pt': 'contato.html' }
-    };
+    // Map of specific page names that change across languages (now all same names)
+    const pageMap = {};
 
     const root = window.resRoot || '';
     const langs = ['en', 'pt', 'es'];
@@ -179,21 +172,6 @@ function updateLanguageSwitcher() {
 
         let targetFile = fileName;
         // If the current file has a translation mapping, use it
-        if (pageMap[fileName] && pageMap[fileName][lang]) {
-            targetFile = pageMap[fileName][lang];
-        } else if (pageMap[fileName] && lang === 'en' && fileName === 'leadership.html') {
-            // Already correct
-        } else if (pageMap[fileName] && lang === 'pt' && fileName === 'lideranca.html') {
-            // Already correct
-        } else if (pageMap[fileName] && lang === 'es' && fileName === 'liderazgo.html') {
-            // Already correct
-        } else if (pageMap[fileName]) {
-            // Fallback if needed, but the map above covers cross-lang
-            if (fileName === 'leadership.html' && lang === 'en') targetFile = 'leadership.html';
-            if (fileName === 'lideranca.html' && lang === 'pt') targetFile = 'lideranca.html';
-            if (fileName === 'liderazgo.html' && lang === 'es') targetFile = 'liderazgo.html';
-        }
-
         const href = root + lang + '/' + targetFile;
 
         if (desktopLink) desktopLink.setAttribute('href', href);
@@ -230,12 +208,6 @@ function highlightActiveLink() {
         let isMatch = false;
         if (normalizedHref === currentPath || currentPath.endsWith('/' + href)) {
             isMatch = true;
-        } else {
-            // Check if we are on a localized version of the link
-            const fileName = currentPath.split('/').pop();
-            if (href === 'leadership.html' && (fileName === 'lideranca.html' || fileName === 'liderazgo.html')) {
-                isMatch = true;
-            }
         }
 
         if (isMatch) {
