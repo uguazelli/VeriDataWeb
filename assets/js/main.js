@@ -335,7 +335,7 @@ window.chatwootSettings = { "position": "right", "type": "expanded_bubble", "lau
     s.parentNode.insertBefore(g, s);
     g.onload = function () {
         window.chatwootSDK.run({
-            websiteToken: 'UskkjN5iqrfdDD1cHQWTbyLm',
+            websiteToken: 'wCRs91qZ7z6igvX8xQnot3p6',
             baseUrl: BASE_URL
         })
     }
