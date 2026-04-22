@@ -1,113 +1,77 @@
-<header class="fixed top-0 z-50 w-full border-b border-slate-200"
-    style="background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-    <style>
-        @media (min-width: 768px) {
-            #mobile-menu-open {
-                display: none !important;
-            }
-        }
-    </style>
-    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-2">
+<header class="site-header">
+    <div class="header-container">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
             <!-- Logo Icon or Image -->
-            <a href="index.html" class="flex items-center gap-2 group">
-                <img src="assets/images/logo.png" alt="Veridata Pro Logo" class="h-8 w-auto" data-relative-src="true">
-                <span
-                    class="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-primary transition-colors">Veridata
-                    Pro</span>
+            <a href="index.html" class="header-logo">
+                <img src="assets/images/logo.png" alt="Veridata Pro Logo" data-relative-src="true">
+                <span>Veridata Pro</span>
             </a>
         </div>
-        <nav class="hidden md:flex items-center gap-8">
-            <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
-                href="index.html" data-i18n="header.home">Home</a>
-            <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
-                href="cybersecurity.html" data-i18n="header.security">Security Packages</a>
-            <!-- <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
-                href="integrations.html" data-i18n="header.integrations">Integrations</a> -->
-            <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
-                href="leadership.html" data-i18n="header.leadership">Leadership</a>
-            <!-- <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
-                href="https://veriacademy.com" target="_blank" data-i18n="header.academy">Academy</a> -->
+        <nav class="header-nav">
+            <a class="nav-link" href="index.html" data-i18n="header.home">Home</a>
+            <a class="nav-link" href="integrations.html" data-i18n="header.integration">Integration</a>
+            <a class="nav-link" href="aws.html" data-i18n="header.aws">AWS Cloud</a>
 
             <!-- Language Switcher -->
-            <div
-                class="flex items-center gap-2 border-l pl-6 border-slate-200 dark:border-slate-700 h-6 text-xs font-bold">
-                <a href="index.html" id="lang-link-en" class="hover:text-primary transition-colors" title="English"
-                    data-lang-link="true">EN</a>
-                <span class="text-slate-300">|</span>
-                <a href="pt/index.html" id="lang-link-pt" class="hover:text-primary transition-colors" title="Português"
-                    data-lang-link="true">PT</a>
-                <span class="text-slate-300">|</span>
-                <a href="es/index.html" id="lang-link-es" class="hover:text-primary transition-colors" title="Español"
-                    data-lang-link="true">ES</a>
+            <div class="lang-switch">
+                <a href="index.html" id="lang-link-en" title="English" data-lang-link="true">EN</a>
+                <span>|</span>
+                <a href="pt/index.html" id="lang-link-pt" title="Português" data-lang-link="true">PT</a>
+                <span>|</span>
+                <a href="es/index.html" id="lang-link-es" title="Español" data-lang-link="true">ES</a>
             </div>
         </nav>
-        <div class="flex items-center gap-4">
-            <a href="contact.html" id="header-contact-btn"
-                class="hidden sm:inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all"
-                data-i18n="header.contact">
-                Contact Us
-            </a>
+        <div class="header-actions">
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-open"
-                class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:text-primary hover:bg-slate-100 focus:outline-none transition-colors">
+            <button id="mobile-menu-open" class="mobile-menu-btn" aria-label="Open Mobile Menu">
                 <span class="material-symbols-outlined" style="font-size: 32px;">menu</span>
             </button>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" id="header-contact-btn" class="btn-small">
+                Book a Call
+            </a>
         </div>
     </div>
 </header>
 
-<!-- Mobile Menu Drawer (Moved outside header to avoid height constraints) -->
-<div id="mobile-menu" class="fixed inset-0 z-[60] hidden">
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="mobile-menu-overlay">
     <!-- Backdrop -->
-    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+    <div id="mobile-menu-backdrop" class="mobile-backdrop"></div>
 
     <!-- Menu Content -->
-    <nav class="fixed inset-y-0 right-0 w-full max-w-xs h-screen bg-white shadow-xl flex flex-col p-6 transition-transform duration-300 translate-x-full"
-        style="background-color: white !important;" id="mobile-menu-content">
-        <div class="flex items-center justify-between mb-8">
-            <div class="flex items-center gap-2">
-                <img src="assets/images/logo.png" alt="Veridata Pro Logo" class="h-8 w-auto" data-relative-src="true">
-                <span class="text-lg font-bold text-slate-900">Veridata Pro</span>
+    <nav id="mobile-menu-content" class="mobile-menu-content">
+        <div class="mobile-menu-header">
+            <div class="header-logo" style="color: var(--ink);">
+                <img src="assets/images/logo.png" alt="Veridata Pro Logo" data-relative-src="true">
+                <span>Veridata Pro</span>
             </div>
-            <button id="mobile-menu-close"
-                class="p-2 rounded-md text-slate-800 hover:text-primary hover:bg-slate-100 focus:outline-none transition-colors">
+            <button id="mobile-menu-close" class="mobile-menu-btn" aria-label="Close Mobile Menu">
                 <span class="material-symbols-outlined" style="font-size: 32px;">close</span>
             </button>
         </div>
 
-        <div class="flex flex-col gap-4 mb-8">
-            <a class="mobile-nav-link text-lg font-bold text-slate-900 transition-colors" href="index.html"
-                data-i18n="header.home">Home</a>
-            <a class="mobile-nav-link text-lg font-bold text-slate-900 transition-colors" href="cybersecurity.html"
-                data-i18n="header.security">Security Packages</a>
-            <!-- <a class="mobile-nav-link text-lg font-bold text-slate-900 transition-colors" href="integrations.html"
-                data-i18n="header.integrations">Integrations</a> -->
-            <a class="mobile-nav-link text-lg font-bold text-slate-900 transition-colors" href="leadership.html"
-                data-i18n="header.leadership">Leadership</a>
-            <a class="mobile-nav-link text-lg font-bold text-slate-900 transition-colors" href="https://veriacademy.com"
-                target="_blank" data-i18n="header.academy">Academy</a>
+        <div class="mobile-nav-links">
+            <a class="mobile-nav-link" href="index.html" data-i18n="header.home">Home</a>
+            <a class="mobile-nav-link" href="integrations.html" data-i18n="header.integration">Integration</a>
+            <a class="mobile-nav-link" href="aws.html" data-i18n="header.aws">AWS Cloud</a>
         </div>
 
         <!-- Language Switcher for Mobile -->
-        <div class="border-t pt-6 border-slate-100">
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Language Select</p>
-            <div class="flex items-center gap-4 font-bold text-sm text-slate-900">
-                <a href="index.html" id="mobile-lang-link-en" class="hover:text-primary transition-colors py-2 px-1"
-                    data-lang-link="true">EN</a>
-                <span class="text-slate-300">|</span>
-                <a href="pt/index.html" id="mobile-lang-link-pt" class="hover:text-primary transition-colors py-2 px-1"
-                    data-lang-link="true">PT</a>
-                <span class="text-slate-300">|</span>
-                <a href="es/index.html" id="mobile-lang-link-es" class="hover:text-primary transition-colors py-2 px-1"
-                    data-lang-link="true">ES</a>
+        <div class="mobile-lang-switch">
+            <p class="mobile-lang-title">Language Select</p>
+            <div class="mobile-lang-links">
+                <a href="index.html" id="mobile-lang-link-en" data-lang-link="true">EN</a>
+                <span>|</span>
+                <a href="pt/index.html" id="mobile-lang-link-pt" data-lang-link="true">PT</a>
+                <span>|</span>
+                <a href="es/index.html" id="mobile-lang-link-es" data-lang-link="true">ES</a>
             </div>
         </div>
 
-        <div class="mt-auto pt-6">
-            <a href="https://wa.me/17405208080" target="_blank"
-                class="w-full flex items-center justify-center rounded-lg bg-green-500 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-hover transition-all">
-                Schedule Meeting
+        <div style="margin-top: auto; padding-top: 1.5rem;">
+            <a href="https://calendly.com/veridata/discovery" target="_blank"
+                class="btn-primary" style="width: 100%;">
+                Book a Call
             </a>
         </div>
     </nav>

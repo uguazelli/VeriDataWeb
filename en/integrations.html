@@ -4,641 +4,801 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro — API Security & Integration Architecture</title>
+    <title>Veridata Pro — Integration Architecture</title>
+    <meta property="og:title" content="Veridata Pro — Integration Architecture">
+    <meta property="og:description"
+        content="Your systems don't talk to each other. I design the integration architecture that fixes it — technology agnostic. Fractional Integration Architect for companies that need the right design, not just more code.">
+
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+
     <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <style>
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#d8e6dc 1px, transparent 1px);
-            background-size: 32px 32px;
+        :root {
+            --ink: #0E1823;
+            --cream: #F5F1EA;
+            --paper: #FAF7F2;
+            --rule: #D8D0BE;
+            --rule-dark: rgba(245, 241, 234, 0.12);
+            --text: #1A1A1A;
+            --text-muted: #555;
+            --text-dim: #8B8378;
+            --accent: #2F5A3F;
+            --warn: #B8541E;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        h1 strong,
+        h2 strong,
+        h3 strong,
+        h1 i,
+        h2 i,
+        h3 i,
+        h1 em,
+        h2 em,
+        h3 em {
+            font-weight: 300;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .bg-ink .eyebrow {
+            color: var(--accent);
+        }
+
+        /* Section Backgrounds */
+        .bg-ink {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+
+        .bg-paper {
+            background-color: var(--paper);
+            color: var(--text);
+        }
+
+        .bg-cream {
+            background-color: var(--cream);
+            color: var(--text);
+        }
+
+        .bg-ink .text-muted {
+            color: rgba(245, 241, 234, 0.7);
+        }
+
+        .bg-paper .text-muted,
+        .bg-cream .text-muted {
+            color: var(--text-muted);
+        }
+
+        /* Layout */
+        .section-padding {
+            padding: 96px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 72px 0;
+            }
+        }
+
+        .container-custom {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Custom Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--cream);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .bg-cream .btn-primary,
+        .bg-paper .btn-primary {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+
+        /* Typography spacing */
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        .hero-lede {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            color: rgba(245, 241, 234, 0.8);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* Problem Section Cards */
+        .number-card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .number-card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .number-card {
+            border-top: 1px solid var(--rule);
+            padding-top: 1.5rem;
+        }
+
+        .number-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--warn);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .number-title {
+            font-size: 1.5rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 1rem;
+        }
+
+        /* Scope */
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .scope-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4rem;
+            }
+        }
+
+        .scope-col h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .scope-list li {
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--rule);
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .scope-list li:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* Pills */
+        .pill-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .pill-tag {
+            border: 1px solid var(--rule);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            display: inline-flex;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .bg-ink .pill-tag {
+            border-color: var(--rule-dark);
+            color: var(--text-dim);
+        }
+
+        /* About Ugo */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            border-top: 1px solid var(--rule);
+            padding-top: 1rem;
+        }
+
+        .stat-num {
+            font-size: 2.25rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .cert-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cert-list li {
+            padding: 0.75rem 0;
+            border-top: 1px solid var(--rule);
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .cert-list li:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .price-card {
+            border: 1px solid var(--rule);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--paper);
+        }
+
+        .price-card .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            display: block;
+            letter-spacing: 0.1em;
+        }
+
+        .price-card .price {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-card .subtext {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-card .italic-note {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .price-features li {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .price-features li span {
+            color: var(--text-dim);
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-list {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            border-top: 1px solid var(--rule);
+            padding: 2.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .faq-q {
+            font-size: 1.5rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 1rem;
+        }
+
+        .faq-a {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Two Column Layout */
+        .grid-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-split {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
         }
     </style>
-    <meta property="og:title" content="Veridata Pro — API Security & Integration Architecture" />
-    <meta property="og:description"
-        content="Your API layer is what failed the vendor questionnaire. Ugo Guazelli deploys VeriGate — APISix + Zitadel — in 48 hours. No code changes. Audit-ready infrastructure for LATAM companies closing US and EU deals." />
-    <meta property="og:image" content="../assets/images/integrations-hero.webp" />
-    <meta property="og:url" content="https://veridata.pro/en/integrations.html" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
-<body
-    class="page-integrations bg-background-light text-text-main font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white">
-    <div class="relative flex h-auto min-h-screen w-full flex-col">
-        <div id="header-placeholder"></div>
+<body>
+    <!-- Top Navigation -->
+    <div id="header-placeholder"></div>
 
-        <!-- HERO -->
-        <section
-            class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
-            <img src="../assets/images/integrations-hero.webp"
-                alt="Veridata Pro — API Security & Integration Architecture"
-                class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
-            <div
-                class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none">
-            </div>
+    <!-- 1. HERO -->
+    <section class="bg-ink section-padding"
+        style="padding-top: 160px; display: flex; align-items: center; min-height: 80vh;">
+        <div class="container-narrow">
+            <span class="eyebrow accent">Integration Architecture</span>
+            <h1 class="hero-title">Your systems were never designed to work together. That's not a code problem. It's an
+                <i>architecture</i> problem.</h1>
+            <p class="hero-lede">I design, build, and fix integration architectures — using the right tool for the problem, not the one I'm paid to sell.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a call</a>
+        </div>
+    </section>
 
-            <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
-                <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
-                    <span
-                        class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
-                    API Security &amp; Integration Architecture &bull; VeriGate Deployment &bull; Audit-Ready in 48
-                    Hours
+    <!-- 2. PROBLEM -->
+    <section class="bg-paper section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">The Symptoms</span>
+            <h2 class="section-title">What happens when integration is built by whoever was available.</h2>
+
+            <div class="number-card-container">
+                <div class="number-card">
+                    <span class="number-tag">01</span>
+                    <h3 class="number-title">Manual data entry between systems</h3>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Sales closes a deal in
+                        Salesforce. Someone copies it into the ERP manually. Two hours later the data is wrong and
+                        nobody knows which system to trust.</p>
                 </div>
-                <h1
-                    class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
-                    Your API layer is what failed<br /><span style="color: #6fa882">the vendor questionnaire. We fix it
-                        in 48 hours.</span>
-                </h1>
-                <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
-                    Every security assessment reveals the same root cause: broken or insecure API architecture. Ugo
-                    Guazelli — Cloud Architect with 15+ years of experience — deploys VeriGate on AWS or GCP in 48
-                    hours. No code changes. No months-long project. A secure, auditable foundation your buyer will
-                    accept.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
-                    <a href="https://calendly.com/veridata/discovery" target="_blank"
-                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
-                        Book a Discovery Call
-                    </a>
-                    <a href="#verigate"
-                        class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
-                        See How VeriGate Works
-                    </a>
+                <div class="number-card">
+                    <span class="number-tag">02</span>
+                    <h3 class="number-title">Integration built by whoever was available</h3>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">A developer built the
+                        Shopify-to-warehouse sync in a weekend three years ago. Nobody documented it. It breaks every
+                        other month. The person who built it left.</p>
                 </div>
-                <a href="leadership.html"
-                    class="text-white/50 text-sm font-mono hover:text-white/80 transition-colors mt-2">Meet Ugo Guazelli
-                    — the architect behind Veridata Pro &darr;</a>
+                <div class="number-card">
+                    <span class="number-tag">03</span>
+                    <h3 class="number-title">Tool sprawl with no ownership</h3>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Five different integration
+                        tools adopted by five different teams. Zapier, Make, a custom Python script, an old MuleSoft
+                        flow, and a vendor webhook nobody configured correctly. Nobody owns the full picture.</p>
+                </div>
+                <div class="number-card">
+                    <span class="number-tag">04</span>
+                    <h3 class="number-title">The integration that slowed the enterprise deal</h3>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Your US buyer asked how data
+                        moves between your systems. You didn't have a clear answer. Deals slow down when architecture is
+                        invisible.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- WHO THIS IS FOR -->
-        <section class="bg-[#f8f9fc] py-20 px-4">
-            <div class="max-w-6xl mx-auto flex flex-col gap-12 text-center md:text-left">
+    <!-- 3. WHAT YOU GET -->
+    <section class="bg-cream section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">The Engagement</span>
+            <h2 class="section-title">An integration architect on your side.</h2>
+
+            <div class="scope-grid">
+                <div class="scope-col">
+                    <h3>Architect</h3>
+                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when you have a team ready to implement.</p>
+                    <ul class="scope-list">
+                        <li>Integration architecture design</li>
+                        <li>Technology selection with rationale</li>
+                        <li>Pre-build and post-build reviews</li>
+                        <li>Architecture Decision Records (ADRs)</li>
+                        <li>Integration landscape mapping</li>
+                        <li>Async advisory (Slack or email)</li>
+                    </ul>
+                </div>
+                <div class="scope-col">
+                    <h3>Build</h3>
+                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when you need the whole solution delivered.</p>
+                    <ul class="scope-list">
+                        <li>Greenfield integration implementation</li>
+                        <li>AWS native: API Gateway, EventBridge, Step Functions</li>
+                        <li>MuleSoft flows and APIs</li>
+                        <li>n8n automation workflows</li>
+                        <li>Python or Java integration services</li>
+                        <li>Dell Boomi, any enterprise iPaaS</li>
+                        <li>Migration from Zapier / Make to n8n or AWS</li>
+                    </ul>
+                </div>
+                <div class="scope-col">
+                    <h3>Fix</h3>
+                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when a system is already breaking down.</p>
+                    <ul class="scope-list">
+                        <li>Diagnosis of broken or undocumented integrations</li>
+                        <li>Performance and reliability review</li>
+                        <li>Refactoring legacy integration code</li>
+                        <li>Documentation of what actually exists</li>
+                        <li>Stabilization before a new build</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THE APPROACH -->
+    <section class="bg-ink section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow accent">Technology Agnostic</span>
+            <h2 class="section-title" style="margin-bottom: 3rem;">The tool follows the architecture. Not the other way
+                around.</h2>
+
+            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">I don't sell a platform. I design the architecture. When the team needs someone to build it too, I can do that.</p>
+            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Sometimes that's AWS native: EventBridge, API Gateway, Step Functions. Sometimes that's n8n for workflow automation across SaaS tools. Sometimes it's MuleSoft because the enterprise complexity justifies the cost. Sometimes it's a simple Python script and a queue.</p>
+            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6;">The decision follows the problem. Not the other way around.</p>
+
+            <div class="pill-container">
+                <span class="pill-tag">AWS EventBridge / API Gateway / Step Functions</span>
+                <span class="pill-tag">n8n</span>
+                <span class="pill-tag">MuleSoft</span>
+                <span class="pill-tag">Dell Boomi</span>
+                <span class="pill-tag">Python</span>
+                <span class="pill-tag">Java</span>
+                <span class="pill-tag">n8n migration</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHO THIS IS NOT FOR -->
+    <section class="bg-paper section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">Good Fits & Bad Fits</span>
+            <h2 class="section-title" style="margin-bottom: 3rem;">This is purely advisory work.</h2>
+
+            <div style="border-top: 1px solid var(--rule); padding-top: 2rem;">
+                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">If you need both architecture design and implementation, that is available — at architect rates, not contractor rates. The distinction is scope.</p>
+                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">I deliver fixed-scope, fixed-price integration builds. I am not available for open-ended, time-and-materials contractor engagements with no defined end.</p>
+                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">If you need the integration running
+                    by Friday and it's Wednesday, I'm not the right call for that timeline.</p>
+                <p style="font-size: 1.5rem; line-height: 1.6;">If you've already decided on a specific tool and want
+                    validation, not architecture — we'll have a frustrating engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ABOUT UGO -->
+    <section class="bg-cream section-padding">
+        <div class="container-narrow">
+            <div class="grid-split">
                 <div>
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Who This Is For</span>
-                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-bold leading-tight mt-2">You're trying to close
-                        a US or EU deal. Your API layer is blocking it.</h2>
-                    <p class="text-text-muted text-lg mt-4 max-w-2xl">If any of these describes your current week,
-                        you're in the right place.</p>
+                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli"
+                        style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo has spent 15+ years
+                        designing integration architectures for Deloitte, Ubisoft, Accenture, and Alithya — across
+                        LATAM, the US, and Canada.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">As Integration Manager at
+                        Deloitte he delivered 15+ enterprise-grade APIs for clients in finance and healthcare. At
+                        Ubisoft Montreal he reduced infrastructure costs by 66% through architecture refactoring.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">He works
+                        technology-agnostically — MuleSoft when it's justified, AWS native when it's sufficient, and
+                        whatever actually fits the problem when it's neither.</p>
+
+                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank"
+                        style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Linkedin</a>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div
-                        class="flex flex-col gap-4 rounded-xl border border-[#ced2e9] bg-white p-8 shadow-sm hover:shadow-md transition-all">
-                        <div class="size-12 rounded-lg bg-red-50 flex items-center justify-center text-red-600">
-                            <span class="material-symbols-outlined text-2xl">assignment_late</span>
+                <div>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <div>
-                            <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">The questionnaire called out your API
-                                security</h3>
-                            <p class="text-text-muted text-sm leading-relaxed">Your buyer's security team found that you
-                                have no MFA, no API gateway, no centralized access control. They want documented
-                                evidence that every API call is authenticated, logged, and auditable. Right now, none of
-                                that exists.</p>
+                        <div class="stat-card">
+                            <div class="stat-num">8+</div>
+                            <div class="stat-label">Years MuleSoft / AWS</div>
                         </div>
-                    </div>
-                    <div
-                        class="flex flex-col gap-4 rounded-xl border border-[#ced2e9] bg-white p-8 shadow-sm hover:shadow-md transition-all">
-                        <div class="size-12 rounded-lg flex items-center justify-center text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-2xl">domain</span>
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Enterprise APIs</div>
                         </div>
-                        <div>
-                            <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">Your legacy systems can't pass modern auth
-                                requirements</h3>
-                            <p class="text-text-muted text-sm leading-relaxed">Your core ERP, billing system, or
-                                internal app still uses shared passwords or no authentication at all. You can't rewrite
-                                it — but you can wrap it with enterprise-grade security at the gateway layer. That's
-                                exactly what VeriGate does.</p>
+                        <div class="stat-card">
+                            <div class="stat-num">4</div>
+                            <div class="stat-label">Languages</div>
                         </div>
                     </div>
-                    <div
-                        class="flex flex-col gap-4 rounded-xl border border-[#ced2e9] bg-white p-8 shadow-sm hover:shadow-md transition-all">
-                        <div class="size-12 rounded-lg bg-yellow-50 flex items-center justify-center text-yellow-600">
-                            <span class="material-symbols-outlined text-2xl">schedule</span>
-                        </div>
-                        <div>
-                            <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">You need SSO and MFA running in days, not
-                                months</h3>
-                            <p class="text-text-muted text-sm leading-relaxed">Your cyber insurance carrier or
-                                enterprise buyer requires MFA and SSO across all systems — or they won't sign. You need
-                                it deployed before the deadline. Not after a 6-month IT project that may or may not
-                                deliver what they're asking for.</p>
-                        </div>
+
+                    <div class="pill-container" style="margin-top: 0; margin-bottom: 3rem;">
+                        <span class="pill-tag">Deloitte</span>
+                        <span class="pill-tag">Ubisoft</span>
+                        <span class="pill-tag">Accenture</span>
+                        <span class="pill-tag">Alithya</span>
                     </div>
+
+                    <h3
+                        style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 1rem;">
+                        Certifications</h3>
+                    <ul class="cert-list">
+                        <li>MuleSoft Certified Platform Architect</li>
+                        <li>AWS Solutions Architect</li>
+                        <li>Azure Fundamentals</li>
+                        <li>MuleSoft Certified Developer</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- VERIGATE SECTION -->
-        <section class="bg-surface-white py-24 px-4 border-y border-gray-100" id="verigate">
-            <div class="max-w-6xl mx-auto flex flex-col gap-16">
-                <div class="text-center md:text-left">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">The Technology</span>
-                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-bold leading-tight mt-2">What Is VeriGate?</h2>
-                    <p class="text-text-muted text-lg mt-4 max-w-2xl">Your legacy systems, enterprise-ready in 48 hours
-                        — without touching your codebase.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="flex flex-col gap-6 rounded-2xl border border-border-light bg-surface-offwhite p-8">
-                        <div class="size-14 rounded-xl flex items-center justify-center text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-3xl">dns</span>
-                        </div>
-                        <div>
-                            <h3 class="text-[#0d0f1c] text-xl font-bold mb-2">APISix — API Gateway Layer</h3>
-                            <p class="text-text-muted text-sm leading-relaxed mb-4">APISix sits in front of all your
-                                systems — cloud apps, legacy ERPs, internal tools — and enforces security at every entry
-                                point. Every API call is authenticated, rate-limited, logged, and auditable. Your
-                                systems don't change. Their exposure does.</p>
-                            <ul class="space-y-2">
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Rate limiting and DDoS protection
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    API key management and access policies
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Full request/response logging for audit trails
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Legacy app SSO without code changes
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6 rounded-2xl border border-border-light bg-surface-offwhite p-8">
-                        <div class="size-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-3xl">fingerprint</span>
-                        </div>
-                        <div>
-                            <h3 class="text-[#0d0f1c] text-xl font-bold mb-2">Zitadel — Identity &amp; Access Management
-                            </h3>
-                            <p class="text-text-muted text-sm leading-relaxed mb-4">Zitadel is the identity backbone. It
-                                handles SSO, MFA, and access control across all your apps — even the ones that were
-                                never designed for modern authentication. Your users log in once. Every access event is
-                                centrally logged and controllable.</p>
-                            <ul class="space-y-2">
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    SSO across all apps (cloud and on-prem)
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Phishing-resistant MFA enforcement
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Role-based access control (RBAC)
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Centralized user lifecycle management
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+    <!-- 7. PRICING -->
+    <section class="bg-paper section-padding">
+        <div class="container-custom">
+            <span class="eyebrow" style="text-align: center; width: 100%;">Pricing</span>
+            <h2 class="section-title text-center" style="margin-bottom: 4rem;">Two ways to engage.</h2>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <span class="label">Start Here</span>
+                    <div class="price" style="font-size: 2rem;">Integration Assessment</div>
+                    <div class="price" style="margin-top: 1.5rem;">$800–1,200 (USD) <span
+                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">one-time</span></div>
+                    <div class="subtext">Delivered in 5–7 days · Fee credited to retainer or project</div>
+
+                    <ul class="price-features">
+                        <li><span>—</span> Review of current integration landscape</li>
+                        <li><span>—</span> Gap identification — what's broken, manual, or at risk</li>
+                        <li><span>—</span> Architecture recommendation for the top 3 problems</li>
+                        <li><span>—</span> Technology selection with rationale</li>
+                        <li><span>—</span> Prioritized roadmap your team can act on immediately</li>
+                        <li><span>—</span> 1h debrief call with Ugo</li>
+                    </ul>
+
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
+                        style="width: 100%; margin-top: 2rem;">Book the Assessment</a>
                 </div>
 
-                <!-- Why 48 hours / Why switching is hard -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="rounded-2xl border border-primary/20 bg-primary/5 p-8 flex flex-col gap-4">
-                        <div class="size-12 rounded-lg flex items-center justify-center text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-2xl">bolt</span>
-                        </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold">Why 48 hours?</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">VeriGate is deployed as an infrastructure
-                            layer — not a custom integration project. APISix and Zitadel are pre-configured, hardened
-                            templates that Ugo adapts to your environment. There's no custom code to write. No legacy
-                            migration to plan. Just infrastructure, configured right, deployed fast.</p>
-                        <p class="text-text-muted text-sm leading-relaxed">Most vendor questionnaire responses can be
-                            submitted within 2–3 weeks of VeriGate going live.</p>
+                <div class="price-card">
+                    <span class="label">Ongoing</span>
+                    <div class="price" style="font-size: 2rem;">Advisory Retainer</div>
+                    <div class="price" style="margin-top: 1.5rem;">$800–1,200 (USD) <span
+                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">/ month</span></div>
+                    <div class="subtext">Month-to-month. No lock-in.</div>
+
+                    <div class="italic-note">Most clients start with the assessment.<br>Most stay for the retainer.
                     </div>
-                    <div class="rounded-2xl border border-border-light bg-surface-offwhite p-8 flex flex-col gap-4">
-                        <div class="size-12 rounded-lg flex items-center justify-center text-yellow-600 bg-yellow-50">
-                            <span class="material-symbols-outlined text-2xl">lock</span>
-                        </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold">VeriGate becomes part of your infrastructure — not a third-party tool you manage.
-                        </h3>
-                        <p class="text-text-muted text-sm leading-relaxed">That means no vendor renewals, no per-seat fees, and no dependency on a platform that can change its pricing overnight.</p>
-                    </div>
+
+                    <ul class="price-features">
+                        <li><span>—</span> Monthly integration review</li>
+                        <li><span>—</span> Async Q&A for integration decisions</li>
+                        <li><span>—</span> Pre-build and post-build reviews</li>
+                        <li><span>—</span> Architecture Decision Records</li>
+                        <li><span>—</span> Integration landscape maintenance</li>
+                    </ul>
+
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
+                        style="width: 100%; margin-top: 2rem;">Book a call</a>
                 </div>
             </div>
-        </section>
 
-        <!-- INTEGRATION STACK -->
-        <section class="bg-surface-offwhite py-24 px-4" id="stack">
-            <div class="max-w-7xl mx-auto flex flex-col gap-16">
-                <div class="flex flex-col gap-4 text-center md:text-left">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Integration Tooling</span>
-                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-bold leading-tight">Beyond VeriGate: the full
-                        integration stack</h2>
-                    <p class="text-text-muted max-w-2xl text-lg">VeriGate handles security and identity. For deeper
-                        system integration, Ugo uses the right tool for each architecture — not just what's trendy.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div
-                        class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="size-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-3xl">api</span>
-                        </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">MuleSoft (Enterprise)</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">
-                            Heavy-duty API management and legacy system connectivity for enterprises with complex
-                            integration requirements and strict SLA demands. Ugo has 8+ years of hands-on MuleSoft
-                            architecture experience.
-                        </p>
-                    </div>
-                    <div
-                        class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div
-                            class="size-14 rounded-xl bg-green-50 text-green-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl">account_tree</span>
-                        </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">n8n (Workflow Automation)</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">
-                            For orchestrating business workflows across modern SaaS and internal tools. Self-hostable,
-                            audit-friendly, and capable of replacing manual data handoffs between systems.
-                        </p>
-                    </div>
-                    <div
-                        class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div
-                            class="size-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl">cloud_sync</span>
-                        </div>
-                        <h3 class="text-[#0d0f1c] text-xl font-bold mb-3">Hybrid Cloud &amp; On-Prem</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">
-                            Complete deployment flexibility. Ugo deploys safely across AWS, GCP, or secure on-premises
-                            environments — whichever your compliance posture or buyer requires.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY THIS MATTERS FOR YOUR AUDIT -->
-        <section class="bg-[#f8f9fc] py-20 px-4" id="audit">
-            <div class="max-w-6xl mx-auto flex flex-col gap-12">
-                <div class="text-center md:text-left">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Audit Relevance</span>
-                    <h2 class="text-[#0d0f1c] text-3xl md:text-5xl font-bold leading-tight mt-2">How API security
-                        directly answers your vendor questionnaire.</h2>
-                    <p class="text-text-muted text-lg mt-4 max-w-2xl">The questions your buyer is asking are not
-                        abstract. They map directly to the controls VeriGate puts in place.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex flex-col gap-3 rounded-xl border border-[#ced2e9] bg-white p-6 shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span class="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">SOC 2
-                                CC6</span>
-                            <span class="text-text-muted text-xs">Logical &amp; Physical Access Controls</span>
-                        </div>
-                        <p class="text-text-main text-sm font-medium">"Do you enforce MFA for all users accessing your
-                            systems?"</p>
-                        <p class="text-text-muted text-sm leading-relaxed">Zitadel enforces phishing-resistant MFA at
-                            the identity layer — across every app, including legacy ones that never supported it
-                            natively. The answer becomes: yes, enforced, centrally managed, auditable.</p>
-                    </div>
-                    <div class="flex flex-col gap-3 rounded-xl border border-[#ced2e9] bg-white p-6 shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span class="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">ISO
-                                27001 A.9</span>
-                            <span class="text-text-muted text-xs">Access Control Management</span>
-                        </div>
-                        <p class="text-text-main text-sm font-medium">"Do you have a centralized identity management
-                            system?"</p>
-                        <p class="text-text-muted text-sm leading-relaxed">Zitadel is your centralized identity
-                            provider. User provisioning, deprovisioning, role assignment, and access reviews are all
-                            managed from one place — with audit logs for every action.</p>
-                    </div>
-                    <div class="flex flex-col gap-3 rounded-xl border border-[#ced2e9] bg-white p-6 shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span class="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">NIST
-                                AC-2</span>
-                            <span class="text-text-muted text-xs">Account Management</span>
-                        </div>
-                        <p class="text-text-main text-sm font-medium">"Do you maintain logs of who accessed what, and
-                            when?"</p>
-                        <p class="text-text-muted text-sm leading-relaxed">APISix captures every API call —
-                            authenticated user, timestamp, resource accessed, action taken. Zitadel logs every
-                            authentication event. Together they produce a complete, exportable audit trail.</p>
-                    </div>
-                    <div class="flex flex-col gap-3 rounded-xl border border-[#ced2e9] bg-white p-6 shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="font-mono text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">Vendor
-                                Questionnaire</span>
-                            <span class="text-text-muted text-xs">Typical Enterprise Security Review</span>
-                        </div>
-                        <p class="text-text-main text-sm font-medium">"Do you have an API security policy and a
-                            documented API inventory?"</p>
-                        <p class="text-text-muted text-sm leading-relaxed">APISix gives you a living API inventory with
-                            security policies applied to each route. Ugo documents the configuration in a format your
-                            buyer's security team can review and accept.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOUNDING CLIENT BANNER -->
-        <!-- <section class="bg-amber-50 border-y-2 border-amber-200 py-8 px-4">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-4">
-                    <div
-                        class="size-12 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center shrink-0">
-                        <span class="material-symbols-outlined text-amber-700 text-2xl">star</span>
+            <div style="border: 1px solid var(--rule); background-color: var(--paper); padding: 3rem; margin-bottom: 2rem;">
+                <span class="eyebrow">Build Phase</span>
+                <div class="grid-split" style="gap: 2rem;">
+                    <div>
+                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 0.5rem;">Implementation Projects</div>
+                        <p style="font-size: 1.125rem; margin-bottom: 1.5rem; color: var(--text-muted); font-family: 'Fraunces', serif; font-style: italic;">Architecture + build, delivered end to end.</p>
+                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 1.5rem;">from $3,000 (USD) <span style="font-size: 1.125rem; font-family: 'Inter', sans-serif; color: var(--text-muted);">· scoped per engagement</span></div>
+                        <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Discuss a project</a>
                     </div>
                     <div>
-                        <div class="font-mono text-xs uppercase tracking-widest text-amber-700 font-bold mb-1">Founding
-                            Client Offer &mdash; 3 spots remaining</div>
-                        <p class="text-text-main font-bold text-lg">vCISO Retainer at <span
-                                class="text-amber-700">$1,500/month</span> for your first 3 months &mdash; normally
-                            $2,500/month.</p>
-                        <p class="text-text-muted text-sm mt-1">Includes integration oversight. Reserved for the first 3
-                            clients. Lock in before it closes.</p>
+                        <ul class="price-features" style="margin-bottom: 0;">
+                            <li><span>—</span> Scoped architecture design</li>
+                            <li><span>—</span> Full implementation</li>
+                            <li><span>—</span> AWS / MuleSoft / n8n / Python / Java</li>
+                            <li><span>—</span> Handoff documentation</li>
+                            <li><span>—</span> 30-day stabilization support</li>
+                        </ul>
                     </div>
                 </div>
-                <a href="https://calendly.com/veridata/discovery" target="_blank"
-                    class="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl transition-colors font-mono text-sm whitespace-nowrap">
-                    Claim Your Spot &rarr;
-                </a>
             </div>
-        </section> -->
 
-        <!-- PRICING -->
-        <section class="bg-white py-24 px-4" id="pricing">
-            <div class="max-w-5xl mx-auto relative z-10">
-                <div class="text-center mb-16">
-                    <span
-                        class="text-primary font-bold uppercase tracking-wider text-sm font-mono flex flex-col sm:flex-row sm:items-center justify-center gap-2 mb-4">
-                        <span>Engagement Options</span>
-                        <a href="cybersecurity.html"
-                            class="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary hover:bg-primary/20 rounded text-[10px] font-bold transition-all no-underline">
-                            Start here: pass the vendor questionnaire first &rarr;
-                        </a>
-                    </span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-text-main mt-2 tracking-tight">Three stages. One
-                        continuous engagement.</h2>
-                    <p class="text-lg text-text-muted mt-4 max-w-2xl mx-auto">Integration work is not a separate
-                        service. It's part of the vCISO retainer. Most clients move through all three stages — and stay
-                        because the value compounds month to month.</p>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 2rem;">Not sure
+                which applies? The discovery call is free and there's no pitch.</p>
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="bg-cream section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">Details</span>
+            <h2 class="section-title">Honest answers.</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-q">Do you work with any integration tool or just MuleSoft?</h3>
+                    <p class="faq-a">Any tool that fits the architecture. MuleSoft when the complexity justifies the
+                        licensing cost. AWS native when the company is already on AWS and the patterns fit. n8n for
+                        workflow automation across SaaS tools. The tool selection comes after the architecture design,
+                        not before.</p>
                 </div>
-
-                <div class="flex flex-col gap-6">
-
-                    <!-- Stage 1 -->
-                    <div
-                        class="bg-surface-white flex flex-col md:flex-row gap-8 border border-border-light rounded-2xl p-8">
-                        <div class="flex flex-col items-start gap-2 md:w-64 shrink-0">
-                            <div class="font-mono text-xs uppercase tracking-widest text-text-muted font-bold">Stage 01
-                            </div>
-                            <h3 class="text-2xl font-bold text-text-main">Security Assessment</h3>
-                            <div class="mt-2">
-                                <span class="text-3xl font-black text-text-main">$1,500</span>
-                                <span class="text-text-muted text-sm ml-1">– $2,500 one-time</span>
-                            </div>
-                            <span class="text-xs text-text-muted">Fee credited to project</span>
-                            <a href="https://calendly.com/veridata/discovery" target="_blank"
-                                class="mt-4 w-full flex items-center justify-center py-3 px-4 bg-background-light hover:bg-border-light text-text-main font-bold rounded-xl border border-border-light transition-colors font-mono uppercase text-sm">
-                                Book the Assessment
-                            </a>
-                        </div>
-                        <div class="flex-1 border-t md:border-t-0 md:border-l border-border-light pt-6 md:pt-0 md:pl-8">
-                            <p class="text-text-muted text-sm mb-4 leading-relaxed">The right first step. We identify
-                                exactly where your API and integration architecture falls short of your vendor
-                                questionnaire requirements — and what it will take to pass.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    API and integration gap analysis against your questionnaire or framework
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Written security posture report shareable with your buyer
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Control mapping to SOC 2, ISO 27001, or NIST requirements
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Prioritized remediation roadmap with cost estimates
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    1-hour debrief call with Ugo to walk through findings
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Stage 2 -->
-                    <div
-                        class="bg-surface-white flex flex-col md:flex-row gap-8 border border-border-light rounded-2xl p-8">
-                        <div class="flex flex-col items-start gap-2 md:w-64 shrink-0">
-                            <div class="font-mono text-xs uppercase tracking-widest text-text-muted font-bold">Stage 02
-                            </div>
-                            <h3 class="text-2xl font-bold text-text-main">VeriGate Deployment</h3>
-                            <div class="mt-2">
-                                <span class="text-3xl font-black text-text-main">$3,000</span>
-                                <span class="text-text-muted text-sm ml-1">– $5,000 one-time</span>
-                            </div>
-                            <span class="text-xs text-text-muted">Live in 48 hours</span>
-                            <a href="https://calendly.com/veridata/discovery" target="_blank"
-                                class="mt-4 w-full flex items-center justify-center py-3 px-4 bg-background-light hover:bg-border-light text-text-main font-bold rounded-xl border border-border-light transition-colors font-mono uppercase text-sm">
-                                Deploy VeriGate
-                            </a>
-                        </div>
-                        <div class="flex-1 border-t md:border-t-0 md:border-l border-border-light pt-6 md:pt-0 md:pl-8">
-                            <p class="text-text-muted text-sm mb-4 leading-relaxed">APISix + Zitadel on AWS or GCP —
-                                enterprise-grade API security and identity management wrapped around your existing
-                                systems without code changes. Audit-ready in 48 hours.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    APISix (API gateway) + Zitadel (SSO/identity) on AWS or GCP
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Enterprise-grade auth applied to legacy systems — zero code changes
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Zero-trust network configuration and policy baseline
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Vendor questionnaire compliance documentation (MFA, SSO, API security)
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Attack surface review post-deployment
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Stage 3 -->
-                    <div
-                        class="bg-surface-white flex flex-col md:flex-row gap-8 border-2 border-primary rounded-2xl p-8 relative shadow-xl shadow-primary/10">
-                        <div
-                            class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-bold text-center py-1.5 font-mono uppercase tracking-widest rounded-t-2xl">
-                            Ongoing Engagement — Integration Oversight Included
-                        </div>
-                        <div class="flex flex-col items-start gap-2 md:w-64 shrink-0 mt-4">
-                            <div class="font-mono text-xs uppercase tracking-widest text-primary font-bold">Stage 03
-                            </div>
-                            <h3 class="text-2xl font-bold text-text-main">vCISO Monthly Retainer</h3>
-                            <div class="mt-2">
-                                <span class="text-3xl font-black text-text-main">$2,500</span>
-                            </div>
-                            <span class="text-xs text-text-muted">10–15 hours/month with Ugo</span>
-                            <a href="https://calendly.com/veridata/discovery" target="_blank"
-                                class="mt-4 w-full flex items-center justify-center py-3 px-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-xl transition-colors font-mono uppercase text-sm">
-                                Start the Retainer
-                            </a>
-                        </div>
-                        <div class="flex-1 border-t md:border-t-0 md:border-l border-border-light pt-6 md:pt-0 md:pl-8">
-                            <p class="text-text-muted text-sm mb-4 leading-relaxed">Ugo as your fractional CISO — with
-                                integration architecture oversight built in. Security strategy, compliance maintenance,
-                                vendor questionnaire support, and integration governance. All in one retainer, not
-                                billed separately.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Ongoing vendor questionnaire and audit support
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Integration architecture oversight (MuleSoft, APISix, n8n)
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    VeriGate monitoring and policy updates
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Incident Response Planning &amp; Escalation Protocol
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Monthly compliance review &amp; board reporting
-                                </li>
-                                <li class="flex items-start text-sm text-text-main">
-                                    <span
-                                        class="material-symbols-outlined text-success text-lg mr-2 shrink-0">check</span>
-                                    Direct access to Ugo — async + scheduled calls
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <div class="faq-item">
+                    <h3 class="faq-q">We already have integrations running in production that are broken. Can you help?
+                    </h3>
+                    <p class="faq-a">Yes. A large part of the assessment is mapping what already exists — including
+                        what's undocumented and fragile. You get an honest diagnosis of what's risky before we talk
+                        about what to build next.</p>
                 </div>
-
-                <div
-                    class="rounded-2xl border border-border-light bg-surface-white p-10 text-center flex flex-col items-center gap-4 mt-8">
-                    <h3 class="text-2xl font-bold text-text-main">Not sure where to start?</h3>
-                    <p class="text-text-muted text-base max-w-xl">Book a 30-minute call with Ugo. We'll map your API and
-                        integration gaps and show you exactly what your buyer is seeing — and what it takes to fix it.
-                    </p>
-                    <a href="https://calendly.com/veridata/discovery" target="_blank"
-                        class="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary-dark text-white font-bold rounded-xl transition-colors font-mono text-sm">
-                        Talk to Ugo ↗
-                    </a>
+                <div class="faq-item">
+                    <h3 class="faq-q">What's the difference between this and hiring an integration developer?</h3>
+                    <p class="faq-a">A developer builds what you tell them to build. An architect decides what to build
+                        and why. If you already have developers, you probably need the second thing more than the first.
+                        If you don't have developers, start there — the advice won't land without someone to implement
+                        it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">Do you handle integrations that involve sensitive data or compliance requirements?
+                    </h3>
+                    <p class="faq-a">Architecture design yes — I know where PII leaks in integration flows, where API
+                        keys get exposed, where audit trails break. Formal compliance certification is out of scope.
+                        That's a separate engagement.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">Can you build the integration, not just design it?</h3>
+                    <p class="faq-a">Yes. Architecture-only and architecture-plus-build are both available. The difference is scope and price — implementation projects are fixed-scope, fixed-price engagements. Not open-ended time-and-materials.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">We have a broken integration that nobody understands. Can you fix it?</h3>
+                    <p class="faq-a">That's one of the most common starting points. Before building anything new, it's worth understanding what actually exists. A fix engagement starts with diagnosis — mapping what's there, what's failing, and why — then stabilizes it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">How quickly can you start?</h3>
+                    <p class="faq-a">Typically within 7 days. The practice is deliberately small so each client gets
+                        real attention.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CROSS-LINK TO CYBERSECURITY -->
-        <section class="bg-background-light py-16 px-4 border-t border-border-light">
-            <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
-                <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono">Start Here</span>
-                <h2 class="text-text-main text-2xl md:text-3xl font-bold leading-tight">The vendor questionnaire comes
-                    before the API fix. Start with the security assessment.</h2>
-                <p class="text-text-muted text-base max-w-2xl mx-auto leading-relaxed">Before we deploy VeriGate, we
-                    need to know exactly what your buyer is asking — and what your current posture looks like. The
-                    Security Assessment is how we answer both questions at once. Ugo runs it in 5–7 days and uses it to
-                    drive the VeriGate deployment.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="cybersecurity.html"
-                        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-white border border-border-light hover:border-primary text-text-main hover:text-primary font-bold rounded-xl transition-colors font-mono text-sm">
-                        Start here: pass the vendor questionnaire first &rarr;
-                    </a>
-                    <a href="leadership.html"
-                        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-white border border-border-light hover:border-primary text-text-main hover:text-primary font-bold rounded-xl transition-colors font-mono text-sm">
-                        Meet Ugo Guazelli &rarr;
-                    </a>
-                </div>
-            </div>
-        </section>
+    <!-- 9. FINAL CTA -->
+    <section class="bg-ink section-padding" style="text-align: center;">
+        <div class="container-narrow">
+            <h2 class="section-title" style="font-family: 'Fraunces', serif; font-style: italic;">Your systems should
+                talk to each other.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">They probably can. The architecture just needs to be
+                right first.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a call</a>
+        </div>
+    </section>
 
-        <!-- FINAL CTA -->
-        <section class="bg-white border-t border-gray-100 relative overflow-hidden">
-            <div class="absolute inset-0 -skew-y-3 transform origin-bottom-right"
-                style="background: rgba(237, 243, 239, 0.5)"></div>
-            <div class="relative z-10 px-4 py-24 flex flex-col items-center text-center gap-8">
-                <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded bg-primary/10 border border-primary/20 text-xs font-bold uppercase tracking-wider text-primary font-mono">
-                    <span
-                        class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
-                    Accepting New Clients
-                </div>
-                <h2 class="text-[#0d0f1c] text-4xl md:text-5xl font-black tracking-tight leading-tight">Your API layer
-                    should be your biggest audit advantage.<br><span style="color: #6fa882">Let's make it one.</span>
-                </h2>
-                <p class="text-text-muted text-lg max-w-xl leading-relaxed">
-                    One 30-minute call with Ugo. Walk away knowing exactly what your buyer is seeing — and how fast you
-                    can fix it.
-                </p>
-                <a href="https://calendly.com/veridata/discovery" target="_blank"
-                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-16 px-10 bg-primary text-white text-xl font-bold hover:bg-primary-dark transition-all border border-primary/20 hover:scale-105 active:scale-95">
-                    Book a Free Discovery Call
-                </a>
-            </div>
-        </section>
-
-        <div id="footer-placeholder"></div>
-        <script>
-            window.resRoot = '../';
-        </script>
-        <script src="../assets/js/main.js"></script>
-    </div>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        window.resRoot = '../';
+    </script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>

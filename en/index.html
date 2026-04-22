@@ -1,245 +1,270 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro - Secure your Foundation. Scale your Revenue.</title>
+    <title>Veridata Pro</title>
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <style>
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#d8e6dc 1px, transparent 1px);
-            background-size: 32px 32px;
+        :root {
+            --ink: #0E1823;
+            --cream: #F5F1EA;
+            --paper: #FAF7F2;
+            --rule: #D8D0BE;
+            --rule-dark: rgba(245,241,234,0.12);
+            --text: #1A1A1A;
+            --text-muted: #555;
+            --text-dim: #8B8378;
+            --accent: #2F5A3F;
+            --warn: #B8541E;
         }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            margin: 0;
+        }
+        h1 strong, h2 strong, h3 strong, h1 i, h2 i, h3 i, h1 em, h2 em, h3 em {
+            font-weight: 300;
+        }
+        p { margin: 0; }
+        
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .bg-ink .eyebrow { color: var(--accent); }
+        
+        /* Section Backgrounds */
+        .bg-ink { background-color: var(--ink); color: var(--cream); }
+        .bg-paper { background-color: var(--paper); color: var(--text); }
+        .bg-cream { background-color: var(--cream); color: var(--text); }
+        
+        .bg-ink .text-muted { color: rgba(245,241,234,0.7); }
+        .bg-paper .text-muted, .bg-cream .text-muted { color: var(--text-muted); }
+        
+        /* Layout */
+        .section-padding { padding: 96px 0; }
+        @media (max-width: 768px) {
+            .section-padding { padding: 72px 0; }
+        }
+        .container-custom {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .container-narrow {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Custom Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--cream);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        
+        .bg-cream .btn-primary, .bg-paper .btn-primary {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--cream);
+            border: 1px solid var(--rule-dark);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .bg-paper .btn-secondary, .bg-cream .btn-secondary {
+            color: var(--ink);
+            border: 1px solid var(--rule);
+        }
+        .btn-secondary:hover { background-color: rgba(245,241,234,0.05); }
+        .bg-paper .btn-secondary:hover, .bg-cream .btn-secondary:hover { background-color: rgba(14,24,35,0.05); }
+
+        /* Typography spacing */
+        .title-spacing { margin-bottom: 2rem; }
+        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .hero-btns { flex-direction: column; }
+        }
+        .hero-lede { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin-bottom: 3rem; color: rgba(245,241,234,0.8); }
+        .section-title { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.25rem; }
+        }
+
+        /* Grid Utilities */
+        .grid-custom { display: grid; gap: 2rem; }
+        .grid-cols-2-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (max-width: 768px) {
+            .grid-cols-2-custom { grid-template-columns: 1fr; gap: 4rem; }
+        }
+        .grid-cols-3-custom { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @media (max-width: 1024px) {
+            .grid-cols-3-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .grid-cols-3-custom { grid-template-columns: 1fr; }
+        }
+        
+        /* Offer Cards Hub */
+        .offer-card {
+            border: 1px solid var(--rule);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            background-color: transparent;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .offer-card:hover { border-color: var(--ink); }
+
+        /* 5. ABOUT UGO */
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .stat-card { border-top: 1px solid var(--rule); padding-top: 1rem; }
+        .stat-num { font-size: 2.25rem; font-family: 'Fraunces', serif; margin-bottom: 0.25rem; }
+        .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
+        .pill-tag { border: 1px solid var(--rule); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: var(--text-muted); display: inline-block; margin: 0.25rem; }
     </style>
 </head>
-
-<body class="bg-background-light dark:bg-background-dark text-slate-900 font-display antialiased overflow-x-hidden">
+<body>
     <!-- Top Navigation -->
     <div id="header-placeholder"></div>
-    <!-- Hero Section -->
-    <section
-        class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
-        <!-- Fullscreen Background Image -->
-        <img src="../assets/images/veridata-hero.webp" alt="Veri Data Intelligent Architecture"
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-50 mix-blend-luminosity">
-        <!-- Gradient Overlay for Readability -->
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0 pointer-events-none">
-        </div>
 
-        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full">
-            <div
-                class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
-                <span
-                    class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
-                Architecting the Future • 15+ Years Experience
-            </div>
-            <h1
-                class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
-                Pass Your Enterprise Security Audit in 48 Hours
-            </h1>
-            <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
-                LatAm companies use our VeriGate architecture to close US/EU deals — minimal code changes, full
-                compliance, zero downtime.
-            </p>
-            <div class="mt-4 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 max-w-2xl mx-auto">
-                <p class="text-white font-bold text-lg">
-                    <span class="text-primary">Audit-ready guarantee:</span> If you don't pass the security review, we
-                    work free until you do
-                </p>
-            </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
-                <a href="https://calendly.com/veridata/discovery" target="_blank"
-                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-base font-bold hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
-                    See if you qualify
-                </a>
-                <a href="cybersecurity.html"
-                    class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-white/10 border border-white/20 backdrop-blur-md text-white text-base font-bold hover:bg-white/20 transition-colors font-mono uppercase text-sm tracking-wide shadow-lg">
-                    View Security Packages
-                </a>
+    <!-- 1. HERO -->
+    <section class="bg-ink section-padding" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container-custom">
+            <span class="eyebrow accent">Advisory Practice</span>
+            <h1 class="hero-title">Two problems.<br>One architect.</h1>
+            <p class="hero-lede">Integration architecture and fractional cloud advisory for companies looking to move faster without making expensive mistakes.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;" class="hero-btns">
+                <a href="integrations.html" class="btn-primary">Integration Architecture</a>
+                <a href="aws.html" class="btn-secondary">AWS Cloud Advisory</a>
             </div>
         </div>
     </section>
 
-    <!-- Founding Client Rate Banner -->
-    <!-- <section class="relative py-16 px-4 overflow-hidden" style="background: linear-gradient(135deg, #1a472a 0%, #2D5A3D 50%, #3d6b4f 100%);">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-white blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-white blur-3xl"></div>
-        </div>
-        <div class="relative max-w-7xl mx-auto text-center">
-            <div class="inline-flex items-center justify-center gap-3 mb-4">
-                <div class="p-3 rounded-full bg-white/20 backdrop-blur-sm">
-                    <span class="material-symbols-outlined text-white text-3xl">stars</span>
-                </div>
-                <span class="text-white font-bold uppercase tracking-wider text-sm border border-white/30 px-4 py-1.5 rounded-full">Founding Client Rate</span>
-            </div>
-            <h3 class="text-3xl md:text-4xl font-black text-white mb-6 max-w-4xl mx-auto leading-tight">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-100">Limited to 3 companies.</span> Never available again.
-            </h3>
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 max-w-3xl mx-auto border border-white/20">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-left">
-                        <p class="text-white text-lg font-semibold mb-2">Exclusive Founding Rate</p>
-                        <p class="text-white/90">
-                            <span class="text-4xl font-black text-white">$1,500</span>
-                            <span class="text-lg font-medium">/month for first 3 months</span>
-                        </p>
-                        <p class="text-white/80 text-sm mt-2">(Regular rate: $3,000/month thereafter)</p>
-                    </div>
-                    <div class="flex flex-col items-center md:items-end">
-                        <div class="inline-flex items-center gap-2 mb-3">
-                            <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
-                            <span class="text-white font-bold text-sm">2 spots remaining</span>
-                        </div>
-                        <a href="https://calendly.com/veridata/discovery" target="_blank"
-                            class="inline-flex items-center justify-center px-10 py-4 bg-white text-primary font-black text-lg rounded-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-2xl">
-                            Claim Founding Rate
-                            <span class="material-symbols-outlined ml-2 text-xl">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <p class="text-white/80 text-sm max-w-2xl mx-auto">
-                For LatAm B2B companies preparing for US expansion. This exclusive rate locks in lifetime priority support and architecture access.
-            </p>
-        </div>
-    </section> -->
+    <!-- 2. TWO OFFERS -->
+    <section class="bg-paper section-padding">
+        <div class="container-custom">
+            <span class="eyebrow" style="text-align: center; width: 100%;">Practice Areas</span>
+            <h2 class="section-title text-center" style="margin-bottom: 4rem;">Specialized focus.</h2>
+            
+            <div class="grid-custom grid-cols-2-custom">
+                <!-- Offer 1: Integrations -->
+                <a href="integrations.html" style="text-decoration: none; color: inherit;" class="offer-card">
+                    <h3 style="margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">01 / Integrations</h3>
+                    <h4 style="font-size: 2rem; font-family: 'Fraunces', serif; margin-bottom: 1.5rem;">Systems that don't talk to each other</h4>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">You're spending hours on manual data entry, patching old scripts, or dealing with fragmented toolsets.</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1rem;">
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Architecture design</li>
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Technology selection</li>
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Build reviews & ADRs</li>
+                    </ul>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; font-weight: 700;">Explore Integrations →</span>
+                </a>
 
-    <!-- The Pillars Section -->
-    <section class="py-24 bg-surface-offwhite" id="pillars">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-primary font-bold uppercase tracking-wider text-sm">Capabilities</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-text-main mt-2 tracking-tight">The Pillars of Veridata
-                </h2>
-                <p class="mt-4 text-xl text-text-muted">Choose your path to automation and efficiency.</p>
-            </div>
-            <div class="flex justify-center">
-                <!-- Card 1: The Shield -->
-                <a href="cybersecurity.html"
-                    class="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:-translate-y-2 duration-300 max-w-3xl w-full">
-                    <div class="absolute top-0 right-0 p-24 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                        style="background: #edf3ef">
-                    </div>
-                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl text-primary group-hover:scale-110 transition-transform duration-300"
-                        style="background: #edf3ef">
-                        <span class="material-symbols-outlined text-4xl">security</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text-main mb-3 relative z-10">The Shield (Cybersecurity)</h3>
-                    <p class="text-text-muted leading-relaxed mb-8 flex-1 relative z-10">
-                        Your next enterprise deal is stuck on a security audit. We deploy audit-ready infrastructure in
-                        48 hours — minimal code footprint, zero downtime deployment.
-                    </p>
-                    <p class="text-text-muted leading-relaxed mb-8 flex-1 relative z-10">
-                        Includes API and integration architecture oversight — the layer most security firms ignore.
-                    </p>
-                    <div
-                        class="flex items-center text-sm font-bold text-primary group-hover:translate-x-2 transition-transform relative z-10">
-                        Explore The Shield <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-                    </div>
+                <!-- Offer 2: AWS Cloud -->
+                <a href="aws.html" style="text-decoration: none; color: inherit;" class="offer-card">
+                    <h3 style="margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">02 / AWS Cloud</h3>
+                    <h4 style="font-size: 2rem; font-family: 'Fraunces', serif; margin-bottom: 1.5rem;">Cloud decisions without senior validation</h4>
+                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">You're launching on AWS but lack a senior architect. Your configs are bleeding money or risking security audits.</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1rem;">
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Monthly architecture reviews</li>
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Cost & risk flags</li>
+                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Async Slack/Email Q&A</li>
+                    </ul>
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; font-weight: 700;">Explore AWS Cloud →</span>
                 </a>
             </div>
         </div>
     </section>
-    <!-- Testimonials Section — [PLACEHOLDER — replace with real testimonials when available] -->
-    <section class="py-24 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-primary font-bold uppercase tracking-wider text-sm">Social Proof</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-text-main mt-2 tracking-tight">What Our Clients Say</h2>
-            </div>
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                <!-- Testimonial 1 — [PLACEHOLDER] -->
-                <div class="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-surface-offwhite p-8 shadow-sm">
-                    <p class="text-text-main text-lg leading-relaxed italic">
-                        "We passed our vendor security questionnaire from a US enterprise client in under 5 weeks.
-                        We had been stuck for months before Veridata."
-                    </p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-                        <div class="size-10 rounded-full flex items-center justify-center text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-lg">person</span>
-                        </div>
-                        <span class="text-sm font-bold text-text-muted">COO, 40-person logistics company —
-                            Colombia</span>
-                    </div>
+
+    <!-- 3. ABOUT UGO -->
+    <section class="bg-cream section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">The Architect</span>
+            <div class="grid-custom grid-cols-2-custom" style="align-items: start;">
+                <div>
+                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo has spent 15+ years architecting enterprise applications for Deloitte, Ubisoft, Accenture, and Alithya — across LATAM, the US, and Canada.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">He now works with small tech companies that are making the same expensive mistakes at a fraction of the scale — and fixing them before they compound.</p>
+                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">View LinkedIn Profile</a>
                 </div>
-                <!-- Testimonial 2 — [PLACEHOLDER] -->
-                <div class="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-surface-offwhite p-8 shadow-sm">
-                    <p class="text-text-main text-lg leading-relaxed italic">
-                        "Our systems finally work as one platform. What used to take our ops team half a day now happens
-                        automatically — and we closed two new enterprise contracts because we could prove our data
-                        infrastructure was solid."
-                    </p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-                        <div class="size-10 rounded-full flex items-center justify-center text-primary"
-                            style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-lg">person</span>
+                <div>
+                    <div class="stat-grid" style="margin-bottom: 3rem;">
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <span class="text-sm font-bold text-text-muted">Operations Director, SaaS company —
-                            Brazil</span>
+                        <div class="stat-card">
+                            <div class="stat-num">8+</div>
+                            <div class="stat-label">Years AWS / MuleSoft</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Enterprise APIs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">4</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Authority Section -->
-    <section class="border-y border-gray-100 bg-white py-24">
-        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="text-left flex flex-col gap-6">
-                    <div class="inline-flex items-center gap-3">
-                        <div class="size-12 rounded-full flex items-center justify-center" style="background: #edf3ef">
-                            <span class="material-symbols-outlined text-2xl text-primary">verified_user</span>
-                        </div>
-                        <span class="text-primary font-bold uppercase tracking-wider text-sm">Trust & Expertise</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main leading-tight">Architect-Led Solutions
-                        <br>for "Scale-Up" APIs
-                    </h2>
-                    <p class="text-lg text-text-muted leading-relaxed">
-                        15+ Years of Experience. 8+ Years in AWS and MuleSoft. <br>Trusted by LatAm scale-ups entering
-                        US and
-                        European enterprise markets — without the overhead of a full-time architecture team.
-                    </p>
-                </div>
-                <!-- Stats Grid -->
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-6 rounded-2xl bg-surface-offwhite border border-gray-100 text-center">
-                        <span class="block text-4xl font-black text-primary mb-2">15+</span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Years Experience</span>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-surface-offwhite border border-gray-100 text-center">
-                        <span class="block text-4xl font-black text-primary mb-2">8+</span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Years AWS and
-                            MuleSoft</span>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-surface-offwhite border border-gray-100 text-center">
-                        <span class="block text-4xl font-black text-primary mb-2">100%</span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Single Tenant</span>
-                    </div>
-                    <div class="p-6 rounded-2xl bg-surface-offwhite border border-gray-100 text-center">
-                        <span class="block text-4xl font-black text-primary mb-2">24/7</span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-text-muted">System
-                            Monitoring</span>
-                    </div>
-                </div>
-            </div>
+
+    <!-- 4. FINAL CTA -->
+    <section class="bg-ink section-padding" style="text-align: center;">
+        <div class="container-narrow">
+            <h2 class="section-title">Not sure which applies to you?</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">The discovery call is completely free.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a call</a>
         </div>
     </section>
+
     <!-- Footer -->
     <div id="footer-placeholder"></div>
     <script>
@@ -247,5 +272,4 @@
     </script>
     <script src="../assets/js/main.js"></script>
 </body>
-
 </html>

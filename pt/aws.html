@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="light" lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Veridata Pro — Fractional Cloud Architect</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <style>
+        :root {
+            --ink: #0E1823;
+            --cream: #F5F1EA;
+            --paper: #FAF7F2;
+            --rule: #D8D0BE;
+            --rule-dark: rgba(245,241,234,0.12);
+            --text: #1A1A1A;
+            --text-muted: #555;
+            --text-dim: #8B8378;
+            --accent: #2F5A3F;
+            --warn: #B8541E;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            margin: 0;
+        }
+        h1 strong, h2 strong, h3 strong, h1 i, h2 i, h3 i, h1 em, h2 em, h3 em {
+            font-weight: 300;
+        }
+        p { margin: 0; }
+        
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .bg-ink .eyebrow { color: var(--accent); }
+        
+        /* Section Backgrounds */
+        .bg-ink { background-color: var(--ink); color: var(--cream); }
+        .bg-paper { background-color: var(--paper); color: var(--text); }
+        .bg-cream { background-color: var(--cream); color: var(--text); }
+        
+        .bg-ink .text-muted { color: rgba(245,241,234,0.7); }
+        .bg-paper .text-muted, .bg-cream .text-muted { color: var(--text-muted); }
+        
+        /* Layout */
+        .section-padding { padding: 96px 0; }
+        @media (max-width: 768px) {
+            .section-padding { padding: 72px 0; }
+        }
+        .container-custom {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .container-narrow {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Custom Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--cream);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        
+        .bg-cream .btn-primary, .bg-paper .btn-primary {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--cream);
+            border: 1px solid var(--rule-dark);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .bg-paper .btn-secondary, .bg-cream .btn-secondary {
+            color: var(--ink);
+            border: 1px solid var(--rule);
+        }
+        .btn-secondary:hover { background-color: rgba(245,241,234,0.05); }
+        .bg-paper .btn-secondary:hover, .bg-cream .btn-secondary:hover { background-color: rgba(14,24,35,0.05); }
+
+        /* Typography spacing */
+        .title-spacing { margin-bottom: 2rem; }
+        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .hero-btns { flex-direction: column; }
+        }
+        .hero-lede { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin-bottom: 3rem; color: rgba(245,241,234,0.8); }
+        .section-title { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.25rem; }
+        }
+
+        /* Grid Utilities */
+        .grid-custom { display: grid; gap: 2rem; }
+        .grid-cols-2-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (max-width: 768px) {
+            .grid-cols-2-custom { grid-template-columns: 1fr; gap: 4rem; }
+        }
+        .grid-cols-3-custom { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @media (max-width: 1024px) {
+            .grid-cols-3-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .grid-cols-3-custom { grid-template-columns: 1fr; }
+        }
+
+        /* 2. PROBLEM Cards */
+        .card-problem {
+            border-top: 1px solid var(--rule);
+            padding-top: 1.5rem;
+        }
+        .card-problem-title { font-weight: 500; margin-bottom: 0.75rem; font-size: 1.125rem; }
+        .card-problem-num { color: var(--warn); font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; margin-bottom: 0.5rem; display: block;}
+
+        /* 3. WHAT YOU GET */
+        .scope-table { border-top: none; }
+        .scope-row { border-bottom: 1px solid var(--rule); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; }
+        
+        /* 5. ABOUT UGO */
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .stat-card { border-top: 1px solid var(--rule); padding-top: 1rem; }
+        .stat-num { font-size: 2.25rem; font-family: 'Fraunces', serif; margin-bottom: 0.25rem; }
+        .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
+        .pill-tag { border: 1px solid var(--rule); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: var(--text-muted); display: inline-block; margin: 0.25rem; }
+
+        /* 6. PRICING */
+        /* Pricing card */
+        .pricing-card {
+            border: 1px solid var(--rule);
+            padding: 4rem;
+            text-align: center;
+            background-color: var(--paper); /* Slight contrast against cream background */
+        }
+        @media (max-width: 768px) {
+            .pricing-card { padding: 2rem; }
+        }
+        .pricing-price {
+            font-size: 3.5rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 7. FAQ */
+        .faq-item {
+            border-top: 1px solid var(--rule);
+            padding: 2rem 0;
+        }
+        .faq-q {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .faq-a {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <div id="header-placeholder"></div>
+
+    <!-- 1. HERO -->
+    <section class="bg-ink section-padding" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container-custom">
+            <span class="eyebrow accent">Arquitetura Cloud AWS</span>
+            <h1 class="hero-title">Sua arquitetura cloud.<br>Validada por um operador <i>sênior</i>.</h1>
+            <p class="hero-lede">Para a maioria dos clientes, o retainer se paga no primeiro mês apenas com as economias geradas na AWS — antes mesmo de tocarmos em uma única decisão de arquitetura.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;" class="hero-btns">
+                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada</a>
+                <a href="#what-you-get" class="btn-secondary">Ver o que está incluído</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROBLEM -->
+    <section class="bg-paper section-padding">
+        <div class="container-custom">
+            <span class="eyebrow">Os Sintomas</span>
+            <h2 class="section-title" style="max-width: 800px; margin-bottom: 4rem;">O que acontece quando você lança produtos sem um sênior na sala.</h2>
+            <div class="grid-custom grid-cols-3-custom">
+                <div class="card-problem">
+                    <span class="card-problem-num">01</span>
+                    <h3 class="card-problem-title">Erros de Banco de Dados</h3>
+                    <p class="text-muted">Você escolheu RDS quando DynamoDB era a decisão certa. Agora você paga por performance que não usa, e as queries lentas estão travando o app.</p>
+                </div>
+                <div class="card-problem">
+                    <span class="card-problem-num">02</span>
+                    <h3 class="card-problem-title">Caos de Ferramentas</h3>
+                    <p class="text-muted">Sua equipe adotou três ferramentas de monitoramento diferentes porque ninguém tinha autoridade para dizer não. Os logs estão fragmentados e os custos fora de controle.</p>
+                </div>
+                <div class="card-problem">
+                    <span class="card-problem-num">03</span>
+                    <h3 class="card-problem-title">Bloqueios de Segurança</h3>
+                    <p class="text-muted">Vocês construíram tudo rápido. Então, um cliente enterprise envia um questionário de arquitetura e segurança, e você percebe que o desenho nunca passaria pela auditoria deles.</p>
+                </div>
+                <div class="card-problem">
+                    <span class="card-problem-num">04</span>
+                    <h3 class="card-problem-title">Desperdício Invisível na AWS</h3>
+                    <p class="text-muted">Ambientes de dev rodando 24/7. Volumes gp2 que nunca foram migrados para gp3. Tráfego de NAT Gateway roteado cross-AZ porque ninguém leu a página de preços. Uma empresa de 30 pessoas normalmente tem $1.500–3.000 de desperdício mensal escondido à vista de todos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WHAT YOU GET -->
+    <section class="bg-cream section-padding" id="what-you-get">
+        <div class="container-custom">
+            <span class="eyebrow">O Retainer</span>
+            <h2 class="section-title">Um arquiteto do seu lado.</h2>
+            <div class="grid-custom grid-cols-2-custom">
+                <div>
+                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">No Escopo</h3>
+                    <div class="scope-table">
+                        <div class="scope-row">Revisão mensal de arquitetura (async via Loom/doc ou call de 1h)</div>
+                        <div class="scope-row">Documento de findings — priorizado: consertar agora / monitorar / ok</div>
+                        <div class="scope-row">Perguntas e Respostas async no Slack ou e-mail para decisões de infra</div>
+                        <div class="scope-row">Revisão de pré-lançamento antes que grandes mudanças entrem em prod</div>
+                        <div class="scope-row">Registro de Decisões de Arquitetura (ADRs) — curtos e diretos</div>
+                        <div class="scope-row">Alertas de risco e custo antes que virem incidentes</div>
+                        <div class="scope-row" style="border-bottom: none;">Avaliação de vendors — vocês deveriam adotar essa nova ferramenta?</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">Fora do Escopo</h3>
+                    <div class="scope-table">
+                        <div class="scope-row text-muted">Hands-on no console da AWS ou escrever Terraform</div>
+                        <div class="scope-row text-muted">Escrever código ou IaC</div>
+                        <div class="scope-row text-muted">On-call ou resposta a incidentes (IR)</div>
+                        <div class="scope-row text-muted">Gestão de projetos</div>
+                        <div class="scope-row text-muted">Documentação completa da plataforma</div>
+                        <div class="scope-row text-muted">Auditorias formais de segurança ou compliance</div>
+                        <div class="scope-row text-muted" style="border-bottom: none;">Recrutamento estruturação de time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHO THIS IS NOT FOR -->
+    <section class="bg-ink section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow accent">Perfil de Cliente</span>
+            <h2 class="section-title" style="margin-bottom: 3rem;">Esta é uma prática puramente consultiva.</h2>
+            <div style="border-top: 1px solid var(--rule-dark); padding-top: 2rem;">
+                <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--cream);">Se você precisa de alguém para escrever Terraform ou construir a VPC para você, isso é um contrato de desenvolvimento — não é o caso aqui.</p>
+                <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--cream);">Se sua equipe não tem ninguém capaz de implementar uma recomendação, os conselhos não terão efeito. Você precisa de engenheiros construtores primeiro.</p>
+                <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--cream);">Se a sua base principal é Azure ou GCP, eu não serei a ferramenta mais afiada para essa stack.</p>
+                <p style="font-size: 1.25rem; line-height: 1.6; color: var(--cream);">Se você precisa de cobertura on-call 24/7, você deve contratar alguém em tempo integral. Esta prática é deliberadamente limitada a um pequeno número de clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ABOUT UGO -->
+    <section class="bg-paper section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">O Arquiteto</span>
+            <div class="grid-custom grid-cols-2-custom" style="align-items: start;">
+                <div>
+                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo passou 15+ anos elaborando arquiteturas de integrações críticas na Deloitte, Ubisoft, Accenture e Alithya — em toda a América Latina, EUA e Canadá.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Como Integration Manager na Deloitte, ele entregou mais de 15 APIs enterprise para clientes financeiros e de saúde. Na Ubisoft Montreal, ele reduziu os custos de infraestrutura em 66% através do refactoring de arquitetura.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Agora ele atua ao lado de empresas rodando AWS que estão cometendo os mesmos erros caros em uma escala menor — e corrigindo-os antes que o custo suba.</p>
+                    
+                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Ver Perfil no LinkedIn</a>
+                </div>
+                <div>
+                    <div class="stat-grid" style="margin-bottom: 3rem;">
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Anos Experiência</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">8+</div>
+                            <div class="stat-label">Anos AWS / MuleSoft</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">APIs Enterprise</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-num">4</div>
+                            <div class="stat-label">Idiomas</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 3rem;">
+                        <span class="eyebrow" style="margin-bottom: 1rem;">Passagens Por</span>
+                        <div>
+                            <span class="pill-tag">Deloitte</span>
+                            <span class="pill-tag">Ubisoft</span>
+                            <span class="pill-tag">Accenture</span>
+                            <span class="pill-tag">Alithya</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="eyebrow" style="margin-bottom: 1rem;">Certificações</span>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted);">
+                            <li>• MuleSoft Certified Platform Architect</li>
+                            <li>• AWS Solutions Architect</li>
+                            <li>• Azure Fundamentals</li>
+                            <li>• MuleSoft Certified Developer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRICING -->
+    <section class="bg-cream section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow" style="text-align: center; width: 100%;">Investimento</span>
+            <div class="pricing-card">
+                <div class="pricing-price">$1.500–2.000</div>
+                <p style="font-family: 'JetBrains Mono', monospace; color: var(--text-dim); text-transform: uppercase; font-size: 0.875rem; margin-bottom: 2.5rem; letter-spacing: 0.05em;">/ Mês</p>
+                <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 1rem;">Mês a mês. Sem fidelidade.</p>
+                <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem;">Para a maioria dos clientes, a economia do primeiro mês cobre o retainer inteiramente.</p>
+                
+                <ul style="list-style: none; padding: 0; margin: 0 auto 3rem; text-align: left; max-width: 400px; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1.125rem;">
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Revisão mensal de arquitetura</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Documento de findings priorizados</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Q&A async por Slack / E-mail</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Revisão pré-lançamento de produtos</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Registros de Decisões de Arquitetura</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Alertas de riscos e custos</li>
+                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Avaliação e análise de vendors</li>
+                </ul>
+
+                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="margin-bottom: 1.5rem; width: 100%; max-width: 300px;">Agendar chamada</a>
+            </div>
+            <p style="text-align: center; color: var(--text-muted); margin-top: 1.5rem; font-size: 0.875rem;">Ainda em dúvida? A chamada é gratuita e sem pitch de vendas.</p>
+            <p style="text-align: center; margin-top: 3rem;"><a href="integrations.html" style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--text-dim); text-transform: uppercase;">Também precisa de arquitetura de integração? →</a></p>
+        </div>
+    </section>
+
+    <!-- The Math -->
+    <section class="bg-ink section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow accent">O Caso de Negócio</span>
+            <h2 class="section-title" style="margin-bottom: 4rem;">Mais barato que contratar. Mais rápido que esperar.</h2>
+            
+            <div class="grid-custom grid-cols-2-custom" style="margin-bottom: 4rem;">
+                <div>
+                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">Contratar um arquiteto AWS sênior</h3>
+                    <div style="border-top: 1px solid var(--rule-dark);">
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">$30.000–60.000/ano na LATAM</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">2–4 meses para contratar</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Headcount que você pode não precisar</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Risco de rescisão se não der certo</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Disponível apenas para empresas maiores</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--accent); text-transform: uppercase;">Este retainer</h3>
+                    <div style="border-top: 1px solid var(--rule-dark);">
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">$18.000–24.000/ano</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Disponível em 7 dias</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Sem headcount, sem custo de RH</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Cancele a qualquer mês</div>
+                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Disponível para qualquer empresa agora</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 1.5rem; text-align: center; color: var(--cream); opacity: 0.9; margin: 0;">E o contrato nos EUA que você está tentando fechar vale muito mais do que qualquer um desses números.</p>
+        </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="bg-paper section-padding">
+        <div class="container-narrow">
+            <span class="eyebrow">Detalhes</span>
+            <h2 class="section-title" style="margin-bottom: 4rem;">Respostas honestas.</h2>
+            
+            <div class="faq-item">
+                <h3 class="faq-q">Isso realmente vai se pagar?</h3>
+                <p class="faq-a">Na maioria dos casos, sim — logo no primeiro mês. O desperdício na AWS é quase universal em empresas no seu estágio: ambientes de dev rodando à noite, classes de armazenamento erradas, instâncias superdimensionadas escolhidas porque 'podemos precisar depois', custos de NAT Gateway que ninguém notou. Eu normalmente encontro de $1.500 a 3.000 em gastos mensais recuperáveis na primeira revisão. Não é garantido — ainda não vi sua conta. Mas é raro que eu não os encontre.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-q">Quantas horas do tempo da minha equipe isso consome?</h3>
+                <p class="faq-a">Uma hora por mês para a call de revisão técnica e algum tempo assíncrono para responder a perguntas de contexto técnico se necessário. Eu leio documentação, analiso a plataforma e entrego resultados primariamente de forma assíncrona, sem preencher suas agendas com call.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-q">E se eu precisar de algo implementado, não apenas revisado?</h3>
+                <p class="faq-a">Eu não vou escrever as regras do Terraform nem configurar as VPCs. Se você precisa de execução hands-on com código todos os dias, você deve buscar um engenheiro contratado. Eu forneço orientações estruturais, validação sênior e blueprints para guiar seu time e fazer com que eles construam o correto na primeira vez.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-q">Você constrói em infra Azure ou GCP também?</h3>
+                <p class="faq-a">AWS é meu foco definitivo. Embora eu possua anos de experiência comprovada no Azure, a prática atua estritamente onde o nível de expertise é profundo e afiado na ponta técnica, e isso ocorre na nuvem AWS aliada às implantações extensas de integração (APIs) da corporação.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-q">Quão rápido podemos começar?</h3>
+                <p class="faq-a">Normalmente garantimos um slot em até 7 dias da escolha final. Como restrinjo estritamente o portfólio de ativos para poucos parceiros, abordo projetos novos apenas quando a garantia da disponibilidade para uma profunda geração de valor é 100%.</p>
+            </div>
+            
+            <div class="faq-item" style="border-bottom: 1px solid var(--rule);">
+                <h3 class="faq-q">Como é, na prática, a revisão mensal?</h3>
+                <p class="faq-a">Eu reviso ativamente suas transições estipuladas do mês para as topologias cloud e suas features. Ao final desse overview do status na AWS, você recebe um backlog técnico e crítico focado: te direcionando explicitamente ao que será obrigatório corrigir urgentemente hoje, aquilo que basta manter o olho e os sistemas que estão perfeitamente OK.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FINAL CTA -->
+    <section class="bg-ink section-padding" style="text-align: center;">
+        <div class="container-narrow">
+            <h2 class="section-title">A sua fatura da AWS já sabe que há algo de errado.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Valide suas decisões AWS antes que se tornem incidentes impeditivos.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        window.resRoot = '../';
+    </script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

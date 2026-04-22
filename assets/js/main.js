@@ -229,7 +229,64 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('contact-form')) {
         handleContactForm();
     }
+
+    // Convert prices to BRL on Portuguese pages
+    convertPricesToBRL();
 });
+
+/**
+ * Fetches the current USD to BRL exchange rate and updates all prices on 'pt' pages.
+ */
+async function convertPricesToBRL() {
+    // Only run on pages explicitly marked as Portuguese
+    if (document.documentElement.lang !== 'pt') return;
+    
+    try {
+        const response = await fetch('https://open.er-api.com/v6/latest/USD');
+        if (!response.ok) return;
+        const data = await response.json();
+        const rate = data.rates.BRL;
+        if (!rate) return;
+
+        // Recursive function to walk and process text nodes
+        function walkTextNodes(node) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const regex = /\$\s*([\d\.,]+)(?:(\s*(?:–|-|a)\s*)(?:US\$\s*|\$\s*)?([\d\.,]+))?/g;
+                let originalText = node.textContent;
+                
+                let newText = originalText.replace(regex, (match, p1, sep, p2) => {
+                    const parseVal = val => parseFloat(val.replace(/\./g, '').replace(/,/g, ''));
+                    const formatVal = val => {
+                        const converted = val * rate;
+                        return (Math.round(converted / 500) * 500).toLocaleString('pt-BR');
+                    };
+                    
+                    let result = `R$ ${formatVal(parseVal(p1))}`;
+                    if (p2 && sep) {
+                        result += `${sep}${formatVal(parseVal(p2))}`;
+                    }
+                    return result;
+                });
+                
+                if (originalText !== newText) {
+                    node.textContent = newText;
+                }
+            } else {
+                // Skip processing scripts, styles, and inputs
+                const tag = node.nodeName;
+                if (tag !== 'SCRIPT' && tag !== 'STYLE' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+                    // Create a static array of children because we might modify the DOM (though text content replacement doesn't usually alter NodeList length, it's safer)
+                    Array.from(node.childNodes).forEach(walkTextNodes);
+                }
+            }
+        }
+
+        walkTextNodes(document.body);
+
+    } catch (error) {
+        console.error('Failed to convert prices to BRL:', error);
+    }
+}
 
 /**
  * Translates UI elements based on the current language folder.
@@ -247,10 +304,8 @@ function translateUI(context) {
     const translations = {
         'pt': {
             'header.home': 'Início',
-            'header.revops': 'RevOps',
-            'header.integrations': 'Integrações',
-            'header.cybersecurity': 'Cibersegurança',
-            'header.leadership': 'Liderança',
+            'header.integration': 'Integrações',
+            'header.aws': 'Arquitetura AWS',
             'header.contact': 'Fale Conosco',
             'contact.title': 'Entre em Contato',
             'contact.subtitle': 'Como podemos ajudar a transformar sua arquitetura?',
@@ -272,10 +327,8 @@ function translateUI(context) {
         },
         'es': {
             'header.home': 'Inicio',
-            'header.revops': 'RevOps',
-            'header.integrations': 'Integraciones',
-            'header.cybersecurity': 'Ciberseguridad',
-            'header.leadership': 'Liderazgo',
+            'header.integration': 'Integraciones',
+            'header.aws': 'Arquitectura AWS',
             'header.contact': 'Contacto',
             'contact.title': 'Póngase en Contacto',
             'contact.subtitle': '¿Cómo podemos ayudar a transformar su arquitectura?',
