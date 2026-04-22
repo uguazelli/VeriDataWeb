@@ -4,196 +4,475 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Liderança - Veridata Pro</title>
+    <title>Ugo Guazelli — Veridata Pro</title>
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <style>
+        :root {
+            --ink: #0E1823;
+            --cream: #F5F1EA;
+            --paper: #FAF7F2;
+            --rule: #D8D0BE;
+            --rule-dark: rgba(245, 241, 234, 0.12);
+            --text: #1A1A1A;
+            --text-muted: #555;
+            --text-dim: #8B8378;
+            --accent: #2F5A3F;
+            --warn: #B8541E;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        h1 strong,
+        h2 strong,
+        h3 strong,
+        h1 i,
+        h2 i,
+        h3 i,
+        h1 em,
+        h2 em,
+        h3 em {
+            font-weight: 300;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .bg-ink .eyebrow {
+            color: var(--accent);
+        }
+
+        .bg-ink {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+
+        .bg-paper {
+            background-color: var(--paper);
+            color: var(--text);
+        }
+
+        .bg-cream {
+            background-color: var(--cream);
+            color: var(--text);
+        }
+
+        .bg-ink .text-muted {
+            color: rgba(245, 241, 234, 0.7);
+        }
+
+        .bg-paper .text-muted,
+        .bg-cream .text-muted {
+            color: var(--text-muted);
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 72px 0;
+            }
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background-color: var(--cream);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .bg-cream .btn-primary,
+        .bg-paper .btn-primary {
+            background-color: var(--ink);
+            color: var(--cream);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        .hero-lede {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 650px;
+            color: rgba(245, 241, 234, 0.8);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Stat grid */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            border-top: 1px solid var(--rule);
+            padding-top: 1rem;
+        }
+
+        .stat-num {
+            font-size: 2.25rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        /* Timeline */
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .timeline-period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            padding-top: 0.35rem;
+        }
+
+        .timeline-role {
+            font-size: 1.125rem;
+            font-family: 'Fraunces', serif;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-detail {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Cert list */
+        .cert-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cert-list li {
+            padding: 0.875rem 0;
+            border-top: 1px solid var(--rule);
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cert-list li:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .cert-list li::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Previously at pills */
+        .pill-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            border: 1px solid var(--rule);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+    </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-900 font-display antialiased overflow-x-hidden">
-    <!-- Top Navigation -->
+<body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-24 pb-20 px-4 overflow-hidden bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- Content -->
-                <div class="flex flex-col gap-6">
-                    <div class="inline-flex items-center gap-2">
-                        <span class="h-px w-8 bg-primary"></span>
-                        <span class="text-primary font-bold uppercase tracking-wider text-sm">Liderança</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-black text-text-main leading-tight tracking-tight">
-                        Arquitetura Enterprise <br>
-                        <span class="text-primary">Criada para Escalar.</span>
-                    </h1>
-                    <p class="text-lg text-text-muted leading-relaxed">
-                        Empresas na América Latina perdem negócios nos EUA e na Europa todos os dias — não por terem
-                        produtos ruins, mas porque sua arquitetura de segurança não sobrevive a questionários de
-                        fornecedores. A Veridata Pro existe para resolver isso. Liderada por um ex-Integration Manager
-                        da Deloitte com mais de 15 anos de experiência em arquitetura enterprise na LATAM, EUA e Canadá.
-                    </p>
+    <!-- 1. HERO -->
+    <section class="bg-ink" style="padding-top: 160px; min-height: 60vh; display: flex; align-items: center;">
+        <div class="container">
+            <span class="eyebrow">O Arquiteto</span>
+            <h1 class="hero-title">Ugo Guazelli</h1>
+            <p
+                style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">
+                Automação de Processos · Arquitetura de Integração · Fundador</p>
+            <p class="hero-lede">Mais de 15 anos projetando integrações para empresas corporativas. Agora aplicando esse mesmo pensamento arquitetural à automação de processos — n8n, Make e Zapier — para empresas em crescimento que já superaram processos manuais.</p>
+        </div>
+    </section>
 
-                    <!-- Stats Grid -->
-                    <div class="grid grid-cols-2 gap-6 mt-4">
-                        <div class="p-4 rounded-xl bg-surface-offwhite border border-gray-100">
-                            <span class="block text-3xl font-black text-primary mb-1">15+</span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Anos de
-                                Experiência</span>
-                        </div>
-                        <div class="p-4 rounded-xl bg-surface-offwhite border border-gray-100">
-                            <span class="block text-3xl font-black text-primary mb-1">8+</span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Anos em
-                                AWS e MuleSoft</span>
-                        </div>
-                        <div class="p-4 rounded-xl bg-surface-offwhite border border-gray-100">
-                            <span class="block text-3xl font-black text-primary mb-1">15+</span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-text-muted">APIs Enterprise
-                                Entregues</span>
-                        </div>
-                        <div class="p-4 rounded-xl bg-surface-offwhite border border-gray-100">
-                            <span class="block text-3xl font-black text-primary mb-1">4</span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-text-muted">Idiomas</span>
-                        </div>
-                    </div>
+    <!-- 2. PHOTO + BIO -->
+    <section class="bg-paper">
+        <div class="container">
+            <div class="grid-2" style="align-items: start;">
+                <div>
+                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli"
+                        style="width: 100%; border-radius: 4px; margin-bottom: 3rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
+
+                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank"
+                        style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">
+                        Conectar no LinkedIn
+                    </a>
                 </div>
 
-                <!-- Bio / Image Placeholder -->
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-primary/5 rounded-2xl -z-10 transform rotate-2"></div>
-                    <div class="relative rounded-2xl bg-white border border-gray-200 p-8 shadow-xl">
-                        <div class="flex flex-col sm:flex-col items-center gap-6 mb-8 pb-8 border-b border-gray-100">
-                            <div class="relative group">
-                                <div
-                                    class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-dark rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000">
-                                </div>
-                                <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli"
-                                    class="relative size-32 rounded-full object-cover border-4 border-white shadow-lg">
-                            </div>
-                            <div class="text-center sm:text-left">
-                                <h3 class="text-2xl font-bold text-text-main">Ugo Guazelli</h3>
-                                <p class="text-primary font-bold text-lg">Cloud Architect & Fundador</p>
+                <div>
+                    <span class="eyebrow">Trajetória</span>
 
-                                <!-- Certification Badges -->
-                                <div class="mt-4 flex flex-wrap gap-3 justify-center sm:justify-start">
-                                    <div
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">
-                                        <span class="material-symbols-outlined text-sm">verified</span>
-                                        MuleSoft Certified Platform Architect
-                                    </div>
-                                    <div
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-bold">
-                                        <span class="material-symbols-outlined text-sm">verified</span>
-                                        AWS Solutions Architect
-                                    </div>
-                                    <div
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">
-                                        <span class="material-symbols-outlined text-sm">verified</span>
-                                        Azure Fundamentals
-                                    </div>
-                                    <div
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">
-                                        <span class="material-symbols-outlined text-sm">verified</span>
-                                        MuleSoft Certified Developer
-                                    </div>
-                                </div>
+                    <p
+                        style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1.5rem; font-family: 'Fraunces', serif;">
+                        Ugo passou mais de 15 anos em ambientes corporativos de grande porte — Deloitte, Ubisoft, Accenture, Alithya — projetando a camada de integração que faz sistemas complexos conversarem entre si.
+                    </p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Na Deloitte, ele entregou mais de 15 APIs de nível empresarial para clientes de finanças e saúde. Na Ubisoft Montreal, reduziu os custos de infraestrutura em 66% por meio de arquitetura de integração e refatoração.
+                    </p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 3rem;">
+                        Ele fundou a Veridata Pro para trazer esse mesmo raciocínio para empresas menores e em crescimento — aquelas que ainda copiam dados entre sistemas manualmente, pagam o Zapier por tarefa e mantêm automações que quebram silenciosamente em produção.
+                    </p>
 
-                                <!-- LinkedIn Link -->
-                                <div class="mt-4 flex flex-col gap-2 items-center sm:items-start">
-                                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank"
-                                        class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-primary transition-colors">
-                                        <span class="material-symbols-outlined text-base">link</span>
-                                        Conectar no LinkedIn
-                                    </a>
-                                    <span class="text-sm text-text-muted">Fluente em Inglês, Espanhol, Português e
-                                        Francês</span>
-                                </div>
-                            </div>
+                    <div class="stat-grid" style="margin-bottom: 3rem;">
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Anos de Experiência</div>
                         </div>
-
-                        <div class="space-y-4 text-text-muted">
-                            <p>
-                                Ugo passou mais de 15 anos arquitetando integrações enterprise para empresas como
-                                Deloitte, Ubisoft, Accenture e Alithya — em toda a LATAM, nos Estados Unidos e no
-                                Canadá.
-                            </p>
-                            <p>
-                                Como Integration Manager na Deloitte, ele entregou mais de 15 APIs de nível empresarial
-                                para clientes de finanças e saúde. Na Ubisoft Montreal, reduziu os custos de
-                                infraestrutura em 66% por meio de arquitetura de integração e refatoração.
-                            </p>
-                            <p>
-                                Ele fundou a Veridata Pro porque via o mesmo problema se repetir: empresas da LATAM
-                                perdendo negócios nos EUA e na Europa não por terem produtos ruins — mas porque sua
-                                arquitetura de segurança não sobrevivia aos questionários rigorosos dos fornecedores.
-                                <br><br>
-                                <em>Integration Manager na Deloitte · IT Manager na Ubisoft Montreal · Accenture ·
-                                    Alithya</em>
-                            </p>
+                        <div class="stat-card">
+                            <div class="stat-num">8+</div>
+                            <div class="stat-label">Anos em Integração</div>
                         </div>
-
-                        <!-- Career Highlights -->
-                        <div class="mt-8 pt-8 border-t border-gray-100">
-                            <h4
-                                class="text-sm font-bold uppercase tracking-wider text-text-muted mb-4 text-center sm:text-left">
-                                Anteriormente em</h4>
-                            <div class="flex flex-wrap gap-3 justify-center sm:justify-start">
-                                <div
-                                    class="px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold">
-                                    Deloitte
-                                </div>
-                                <div
-                                    class="px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold">
-                                    Ubisoft
-                                </div>
-                                <div
-                                    class="px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold">
-                                    Accenture
-                                </div>
-                                <div
-                                    class="px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold">
-                                    Alithya
-                                </div>
-                            </div>
+                        <div class="stat-card">
+                            <div class="stat-num">15+</div>
+                            <div class="stat-label">Projetos Entregues</div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-num">4</div>
+                            <div class="stat-label">Idiomas</div>
+                        </div>
+                    </div>
+
+                    <h4
+                        style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; letter-spacing: 0.1em;">
+                        Anteriormente em</h4>
+                    <div class="pill-row">
+                        <span class="pill">Deloitte</span>
+                        <span class="pill">Ubisoft</span>
+                        <span class="pill">Accenture</span>
+                        <span class="pill">Alithya</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Educator Angle -->
-    <!-- <section class="py-20 bg-surface-offwhite">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="material-symbols-outlined text-4xl text-primary mb-4">school</span>
-            <h2 class="text-3xl font-bold text-text-main mb-6">Educação e Comunidade</h2>
-            <p class="text-lg text-text-muted leading-relaxed mb-8">
-                Além da Veridata, Ugo é o fundador da <strong>VeriAcademy</strong>, uma plataforma dedicada a
-                desmistificar a tecnologia. Ele ministra cursos sobre Alfabetização em IA, IA para Produtividade e,
-                o mais importante, IA para Pais — garantindo que a próxima geração (e seus guardiões) possam navegar o
-                futuro digital com segurança e eficácia.
-            </p>
-            <a href="https://veriacademy.com" target="_blank"
-                class="inline-flex items-center text-primary font-bold hover:underline">
-                Visite a VeriAcademy <span class="material-symbols-outlined text-lg ml-1">arrow_outward</span>
-            </a>
+    <!-- 3. TIMELINE -->
+    <section class="bg-cream">
+        <div class="container-narrow">
+            <span class="eyebrow">Experiência</span>
+            <h2 style="font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 3rem;">De onde vêm os 15 anos.</h2>
+
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <span class="timeline-period">2022 — Hoje</span>
+                    <div>
+                        <div class="timeline-role">Founder & Principal Architect</div>
+                        <div class="timeline-company">Veridata Pro</div>
+                        <p class="timeline-detail">Automação de processos e arquitetura de integração para empresas em crescimento. n8n, Make, Zapier. Projetos de escopo fechado e retainers mensais.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-period">2020 — Hoje</span>
+                    <div>
+                        <div class="timeline-role">MuleSoft Architect</div>
+                        <div class="timeline-company">CSL</div>
+                        <p class="timeline-detail">Arquitetura de integração enterprise para uma empresa biofarmacêutica global. Design da plataforma MuleSoft, governança de APIs, padrões de integração.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-period">2018 — 2020</span>
+                    <div>
+                        <div class="timeline-role">Integration Manager</div>
+                        <div class="timeline-company">Deloitte</div>
+                        <p class="timeline-detail">Mais de 15 APIs corporativas entregues para clientes em finanças e saúde. Design de arquitetura, seleção de tecnologia, liderança de equipe.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-period">2016 — 2018</span>
+                    <div>
+                        <div class="timeline-role">Integration Architect</div>
+                        <div class="timeline-company">Ubisoft Montreal</div>
+                        <p class="timeline-detail">Redução de 66% nos custos de infraestrutura por meio de arquitetura de integração e refatoração. Padrões AWS-native, migração para microsserviços.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-period">Anteriormente</span>
+                    <div>
+                        <div class="timeline-role">Senior Integration Engineer</div>
+                        <div class="timeline-company">Accenture · Alithya</div>
+                        <p class="timeline-detail">Integração corporativa na LATAM, EUA e Canadá. Implementações MuleSoft, design de plataforma de API, modernização de sistemas.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </section> -->
+    </section>
 
-    <!-- Footer -->
+    <!-- 4. CERTIFICATIONS -->
+    <section class="bg-paper">
+        <div class="container-narrow">
+            <span class="eyebrow">Certificações</span>
+            <h2 style="font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 3rem;">Credenciais.
+            </h2>
+            <ul class="cert-list">
+                <li>MuleSoft Certified Platform Architect</li>
+                <li>MuleSoft Certified Developer</li>
+                <li>AWS Solutions Architect</li>
+                <li>Azure Fundamentals</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. FINAL CTA -->
+    <section class="bg-ink" style="text-align: center;">
+        <div class="container-narrow">
+            <h2
+                style="font-size: 3rem; line-height: 1.2; letter-spacing: -0.02em; font-style: italic; margin-bottom: 1.5rem;">
+                <i>A experiência em arquitetura.<br>Aplicada ao seu problema real.</i>
+            </h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; color: rgba(245,241,234,0.8); margin-bottom: 3rem;">
+                A primeira chamada é gratuita. Sem compromisso.
+            </p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende uma chamada gratuita</a>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
-
-    <script>
-        window.resRoot = '../';
-    </script>
+    <script>window.resRoot = '../';</script>
     <script src="../assets/js/main.js"></script>
 </body>
 

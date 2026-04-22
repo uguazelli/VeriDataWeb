@@ -3,17 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro</title>
+    <title>Veridata Pro — Automatización de Procesos</title>
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     
-    <link href="../assets/css/styles.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
     <style>
         :root {
             --ink: #0E1823;
@@ -27,6 +26,7 @@
             --accent: #2F5A3F;
             --warn: #B8541E;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--paper);
@@ -35,16 +35,19 @@
             margin: 0;
             padding: 0;
         }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Fraunces', serif;
             font-weight: 300;
             margin: 0;
         }
+        
         h1 strong, h2 strong, h3 strong, h1 i, h2 i, h3 i, h1 em, h2 em, h3 em {
             font-weight: 300;
         }
+
         p { margin: 0; }
-        
+
         .eyebrow {
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
@@ -55,32 +58,29 @@
             display: block;
         }
         .bg-ink .eyebrow { color: var(--accent); }
-        
-        /* Section Backgrounds */
+
         .bg-ink { background-color: var(--ink); color: var(--cream); }
         .bg-paper { background-color: var(--paper); color: var(--text); }
         .bg-cream { background-color: var(--cream); color: var(--text); }
-        
+
         .bg-ink .text-muted { color: rgba(245,241,234,0.7); }
         .bg-paper .text-muted, .bg-cream .text-muted { color: var(--text-muted); }
-        
-        /* Layout */
-        .section-padding { padding: 96px 0; }
-        @media (max-width: 768px) {
-            .section-padding { padding: 72px 0; }
-        }
-        .container-custom {
+
+        section { padding: 96px 0; }
+        @media (max-width: 768px) { section { padding: 72px 0; } }
+
+        .container {
             max-width: 1180px;
             margin: 0 auto;
             padding: 0 32px;
         }
+
         .container-narrow {
             max-width: 860px;
             margin: 0 auto;
             padding: 0 32px;
         }
-        
-        /* Custom Button */
+
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -95,160 +95,265 @@
             transition: opacity 0.2s;
         }
         .btn-primary:hover { opacity: 0.9; }
-        
-        .bg-cream .btn-primary, .bg-paper .btn-primary {
-            background-color: var(--ink);
-            color: var(--cream);
-        }
-        
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            background-color: transparent;
-            color: var(--cream);
-            border: 1px solid var(--rule-dark);
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        .bg-paper .btn-secondary, .bg-cream .btn-secondary {
-            color: var(--ink);
-            border: 1px solid var(--rule);
-        }
-        .btn-secondary:hover { background-color: rgba(245,241,234,0.05); }
-        .bg-paper .btn-secondary:hover, .bg-cream .btn-secondary:hover { background-color: rgba(14,24,35,0.05); }
+        .bg-cream .btn-primary, .bg-paper .btn-primary { background-color: var(--ink); color: var(--cream); }
 
-        /* Typography spacing */
-        .title-spacing { margin-bottom: 2rem; }
-        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .hero-btns { flex-direction: column; }
-        }
-        .hero-lede { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin-bottom: 3rem; color: rgba(245,241,234,0.8); }
-        .section-title { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        @media (max-width: 768px) {
-            .section-title { font-size: 2.25rem; }
-        }
+        .hero-title { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) { .hero-title { font-size: 2.75rem; } }
+        .hero-lede { font-size: 1.25rem; line-height: 1.6; max-width: 650px; margin-bottom: 3rem; color: rgba(245,241,234,0.8); }
 
-        /* Grid Utilities */
-        .grid-custom { display: grid; gap: 2rem; }
-        .grid-cols-2-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        @media (max-width: 768px) {
-            .grid-cols-2-custom { grid-template-columns: 1fr; gap: 4rem; }
-        }
-        .grid-cols-3-custom { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        @media (max-width: 1024px) {
-            .grid-cols-3-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (max-width: 768px) {
-            .grid-cols-3-custom { grid-template-columns: 1fr; }
-        }
-        
-        /* Offer Cards Hub */
-        .offer-card {
-            border: 1px solid var(--rule);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            background-color: transparent;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-        .offer-card:hover { border-color: var(--ink); }
+        .section-title { font-size: 3rem; line-height: 1.2; margin-bottom: 4rem; letter-spacing: -0.02em; }
+        @media (max-width: 768px) { .section-title { font-size: 2.25rem; } }
 
-        /* 5. ABOUT UGO */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+        /* Problem Cards */
+        .problem-card { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+        .problem-number { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; color: var(--warn); margin-bottom: 1rem; display: block; }
+        .problem-title { font-size: 1.5rem; font-family: 'Fraunces', serif; margin-bottom: 1rem; }
+        .problem-desc { font-size: 1.125rem; line-height: 1.6; color: var(--text-muted); }
+
+        /* Tool Cards */
+        .tool-card { border: 1px solid var(--rule); padding: 2.5rem; display: flex; flex-direction: column; background-color: transparent; }
+        .tool-card.recommended { border-color: var(--accent); }
+        .tool-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; display: block; }
+        .tool-title { font-size: 1.5rem; font-family: 'Fraunces', serif; margin-bottom: 1rem; }
+        .tool-desc { font-size: 1rem; line-height: 1.6; color: var(--text-muted); flex-grow: 1; }
+
+        /* Examples rows */
+        .example-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+        .example-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 2rem 0; border-top: 1px solid var(--rule); }
+        @media (max-width: 768px) {
+            .example-header { display: none; }
+            .example-row { grid-template-columns: 1fr; gap: 1rem; }
+        }
+        .example-what { font-size: 1.125rem; line-height: 1.6; }
+        .example-why { font-size: 1.125rem; line-height: 1.6; color: var(--text-muted); }
+
+        /* Pricing Cards */
+        .price-card { border: 1px solid var(--rule); padding: 3rem; display: flex; flex-direction: column; }
+        .price-card.accent { border-color: var(--accent); }
+        .price-label { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; letter-spacing: 0.1em; }
+        .price-card.accent .price-label { color: var(--accent); }
+        .price-amount { font-family: 'Fraunces', serif; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .price-desc { font-size: 1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem; min-height: 4.8rem; }
+        @media (max-width: 768px) { .price-desc { min-height: auto; } }
+        .price-includes { list-style: none; padding: 0; margin: 0 0 3rem 0; flex-grow: 1; display: flex; flex-direction: column; gap: 1rem; }
+        .price-includes li { display: flex; gap: 1rem; font-size: 1.125rem; line-height: 1.6; }
+        .price-includes li span { color: var(--text-dim); font-weight: bold; }
+        .price-footnote { text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 3rem; }
+
+        /* About Ugo */
         .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .stat-card { border-top: 1px solid var(--rule); padding-top: 1rem; }
         .stat-num { font-size: 2.25rem; font-family: 'Fraunces', serif; margin-bottom: 0.25rem; }
         .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
-        .pill-tag { border: 1px solid var(--rule); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: var(--text-muted); display: inline-block; margin: 0.25rem; }
+
+        /* FAQ */
+        .faq-item { border-top: 1px solid var(--rule); padding: 2.5rem 0; }
+        .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+        .faq-q { font-size: 1.5rem; font-family: 'Fraunces', serif; margin-bottom: 1rem; }
+        .faq-a { font-size: 1.125rem; line-height: 1.6; color: var(--text-muted); }
     </style>
 </head>
 <body>
-    <!-- Top Navigation -->
     <div id="header-placeholder"></div>
 
-    <!-- 1. HERO -->
-    <section class="bg-ink section-padding" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
-        <div class="container-custom">
-            <span class="eyebrow accent">Consultoría y Asesoramiento</span>
-            <h1 class="hero-title">Dos problemas.<br>Un arquitecto.</h1>
-            <p class="hero-lede">Arquitectura de integración y asesoría cloud fraccional para empresas que buscan moverse rápido sin cometer errores costosos.</p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;" class="hero-btns">
-                <a href="integrations.html" class="btn-primary">Arquitectura de Integración</a>
-                <a href="aws.html" class="btn-secondary">Consultoría AWS Cloud</a>
+    <!-- Section 1 — Hero -->
+    <section class="bg-ink" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container">
+            <span class="eyebrow">Automatización de Procesos</span>
+            <h1 class="hero-title">Su equipo está haciendo manualmente<br>lo que una máquina debería hacer <i>gratis.</i></h1>
+            <p class="hero-lede">Automatizaciones en n8n, Make y Zapier para empresas que aún copian datos entre sistemas manualmente. Proyectos con precio fijo. Sin sorpresas por hora.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende una llamada gratuita</a>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule-dark);">
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(245,241,234,0.4); margin-bottom: 1.5rem;">Herramientas con las que trabajo</p>
+                <div style="display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;">
+                    <img src="../../assets/images/logos/n8n.svg" alt="n8n" style="height: 28px;" onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>n8n</span>'">
+                    <img src="../../assets/images/logos/make.svg" alt="Make" style="height: 28px;" onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Make</span>'">
+                    <img src="../../assets/images/logos/zapier.svg" alt="Zapier" style="height: 28px;" onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Zapier</span>'">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. TWO OFFERS -->
-    <section class="bg-paper section-padding">
-        <div class="container-custom">
-            <span class="eyebrow" style="text-align: center; width: 100%;">Áreas de Práctica</span>
-            <h2 class="section-title text-center" style="margin-bottom: 4rem;">Foco especializado.</h2>
+    <!-- Section 2 — The problem -->
+    <section class="bg-paper">
+        <div class="container-narrow">
+            <span class="eyebrow">¿Suena familiar?</span>
+            <h2 class="section-title">Las automatizaciones que no tiene<br>le están costando horas cada semana.</h2>
             
-            <div class="grid-custom grid-cols-2-custom">
-                <!-- Offer 1: Integrations -->
-                <a href="integrations.html" style="text-decoration: none; color: inherit;" class="offer-card">
-                    <h3 style="margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">01 / Integración</h3>
-                    <h4 style="font-size: 2rem; font-family: 'Fraunces', serif; margin-bottom: 1.5rem;">Sistemas que no se hablan</h4>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">Estás desperdiciando horas en la entrada manual de datos, parcheando scripts antiguos, o lidiando con integraciones fragmentadas que nadie controla.</p>
-                    
-                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1rem;">
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Diseño de arquitectura</li>
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Selección de tecnología</li>
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Revisiones de código y ADRs</li>
-                    </ul>
-                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; font-weight: 700;">Explorar Integraciones →</span>
-                </a>
-
-                <!-- Offer 2: AWS Cloud -->
-                <a href="aws.html" style="text-decoration: none; color: inherit;" class="offer-card">
-                    <h3 style="margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">02 / AWS Cloud</h3>
-                    <h4 style="font-size: 2rem; font-family: 'Fraunces', serif; margin-bottom: 1.5rem;">Decisiones cloud sin validación senior</h4>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">Estás lanzando aplicaciones en AWS pero careces de un arquitecto senior. Tus configuraciones te están costando dinero innecesario o arriesgando auditorías de seguridad.</p>
-                    
-                    <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1rem;">
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Revisiones arquitectónicas mensuales</li>
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Alertas de costos y riesgos</li>
-                        <li style="display: flex; gap: 1rem;"><span style="color: var(--text-dim); font-weight: bold;">—</span> Q&A asíncrono y resolución de dudas</li>
-                    </ul>
-                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; font-weight: 700;">Explorar AWS Cloud →</span>
-                </a>
+            <div class="grid-2" style="gap: 3rem 4rem;">
+                <div class="problem-card">
+                    <span class="problem-number">01</span>
+                    <h3 class="problem-title">Entrada manual de datos entre sistemas</h3>
+                    <p class="problem-desc">Alguien de su equipo exporta de una herramienta e importa a otra. Todos los días.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">02</span>
+                    <h3 class="problem-title">Costos de Zapier creciendo con su empresa</h3>
+                    <p class="problem-desc">Cada nueva automatización aumenta la factura. Usted paga por tarea, no por valor entregue.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">03</span>
+                    <h3 class="problem-title">Flujos de trabajo rotos que nadie gestiona</h3>
+                    <p class="problem-desc">Una automatización dejó de funcionar y nadie lo notó hasta que un cliente se quejó.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">04</span>
+                    <h3 class="problem-title">Datos pasando por herramientas que usted no controla</h3>
+                    <p class="problem-desc">Datos de clientes fluyendo por SaaS de terceros de EE. UU. que usted no aprobó explícitamente.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. ABOUT UGO -->
-    <section class="bg-cream section-padding">
+    <!-- Section 3 — The tools -->
+    <section class="bg-cream">
+        <div class="container">
+            <span class="eyebrow">Las Herramientas</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Tres herramientas. Una recomendación.</h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; max-width: 800px; margin-bottom: 4rem;">La mayoría de los problemas de automatización se pueden resolver con cualquiera de ellas. La decisión correcta depende de sus datos, su volumen y su presupuesto.</p>
+
+            <div class="grid-3">
+                <div class="tool-card recommended">
+                    <span class="tool-tag">Recomendado</span>
+                    <h3 class="tool-title">n8n</h3>
+                    <p class="tool-desc">Self-hosted. Sus datos permanecen en su infraestructura. Sin precio por tarea: el costo es fijo independientemente de cuántas automatizaciones ejecute. Los flujos viven en su repositorio como código real. Ideal para empresas con requisitos de compliance o volumen serio de automatización.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Make</h3>
+                    <p class="tool-desc">Visual y poderosa. Mejor que Zapier para lógicas complejas. Sigue siendo SaaS, pero significativamente más barata y capaz. Buena opción cuando el equipo quiere una interfaz visual y la residencia de datos no es una restricción.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Zapier</h3>
+                    <p class="tool-desc">El nombre más reconocido. Está bien para flujos simples y de bajo volumen. Si ya lo usa y funciona, podemos optimizar lo que tiene. No es la recomendación cuando está creciendo rápido o manejando datos sensibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 — What gets built -->
+    <section class="bg-paper">
+        <div class="container-narrow">
+            <span class="eyebrow">Ejemplos</span>
+            <h2 class="section-title">Automatizaciones reales.<br>No demostraciones.</h2>
+
+            <div class="example-header">
+                <div>Qué hace</div>
+                <div>Por qué importa</div>
+            </div>
+
+            <div class="example-row">
+                <div class="example-what">Trato cerrado en el CRM → factura creada automáticamente en el sistema financiero</div>
+                <div class="example-why">Fin de la facturación manual al final del día. Finanzas lo recibe apenas se cierra la venta.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Formulario web enviado → lead dirigido al vendedor correcto vía Slack + email</div>
+                <div class="example-why">Ningún lead se queda sin respuesta porque alguien olvidó revisar la hoja de cálculo.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Contrato firmado → secuencia de onboarding del cliente disparada automáticamente</div>
+                <div class="example-why">Cada nuevo cliente recibe la misma experiencia, sin que nadie lo haga manualmente.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Reconciliación de datos entre dos sistemas sin conector nativo</div>
+                <div class="example-why">Elimina la reconciliación manual semanal que toma medio día.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Webhook de aplicación propia → registros estructurados en base de datos o hoja de cálculo</div>
+                <div class="example-why">Los desarrolladores dejan de crear scripts internos que nadie mantiene.</div>
+            </div>
+            <div class="example-row" style="border-bottom: 1px solid var(--rule);">
+                <div class="example-what">Flujos de aprobación con intervención humana (human-in-the-loop)</div>
+                <div class="example-why">El proceso sigue en marcha. La persona correcta es notificada. Las decisiones quedan registradas.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5 — Pricing -->
+    <section class="bg-cream">
+        <div class="container">
+            <span class="eyebrow" style="text-align: center; width: 100%;">Precios</span>
+            <h2 class="section-title text-center" style="margin-bottom: 1rem;">Precio fijo.<br><i>Sin sorpresas.</i></h2>
+            <p style="text-align: center; color: var(--text-muted); font-size: 1.125rem; margin-bottom: 4rem;">Todo proyecto se detalla antes de comenzar. Usted sabe el precio antes de comprometerse.</p>
+
+            <div class="grid-3">
+                <div class="price-card">
+                    <span class="price-label">Starter</span>
+                    <div class="price-amount">desde $300 <span style="font-size: 1rem; font-family: 'Inter', sans-serif;">USD</span></div>
+                    <p class="price-desc">2–4 automatizaciones conectando herramientas estándar. Ideal para el primer flujo que desea poner en marcha.</p>
+                    <ul class="price-includes">
+                        <li><span>—</span> Hasta 4 flujos de automatización</li>
+                        <li><span>—</span> Conectores estándar (CRM, email, hojas de cálculo)</li>
+                        <li><span>—</span> Documentación de lo construido</li>
+                        <li><span>—</span> 2 semanas de soporte posentrega</li>
+                    </ul>
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="width: 100%;">Agende una llamada</a>
+                </div>
+
+                <div class="price-card accent">
+                    <span class="price-label">Más Común</span>
+                    <div class="price-amount">desde $600 <span style="font-size: 1rem; font-family: 'Inter', sans-serif;">USD</span></div>
+                    <p class="price-desc">5–15 automatizaciones con lógica personalizada, múltiples sistemas y configuración n8n self-hosted si es necesario.</p>
+                    <ul class="price-includes">
+                        <li><span>—</span> Hasta 15 flujos de automatización</li>
+                        <li><span>—</span> Lógica personalizada y ramificaciones condicionales</li>
+                        <li><span>—</span> Configuración n8n self-hosted (si aplica)</li>
+                        <li><span>—</span> Documentación completa + sesión de traspaso</li>
+                        <li><span>—</span> 30 días de soporte posentrega</li>
+                    </ul>
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="width: 100%;">Agende una llamada</a>
+                </div>
+
+                <div class="price-card">
+                    <span class="price-label">Retainer</span>
+                    <div class="price-amount">desde $200 <span style="font-size: 1rem; font-family: 'Inter', sans-serif;">USD / mes</span></div>
+                    <p class="price-desc">Para empresas que quieren que las automatizaciones evolucionen junto con el negocio. Nuevos flujos, cambios, arreglos: cubiertos bajo el compromiso mensual.</p>
+                    <ul class="price-includes">
+                        <li><span>—</span> Hasta 8 cambios o adiciones de automatización por mes</li>
+                        <li><span>—</span> Respuesta prioritaria</li>
+                        <li><span>—</span> Llamada mensual de revisión</li>
+                        <li><span>—</span> Q&A asíncrono vía Slack o email</li>
+                    </ul>
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="width: 100%;">Agende una llamada</a>
+                </div>
+            </div>
+
+            <p class="price-footnote">¿No está seguro de cuál elegir? La llamada de descubrimiento es gratuita. Definimos el proyecto juntos antes de cualquier pago.</p>
+        </div>
+    </section>
+
+    <!-- Section 6 — About Ugo -->
+    <section class="bg-paper">
         <div class="container-narrow">
             <span class="eyebrow">El Arquitecto</span>
-            <div class="grid-custom grid-cols-2-custom" style="align-items: start;">
+            <div class="grid-2" style="align-items: start; margin-top: 4rem;">
                 <div>
-                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo ha pasado más de 15 años diseñando la arquitectura de integraciones para aplicaciones empresariales en Deloitte, Ubisoft, Accenture y Alithya — a lo largo de toda LATAM, EE.UU. y Canadá.</p>
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Actualmente trabaja con empresas de tecnología pequeñas que están cometiendo esos mismos errores costosos a un nivel menor — ayudando a corregirlos y pararlos antes a que se multipliquen.</p>
-                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Ver perfil en LinkedIn</a>
+                    <img src="../../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Más de 15 años diseñando integraciones para empresas en toda LATAM, EE. UU. y Canadá.</p>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Ahora centrado en la automatización del flujos de trabajo para empresas en crecimiento: el mismo enfoque arquitectónico, aplicado a herramientas como n8n, Make y Zapier.</p>
+                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">LinkedIn</a>
                 </div>
                 <div>
-                    <div class="stat-grid" style="margin-bottom: 3rem;">
+                    <div class="stat-grid">
                         <div class="stat-card">
                             <div class="stat-num">15+</div>
                             <div class="stat-label">Años de Experiencia</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-num">8+</div>
-                            <div class="stat-label">Años AWS y MuleSoft</div>
+                            <div class="stat-label">Años en Integración</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-num">15+</div>
-                            <div class="stat-label">Enterprise APIs Entregadas</div>
+                            <div class="stat-label">Proyectos Entregados</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-num">4</div>
-                            <div class="stat-label">Idiomas Dominados</div>
+                            <div class="stat-label">Idiomas</div>
                         </div>
                     </div>
                 </div>
@@ -256,20 +361,48 @@
         </div>
     </section>
 
-    <!-- 4. FINAL CTA -->
-    <section class="bg-ink section-padding" style="text-align: center;">
+    <!-- Section 7 — FAQ -->
+    <section class="bg-cream">
         <div class="container-narrow">
-            <h2 class="section-title">¿No estás seguro de cuál se aplica a ti?</h2>
-            <p class="hero-lede" style="margin: 0 auto 3rem auto;">La llamada de descubrimiento es complemente gratuita y sin compromiso.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar llamada</a>
+            <span class="eyebrow">Detalles</span>
+            <h2 class="section-title">Respuestas honestas.</h2>
+
+            <div>
+                <div class="faq-item">
+                    <h3 class="faq-q">¿Necesito tener n8n ya instalado?</h3>
+                    <p class="faq-a">No. Si n8n es la herramienta adecuada para su proyecto, la configuración está incluida en el alcance. Usted obtiene un sistema funcionando, no solo un diseño.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">¿Por qué n8n en lugar de solo Zapier?</h3>
+                    <p class="faq-a">Zapier está bien para flujos simples y de bajo volumen. El problema es el modelo de precios: usted paga por tarea, por lo que los costos crecen cada vez que su empresa crece. n8n es self-hosted: el costo es plano, sus datos permanecen en su infraestructura, los flujos viven en su repositorio. Para cualquier requerimiento de compliance o volumen serio, n8n es la mejor arquitectura.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">¿Y si ya estoy usando Zapier y funciona?</h3>
+                    <p class="faq-a">Entonces no lo tocamos. Si funciona y el costo es aceptable, no hay razón para migrar. Podemos optimizar lo que tiene, agregar flujos o manejar las partes que Zapier no puede.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">¿Es este un proyecto único o continuo?</h3>
+                    <p class="faq-a">Ambas opciones están disponibles. La mayoría de los clientes comienzan con un proyecto fijo para resolver el problema inmediato. El retainer es para empresas que desean que las automatizaciones sigan evolucionando — nuevos flujos, cambios, correcciones — sin tener que definir un nuevo proyecto cada vez.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">¿Cuánto tiempo toma un proyecto?</h3>
+                    <p class="faq-a">Los proyectos Starter generalmente se entregan en 5–7 días. Los proyectos Growth en 2–3 semanas dependiendo de la complejidad. El cronograma siempre se confirma antes de que el proyecto comience.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Section 8 — Final CTA -->
+    <section class="bg-ink text-center">
+        <div class="container-narrow" style="text-align: center;">
+            <h2 class="section-title" style="font-style: italic;">Si su equipo lo hace manualmente,<br>probablemente hay una mejor manera.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">La primera llamada es gratuita. Sin compromiso.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende una llamada gratuita</a>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
-    <script>
-        window.resRoot = '../';
-    </script>
-    <script src="../assets/js/main.js"></script>
+    <script>window.resRoot = '../../';</script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>

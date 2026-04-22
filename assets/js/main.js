@@ -304,8 +304,7 @@ function translateUI(context) {
     const translations = {
         'pt': {
             'header.home': 'Início',
-            'header.integration': 'Integrações',
-            'header.aws': 'Arquitetura AWS',
+            'header.leadership': 'Liderança',
             'header.contact': 'Fale Conosco',
             'contact.title': 'Entre em Contato',
             'contact.subtitle': 'Como podemos ajudar a transformar sua arquitetura?',
@@ -327,8 +326,7 @@ function translateUI(context) {
         },
         'es': {
             'header.home': 'Inicio',
-            'header.integration': 'Integraciones',
-            'header.aws': 'Arquitectura AWS',
+            'header.leadership': 'Liderazgo',
             'header.contact': 'Contacto',
             'contact.title': 'Póngase en Contacto',
             'contact.subtitle': '¿Cómo podemos ayudar a transformar su arquitectura?',
