@@ -124,17 +124,18 @@ function setupMobileMenu() {
 
     const toggleMenu = (show) => {
         if (show) {
-            menu.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('translate-x-full');
-            }, 10);
-            document.body.classList.add('overflow-hidden');
+            menu.style.display = 'block';
+            // Force a reflow to ensure the slide transition plays
+            void menu.offsetWidth;
+            menu.classList.add('active');
+            document.body.style.overflow = 'hidden';
         } else {
-            content.classList.add('translate-x-full');
+            menu.classList.remove('active');
+            menu.style.display = 'block'; // Keep visible during transition
             setTimeout(() => {
-                menu.classList.add('hidden');
+                menu.style.display = ''; // Let CSS display: none take over
             }, 300);
-            document.body.classList.remove('overflow-hidden');
+            document.body.style.overflow = '';
         }
     };
 

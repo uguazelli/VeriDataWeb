@@ -11,6 +11,10 @@
     --warn: #B8541E;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--paper);
