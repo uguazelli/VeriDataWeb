@@ -4,200 +4,15 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Veridata Pro — Fractional Cloud Architect</title>
-
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-    <style>
-        :root {
-            --ink: #0E1823;
-            --cream: #F5F1EA;
-            --paper: #FAF7F2;
-            --rule: #D8D0BE;
-            --rule-dark: rgba(245,241,234,0.12);
-            --text: #1A1A1A;
-            --text-muted: #555;
-            --text-dim: #8B8378;
-            --accent: #2F5A3F;
-            --warn: #B8541E;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--paper);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Fraunces', serif;
-            font-weight: 300;
-            margin: 0;
-        }
-        h1 strong, h2 strong, h3 strong, h1 i, h2 i, h3 i, h1 em, h2 em, h3 em {
-            font-weight: 300;
-        }
-        p { margin: 0; }
-        
-        .eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-dim);
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        .bg-ink .eyebrow { color: var(--accent); }
-        
-        /* Section Backgrounds */
-        .bg-ink { background-color: var(--ink); color: var(--cream); }
-        .bg-paper { background-color: var(--paper); color: var(--text); }
-        .bg-cream { background-color: var(--cream); color: var(--text); }
-        
-        .bg-ink .text-muted { color: rgba(245,241,234,0.7); }
-        .bg-paper .text-muted, .bg-cream .text-muted { color: var(--text-muted); }
-        
-        /* Layout */
-        .section-padding { padding: 96px 0; }
-        @media (max-width: 768px) {
-            .section-padding { padding: 72px 0; }
-        }
-        .container-custom {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .container-narrow {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        
-        /* Custom Button */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            background-color: var(--cream);
-            color: var(--ink);
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .btn-primary:hover { opacity: 0.9; }
-        
-        .bg-cream .btn-primary, .bg-paper .btn-primary {
-            background-color: var(--ink);
-            color: var(--cream);
-        }
-        
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            background-color: transparent;
-            color: var(--cream);
-            border: 1px solid var(--rule-dark);
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        .bg-paper .btn-secondary, .bg-cream .btn-secondary {
-            color: var(--ink);
-            border: 1px solid var(--rule);
-        }
-        .btn-secondary:hover { background-color: rgba(245,241,234,0.05); }
-        .bg-paper .btn-secondary:hover, .bg-cream .btn-secondary:hover { background-color: rgba(14,24,35,0.05); }
-
-        /* Typography spacing */
-        .title-spacing { margin-bottom: 2rem; }
-        .hero-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .hero-btns { flex-direction: column; }
-        }
-        .hero-lede { font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin-bottom: 3rem; color: rgba(245,241,234,0.8); }
-        .section-title { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        @media (max-width: 768px) {
-            .section-title { font-size: 2.25rem; }
-        }
-
-        /* Grid Utilities */
-        .grid-custom { display: grid; gap: 2rem; }
-        .grid-cols-2-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        @media (max-width: 768px) {
-            .grid-cols-2-custom { grid-template-columns: 1fr; gap: 4rem; }
-        }
-        .grid-cols-3-custom { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        @media (max-width: 1024px) {
-            .grid-cols-3-custom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (max-width: 768px) {
-            .grid-cols-3-custom { grid-template-columns: 1fr; }
-        }
-
-        /* 2. PROBLEM Cards */
-        .card-problem {
-            border-top: 1px solid var(--rule);
-            padding-top: 1.5rem;
-        }
-        .card-problem-title { font-weight: 500; margin-bottom: 0.75rem; font-size: 1.125rem; }
-        .card-problem-num { color: var(--warn); font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; margin-bottom: 0.5rem; display: block;}
-
-        /* 3. QUÉ OBTIENES */
-        .scope-table { border-top: none; }
-        .scope-row { border-bottom: 1px solid var(--rule); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; }
-        
-        /* 5. ABOUT UGO */
-        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .stat-card { border-top: 1px solid var(--rule); padding-top: 1rem; }
-        .stat-num { font-size: 2.25rem; font-family: 'Fraunces', serif; margin-bottom: 0.25rem; }
-        .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
-        .pill-tag { border: 1px solid var(--rule); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; color: var(--text-muted); display: inline-block; margin: 0.25rem; }
-
-        /* 6. PRICING */
-        /* Pricing card */
-        .pricing-card {
-            border: 1px solid var(--rule);
-            padding: 4rem;
-            text-align: center;
-            background-color: var(--paper); /* Slight contrast against cream background */
-        }
-        @media (max-width: 768px) {
-            .pricing-card { padding: 2rem; }
-        }
-        .pricing-price {
-            font-size: 3.5rem;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 0.5rem;
-        }
-
-        /* 7. FAQ */
-        .faq-item {
-            border-top: 1px solid var(--rule);
-            padding: 2rem 0;
-        }
-        .faq-q {
-            font-family: 'Fraunces', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .faq-a {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-    </style>
 </head>
 
 <body>
@@ -205,8 +20,8 @@
     <div id="header-placeholder"></div>
 
     <!-- 1. HERO -->
-    <section class="bg-ink section-padding" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
-        <div class="container-custom">
+    <section class="bg-ink" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container">
             <span class="eyebrow accent">Arquitectura Cloud AWS</span>
             <h1 class="hero-title">Tu arquitectura cloud.<br>Validada por un operador <i>senior</i>.</h1>
             <p class="hero-lede">Para la mayoría de los clientes, el retainer se paga por sí solo en el primer mes únicamente con los ahorros generados en AWS — antes de que hayamos tocado una sola decisión de arquitectura.</p>
@@ -218,74 +33,74 @@
     </section>
 
     <!-- 2. PROBLEM -->
-    <section class="bg-paper section-padding">
-        <div class="container-custom">
+    <section class="bg-paper">
+        <div class="container">
             <span class="eyebrow">Los Síntomas</span>
-            <h2 class="section-title" style="max-width: 800px; margin-bottom: 4rem;">Lo que sucede cuando lanzas a producción sin un senior en la sala.</h2>
-            <div class="grid-custom grid-cols-3-custom">
-                <div class="card-problem">
-                    <span class="card-problem-num">01</span>
-                    <h3 class="card-problem-title">Errores de Base de Datos</h3>
-                    <p class="text-muted">Elegiste RDS cuando DynamoDB era la decisión correcta. Ahora estás pagando por capacidad que no usas, y las consultas lentas están bloqueando la app.</p>
+            <h2 class="section-title" style="max-width: 800px;">Lo que sucede cuando lanzas a producción sin un senior en la sala.</h2>
+            <div class="grid-3">
+                <div class="problem-card">
+                    <span class="problem-number">01</span>
+                    <h3 class="problem-title">Errores de Base de Datos</h3>
+                    <p class="problem-desc">Elegiste RDS cuando DynamoDB era la decisión correcta. Ahora estás pagando por capacidad que no usas, y las consultas lentas están bloqueando la app.</p>
                 </div>
-                <div class="card-problem">
-                    <span class="card-problem-num">02</span>
-                    <h3 class="card-problem-title">Caos de Herramientas</h3>
-                    <p class="text-muted">Tu equipo adoptó tres herramientas de monitoreo distintas porque nadie tenía la autoridad para decir no. Ahora los logs están fragmentados y los costos fuera de control.</p>
+                <div class="problem-card">
+                    <span class="problem-number">02</span>
+                    <h3 class="problem-title">Caos de Herramientas</h3>
+                    <p class="problem-desc">Tu equipo adoptó tres herramientas de monitoreo distintas porque nadie tenía la autoridad para decir no. Ahora los logs están fragmentados y los costos fuera de control.</p>
                 </div>
-                <div class="card-problem">
-                    <span class="card-problem-num">03</span>
-                    <h3 class="card-problem-title">Bloqueos de Seguridad</h3>
-                    <p class="text-muted">Construyeron la funcionalidad muy rápido. Luego, un cliente empresarial en EE.UU. te envía un cuestionario de seguridad y te das cuenta de que el diseño nunca pasará su auditoría.</p>
+                <div class="problem-card">
+                    <span class="problem-number">03</span>
+                    <h3 class="problem-title">Bloqueos de Seguridad</h3>
+                    <p class="problem-desc">Construyeron la funcionalidad muy rápido. Luego, un cliente empresarial en EE.UU. te envía un cuestionario de seguridad y te das cuenta de que el diseño nunca pasará su auditoría.</p>
                 </div>
-                <div class="card-problem">
-                    <span class="card-problem-num">04</span>
-                    <h3 class="card-problem-title">Desperdicio Invisible en AWS</h3>
-                    <p class="text-muted">Entornos de dev ejecutándose 24/7. Volúmenes gp2 que nunca migraron a gp3. Tráfico de NAT Gateway enrutado cross-AZ porque nadie leyó los precios. Una empresa de 30 personas normalmente tiene entre $1,500 y $3,000 de desperdicio mensual a simple vista.</p>
+                <div class="problem-card">
+                    <span class="problem-number">04</span>
+                    <h3 class="problem-title">Desperdicio Invisible en AWS</h3>
+                    <p class="problem-desc">Entornos de dev ejecutándose 24/7. Volúmenes gp2 que nunca migraron a gp3. Tráfico de NAT Gateway enrutado cross-AZ porque nadie leyó los precios. Una empresa de 30 personas normalmente tiene entre $1,500 y $3,000 de desperdicio mensual a simple vista.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 3. WHAT YOU GET -->
-    <section class="bg-cream section-padding" id="what-you-get">
-        <div class="container-custom">
+    <section class="bg-cream" id="what-you-get">
+        <div class="container">
             <span class="eyebrow">El Retainer</span>
             <h2 class="section-title">Un arquitecto de tu lado.</h2>
-            <div class="grid-custom grid-cols-2-custom">
-                <div>
-                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">Dentro del Alcance</h3>
-                    <div class="scope-table">
-                        <div class="scope-row">Revisión mensual de arquitectura (async via Loom/doc o llamada de 1h)</div>
-                        <div class="scope-row">Documento de hallazgos — priorizado: arreglar ahora / vigilar / sin problemas</div>
-                        <div class="scope-row">Preguntas y respuestas async en Slack o email para decisiones técnicas</div>
-                        <div class="scope-row">Revisión de pre-lanzamiento antes de cambios críticos en prod</div>
-                        <div class="scope-row">Registros de Decisiones de Arquitectura (ADRs) — breves y directos</div>
-                        <div class="scope-row">Alertas de riesgos y costos antes de que se vuelvan incidentes</div>
-                        <div class="scope-row">Evaluación de proveedores — ¿deberían adoptar esa nueva herramienta?</div>
-                    </div>
+            <div class="grid-2">
+                <div class="scope-col">
+                    <h3>Dentro del Alcance</h3>
+                    <ul class="scope-list">
+                        <li>Revisión mensual de arquitectura (async via Loom/doc o llamada de 1h)</li>
+                        <li>Documento de hallazgos — priorizado: arreglar ahora / vigilar / sin problemas</li>
+                        <li>Preguntas y respuestas async en Slack o email para decisiones técnicas</li>
+                        <li>Revisión de pre-lanzamiento antes de cambios críticos en prod</li>
+                        <li>Registros de Decisiones de Arquitectura (ADRs) — breves y directos</li>
+                        <li>Alertas de riesgos y costos antes de que se vuelvan incidentes</li>
+                        <li>Evaluación de proveedores — ¿deberían adoptar esa nueva herramienta?</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">Fuera de Alcance</h3>
-                    <div class="scope-table">
-                        <div class="scope-row text-muted">Ajuste de consolas de AWS o infraestructuras locales</div>
-                        <div class="scope-row text-muted">Escribir código o IaC</div>
-                        <div class="scope-row text-muted">On-call y respuesta a incidentes (IR)</div>
-                        <div class="scope-row text-muted">Gestión de proyectos</div>
-                        <div class="scope-row text-muted">Documentación completa de la plataforma</div>
-                        <div class="scope-row text-muted">Auditorías formales de seguridad</div>
-                        <div class="scope-row text-muted">Reclutamiento o armado de equipos</div>
-                    </div>
+                <div class="scope-col">
+                    <h3 style="color: var(--text-dim);">Fuera de Alcance</h3>
+                    <ul class="scope-list">
+                        <li class="text-muted">Ajuste de consolas de AWS o infraestructuras locales</li>
+                        <li class="text-muted">Escribir código o IaC</li>
+                        <li class="text-muted">On-call y respuesta a incidentes (IR)</li>
+                        <li class="text-muted">Gestión de proyectos</li>
+                        <li class="text-muted">Documentación completa de la plataforma</li>
+                        <li class="text-muted">Auditorías formales de seguridad</li>
+                        <li class="text-muted">Reclutamiento o armado de equipos</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. WHO THIS IS NOT FOR -->
-    <section class="bg-ink section-padding">
+    <section class="bg-ink">
         <div class="container-narrow">
             <span class="eyebrow accent">Perfil del Cliente</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">Esta es un práctica puramente consultiva.</h2>
+            <h2 class="section-title">Esta es un práctica puramente consultiva.</h2>
             <div style="border-top: 1px solid var(--rule-dark); padding-top: 2rem;">
                 <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--cream);">Si necesitas a alguien que escriba Terraform o construya la VPC por ti, ese es un contrato de desarrollo — no esto.</p>
                 <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--cream);">Si tu equipo no tiene a nadie que pueda implementar una recomendación, los consejos no servirán. Necesitas ingenieros que construyan primero.</p>
@@ -296,10 +111,10 @@
     </section>
 
     <!-- 5. ABOUT UGO -->
-    <section class="bg-paper section-padding">
+    <section class="bg-paper">
         <div class="container-narrow">
             <span class="eyebrow">El Arquitecto</span>
-            <div class="grid-custom grid-cols-2-custom" style="align-items: start;">
+            <div class="grid-2" style="align-items: start;">
                 <div>
                     <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
                     <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo ha pasado más de 15 años diseñando arquitecturas críticas en Deloitte, Ubisoft, Accenture y Alithya — en toda Latinoamérica, EE.UU. y Canadá.</p>
@@ -309,7 +124,7 @@
                     <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Ver Perfil en LinkedIn</a>
                 </div>
                 <div>
-                    <div class="stat-grid" style="margin-bottom: 3rem;">
+                    <div class="grid-2" style="gap: 1.5rem; margin-bottom: 3rem;">
                         <div class="stat-card">
                             <div class="stat-num">15+</div>
                             <div class="stat-label">Años Experiencia</div>
@@ -329,22 +144,22 @@
                     </div>
                     
                     <div style="margin-bottom: 3rem;">
-                        <span class="eyebrow" style="margin-bottom: 1rem;">Experiencia Pasada</span>
-                        <div>
-                            <span class="pill-tag">Deloitte</span>
-                            <span class="pill-tag">Ubisoft</span>
-                            <span class="pill-tag">Accenture</span>
-                            <span class="pill-tag">Alithya</span>
+                        <span class="label" style="margin-bottom: 1rem;">Experiencia Pasada</span>
+                        <div class="pill-row">
+                            <span class="pill">Deloitte</span>
+                            <span class="pill">Ubisoft</span>
+                            <span class="pill">Accenture</span>
+                            <span class="pill">Alithya</span>
                         </div>
                     </div>
 
                     <div>
-                        <span class="eyebrow" style="margin-bottom: 1rem;">Certificaciones</span>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted);">
-                            <li>• MuleSoft Certified Platform Architect</li>
-                            <li>• AWS Solutions Architect</li>
-                            <li>• Azure Fundamentals</li>
-                            <li>• MuleSoft Certified Developer</li>
+                        <span class="label" style="margin-bottom: 1rem;">Certificaciones</span>
+                        <ul class="cert-list">
+                            <li>MuleSoft Certified Platform Architect</li>
+                            <li>AWS Solutions Architect</li>
+                            <li>Azure Fundamentals</li>
+                            <li>MuleSoft Certified Developer</li>
                         </ul>
                     </div>
                 </div>
@@ -353,57 +168,57 @@
     </section>
 
     <!-- 6. PRICING -->
-    <section class="bg-cream section-padding">
+    <section class="bg-cream">
         <div class="container-narrow">
-            <span class="eyebrow" style="text-align: center; width: 100%;">Inversión</span>
-            <div class="pricing-card">
-                <div class="pricing-price">$1,500–2,000</div>
-                <p style="font-family: 'JetBrains Mono', monospace; color: var(--text-dim); text-transform: uppercase; font-size: 0.875rem; margin-bottom: 2.5rem; letter-spacing: 0.05em;">/ Mes</p>
-                <p style="font-size: 1.125rem; font-weight: 500; margin-bottom: 1rem;">Mes a mes. Sin contratos de permanencia.</p>
+            <span class="eyebrow text-center">Inversión</span>
+            <div class="price-card">
+                <span class="price-label">El Retainer</span>
+                <div class="price-amount">$1,500–2,000<span style="font-size: 1rem; color: var(--text-dim);"> / mes</span></div>
+                <p class="price-desc">Mes a mes. Sin contratos de permanencia.</p>
                 <p style="font-family: 'Fraunces', serif; font-style: italic; font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem;">Para la mayoría de los clientes, el ahorro del primer mes cubre el retainer por completo.</p>
                 
-                <ul style="list-style: none; padding: 0; margin: 0 auto 3rem; text-align: left; max-width: 400px; display: flex; flex-direction: column; gap: 1rem; color: var(--text); font-size: 1.125rem;">
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Revisión mensual de arquitectura</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Documento de hallazgos priorizados</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Q&A async por Slack / Email</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Revisión de pre-lanzamiento en prod</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Registros de Decisiones de Arquitectura</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Alertas tempranas de riesgos y costos</li>
-                    <li style="display: flex; gap: 1rem;"><span style="color: var(--accent); font-weight: bold;">✓</span> Evaluación de herramientas de terceros</li>
+                <ul class="price-features">
+                    <li><span>✓</span> Revisión mensual de arquitectura</li>
+                    <li><span>✓</span> Documento de hallazgos priorizados</li>
+                    <li><span>✓</span> Q&A async por Slack / Email</li>
+                    <li><span>✓</span> Revisión de pre-lanzamiento en prod</li>
+                    <li><span>✓</span> Registros de Decisiones de Arquitectura</li>
+                    <li><span>✓</span> Alertas tempranas de riesgos y costos</li>
+                    <li><span>✓</span> Evaluación de herramientas de terceros</li>
                 </ul>
 
-                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="margin-bottom: 1.5rem; width: 100%; max-width: 300px;">Agendar llamada</a>
+                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary" style="width: 100%;">Agendar llamada</a>
             </div>
-            <p style="text-align: center; color: var(--text-muted); margin-top: 1.5rem; font-size: 0.875rem;">¿No estás seguro si esto es para ti? La llamada de descubrimiento es gratuita y sin compromiso.</p>
-            <p style="text-align: center; margin-top: 3rem;"><a href="integrations.html" style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--text-dim); text-transform: uppercase;">¿También necesitas arquitectura de integración? →</a></p>
+            <p class="price-footnote">¿No estás seguro si esto es para ti? La llamada de descubrimiento es gratuita y sin compromiso.</p>
+            <p style="text-align: center; margin-top: 4rem;"><a href="integrations.html" class="mono-label" style="text-decoration: none; color: var(--text-dim); border-bottom: 1px solid var(--rule); padding-bottom: 4px;">¿También necesitas arquitectura de integración? →</a></p>
         </div>
     </section>
 
     <!-- The Math -->
-    <section class="bg-ink section-padding">
+    <section class="bg-ink">
         <div class="container-narrow">
             <span class="eyebrow accent">El Caso de Negocio</span>
-            <h2 class="section-title" style="margin-bottom: 4rem;">Más barato que contratar. Más rápido que esperar.</h2>
+            <h2 class="section-title">Más barato que contratar. Más rápido que esperar.</h2>
             
-            <div class="grid-custom grid-cols-2-custom" style="margin-bottom: 4rem;">
+            <div class="grid-2" style="margin-bottom: 4rem;">
                 <div>
-                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--text-dim); text-transform: uppercase;">Contratar un arquitecto AWS senior</h3>
-                    <div style="border-top: 1px solid var(--rule-dark);">
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">$30,000–60,000/año en LATAM</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">2–4 meses para contratar</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Headcount que podrías no necesitar</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Riesgo de despido si no funciona</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5;" class="text-muted">Disponible solo para empresas grandes</div>
+                    <h3 class="mono-label" style="margin-bottom: 2rem;">Contratar un arquitecto AWS senior</h3>
+                    <div class="scope-table">
+                        <div class="scope-row text-muted" style="border-top: 1px solid var(--rule-dark);">$30,000–60,000/año en LATAM</div>
+                        <div class="scope-row text-muted">2–4 meses para contratar</div>
+                        <div class="scope-row text-muted">Headcount que podrías no necesitar</div>
+                        <div class="scope-row text-muted">Riesgo de despido si no funciona</div>
+                        <div class="scope-row text-muted">Disponible solo para empresas grandes</div>
                     </div>
                 </div>
                 <div>
-                    <h3 style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--accent); text-transform: uppercase;">Este retainer</h3>
-                    <div style="border-top: 1px solid var(--rule-dark);">
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">$18,000–24,000/año</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Disponible en 7 días</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Sin headcount, sin costos de RRHH</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Cancela en cualquier mes</div>
-                        <div style="border-bottom: 1px solid var(--rule-dark); padding: 1.5rem 0; font-size: 1.125rem; line-height: 1.5; color: var(--cream);">Disponible para cualquier empresa hoy</div>
+                    <h3 class="mono-label" style="margin-bottom: 2rem; color: var(--accent);">Este retainer</h3>
+                    <div class="scope-table">
+                        <div class="scope-row" style="border-top: 1px solid var(--rule-dark); color: var(--cream);">$18,000–24,000/año</div>
+                        <div class="scope-row" style="color: var(--cream);">Disponible en 7 días</div>
+                        <div class="scope-row" style="color: var(--cream);">Sin headcount, sin costos de RRHH</div>
+                        <div class="scope-row" style="color: var(--cream);">Cancela en cualquier mes</div>
+                        <div class="scope-row" style="color: var(--cream);">Disponible para cualquier empresa hoy</div>
                     </div>
                 </div>
             </div>
@@ -413,10 +228,10 @@
     </section>
 
     <!-- 7. FAQ -->
-    <section class="bg-paper section-padding">
+    <section class="bg-paper">
         <div class="container-narrow">
             <span class="eyebrow">Detalles</span>
-            <h2 class="section-title" style="margin-bottom: 4rem;">Respuestas honestas.</h2>
+            <h2 class="section-title">Respuestas honestas.</h2>
             
             <div class="faq-item">
                 <h3 class="faq-q">¿Esto realmente se pagará por sí solo?</h3>
@@ -443,7 +258,7 @@
                 <p class="faq-a">Típicamente dentro de los primeros 7 días luego del acuerdo. Porque solo mantengo una base limitada de clientes seleccionados al mes; estas cuotas cerradas son la manera de garantizar que retengo el ancho de banda dedicado a resolver tus obstáculos de arquitectura de manera efectiva.</p>
             </div>
             
-            <div class="faq-item" style="border-bottom: 1px solid var(--rule);">
+            <div class="faq-item">
                 <h3 class="faq-q">¿Cómo es realmente una revisión mensual en la práctica?</h3>
                 <p class="faq-a">Analizo los últimos cambios e implementaciones en su AWS, evalúo los planos técnicos de nuevas features presentados. Retornando un reporte técnico en detalle listando qué es mandatorio ser cambiado o reforzado hoy, advirtiéndoles de configuraciones de cuidado a monitorear y resaltando lo que está actuando correctamente bajo diseño.</p>
             </div>
@@ -451,7 +266,7 @@
     </section>
 
     <!-- 8. FINAL CTA -->
-    <section class="bg-ink section-padding" style="text-align: center;">
+    <section class="bg-ink" style="text-align: center;">
         <div class="container-narrow">
             <h2 class="section-title">Tu factura de AWS ya sabe que algo anda mal.</h2>
             <p class="hero-lede" style="margin: 0 auto 3rem auto;">Valida tus decisiones de AWS antes de que se conviertan en incidentes.</p>
@@ -461,9 +276,7 @@
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script>
-        window.resRoot = '../';
-    </script>
+    <script>window.resRoot = '../';</script>
     <script src="../assets/js/main.js"></script>
 </body>
 </html>

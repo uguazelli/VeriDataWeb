@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro — Automatización de Procesos</title>
+    <title>Veridata Pro – Workflow Automation & Data Integration</title>
+    <meta name="description" content="Automatización de flujos de trabajo e integración de datos con precio fijo. Libere a su equipo de tareas repetitivas.">
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -12,431 +13,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-    <link href="../../assets/css/styles.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
-    <style>
-        :root {
-            --ink: #0E1823;
-            --cream: #F5F1EA;
-            --paper: #FAF7F2;
-            --rule: #D8D0BE;
-            --rule-dark: rgba(245, 241, 234, 0.12);
-            --text: #1A1A1A;
-            --text-muted: #555;
-            --text-dim: #8B8378;
-            --accent: #2F5A3F;
-            --warn: #B8541E;
-        }
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--paper);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Fraunces', serif;
-            font-weight: 300;
-            margin: 0;
-        }
-
-        h1 strong,
-        h2 strong,
-        h3 strong,
-        h1 i,
-        h2 i,
-        h3 i,
-        h1 em,
-        h2 em,
-        h3 em {
-            font-weight: 300;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        .eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-dim);
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .bg-ink .eyebrow {
-            color: var(--accent);
-        }
-
-        .bg-ink {
-            background-color: var(--ink);
-            color: var(--cream);
-        }
-
-        .bg-paper {
-            background-color: var(--paper);
-            color: var(--text);
-        }
-
-        .bg-cream {
-            background-color: var(--cream);
-            color: var(--text);
-        }
-
-        .bg-ink .text-muted {
-            color: rgba(245, 241, 234, 0.7);
-        }
-
-        .bg-paper .text-muted,
-        .bg-cream .text-muted {
-            color: var(--text-muted);
-        }
-
-        section {
-            padding: 96px 0;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 72px 0;
-            }
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .container-narrow {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            background-color: var(--cream);
-            color: var(--ink);
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .bg-cream .btn-primary,
-        .bg-paper .btn-primary {
-            background-color: var(--ink);
-            color: var(--cream);
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.75rem;
-            }
-        }
-
-        .hero-lede {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            max-width: 650px;
-            margin-bottom: 3rem;
-            color: rgba(245, 241, 234, 0.8);
-        }
-
-        .section-title {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 4rem;
-            letter-spacing: -0.02em;
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.25rem;
-            }
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Problem Cards */
-        .problem-card {
-            border-top: 1px solid var(--rule);
-            padding-top: 1.5rem;
-        }
-
-        .problem-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
-            color: var(--warn);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .problem-title {
-            font-size: 1.5rem;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 1rem;
-        }
-
-        .problem-desc {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        /* Tool Cards */
-        .tool-card {
-            border: 1px solid var(--rule);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            background-color: transparent;
-        }
-
-        .tool-card.recommended {
-            border-color: var(--accent);
-        }
-
-        .tool-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .tool-title {
-            font-size: 1.5rem;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 1rem;
-        }
-
-        .tool-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            flex-grow: 1;
-        }
-
-        /* Examples rows */
-        .example-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-dim);
-        }
-
-        .example-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            padding: 2rem 0;
-            border-top: 1px solid var(--rule);
-        }
-
-        @media (max-width: 768px) {
-            .example-header {
-                display: none;
-            }
-
-            .example-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        .example-what {
-            font-size: 1.125rem;
-            line-height: 1.6;
-        }
-
-        .example-why {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-        /* Pricing Cards */
-        .price-card {
-            border: 1px solid var(--rule);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-card.accent {
-            border-color: var(--accent);
-        }
-
-        .price-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 1.5rem;
-            display: block;
-            letter-spacing: 0.1em;
-        }
-
-        .price-card.accent .price-label {
-            color: var(--accent);
-        }
-
-        .price-amount {
-            font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .price-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            min-height: 4.8rem;
-        }
-
-        @media (max-width: 768px) {
-            .price-desc {
-                min-height: auto;
-            }
-        }
-
-        .price-includes {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 3rem 0;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .price-includes li {
-            display: flex;
-            gap: 1rem;
-            font-size: 1.125rem;
-            line-height: 1.6;
-        }
-
-        .price-includes li span {
-            color: var(--text-dim);
-            font-weight: bold;
-        }
-
-        .price-footnote {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            margin-top: 3rem;
-        }
-
-        /* About Ugo */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .stat-card {
-            border-top: 1px solid var(--rule);
-            padding-top: 1rem;
-        }
-
-        .stat-num {
-            font-size: 2.25rem;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-top: 1px solid var(--rule);
-            padding: 2.5rem 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .faq-q {
-            font-size: 1.5rem;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 1rem;
-        }
-
-        .faq-a {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-    </style>
 </head>
 
 <body>
@@ -446,37 +27,80 @@
     <section class="bg-ink" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
         <div class="container">
             <span class="eyebrow">Automatización de Procesos</span>
-            <h1 class="hero-title">Su equipo está haciendo manualmente<br>lo que una máquina debería hacer
-                <i>gratis.</i>
-            </h1>
+            <h1 class="hero-title">Su equipo está haciendo manualmente<br>lo que una máquina debería hacer <i>gratis.</i></h1>
+            <p class="hero-subtitle">Workflow Automation & Data Integration</p>
             <p class="hero-lede">Automatizaciones en n8n, Make y Zapier para empresas que aún copian datos entre
                 sistemas manualmente. Proyectos con precio fijo. Sin sorpresas por hora.</p>
             <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende una llamada
                 gratuita</a>
+        </div>
+    </section>
 
-            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule-dark);">
-                <p
-                    style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(245,241,234,0.4); margin-bottom: 1.5rem;">
-                    Herramientas con las que trabajamos</p>
-                <div style="display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;">
-                    <img src="../../assets/images/logos/n8n.svg" alt="n8n" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>n8n</span>'">
-                    <img src="../../assets/images/logos/make.svg" alt="Make" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Make</span>'">
-                    <img src="../../assets/images/logos/zapier.svg" alt="Zapier" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Zapier</span>'">
-                    <img src="../../assets/images/logos/mulesoft.svg" alt="MuleSoft" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>MuleSoft</span>'">
-                    <img src="../../assets/images/logos/python.svg" alt="Python" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Python</span>'">
-                    <img src="../../assets/images/logos/java.svg" alt="Java" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>Java</span>'">
-                    <img src="../../assets/images/logos/postgresql.svg" alt="PostgreSQL" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>PostgreSQL</span>'">
-                    <img src="../../assets/images/logos/mysql.svg" alt="MySQL" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>MySQL</span>'">
-                    <img src="../../assets/images/logos/aws.svg" alt="AWS" style="height: 28px;"
-                        onerror="this.outerHTML='<span style=\'font-family: JetBrains Mono, monospace; font-size: 0.875rem; color: rgba(245,241,234,0.45);\'>AWS</span>'">
+    <!-- Section 1.5 — Workflow Diagram -->
+    <section class="bg-cream section-padding">
+        <div class="container">
+            <span class="eyebrow text-center">Cómo Funciona</span>
+            <h2 class="section-title text-center">Antes y Después de la Automatización</h2>
+            
+            <div class="workflow-diagram">
+                <div class="workflow-grid">
+                    <!-- Proceso Manual -->
+                    <div class="workflow-col workflow-before">
+                        <div class="workflow-col-title">Proceso Manual</div>
+                        
+                        <div class="workflow-step workflow-step-bad">
+                            <span class="workflow-label">Llegan nuevos datos</span>
+                            <span class="workflow-mark workflow-x">✕</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-bad">
+                            <span class="workflow-label">Copia y pega manual</span>
+                            <span class="workflow-mark workflow-x">✕</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-bad">
+                            <span class="workflow-label">Error humano</span>
+                            <span class="workflow-mark workflow-x">✕</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-bad">
+                            <span class="workflow-label">Reporte retrasado</span>
+                            <span class="workflow-mark workflow-x">✕</span>
+                        </div>
+                        
+                        <div class="workflow-cost">Toma horas/días</div>
+                    </div>
+
+                    <div class="workflow-vs">
+                        <div class="workflow-vs-inner">VS</div>
+                    </div>
+
+                    <!-- Proceso Automatizado -->
+                    <div class="workflow-col workflow-after">
+                        <div class="workflow-col-title">Proceso Automatizado</div>
+                        
+                        <div class="workflow-step workflow-step-good">
+                            <span class="workflow-label">Evento disparador</span>
+                            <span class="workflow-mark workflow-check">✓</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-good">
+                            <span class="workflow-label">Flujo automatizado</span>
+                            <span class="workflow-mark workflow-check">✓</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-good">
+                            <span class="workflow-label">Datos limpios</span>
+                            <span class="workflow-mark workflow-check">✓</span>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-step workflow-step-good">
+                            <span class="workflow-label">Insight instantáneo</span>
+                            <span class="workflow-mark workflow-check">✓</span>
+                        </div>
+                        
+                        <div class="workflow-cost">Toma segundos</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -553,7 +177,7 @@
                 <div class="grid-2" style="align-items: center; gap: 4rem;">
                     <div>
                         <h4
-                            style="font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text);">
+                            style="font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text);">
                             ¿Necesidades empresariales o a medida?</h4>
                         <p style="font-size: 1rem; color: var(--text-dim); line-height: 1.5;">Para infraestructuras
                             complejas o requisitos de alta seguridad, también desarrollamos integraciones nativas con
@@ -614,6 +238,59 @@
                 <div class="example-what">Flujos de aprobación con intervención humana (human-in-the-loop)</div>
                 <div class="example-why">El proceso sigue en marcha. La persona correcta es notificada. Las decisiones
                     quedan registradas.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4.5 — Testimonials -->
+    <section class="bg-cream section-padding">
+        <div class="container">
+            <span class="eyebrow text-center">Testimonios</span>
+            <h2 class="section-title text-center">Lo Que Dicen Nuestros Clientes</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Veridata Pro automatizó todo nuestro proceso de reportes. Nuestro equipo ahora ahorra 15 horas a la semana."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Maria Santos</div>
+                        <div class="testimonial-role">Head de Operaciones, NovaFin</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"El modelo de precio fijo nos dio confianza. La implementación fue fluida y los resultados fueron inmediatos."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">James Clearwater</div>
+                        <div class="testimonial-role">CTO, BridgeData</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Finalmente, un socio de automatización sin rodeos. Ugo entendió nuestras necesidades desde el primer día."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Lena Müller</div>
+                        <div class="testimonial-role">Product Manager, ScaleUp GmbH</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4.6 — Technology Stack -->
+    <section class="bg-paper section-padding">
+        <div class="container">
+            <span class="eyebrow text-center">Tecnologías</span>
+            <h2 class="section-title text-center">Tecnologías que Usamos</h2>
+            <p class="text-center text-muted" style="max-width: 600px; margin: 0 auto 4rem;">Las herramientas y plataformas con las que integramos a diario para construir sus flujos personalizados.</p>
+            
+            <div style="display: flex; gap: 3rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <img src="../../assets/images/logos/n8n.svg" alt="n8n" style="height: 32px;">
+                <img src="../../assets/images/logos/make.svg" alt="Make" style="height: 32px;">
+                <img src="../../assets/images/logos/zapier.svg" alt="Zapier" style="height: 32px;">
+                <img src="../../assets/images/logos/mulesoft.svg" alt="MuleSoft" style="height: 32px;">
+                <img src="../../assets/images/logos/python.svg" alt="Python" style="height: 32px;">
+                <img src="../../assets/images/logos/java.svg" alt="Java" style="height: 32px;">
+                <img src="../../assets/images/logos/postgresql.svg" alt="PostgreSQL" style="height: 32px;">
+                <img src="../../assets/images/logos/mysql.svg" alt="MySQL" style="height: 32px;">
+                <img src="../../assets/images/logos/aws.svg" alt="AWS" style="height: 32px;">
             </div>
         </div>
     </section>
@@ -681,7 +358,7 @@
             <div
                 style="margin-top: 4rem; padding: 3rem; background: #fff; border: 1px solid var(--rule); border-radius: 8px; text-align: center;">
                 <h3
-                    style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--text);">
+                    style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; color: var(--text);">
                     ¿Necesidades empresariales o a medida?</h3>
                 <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 2rem;">Para operaciones de alto
                     volumen, infraestructuras complejas (Python, Java, MuleSoft, AWS) o requisitos de seguridad

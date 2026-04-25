@@ -8,41 +8,15 @@
     <title>Veridata RevOps - Infraestrutura de Receita para a América Latina</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="../assets/css/styles.css" rel="stylesheet">
-    <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-
-        .gradient-text {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: linear-gradient(to right, #1e293b, #3d6b4f);
-        }
-
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#d8e6dc 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-    </style>
-    <meta property="og:title" content="Veridata RevOps - Infraestrutura de Receita" />
-    <meta property="og:description"
-        content="Substitua o 'Buraco Negro' do WhatsApp por um Pipeline de Dados estruturado. Single Tenant. Zero Trust." />
-    <meta property="og:image" content="../assets/images/revops-hero.webp" />
-    <meta property="og:url" content="https://veridata.pro/pt-br/revops.html" />
-    <meta property="og:type" content="website" />
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
-<body
-    class="page-revops bg-background-light text-text-main font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+<body>
     <div class="relative flex h-auto min-h-screen w-full flex-col">
         <div id="header-placeholder"></div>
         <section class="relative flex flex-col items-center justify-center min-h-screen pt-24 pb-20 px-4 overflow-hidden bg-slate-900 border-b border-border-light">
@@ -53,30 +27,23 @@
             <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-900 z-0 pointer-events-none"></div>
     
             <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col gap-8 w-full mt-10">
-                <div
-                    class="inline-flex items-center justify-center gap-2 px-4 py-1.5 mx-auto rounded border border-white/20 bg-white/10 text-xs font-bold uppercase tracking-wider text-white font-mono backdrop-blur-sm">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-                        <span class="relative inline-flex rounded h-2 w-2 bg-success shadow-[0_0_8px_rgba(5,150,105,0.8)]"></span>
-                    </span>
-                    Infraestrutura de Receita • Single Tenant • Zero Trust
+                <div class="eyebrow">
+                    Infraestrutura de Receita &bull; Single Tenant &bull; Zero Trust
                 </div>
-                <h1 class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-center drop-shadow-lg">
-                    Veri Rev Ops: <br/><span style="color: #6fa882">O Motor de Crescimento para PMEs</span>
-                </h1>
-                <p class="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto drop-shadow">
+                <h1 class="hero-title">Veri Rev Ops: <br /><i>O Motor de Crescimento para PMEs</i></h1>
+                <p class="hero-lede">
                     Pare de trocar de abas. Gerencie WhatsApp, Telegram e Email de um só painel. Centro de Comando Unificado.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
                     <a href="https://wa.me/17405208080" target="_blank"
-                        class="flex min-w-[200px] cursor-pointer items-center justify-center gap-2 rounded h-14 px-8 bg-[#25D366] text-white text-base font-bold hover:bg-[#20b85c] transition-colors font-mono uppercase text-sm tracking-wide shadow-lg w-full sm:w-auto">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center gap-2 rounded h-14 px-8 bg-[#25D366] text-white text-xl font-medium hover:bg-primary-dark transition-colors font-mono uppercase text-sm tracking-wide shadow-lg w-full sm:w-auto">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                         </svg>
                         +1 740-520-8080
                     </a>
                     <a href="https://t.me/veridatapro_bot" target="_blank"
-                        class="flex min-w-[200px] cursor-pointer items-center justify-center gap-2 rounded h-14 px-8 bg-[#0088cc] text-white text-base font-bold hover:bg-[#0077b5] transition-colors font-mono uppercase text-sm tracking-wide shadow-lg w-full sm:w-auto">
+                        class="flex min-w-[200px] cursor-pointer items-center justify-center gap-2 rounded h-14 px-8 bg-[#0088cc] text-white text-base font-medium hover:bg-[#0077b5] transition-colors font-mono uppercase text-sm tracking-wide shadow-lg w-full sm:w-auto">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.638z" />
                         </svg>
@@ -88,8 +55,8 @@
         <section class="py-24 px-4 bg-white">
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col gap-4 mb-16 text-center"><span
-                        class="text-primary font-bold uppercase tracking-wider text-sm font-mono tracking-widest">A Oferta Principal</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main tracking-tight">A Arquitetura do "Motor de
+                        class="text-primary font-medium uppercase tracking-wider text-sm font-mono tracking-widest">A Oferta Principal</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-text-main tracking-tight">A Arquitetura do "Motor de
                         Crescimento"</h2>
                     <p class="text-lg text-text-muted max-w-2xl mx-auto">Vendemos um "CTO-as-a-Service" para Operações
                         de Vendas. Construímos um Pipeline de Dados Privado usando Arquitetura Zero-Trust. </p>
@@ -101,8 +68,8 @@
                         <div class="size-12 rounded-lg text-primary flex items-center justify-center mb-4" style="background: #edf3ef">
                             <span class="material-symbols-outlined text-2xl">forum</span>
                         </div>
-                        <h3 class="text-lg font-bold text-text-main mb-2">Inbox Universal</h3>
-                        <p class="text-sm font-bold text-primary mb-2">Centro de Comando Unificado</p>
+                        <h3 class="text-lg font-medium text-text-main mb-2">Inbox Universal</h3>
+                        <p class="text-sm font-medium text-primary mb-2">Centro de Comando Unificado</p>
                         <p class="text-sm text-text-muted">Centralize WhatsApp, Telegram e E-mail. Pare o vazamento de
                             dados. O número e o histórico são seus. Se um vendedor sair da empresa, os clientes e o
                             histórico ficam com você, e não no celular pessoal dele.</p>
@@ -114,8 +81,8 @@
                             class="size-12 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-2xl">psychology</span>
                         </div>
-                        <h3 class="text-lg font-bold text-text-main mb-2">Transbordo Inteligente (HITL)</h3>
-                        <p class="text-sm font-bold text-primary mb-2">Detecção de Sentimento</p>
+                        <h3 class="text-lg font-medium text-text-main mb-2">Transbordo Inteligente (HITL)</h3>
+                        <p class="text-sm font-medium text-primary mb-2">Detecção de Sentimento</p>
                         <p class="text-sm text-text-muted">O sistema detecta sentimentos de raiva ou solicitações
                             complexas e alerta instantaneamente um agente humano.</p>
                     </div>
@@ -126,8 +93,8 @@
                             class="size-12 rounded-lg bg-green-50 text-green-600 flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-2xl">lock</span>
                         </div>
-                        <h3 class="text-lg font-bold text-text-main mb-2">Sincronização CRM</h3>
-                        <p class="text-sm font-bold text-primary mb-2">Integração Nativa</p>
+                        <h3 class="text-lg font-medium text-text-main mb-2">Sincronização CRM</h3>
+                        <p class="text-sm font-medium text-primary mb-2">Integração Nativa</p>
                         <p class="text-sm text-text-muted">Integração nativa com EspoCRM e HubSpot. Cada conversa cria
                             um lead automaticamente.</p>
                     </div>
@@ -138,8 +105,8 @@
                             class="size-12 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4">
                             <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
                         </div>
-                        <h3 class="text-lg font-bold text-text-main mb-2">Auto-Qualificação</h3>
-                        <p class="text-sm font-bold text-primary mb-2">Atualizações em Tempo Real</p>
+                        <h3 class="text-lg font-medium text-text-main mb-2">Auto-Qualificação</h3>
+                        <p class="text-sm font-medium text-primary mb-2">Atualizações em Tempo Real</p>
                         <p class="text-sm text-text-muted">Detecta sinais de 'Novo Lead' (orçamento, prazo) e atualiza o
                             perfil no CRM em tempo real.</p>
                     </div>
@@ -149,17 +116,17 @@
         <section class="py-24 px-4 bg-surface-offwhite relative overflow-hidden">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="flex flex-col gap-8 order-2 lg:order-1">
-                    <div class="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm">
+                    <div class="inline-flex items-center gap-2 text-primary font-medium uppercase tracking-wider text-sm">
                         <span class="material-symbols-outlined text-lg">auto_fix_high</span>A Solução
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-text-main leading-tight">Inteligência de
+                    <h2 class="text-white text-4xl md:text-5xl font-light tracking-tight leading-tight">Inicie seu Motor de
                         Atendimento</h2>
                     <p class="text-text-muted text-lg leading-relaxed">Seus clientes adoram enviar áudios. Você odeia
                         ouvi-los. <br>O VeriBot não apenas transcreve. Ele ouve, entende o contexto e <strong>responde
                             com uma mensagem de voz</strong> automaticamente.
                     </p>
                     <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                        <p class="text-text-main font-bold text-lg">"O bot responde ao áudio do meu cliente com outro
+                        <p class="text-text-main font-medium text-lg">"O bot responde ao áudio do meu cliente com outro
                             áudio. Parece humano."
                         </p>
                     </div>
@@ -174,7 +141,7 @@
                             class="bg-white p-4 rounded-2xl rounded-tl-sm self-start max-w-[90%] shadow-lg border border-gray-100 transform -rotate-1">
                             <div class="flex items-center gap-2 mb-2"><span
                                     class="material-symbols-outlined text-green-500 text-sm">mic</span>
-                                <p class="text-xs text-gray-500 font-semibold uppercase">Cliente (Áudio)</p>
+                                <p class="text-xs text-gray-500 font-medium uppercase">Cliente (Áudio)</p>
                             </div>
                             <div
                                 class="flex items-center gap-3 bg-gray-50 rounded-full px-3 py-2 border border-gray-100 w-64">
@@ -195,7 +162,7 @@
                         <div
                             class="bg-primary/5 p-4 rounded-2xl rounded-tr-sm self-end max-w-[90%] shadow-lg border border-primary/20 transform rotate-1">
                             <div class="flex items-center gap-2 mb-2 justify-end">
-                                <p class="text-xs text-primary font-bold uppercase">VeriBot (Resposta em Áudio)
+                                <p class="text-xs text-primary font-medium uppercase">VeriBot (Resposta em Áudio)
                                 </p><span class="material-symbols-outlined text-primary text-sm">smart_toy</span>
                             </div>
                             <div
@@ -204,7 +171,7 @@
                                 <div class="h-1 bg-gray-200 flex-1 rounded-full relative">
                                     <div class="absolute left-0 top-0 bottom-0 bg-primary w-2/3 rounded-full">
                                     </div>
-                                </div><span class="text-xs font-mono text-primary font-bold">0:12</span>
+                                </div><span class="text-xs font-mono text-primary font-medium">0:12</span>
                             </div>
                             <p class="text-xs text-text-muted mt-2 text-right">"Claro! Encontrei esse produto em nosso
                                 catálogo..."</p>
@@ -225,7 +192,7 @@
                             class="bg-white p-5 rounded-2xl rounded-tl-sm self-start max-w-[90%] shadow-lg border border-gray-100 transform -rotate-1">
                             <div class="flex items-center gap-2 mb-2"><span
                                     class="material-symbols-outlined text-green-500 text-sm">chat</span>
-                                <p class="text-xs text-gray-500 font-semibold uppercase">Cliente WhatsApp</p>
+                                <p class="text-xs text-gray-500 font-medium uppercase">Cliente WhatsApp</p>
                             </div>
                             <p class="text-text-main text-lg font-medium">"Eu tenho um orçamento de <span
                                     class="bg-green-100 text-green-700 px-1 rounded">$5.000</span> e preciso disso para
@@ -247,33 +214,33 @@
                                         <span class="material-symbols-outlined">person_add</span>
                                     </div>
                                     <div>
-                                        <h4 class="text-text-main font-bold text-sm">Novo Lead Detectado</h4>
+                                        <h4 class="text-text-main font-medium text-sm">Novo Lead Detectado</h4>
                                         <p class="text-xs text-text-muted">Entrada EspoCRM #9281</p>
                                     </div>
                                 </div><span
-                                    class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-md font-bold border border-green-200">QUALIFICADO</span>
+                                    class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-md font-medium border border-green-200">QUALIFICADO</span>
                             </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                                    <p class="text-xs text-text-muted mb-1 font-semibold uppercase">Orçamento</p>
-                                    <p class="text-text-main font-mono font-bold text-lg">$5.000</p>
+                                    <p class="text-xs text-text-muted mb-1 font-medium uppercase">Orçamento</p>
+                                    <p class="text-text-main font-mono font-medium text-lg">$5.000</p>
                                 </div>
                                 <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                                    <p class="text-xs text-text-muted mb-1 font-semibold uppercase">Prazo</p>
-                                    <p class="text-text-main font-bold text-sm flex items-center gap-1"><span
+                                    <p class="text-xs text-text-muted mb-1 font-medium uppercase">Prazo</p>
+                                    <p class="text-text-main font-medium text-sm flex items-center gap-1"><span
                                             class="material-symbols-outlined text-red-500 text-sm filled">priority_high</span>Urgente
                                         (sexta) </p>
                                 </div>
                                 <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                                    <p class="text-xs text-text-muted mb-1 font-semibold uppercase">Intenção</p>
+                                    <p class="text-xs text-text-muted mb-1 font-medium uppercase">Intenção</p>
                                     <div class="w-full bg-gray-200 rounded-full h-2.5 mt-1">
                                         <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
                                     </div>
-                                    <p class="text-right text-xs font-bold text-primary mt-1">Alta</p>
+                                    <p class="text-right text-xs font-medium text-primary mt-1">Alta</p>
                                 </div>
                                 <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                                    <p class="text-xs text-text-muted mb-1 font-semibold uppercase">Origem</p>
-                                    <div class="flex items-center gap-1 text-text-main font-bold text-sm">WhatsApp /
+                                    <p class="text-xs text-text-muted mb-1 font-medium uppercase">Origem</p>
+                                    <div class="flex items-center gap-1 text-text-main font-medium text-sm">WhatsApp /
                                         Telegram </div>
                                 </div>
                             </div>
@@ -282,18 +249,18 @@
                 </div>
                 <!-- Text (Text Right) -->
                 <div class="flex flex-col gap-8 order-1 lg:order-2">
-                    <div class="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm">
+                    <div class="inline-flex items-center gap-2 text-primary font-medium uppercase tracking-wider text-sm">
                         <span class="material-symbols-outlined text-lg">sync_alt</span>Integração Fluida
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-text-main leading-tight">Dados Estruturados,
-                        <br />Não Apenas "Chat"
+                    <h2 class="text-3xl md:text-5xl font-light text-text-main tracking-tight leading-tight">Operações VeriData:
+                        <br />Dados Estruturados, Não Apenas "Chat"
                     </h2>
                     <p class="text-text-muted text-lg leading-relaxed">Quando um cliente diz ao bot: "Eu tenho um
                         orçamento de $5.000 e preciso disso para sexta-feira", bots genéricos apenas continuam
                         conversando. O VeriBot age de forma diferente. Ele extrai silenciosamente esses dados e os
                         injeta no seu EspoCRM automaticamente. </p>
                     <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                        <p class="text-text-main font-bold text-lg">"Sua equipe de vendas acorda com leads qualificados,
+                        <p class="text-text-main font-medium text-lg">"Sua equipe de vendas acorda com leads qualificados,
                             não apenas mensagens não lidas."
                         </p>
                     </div>
@@ -303,8 +270,8 @@
         <section class="py-24 px-4 bg-surface-offwhite">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16"><span
-                        class="text-primary font-bold uppercase tracking-wider text-sm">Nossa Tecnologia</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main mt-2">Inteligência Principal</h2>
+                        class="text-primary font-medium uppercase tracking-wider text-sm">Nossa Tecnologia</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-text-main mt-2">Inteligência Principal</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div
@@ -314,10 +281,10 @@
                                 class="size-14 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 shadow-sm">
                                 <span class="material-symbols-outlined text-3xl">psychology</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-text-main">Inteligência Autocorretiva</h3>
+                            <h3 class="text-2xl font-medium text-text-main">Inteligência Autocorretiva</h3>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xl font-bold text-primary">O Agente que se Avalia.</h4>
+                            <h4 class="text-xl font-medium text-primary">O Agente que se Avalia.</h4>
                             <p class="text-text-muted leading-relaxed">A maioria dos bots "adivinha e envia". O nosso
                                 não. Ele gera uma resposta, avalia contra seus documentos, e se a nota for baixa, ele
                                 <strong>reescreve a resposta</strong> antes de enviar ao cliente.
@@ -340,10 +307,10 @@
                                 class="size-14 rounded-xl flex items-center justify-center text-primary shadow-sm" style="background: #edf3ef">
                                 <span class="material-symbols-outlined text-3xl">graphic_eq</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-text-main">Visão Multimodal</h3>
+                            <h3 class="text-2xl font-medium text-text-main">Pronto para escalar?</h3>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-xl font-bold text-primary">"Olhos" para seu Suporte.</h4>
+                            <h4 class="text-xl font-medium text-primary">"Olhos" para seu Suporte.</h4>
                             <p class="text-text-muted leading-relaxed">O bot pode "ver" imagens enviadas por usuários.
                                 Se um cliente envia a foto de uma peça quebrada ou um erro, o bot analisa (via Gemini
                                 Vision) para diagnosticar o problema instantaneamente.</p>
@@ -368,7 +335,7 @@
                     <span class="material-symbols-outlined text-4xl text-primary">verified_user</span>
                 </div>
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-4">Construído por Experiência, Não por
+                    <h2 class="text-3xl md:text-4xl font-light text-text-main mb-4">Construído por Experiência, Não por
                         Marketing
                     </h2>
                     <p class="text-text-muted max-w-2xl mx-auto text-lg leading-relaxed">Liderado por um Arquiteto Cloud
@@ -382,27 +349,27 @@
         <section class="py-24 px-4 bg-white border-t border-gray-100">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Analytics</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main mt-2">Prove o Valor</h2>
+                    <span class="text-primary font-medium uppercase tracking-wider text-sm">Analytics</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-text-main mt-2">Prove o Valor</h2>
                     <p class="text-lg text-text-muted mt-4">Veja exatamente como a automação impacta seu resultado.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="p-6 bg-surface-offwhite rounded-xl text-center">
-                        <div class="text-4xl font-black text-primary mb-2">80%</div>
-                        <div class="text-sm font-bold text-text-muted uppercase">Taxa de Automação</div>
+                        <div class="text-4xl font-medium text-primary mb-2">80%</div>
+                        <div class="text-sm font-medium text-text-muted uppercase">Taxa de Automação</div>
                     </div>
                     <div class="p-6 bg-surface-offwhite rounded-xl text-center">
-                        <div class="text-4xl font-black text-primary mb-2">24/7</div>
-                        <div class="text-sm font-bold text-text-muted uppercase">Captura de Leads</div>
+                        <div class="text-4xl font-medium text-primary mb-2">24/7</div>
+                        <div class="text-sm font-medium text-text-main">Melhoria na Resposta de Leads</div>
                     </div>
                     <div class="p-6 bg-surface-offwhite rounded-xl text-center">
                         <span class="material-symbols-outlined text-4xl text-primary mb-2">trending_up</span>
-                        <div class="text-sm font-bold text-text-muted uppercase block mt-2">Tendências de Sentimento
+                        <div class="text-sm font-medium text-text-muted uppercase block mt-2">Tendências de Sentimento
                         </div>
                     </div>
                     <div class="p-6 bg-surface-offwhite rounded-xl text-center">
                         <span class="material-symbols-outlined text-4xl text-primary mb-2">savings</span>
-                        <div class="text-sm font-bold text-text-muted uppercase block mt-2">Calc. Economia de Custos
+                        <div class="text-sm font-medium text-text-muted uppercase block mt-2">Calc. Economia de Custos
                         </div>
                     </div>
                 </div>
@@ -411,9 +378,9 @@
         <section class="py-24 px-4 bg-white relative">
             <div class="max-w-6xl mx-auto relative z-10">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold text-text-main mb-4 tracking-tight">Segurança e
+                    <h2 class="text-3xl md:text-5xl font-light text-text-main mb-4 tracking-tight">Segurança e
                         Confiabilidade de Nível Empresarial</h2>
-                    <p class="text-xl text-primary font-bold">Propriedade, não Aluguel. Arquitetura Single-Tenant.</p>
+                    <p class="text-xl text-primary font-medium">Propriedade, não Aluguel. Arquitetura Single-Tenant.</p>
                 </div>
 
                 <!-- Setup Fees Section (Now Above Tiers) -->
@@ -425,15 +392,15 @@
                                 <span class="material-symbols-outlined text-4xl">engineering</span>
                             </div>
                             <div>
-                                <h4 class="text-text-main font-bold text-2xl">Implementação e Engenharia de Conhecimento
+                                <h4 class="text-text-main font-medium text-2xl">Implementação e Engenharia de Conhecimento
                                 </h4>
                                 <p class="text-sm text-text-muted mt-1 max-w-xl">Inclui limpeza de dados, incorporação
                                     de 3 "Documentos da Verdade" na IA e mapeamento do WhatsApp para o EspoCRM.</p>
                             </div>
                         </div>
                         <div class="text-center md:text-right">
-                            <span class="text-4xl font-black text-text-main">R$ 2.997</span>
-                            <span class="block text-xs font-bold uppercase tracking-wide text-orange-600 mt-1">Taxa
+                            <span class="text-4xl font-medium text-text-main">$497</span>
+                            <span class="block text-xs font-medium uppercase tracking-wide text-orange-600 mt-1">Taxa
                                 Única de Configuração</span>
                         </div>
                     </div>
@@ -444,13 +411,12 @@
                     <div
                         class="rounded-2xl border-2 border-primary p-8 shadow-2xl bg-white flex flex-col relative transform md:-translate-y-6 h-full z-20">
                         <div
-                            class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-bold text-center py-1.5 rounded-t-lg">
+                            class="absolute top-0 right-0 left-0 bg-primary text-white text-xs font-medium text-center py-1.5 rounded-t-lg">
                             MAIS POPULAR / MELHOR VALOR </div>
                         <div class="mb-4 mt-2">
-                            <h3 class="text-xl font-bold text-text-main">Crescimento Veridata</h3>
-                            <div class="mt-4 flex items-baseline"><span class="text-4xl font-black text-text-main">R$
-                                    1.997</span><span class="text-sm text-text-muted ml-1">/ mês</span></div>
-                            <p class="text-xs text-primary font-bold mt-2">O Plano Recomendado</p>
+                            <h3 class="text-xl font-medium text-text-main">Crescimento Veridata</h3>
+                            <div class="mt-4 flex items-baseline"><span class="text-4xl font-medium text-text-main">$297</span><span class="text-sm text-text-muted ml-1">/ mês</span></div>
+                            <p class="text-xs text-primary font-medium mt-2">O Plano Recomendado</p>
                         </div>
                         <ul class="space-y-4 mb-8 flex-1">
                             <li class="flex items-start text-sm text-text-main font-medium"><span
@@ -471,19 +437,19 @@
                             <li class="flex items-start text-sm text-text-main font-medium"><span
                                     class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">summarize</span><strong>Resumo
                                     de Stream:</strong> Relatórios Diários</li>
-                            <li class="flex items-start text-sm text-text-main font-bold"><span
+                            <li class="flex items-start text-sm text-text-main font-medium"><span
                                     class="material-symbols-outlined text-primary text-lg mr-2 shrink-0">bolt</span>5.000
                                 Mensagens ou Áudios de IA</li>
                         </ul><a href="https://buy.stripe.com/6oU7sM3uk8X1cuQdB34gg09"
-                            class="w-full flex items-center justify-center py-3 px-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-colors shadow-lg shadow-primary/30">Começar
+                            class="w-full flex items-center justify-center py-4 px-6 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-all shadow-lg shadow-primary/20">Começar
                             Crescimento</a>
                     </div>
                     <!-- Scale -->
                     <div
                         class="rounded-2xl border border-gray-200 p-8 hover:shadow-xl transition-shadow bg-white flex flex-col h-full transform hover:-translate-y-1 duration-300">
                         <div class="mb-4">
-                            <h3 class="text-xl font-bold text-text-main">CTO Fracionado</h3>
-                            <div class="mt-4 flex items-baseline"><span class="text-4xl font-black text-text-main">R$
+                            <p class="text-sm font-medium text-text-main">Disponibilidade Operacional</p>
+                            <div class="mt-4 flex items-baseline"><span class="text-4xl font-medium text-text-main">R$
                                     5.498</span><span class="text-sm text-text-muted ml-1">/ mês</span></div>
                         </div>
                         <ul class="space-y-4 mb-8 flex-1">
@@ -496,11 +462,11 @@
                             <li class="flex items-start text-sm text-text-muted"><span
                                     class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">check</span>Nós
                                 cuidamos da limpeza de dados</li>
-                            <li class="flex items-start text-sm text-text-main font-bold"><span
+                            <li class="flex items-start text-sm text-text-main font-medium"><span
                                     class="material-symbols-outlined text-green-500 text-lg mr-2 shrink-0">bolt</span>15.000
                                 Mensagens ou Áudios de IA</li>
                         </ul><a href="https://wa.me/17405208080" target="_blank"
-                            class="w-full flex items-center justify-center py-3 px-4 bg-gray-50 hover:bg-gray-100 text-text-main font-bold rounded-lg border border-gray-200 transition-colors">Contatar
+                            class="w-full flex items-center justify-center py-3 px-4 bg-gray-50 hover:bg-gray-100 text-text-main font-medium rounded-lg border border-gray-200 transition-colors">Contatar
                             Vendas</a>
                     </div>
                 </div>
@@ -511,7 +477,7 @@
                         <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
                                 <div
-                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-bold uppercase tracking-wider mb-6">
+                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-medium uppercase tracking-wider mb-6">
                                     <span class="relative flex h-2 w-2">
                                         <span
                                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -519,7 +485,7 @@
                                     </span>
                                     Upgrade Power-Up
                                 </div>
-                                <h3 class="text-3xl md:text-4xl font-black mb-4">VeriSync Live <span
+                                <h3 class="text-3xl md:text-4xl font-light mb-4">VeriSync Live <span
                                         class="text-green-500">(Google Sheets)</span></h3>
                                 <p class="text-xl text-slate-300 mb-8 leading-relaxed">
                                     Transforme seu Bot Estático em um Agente de Vendas ao Vivo. Conecta diretamente a um
@@ -532,7 +498,7 @@
                                             <span class="material-symbols-outlined">analytics</span>
                                         </div>
                                         <div>
-                                            <h5 class="font-bold text-lg">Sincronização Instantânea</h5>
+                                            <h5 class="font-medium text-lg">Sincronização Instantânea</h5>
                                             <p class="text-slate-400 text-sm">Altere um preço no Excel ➔ O Bot cita o
                                                 novo valor instantaneamente. Sem uploads de PDF.</p>
                                         </div>
@@ -542,25 +508,25 @@
                             <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
                                 <div class="mb-8">
                                     <div class="flex items-baseline gap-2 mb-2">
-                                        <span class="text-5xl font-black">R$810</span>
-                                        <span class="text-slate-400 font-bold">Setup Único</span>
+                                        <span class="text-5xl font-medium">$147</span>
+                                        <span class="text-slate-400 font-medium">Setup Único</span>
                                     </div>
                                     <p class="text-sm text-slate-400 font-medium italic">* Requer Plano Crescimento</p>
                                 </div>
                                 <div class="pt-8 border-t border-white/10">
                                     <div class="flex items-center justify-between gap-4">
                                         <div>
-                                            <h6 class="font-bold text-slate-300">ERP Corporativo?</h6>
+                                            <h6 class="font-medium text-slate-300">ERP Corporativo?</h6>
                                             <p class="text-xs text-slate-500">Conecte ao seu banco de dados customizado
                                             </p>
                                         </div>
                                         <a href="https://wa.me/17405208080" target="_blank"
-                                            class="text-sm font-bold text-green-500 hover:text-green-400 transition-colors">Orçamento
+                                            class="text-sm font-medium text-green-500 hover:text-green-400 transition-colors">Orçamento
                                             Customizado →</a>
                                     </div>
                                 </div>
                                 <a href="https://wa.me/17405208080" target="_blank"
-                                    class="w-full mt-8 flex items-center justify-center py-4 px-6 bg-green-500 hover:bg-green-600 text-white font-black rounded-xl transition-all shadow-lg shadow-green-500/20">
+                                    class="w-full mt-8 flex items-center justify-center py-4 px-6 bg-green-500 hover:bg-green-600 text-white font-medium rounded-xl transition-all shadow-lg shadow-green-500/20">
                                     Ativar VeriSync Live
                                 </a>
                             </div>
@@ -578,7 +544,7 @@
                 <div class="mt-20 max-w-5xl mx-auto">
                     <div class="flex items-center gap-3 mb-8">
                         <div class="h-px bg-slate-200 flex-1"></div>
-                        <h3 class="text-xl font-bold text-text-main flex items-center gap-2 shrink-0">
+                        <h3 class="text-xl font-medium text-text-main flex items-center gap-2 shrink-0">
                             <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
                             Pacotes de Expansão e Manutenção
                         </h3>
@@ -593,11 +559,11 @@
                                 class="size-10 rounded-lg text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors" style="background: #edf3ef">
                                 <span class="material-symbols-outlined">refresh</span>
                             </div>
-                            <h4 class="font-bold text-text-main mb-1">Atualização Mensal</h4>
+                            <h4 class="font-medium text-text-main mb-1">Atualização Mensal</h4>
                             <p class="text-xs text-text-muted mb-4">Troque qualquer PDF existente por uma versão mais
                                 nova (1x/mês).</p>
-                            <div class="text-2xl font-black text-text-main">$0 <span
-                                    class="text-[10px] font-bold uppercase text-primary ml-1">Incluso</span></div>
+                            <div class="text-2xl font-medium text-text-main">$0 <span
+                                    class="text-[10px] font-medium uppercase text-primary ml-1">Incluso</span></div>
                         </div>
 
                         <!-- AI Message Top-up -->
@@ -607,11 +573,11 @@
                                 class="size-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
                                 <span class="material-symbols-outlined">bolt</span>
                             </div>
-                            <h4 class="font-bold text-text-main mb-1">Recarga de Mensagens IA</h4>
+                            <h4 class="font-medium text-text-main mb-1">Recarga de Mensagens IA</h4>
                             <p class="text-xs text-text-muted mb-4">Adicione 5.000 interações de IA extras
                                 (mensagens/áudios).</p>
-                            <div class="text-2xl font-black text-text-main">R$110 <span
-                                    class="text-[10px] font-bold uppercase text-orange-600 ml-1">Por Pacote</span></div>
+                            <div class="text-2xl font-medium text-text-main">$20 <span
+                                    class="text-[10px] font-medium uppercase text-orange-600 ml-1">Por Pacote</span></div>
                         </div>
 
                         <!-- New Slot -->
@@ -621,11 +587,11 @@
                                 class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
                                 <span class="material-symbols-outlined">library_add</span>
                             </div>
-                            <h4 class="font-bold text-text-main mb-1">Novo Slot de Conhecimento</h4>
+                            <h4 class="font-medium text-text-main mb-1">Novo Slot de Conhecimento</h4>
                             <p class="text-xs text-text-muted mb-4">Adicione o 4º, 5º ou 6º documento ao cérebro da IA.
                             </p>
-                            <div class="text-2xl font-black text-text-main">R$259<span
-                                    class="text-[10px] font-bold uppercase text-primary ml-1">Taxa única</span></div>
+                            <div class="text-2xl font-medium text-text-main">$47<span
+                                    class="text-[10px] font-medium uppercase text-primary ml-1">Taxa única</span></div>
                         </div>
 
                         <!-- Emergency Training -->
@@ -635,10 +601,10 @@
                                 class="size-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors">
                                 <span class="material-symbols-outlined">speed</span>
                             </div>
-                            <h4 class="font-bold text-text-main mb-1">Re-Treino Emergencial</h4>
+                            <h4 class="font-medium text-text-main mb-1">Re-Treino Emergencial</h4>
                             <p class="text-xs text-text-muted mb-4">Re-treino urgente (ex: 2ª mudança de preços na mesma
                                 semana).</p>
-                            <div class="text-2xl font-black text-text-main">$159</div>
+                            <div class="text-2xl font-medium text-text-main">$29</div>
                         </div>
 
                         <!-- Data Cleaning -->
@@ -650,12 +616,12 @@
                                     <span class="material-symbols-outlined">cleaning_services</span>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="font-bold text-text-main mb-1">Serviços de Limpeza de Dados</h4>
+                                    <h4 class="font-medium text-text-main mb-1">Serviços de Limpeza de Dados</h4>
                                     <p class="text-xs text-text-muted">Arrumamos planilhas Excel bagunçadas ou PDFs
                                         escaneados para você.</p>
                                 </div>
-                                <div class="text-2xl font-black text-text-main">R$275 <span
-                                        class="text-[10px] font-bold uppercase text-green-600 ml-1">/ Hora</span></div>
+                                <div class="text-2xl font-medium text-text-main">$47 <span
+                                        class="text-[10px] font-medium uppercase text-green-600 ml-1">/ Hora</span></div>
                             </div>
                         </div>
                     </div>
@@ -667,7 +633,7 @@
                             <span class="material-symbols-outlined text-sm">info</span>
                         </div>
                         <p class="text-[12px] text-slate-500 leading-relaxed">
-                            <span class="font-bold text-slate-700">Uso Justo e Limites de IA:</span> Após atingir o
+                            <span class="font-medium text-slate-700">Uso Justo e Limites de IA:</span> Após atingir o
                             limite mensal de mensagens, o bot continua ativo como um canal de mensagens comum. Agentes
                             humanos podem interagir normalmente, mas as respostas automáticas da IA serão pausadas até o
                             próximo ciclo ou recarga manual.
@@ -679,8 +645,8 @@
         <section class="py-24 px-4 bg-white border-t border-gray-100">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm font-mono tracking-widest">Por Baixo do Capô</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-main mt-2">Especificações Técnicas</h2>
+                    <span class="text-primary font-medium uppercase tracking-wider text-sm font-mono">Estrutura de Operações</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-text-main mt-2">Especificações Técnicas</h2>
                     <p class="text-lg text-text-muted mt-4">Lista completa de capacidades para Líderes de Operações.
                     </p>
                 </div>
@@ -688,7 +654,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                     <div>
                         <h3
-                            class="flex items-center gap-2 text-xl font-bold text-text-main mb-6 border-b border-gray-100 pb-2">
+                            class="flex items-center gap-2 text-xl font-medium text-text-main mb-6 border-b border-gray-100 pb-2">
                             <span class="material-symbols-outlined text-primary">forum</span>
                             Canais e Inbox
                         </h3>
@@ -712,7 +678,7 @@
                     </div>
                     <div>
                         <h3
-                            class="flex items-center gap-2 text-xl font-bold text-text-main mb-6 border-b border-gray-100 pb-2">
+                            class="flex items-center gap-2 text-xl font-medium text-text-main mb-6 border-b border-gray-100 pb-2">
                             <span class="material-symbols-outlined text-primary">psychology</span>
                             Motor de IA (VeriBot)
                         </h3>
@@ -740,7 +706,7 @@
                     </div>
                     <div>
                         <h3
-                            class="flex items-center gap-2 text-xl font-bold text-text-main mb-6 border-b border-gray-100 pb-2">
+                            class="flex items-center gap-2 text-xl font-medium text-text-main mb-6 border-b border-gray-100 pb-2">
                             <span class="material-symbols-outlined text-primary">database</span>
                             Dados e Integração
                         </h3>
@@ -763,7 +729,7 @@
                     </div>
                     <div>
                         <h3
-                            class="flex items-center gap-2 text-xl font-bold text-text-main mb-6 border-b border-gray-100 pb-2">
+                            class="flex items-center gap-2 text-xl font-medium text-text-main mb-6 border-b border-gray-100 pb-2">
                             <span class="material-symbols-outlined text-primary">security</span>
                             Segurança e Compliance
                         </h3>
@@ -789,9 +755,9 @@
         </section>
         <section class="bg-text-main py-16 px-4 text-white">
             <div class="max-w-4xl mx-auto text-center flex flex-col gap-8">
-                <h2 class="text-3xl md:text-4xl font-bold">Pare de perder leads no WhatsApp e Telegram.</h2>
+                <h2 class="text-3xl md:text-4xl font-light">Pare de perder leads no WhatsApp e Telegram.</h2>
                 <div class="flex justify-center"><a href="https://wa.me/17405208080" target="_blank"
-                        class="inline-block bg-green-500 hover:bg-green-600 hover:text-white text-white font-bold py-4 px-10 rounded-lg text-lg transition-all shadow-[0_0_25px_rgba(59,25,230,0.5)]">Sincronizar
+                        class="inline-block bg-green-500 hover:bg-green-600 hover:text-white text-white font-medium py-4 px-10 rounded-lg text-lg transition-all shadow-[0_0_25px_rgba(59,25,230,0.5)]">Sincronizar
                         Minha Equipe de Vendas </a></div>
             </div>
         </section>

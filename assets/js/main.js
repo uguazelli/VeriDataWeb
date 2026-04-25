@@ -37,12 +37,10 @@ async function loadComponent(elementId, filePath) {
 
         // Highlight active link based on current path
         if (elementId === 'header-placeholder') {
-            const placeholder = document.getElementById(elementId);
-            placeholder.classList.add('sticky', 'top-0', 'z-50', 'w-full');
-            
             highlightActiveLink();
             setupMobileMenu();
         }
+
     } catch (error) {
         console.error('Error loading component:', error);
     }
@@ -212,9 +210,9 @@ function highlightActiveLink() {
         }
 
         if (isMatch) {
-            link.classList.add('text-primary');
-            link.classList.remove('text-slate-600', 'dark:text-slate-300');
+            link.classList.add('active');
         }
+
     });
 }
 

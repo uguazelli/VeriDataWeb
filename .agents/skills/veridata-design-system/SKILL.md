@@ -20,20 +20,17 @@ The design is:
 
 ## Typography
 
-```css
 --serif: "Fraunces", Georgia, serif; /* Display: all h1, h2, h3 */
---sans: "Inter", -apple-system, sans-serif; /* Body, UI, small labels */
---mono: "JetBrains Mono", monospace; /* Eyebrows, metadata, tags */
-```
+--sans: "Inter", -apple-system, sans-serif; /* Body, UI, small labels, eyebrows, tags */
 
 **Rules:**
 
-- Headings are always Fraunces, weight 300–400, never bold (500)
+- Headings are always Fraunces, weight 400, never bold (500)
 - Italic Fraunces is reserved for emphasis within headlines — never entire sentences, never in body
 - Body is Inter, weight 400 default, 500 for emphasis only
-- Mono is for eyebrow labels, dates, metadata, section labels — never for body text
+- Labels, eyebrows, and technical metadata use Inter (all-caps, spaced) — never JetBrains Mono
 - Never use Inter for display type. Never use Fraunces for body text.
-- Font weights: 300, 400, 500 only. No 600, 700, 800, 900 — too heavy, looks corporate-bloated.
+- Font weights: 400, 500 only. No 300 (too light for some screens) or 600+ (too heavy).
 
 ## Color palette
 

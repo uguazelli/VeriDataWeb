@@ -7,7 +7,9 @@
     <title>Contato Veridata Pro - Soluções em Arquitetura Corporativa</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
@@ -15,8 +17,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
-<body
-    class="page-contact bg-background-light text-text-main font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+<body>
     <div class="relative flex h-auto min-h-screen w-full flex-col">
         <div id="header-placeholder"></div>
 
@@ -26,14 +27,11 @@
             <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900 z-0"></div>
 
             <div class="relative z-10 max-w-4xl mx-auto text-center">
-                <span
-                    class="inline-block px-4 py-1 rounded bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/20"
-                    data-i18n="header.contact">
+                <div class="eyebrow">
                     Fale Conosco
-                </span>
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-6"
-                    data-i18n="contact.title">
-                    Entre em Contato
+                </div>
+                <h1 class="hero-title" data-i18n="contact.title">
+                    Entre em <i>Contato</i>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
                     data-i18n="contact.subtitle">
@@ -50,7 +48,7 @@
                     <!-- Contact Info -->
                     <div class="flex flex-col gap-12">
                         <div class="flex flex-col gap-6">
-                            <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Consultoria Especializada
+                            <h2 class="text-3xl font-light text-slate-900 tracking-tight">Consultoria Especializada
                                 <br>ao seu Alcance</h2>
                             <p class="text-slate-600 text-lg leading-relaxed">
                                 Seja para proteger infraestruturas legadas ou construir pipelines de dados escaláveis,
@@ -65,7 +63,7 @@
                                     class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                                     <span class="material-symbols-outlined">mail</span>
                                 </div>
-                                <h3 class="font-bold text-slate-900">E-mail</h3>
+                                <h3 class="font-medium text-slate-900">E-mail</h3>
                                 <p class="text-slate-600 text-sm">hello@veridatapro.com</p>
                             </div>
                             <div
@@ -74,7 +72,7 @@
                                     class="size-12 rounded-xl bg-green-500/10 text-green-600 flex items-center justify-center">
                                     <span class="material-symbols-outlined">chat</span>
                                 </div>
-                                <h3 class="font-bold text-slate-900">WhatsApp</h3>
+                                <h3 class="font-medium text-slate-900">WhatsApp</h3>
                                 <p class="text-slate-600 text-sm">+1 (740) 520-8080</p>
                             </div>
                         </div>
@@ -83,7 +81,7 @@
                             class="p-8 rounded-2xl bg-slate-900 text-white flex flex-col gap-4 relative overflow-hidden">
                             <div class="absolute top-0 right-0 p-12 bg-white/5 rounded-bl-full pointer-events-none">
                             </div>
-                            <h3 class="text-xl font-bold relative z-10">Operações Globais</h3>
+                            <h3 class="text-xl font-medium relative z-10">Operações Globais</h3>
                             <p class="text-slate-400 text-sm relative z-10">Operamos remotamente na América do Norte,
                                 LatAm e Europa, apoiando empresas em todo o mundo com consultoria alinhada ao seu fuso
                                 horário.</p>
@@ -103,13 +101,13 @@
 
                                 <div class="grid sm:grid-cols-2 gap-6">
                                     <div class="flex flex-col gap-2">
-                                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500"
+                                        <label class="eyebrow"
                                             data-i18n="contact.label_name">Nome Completo</label>
                                         <input type="text" name="name" required placeholder="Ex: João Silva"
                                             class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-slate-50/50">
                                     </div>
                                     <div class="flex flex-col gap-2">
-                                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500"
+                                        <label class="eyebrow"
                                             data-i18n="contact.label_email">E-mail Corporativo</label>
                                         <input type="email" name="email" required placeholder="joao@empresa.com"
                                             class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-slate-50/50">
@@ -118,13 +116,13 @@
 
                                 <div class="grid sm:grid-cols-2 gap-6">
                                     <div class="flex flex-col gap-2">
-                                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500"
+                                        <label class="eyebrow"
                                             data-i18n="contact.label_company">Empresa</label>
                                         <input type="text" name="company" placeholder="Ex: Exemplo S.A."
                                             class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-slate-50/50">
                                     </div>
                                     <div class="flex flex-col gap-2">
-                                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500"
+                                        <label class="eyebrow"
                                             data-i18n="contact.label_subject">Assunto</label>
                                         <select name="subject_select"
                                             class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-slate-50/50">
@@ -137,7 +135,7 @@
                                 </div>
 
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-bold uppercase tracking-wider text-slate-500"
+                                    <label class="eyebrow"
                                         data-i18n="contact.label_message">Mensagem</label>
                                     <textarea name="message" required rows="4"
                                         placeholder="Conte-nos sobre seu projeto..."
@@ -145,13 +143,13 @@
                                 </div>
 
                                 <button type="submit"
-                                    class="w-full h-14 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-all shadow-lg border border-primary/20 flex items-center justify-center gap-3 group">
+                                    class="w-full h-14 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-all shadow-lg border border-primary/20 flex items-center justify-center gap-3 group">
                                     <span data-i18n="contact.submit">Enviar Mensagem</span>
                                     <span
                                         class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                                 </button>
 
-                                <div id="form-result" class="hidden text-center text-sm font-bold pt-2"></div>
+                                <div id="form-result" class="hidden text-center text-sm font-medium pt-2"></div>
                             </form>
                         </div>
                     </div>
