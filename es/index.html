@@ -114,23 +114,66 @@
     <div id="header-placeholder"></div>
 
     <!-- Section 1 - Hero -->
-    <section class="bg-ink" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+    <section class="hero-section bg-ink">
         <div class="container">
-            <span class="eyebrow">Automatización e Integración lideradas por arquitecto</span>
-            <h1 class="hero-title">Deje de pagarle a su equipo para copiar y pegar datos.</h1>
-            <p class="hero-lede">Veridata Pro automatiza los workflows que desperdician horas cada semana: formularios, hojas de cálculo, CRMs, emails, facturas, reportes, Odoo y procesamiento de documentos con IA.</p>
-            <p style="font-size: 1rem; line-height: 1.6; color: rgba(245,241,234,0.72); max-width: 760px; margin-bottom: 2rem;">
-                Proyectos de automatización e integración liderados por arquitecto usando Odoo, n8n, Python, Java, AWS, MuleSoft y APIs de IA.
-            </p>
-            <div class="hero-actions">
-                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende una llamada gratuita de automatización</a>
-                <a href="#pricing" class="btn-secondary">Ver precios</a>
+            <div class="hero-copy">
+                <span class="eyebrow">Automatización e Integración lideradas por arquitecto</span>
+                <h1 class="hero-title">Deje de pagarle a su equipo para copiar y pegar datos.</h1>
+                <p class="hero-lede">Veridata Pro automatiza los workflows que desperdician horas cada semana: formularios, hojas de cálculo, CRMs, emails, facturas, reportes, Odoo y procesamiento de documentos con IA.</p>
+                <p class="hero-stack-note">
+                    Proyectos de automatización e integración liderados por arquitecto usando Odoo, n8n, Python, Java, AWS, MuleSoft y APIs de IA.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agende una llamada gratuita de automatización</a>
+                    <a href="#pricing" class="btn-secondary">Ver precios</a>
+                </div>
+                <nav class="hero-jump-links" aria-label="Secciones de la página inicial">
+                    <a href="#services">Servicios</a>
+                    <a href="#layers">Capas</a>
+                    <a href="#pricing">Precios</a>
+                </nav>
             </div>
-            <nav class="hero-jump-links" aria-label="Secciones de la página inicial">
-                <a href="#services">Servicios</a>
-                <a href="#outcomes">Resultados</a>
-                <a href="#pricing">Precios</a>
-            </nav>
+
+            <div class="hero-system-panel" aria-label="Ejemplo de workflow automatizado">
+                <header class="system-panel-head">
+                    <span class="system-panel-title">Mapa de workflow · entrada a operación</span>
+                    <span class="system-panel-legend"><i class="status-dot"></i> manual <i class="status-dot status-dot-accent"></i> controlado</span>
+                </header>
+                <div class="hero-flow-grid">
+                    <div class="hero-node">
+                        <span class="node-kicker">Entrada</span>
+                        <span class="node-title">Formularios, WhatsApp, ecommerce</span>
+                        <div class="node-bar"><i class="node-fill" style="width: 100%;"></i></div>
+                        <span class="node-meta">Demanda no estructurada</span>
+                    </div>
+                    <div class="hero-edge"><span>captura</span></div>
+                    <div class="hero-node hero-node-accent">
+                        <span class="node-kicker">Validación</span>
+                        <span class="node-title">Reglas, responsable, aprobaciones</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 72%;"></i></div>
+                        <span class="node-meta">Excepciones visibles</span>
+                    </div>
+                    <div class="hero-edge"><span>valida</span></div>
+                    <div class="hero-node">
+                        <span class="node-kicker">Sync</span>
+                        <span class="node-title">Odoo, CRM, finanzas, API</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 86%;"></i></div>
+                        <span class="node-meta">Sistemas actualizados</span>
+                    </div>
+                    <div class="hero-edge"><span>opera</span></div>
+                    <div class="hero-node hero-node-accent">
+                        <span class="node-kicker">Monitoreo</span>
+                        <span class="node-title">Logs, alertas, handoff</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 64%;"></i></div>
+                        <span class="node-meta">Workflow con dueño</span>
+                    </div>
+                </div>
+                <footer class="system-panel-foot">
+                    <span>menos trabajo manual</span>
+                    <span class="accent-text">excepciones visibles</span>
+                    <span>sistemas con dueño</span>
+                </footer>
+            </div>
         </div>
     </section>
 
@@ -383,6 +426,71 @@
         </div>
     </section>
 
+    <!-- Section 8 - Capas operativas -->
+    <section id="layers" class="bg-paper">
+        <div class="container">
+            <span class="eyebrow text-center">Modelo Operativo</span>
+            <h2 class="section-title text-center" style="margin-bottom: 2rem;">Cuatro capas entre una tarea manual y un workflow confiable.</h2>
+            <p class="text-center text-muted" style="max-width: 760px; margin: 0 auto; font-size: 1.125rem; line-height: 1.6;">
+                La automatización visible es solo la última pieza. Los workflows confiables necesitan entrada, reglas, sincronización de sistemas y dueño operativo.
+            </p>
+
+            <div class="tech-layers">
+                <article class="layer-row">
+                    <div class="layer-num">L01</div>
+                    <div class="layer-body">
+                        <h3>Entrada y responsable</h3>
+                        <p>Cada disparador entra con fuente, responsable y campos obligatorios antes de avanzar.</p>
+                        <div class="layer-kv"><span>elimina</span><b>tareas sin dueño</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 86%;"></i><span>superficie manual</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 34%;"></i><span>superficie controlada</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L02</div>
+                    <div class="layer-body">
+                        <h3>Validación y aprobaciones</h3>
+                        <p>Reglas de negocio, deduplicación, aprobaciones y excepciones se resuelven antes de llegar al sistema de registro.</p>
+                        <div class="layer-kv"><span>elimina</span><b>datos malos</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 78%;"></i><span>revisión manual</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 46%;"></i><span>reglas cubiertas</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L03</div>
+                    <div class="layer-body">
+                        <h3>Sincronización de sistemas</h3>
+                        <p>Odoo, CRM, finanzas, bases de datos, APIs y salidas de IA actualizan por rutas integradas, registradas y con reintentos.</p>
+                        <div class="layer-kv"><span>elimina</span><b>hojas como middleware</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 92%;"></i><span>copia y pega</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 64%;"></i><span>ruta de sync</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L04</div>
+                    <div class="layer-body">
+                        <h3>Monitoreo y handoff</h3>
+                        <p>Logs, alertas, documentación y rutas de soporte hacen visibles las fallas antes de que las encuentre un cliente o finanzas.</p>
+                        <div class="layer-kv"><span>elimina</span><b>fallas silenciosas</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 74%;"></i><span>riesgo oculto</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 58%;"></i><span>operación con dueño</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Section 8 - Integración de IA -->
     <section id="ai" class="bg-paper">
         <div class="container">
@@ -416,7 +524,7 @@
             </div>
 
             <div style="padding: 3rem; border: 1px solid var(--rule); border-left: 3px solid var(--accent);">
-                <p style="font-size: 1.25rem; font-family: 'Fraunces', serif; font-weight: 300; line-height: 1.6; margin-bottom: 1rem; max-width: 760px;">
+                <p style="font-size: 1.25rem; font-family: 'Fraunces', serif; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 760px;">
                     "La mayoría de los proyectos de integración de IA fallan en las uniones: la parte entre el modelo y el sistema real. Ahí es donde 15 años de arquitectura de integración realmente importan."
                 </p>
                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em;">
@@ -535,7 +643,7 @@
     </section>
 
     <!-- Section 12 - CTA final -->
-    <section class="bg-ink text-center">
+    <section class="bg-paper text-center final-cta">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">Si sus sistemas no hablan entre sí,<br>su equipo se convierte en la capa de integración.</h2>
             <p class="hero-lede" style="margin: 0 auto 3rem auto;">Reemplacemos eso con software.</p>

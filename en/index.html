@@ -113,23 +113,66 @@
     <div id="header-placeholder"></div>
 
     <!-- Section 1 - Hero -->
-    <section class="bg-ink" style="padding-top: 160px; min-height: 80vh; display: flex; align-items: center;">
+    <section class="hero-section bg-ink">
         <div class="container">
-            <span class="eyebrow">Architect-led Automation &amp; Integration</span>
-            <h1 class="hero-title">Stop paying your team to copy and paste data.</h1>
-            <p class="hero-lede">Veridata Pro automates the workflows that waste hours every week: forms, spreadsheets, CRMs, emails, invoices, reports, Odoo, and AI-powered document processing.</p>
-            <p style="font-size: 1rem; line-height: 1.6; color: rgba(245,241,234,0.72); max-width: 760px; margin-bottom: 2rem;">
-                Architect-led automation and integration projects using Odoo, n8n, Python, Java, AWS, MuleSoft, and AI APIs.
-            </p>
-            <div class="hero-actions">
-                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a free automation call</a>
-                <a href="#pricing" class="btn-secondary">View pricing</a>
+            <div class="hero-copy">
+                <span class="eyebrow">Architect-led Automation &amp; Integration</span>
+                <h1 class="hero-title">Stop paying your team to copy and paste data.</h1>
+                <p class="hero-lede">Veridata Pro automates the workflows that waste hours every week: forms, spreadsheets, CRMs, emails, invoices, reports, Odoo, and AI-powered document processing.</p>
+                <p class="hero-stack-note">
+                    Architect-led automation and integration projects using Odoo, n8n, Python, Java, AWS, MuleSoft, and AI APIs.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a free automation call</a>
+                    <a href="#pricing" class="btn-secondary">View pricing</a>
+                </div>
+                <nav class="hero-jump-links" aria-label="Homepage sections">
+                    <a href="#services">Services</a>
+                    <a href="#layers">Layers</a>
+                    <a href="#pricing">Pricing</a>
+                </nav>
             </div>
-            <nav class="hero-jump-links" aria-label="Homepage sections">
-                <a href="#services">Services</a>
-                <a href="#outcomes">Outcomes</a>
-                <a href="#pricing">Pricing</a>
-            </nav>
+
+            <div class="hero-system-panel" aria-label="Example automated workflow">
+                <header class="system-panel-head">
+                    <span class="system-panel-title">Workflow map · input to operation</span>
+                    <span class="system-panel-legend"><i class="status-dot"></i> manual <i class="status-dot status-dot-accent"></i> controlled</span>
+                </header>
+                <div class="hero-flow-grid">
+                    <div class="hero-node">
+                        <span class="node-kicker">Input</span>
+                        <span class="node-title">Forms, WhatsApp, ecommerce</span>
+                        <div class="node-bar"><i class="node-fill" style="width: 100%;"></i></div>
+                        <span class="node-meta">Unstructured demand</span>
+                    </div>
+                    <div class="hero-edge"><span>capture</span></div>
+                    <div class="hero-node hero-node-accent">
+                        <span class="node-kicker">Validate</span>
+                        <span class="node-title">Rules, ownership, approvals</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 72%;"></i></div>
+                        <span class="node-meta">Exceptions visible</span>
+                    </div>
+                    <div class="hero-edge"><span>check</span></div>
+                    <div class="hero-node">
+                        <span class="node-kicker">Sync</span>
+                        <span class="node-title">Odoo, CRM, finance, API</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 86%;"></i></div>
+                        <span class="node-meta">Systems updated</span>
+                    </div>
+                    <div class="hero-edge"><span>operate</span></div>
+                    <div class="hero-node hero-node-accent">
+                        <span class="node-kicker">Monitor</span>
+                        <span class="node-title">Logs, alerts, handoff</span>
+                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 64%;"></i></div>
+                        <span class="node-meta">Owned workflow</span>
+                    </div>
+                </div>
+                <footer class="system-panel-foot">
+                    <span>manual surface reduced</span>
+                    <span class="accent-text">exceptions visible</span>
+                    <span>systems stay owned</span>
+                </footer>
+            </div>
         </div>
     </section>
 
@@ -382,6 +425,71 @@
         </div>
     </section>
 
+    <!-- Section 8 - Operating layers -->
+    <section id="layers" class="bg-paper">
+        <div class="container">
+            <span class="eyebrow text-center">Operating Model</span>
+            <h2 class="section-title text-center" style="margin-bottom: 2rem;">Four layers between a manual task and a reliable workflow.</h2>
+            <p class="text-center text-muted" style="max-width: 760px; margin: 0 auto; font-size: 1.125rem; line-height: 1.6;">
+                The visible automation is only the last piece. Reliable workflows need intake, rules, system sync, and operational ownership.
+            </p>
+
+            <div class="tech-layers">
+                <article class="layer-row">
+                    <div class="layer-num">L01</div>
+                    <div class="layer-body">
+                        <h3>Intake and ownership</h3>
+                        <p>Every trigger enters with a source, owner, and required fields before it moves.</p>
+                        <div class="layer-kv"><span>removes</span><b>orphan tasks</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 86%;"></i><span>manual surface</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 34%;"></i><span>controlled surface</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L02</div>
+                    <div class="layer-body">
+                        <h3>Validation and approvals</h3>
+                        <p>Business rules, duplicate checks, approvals, and exceptions are handled before data reaches the system of record.</p>
+                        <div class="layer-kv"><span>removes</span><b>bad data</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 78%;"></i><span>manual review</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 46%;"></i><span>rules covered</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L03</div>
+                    <div class="layer-body">
+                        <h3>System synchronization</h3>
+                        <p>Odoo, CRM, finance, databases, APIs, and AI outputs update through logged, retryable integration paths.</p>
+                        <div class="layer-kv"><span>removes</span><b>spreadsheet middleware</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 92%;"></i><span>copy paste</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 64%;"></i><span>sync path</span></div>
+                    </div>
+                </article>
+
+                <article class="layer-row">
+                    <div class="layer-num">L04</div>
+                    <div class="layer-body">
+                        <h3>Monitoring and handoff</h3>
+                        <p>Logs, alerts, documentation, and support paths make failures visible before a customer or finance team finds them.</p>
+                        <div class="layer-kv"><span>removes</span><b>silent failures</b></div>
+                    </div>
+                    <div class="layer-viz">
+                        <div class="signal-bar signal-bar-in"><i style="width: 74%;"></i><span>hidden risk</span></div>
+                        <div class="signal-bar signal-bar-out"><i style="width: 58%;"></i><span>owned ops</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Section 8 - AI Integration -->
     <section id="ai" class="bg-paper">
         <div class="container">
@@ -415,7 +523,7 @@
             </div>
 
             <div style="padding: 3rem; border: 1px solid var(--rule); border-left: 3px solid var(--accent);">
-                <p style="font-size: 1.25rem; font-family: 'Fraunces', serif; font-weight: 300; line-height: 1.6; margin-bottom: 1rem; max-width: 760px;">
+                <p style="font-size: 1.25rem; font-family: 'Fraunces', serif; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; max-width: 760px;">
                     "Most AI integration projects fail at the seams - the part between the model and the real system. That's where 15 years of integration architecture actually matters."
                 </p>
                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em;">
@@ -534,7 +642,7 @@
     </section>
 
     <!-- Section 12 - Final CTA -->
-    <section class="bg-ink text-center">
+    <section class="bg-paper text-center final-cta">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">If your systems do not talk to each other,<br>your team becomes the integration layer.</h2>
             <p class="hero-lede" style="margin: 0 auto 3rem auto;">Let's replace that with software.</p>
