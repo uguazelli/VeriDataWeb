@@ -1,23 +1,49 @@
 /**
+ * Redirects the root page to the best supported language based on browser settings.
+ */
+function redirectToPreferredLanguage() {
+    const supportedLangs = ['en', 'pt', 'es'];
+    let userLang = 'en';
+
+    try {
+        const browserLang = (navigator.language || '').split('-')[0].toLowerCase();
+        if (supportedLangs.includes(browserLang)) {
+            userLang = browserLang;
+        }
+    } catch (error) {
+        console.error('Language detection failed', error);
+    }
+
+    window.location.replace(`./${userLang}/index.html`);
+}
+
+if (window.enableLanguageRedirect) {
+    redirectToPreferredLanguage();
+}
+
+/**
  * Loads a reusable HTML component into a target element.
  * @param {string} elementId - The ID of the DOM element to inject content into.
  * @param {string} filePath - The path to the HTML component file.
  */
 async function loadComponent(elementId, filePath) {
+    const targetElement = document.getElementById(elementId);
+    if (!targetElement) return;
+
     try {
         const response = await fetch(filePath);
         if (!response.ok) {
             throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
         }
         const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
+        targetElement.innerHTML = html;
 
         // Update language switcher links if root is defined
         if (window.resRoot) {
             updateLanguageSwitcher();
 
             // Update relative image sources
-            const relativeImages = document.getElementById(elementId).querySelectorAll('[data-relative-src="true"]');
+            const relativeImages = targetElement.querySelectorAll('[data-relative-src="true"]');
             relativeImages.forEach(img => {
                 const src = img.getAttribute('src');
                 if (src) {
@@ -44,68 +70,6 @@ async function loadComponent(elementId, filePath) {
     } catch (error) {
         console.error('Error loading component:', error);
     }
-}
-
-/**
- * Handles Web3Forms contact form submission via AJAX.
- */
-function handleContactForm() {
-    const form = document.getElementById('contact-form');
-    const result = document.getElementById('form-result');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (!form || !result) return;
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-        // Prevent double submission
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
-        }
-
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-
-        result.innerHTML = "Processing...";
-        result.classList.remove('hidden', 'text-red-500', 'text-success');
-
-        fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    result.classList.add('text-success');
-                    result.innerHTML = document.querySelector('[data-i18n="contact.success"]')?.textContent || "Success!";
-                    form.reset();
-                } else {
-                    console.log(response);
-                    result.classList.add('text-red-500');
-                    result.innerHTML = document.querySelector('[data-i18n="contact.error"]')?.textContent || "Something went wrong!";
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                result.classList.add('text-red-500');
-                result.innerHTML = document.querySelector('[data-i18n="contact.error"]')?.textContent || "Something went wrong!";
-            })
-            .finally(() => {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                    const originalText = document.querySelector('[data-i18n="contact.submit"]')?.textContent || "Send Message";
-                    submitBtn.innerHTML = originalText + ' <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>';
-                }
-            });
-    });
 }
 
 /**
@@ -159,9 +123,6 @@ function updateLanguageSwitcher() {
     // Ensure we have .html if missing (though user wants it present)
     if (!fileName.includes('.')) fileName += '.html';
 
-    // Map of specific page names that change across languages (now all same names)
-    const pageMap = {};
-
     const root = window.resRoot || '';
     const langs = ['en', 'pt', 'es'];
 
@@ -169,9 +130,8 @@ function updateLanguageSwitcher() {
         const desktopLink = document.getElementById(`lang-link-${lang}`);
         const mobileLink = document.getElementById(`mobile-lang-link-${lang}`);
 
-        let targetFile = fileName;
-        // If the current file has a translation mapping, use it
-        const href = root + lang + '/' + targetFile;
+        const target = new URL(root + lang + '/' + fileName, window.location.href);
+        const href = target.pathname + target.search + target.hash;
 
         if (desktopLink) desktopLink.setAttribute('href', href);
         if (mobileLink) mobileLink.setAttribute('href', href);
@@ -218,72 +178,72 @@ function highlightActiveLink() {
 
 // Main initialization
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.enableLanguageRedirect) return;
+
     const root = window.resRoot || '';
 
     // Load components
     loadComponent('header-placeholder', root + 'components/header.html');
     loadComponent('footer-placeholder', root + 'components/footer.html');
 
-    // Initialize contact form separately to ensure it only runs once
-    if (document.getElementById('contact-form')) {
-        handleContactForm();
-    }
-
     // Convert prices to BRL on Portuguese pages
     convertPricesToBRL();
 });
 
 /**
- * Fetches the current USD to BRL exchange rate and updates all prices on 'pt' pages.
+ * Fetches the current USD to BRL exchange rate and updates price blocks on Portuguese pages.
+ * If the API fails, the original USD values remain in the DOM as fallback.
  */
 async function convertPricesToBRL() {
-    // Only run on pages explicitly marked as Portuguese
-    if (document.documentElement.lang !== 'pt') return;
-    
+    const currentLang = (document.documentElement.lang || '').toLowerCase();
+    const pathLang = window.location.pathname.split('/').find(part => part === 'pt');
+    const isPortuguesePage = currentLang.startsWith('pt') || pathLang === 'pt';
+    if (!isPortuguesePage) return;
+
+    const priceNodes = document.querySelectorAll('.price-amount, .pricing-price');
+    if (!priceNodes.length) return;
+
     try {
-        const response = await fetch('https://open.er-api.com/v6/latest/USD');
+        const response = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
         if (!response.ok) return;
         const data = await response.json();
-        const rate = data.rates.BRL;
-        if (!rate) return;
+        const rate = Number(data?.rates?.BRL);
+        if (!Number.isFinite(rate) || rate <= 0) return;
 
-        // Recursive function to walk and process text nodes
-        function walkTextNodes(node) {
-            if (node.nodeType === Node.TEXT_NODE) {
-                const regex = /\$\s*([\d\.,]+)(?:(\s*(?:–|-|a)\s*)(?:US\$\s*|\$\s*)?([\d\.,]+))?/g;
-                let originalText = node.textContent;
-                
-                let newText = originalText.replace(regex, (match, p1, sep, p2) => {
-                    const parseVal = val => parseFloat(val.replace(/\./g, '').replace(/,/g, ''));
-                    const formatVal = val => {
-                        const converted = val * rate;
-                        return (Math.round(converted / 500) * 500).toLocaleString('pt-BR');
-                    };
-                    
-                    let result = `R$ ${formatVal(parseVal(p1))}`;
-                    if (p2 && sep) {
-                        result += `${sep}${formatVal(parseVal(p2))}`;
-                    }
-                    return result;
-                });
-                
-                if (originalText !== newText) {
-                    node.textContent = newText;
-                }
-            } else {
-                // Skip processing scripts, styles, and inputs
-                const tag = node.nodeName;
-                if (tag !== 'SCRIPT' && tag !== 'STYLE' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
-                    // Create a static array of children because we might modify the DOM (though text content replacement doesn't usually alter NodeList length, it's safer)
-                    Array.from(node.childNodes).forEach(walkTextNodes);
-                }
-            }
-        }
+        const brlFormatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+            maximumFractionDigits: 0
+        });
 
-        walkTextNodes(document.body);
+        const parseUsdValue = value => Number(value.replace(/[.,]/g, ''));
+        const roundToNearest50 = value => Math.round(value / 50) * 50;
+
+        priceNodes.forEach(node => {
+            if (node.dataset.currencyConverted === 'BRL') return;
+
+            const originalText = node.textContent.replace(/\s+/g, ' ').trim();
+            const match = originalText.match(/\$\s*([\d.,]+)/);
+            if (!match) return;
+
+            const usdValue = parseUsdValue(match[1]);
+            if (!Number.isFinite(usdValue)) return;
+
+            const prefix = originalText.slice(0, match.index).trim();
+            const isMonthly = /\/\s*m[eê]s/i.test(originalText);
+            const brlValue = brlFormatter.format(roundToNearest50(usdValue * rate)).replace(/\u00a0/g, ' ');
+            const label = document.createElement('span');
+            label.style.fontSize = '1rem';
+            label.style.fontFamily = "'Inter', sans-serif";
+            label.textContent = isMonthly ? '/ mês' : 'BRL';
+
+            node.textContent = `${prefix ? prefix + ' ' : ''}${brlValue} `;
+            node.appendChild(label);
+            node.dataset.currencyConverted = 'BRL';
+        });
 
     } catch (error) {
-        console.error('Failed to convert prices to BRL:', error);
+        console.warn('Failed to convert USD prices to BRL. Keeping USD fallback.', error);
     }
 }
 
@@ -303,90 +263,68 @@ function translateUI(context) {
     const translations = {
         'pt': {
             'header.home': 'Início',
+            'header.odoo': 'Odoo',
+            'header.integrations': 'Integrações',
             'header.leadership': 'Liderança',
-            'header.contact': 'Fale Conosco',
-            'contact.title': 'Entre em Contato',
-            'contact.subtitle': 'Como podemos ajudar a transformar sua arquitetura?',
-            'contact.label_name': 'Nome Completo',
-            'contact.label_email': 'E-mail Corporativo',
-            'contact.label_subject': 'Assunto',
-            'contact.label_company': 'Empresa',
-            'contact.label_message': 'Mensagem',
-            'contact.submit': 'Enviar Mensagem',
-            'contact.success': 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
-            'contact.error': 'Ocorreu um erro. Por favor, tente novamente.',
             'footer.home': 'Início',
-            'footer.revops': 'RevOps',
+            'footer.navigation': 'Navegação',
             'footer.integrations': 'Integrações',
-            'footer.cybersecurity': 'Cibersegurança',
             'footer.leadership': 'Liderança',
-            'footer.academy': 'Academia',
-            'footer.privacy': 'Política de Privacidade'
+            'footer.privacy': 'Política de Privacidade',
+            'footer.odoo': 'Odoo',
+            'footer.services': 'Serviços',
+            'footer.odoo_development': 'Desenvolvimento Odoo',
+            'footer.odoo_integrations': 'Integrações Odoo',
+            'footer.workflow_automation': 'Automação de Workflows',
+            'footer.custom_apis': 'APIs Personalizadas',
+            'footer.ai_integration': 'Integração com IA'
         },
         'es': {
             'header.home': 'Inicio',
+            'header.odoo': 'Odoo',
+            'header.integrations': 'Integraciones',
             'header.leadership': 'Liderazgo',
-            'header.contact': 'Contacto',
-            'contact.title': 'Póngase en Contacto',
-            'contact.subtitle': '¿Cómo podemos ayudar a transformar su arquitectura?',
-            'contact.label_name': 'Nombre Completo',
-            'contact.label_email': 'Correo Corporativo',
-            'contact.label_subject': 'Asunto',
-            'contact.label_company': 'Empresa',
-            'contact.label_message': 'Mensaje',
-            'contact.submit': 'Enviar Mensaje',
-            'contact.success': '¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.',
-            'contact.error': 'Ocurrió un error. Por favor, inténtelo de nuevo.',
             'footer.home': 'Inicio',
-            'footer.revops': 'RevOps',
+            'footer.navigation': 'Navegación',
             'footer.integrations': 'Integraciones',
-            'footer.cybersecurity': 'Ciberseguridad',
             'footer.leadership': 'Liderazgo',
-            'footer.academy': 'Academia',
-            'footer.privacy': 'Política de Privacidad'
+            'footer.privacy': 'Política de Privacidad',
+            'footer.odoo': 'Odoo',
+            'footer.services': 'Servicios',
+            'footer.odoo_development': 'Desarrollo Odoo',
+            'footer.odoo_integrations': 'Integraciones Odoo',
+            'footer.workflow_automation': 'Automatización de Workflows',
+            'footer.custom_apis': 'APIs Personalizadas',
+            'footer.ai_integration': 'Integración con IA'
         }
     };
 
     const strings = translations[currentLang];
     if (!strings) return;
 
-    // Select all elements with data-i18n
-    // If context is provided, we can scope it, but for now global replacement is fine within the loaded component
-    // effectively we are calling this inside loadComponent which targets specific ID,
-    // BUT we need to target the elementId passed to loadComponent.
-    // However, the function `translateFooter` before was global.
-    // Let's stick to valid document querySelector since loadComponent injects into document.
-
-    // We should only translate elements relevant to the component we just loaded if we want to be safe,
-    // or just run it on everything.
     const links = document.querySelectorAll('[data-i18n]');
     links.forEach(link => {
         const key = link.getAttribute('data-i18n');
-        // Only translate if key starts with the context (header. or footer.) if context is strict,
-        // but here we can just check if key exists in strings
         if (strings[key]) {
             link.textContent = strings[key];
         }
     });
 }
 
-// Deprecated: kept for backward compatibility if needed, but translateUI replaces it
-function translateFooter() {
-    translateUI('footer');
+if (!window.enableLanguageRedirect) {
+    // Chatwoot Widget Initialization
+    window.chatwootSettings = { "position": "right", "type": "expanded_bubble", "launcherTitle": "Chat with us" };
+    (function (d, t) {
+        var BASE_URL = "https://chat.veridatapro.com";
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+            window.chatwootSDK.run({
+                websiteToken: 'wCRs91qZ7z6igvX8xQnot3p6',
+                baseUrl: BASE_URL
+            })
+        }
+    })(document, "script");
 }
-
-// Chatwoot Widget Initialization
-window.chatwootSettings = { "position": "right", "type": "expanded_bubble", "launcherTitle": "Chat with us" };
-(function (d, t) {
-    var BASE_URL = "https://chat.veridatapro.com";
-    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-    g.src = BASE_URL + "/packs/js/sdk.js";
-    g.async = true;
-    s.parentNode.insertBefore(g, s);
-    g.onload = function () {
-        window.chatwootSDK.run({
-            websiteToken: 'wCRs91qZ7z6igvX8xQnot3p6',
-            baseUrl: BASE_URL
-        })
-    }
-})(document, "script");

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html class="light" lang="pt">
+<html class="light" lang="pt-BR">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro — Arquitetura de Integração</title>
-    <meta property="og:title" content="Veridata Pro — Arquitetura de Integração">
-    <meta property="og:description"
-        content="Seus sistemas não se comunicam. Eu projeto a arquitetura de integração que resolve isso — de forma agnóstica a tecnologia. Fractional Integration Architect para empresas que precisam do design correto, não apenas de mais código.">
+    <title>Integrações de Sistemas &amp; Automação &ndash; Veridata Pro</title>
+    <meta name="description" content="APIs customizadas, automação n8n, AWS Lambda, API Gateway, Step Functions, Python, Java, MuleSoft e integração com IA para empresas com sistemas desconectados.">
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -16,368 +14,139 @@
         href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
 
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-
 </head>
 
 <body>
-    <!-- Top Navigation -->
     <div id="header-placeholder"></div>
 
-    <!-- 1. HERO -->
-    <section class="bg-ink section-padding"
-        style="padding-top: 160px; display: flex; align-items: center; min-height: 80vh;">
-        <div class="container-narrow">
-            <span class="eyebrow accent">Arquitetura de Integração</span>
-            <h1 class="hero-title">Seus sistemas nunca foram desenhados para trabalhar juntos. Isso não é um problema de código. É um problema de <i>arquitetura.</i></h1>
-            <p class="hero-lede">Eu projeto, construo e conserto arquiteturas de integração — usando a ferramenta certa para o problema, não a que sou pago para vender.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada</a>
+    <section class="bg-ink" style="padding-top: 160px; min-height: 72vh; display: flex; align-items: center;">
+        <div class="container">
+            <span class="eyebrow">Integrações &amp; Automação</span>
+            <h1 class="hero-title">Conecte os sistemas dos quais sua empresa depende.</h1>
+            <p class="hero-lede">APIs customizadas, workflows n8n, integrações AWS-native, serviços Python/Java, arquitetura MuleSoft e pipelines de IA para empresas que precisam de confiabilidade além de automações no-code frágeis.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada sobre integrações</a>
         </div>
     </section>
 
-    <!-- 2. PROBLEM -->
-    <section class="bg-paper section-padding">
-        <div class="container-narrow">
-            <span class="eyebrow">Os Sintomas</span>
-            <h2 class="section-title">O que acontece quando a integração é construída por quem estava disponível.</h2>
+    <section class="bg-paper">
+        <div class="container">
+            <span class="eyebrow">Serviços de integração</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">O trabalho entre as ferramentas decide se a operação escala ou quebra.</h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
+                A Veridata Pro desenha e constrói a camada de conexão: APIs, eventos, automações, pipelines de dados, serviços de IA e handoffs operacionais.
+            </p>
 
-            <div class="number-card-container">
-                <div class="number-card">
-                    <span class="number-tag">01</span>
-                    <h3 class="number-title">Entrada manual de dados entre sistemas</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Vendas fecha um negócio no
-                        Salesforce. Alguém copia para o ERP manualmente. Duas horas depois os dados estão errados e
-                        ninguém sabe em qual sistema confiar.</p>
+            <div class="grid-3">
+                <div class="tool-card">
+                    <h3 class="tool-title">Integrações por API</h3>
+                    <p class="tool-desc">Conecte CRMs, ERPs, SaaS, fornecedores, ecommerce, bancos de dados e aplicações internas com contratos claros.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">02</span>
-                    <h3 class="number-title">Integração construída por quem estava disponível</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Um desenvolvedor construiu a
-                        sincronização do Shopify com o estoque num fim de semana três anos atrás. Ninguém documentou. A
-                        integração quebra a cada dois meses. A pessoa que construiu já saiu da empresa.</p>
+                <div class="tool-card recommended">
+                    <span class="tool-tag">n8n-first</span>
+                    <h3 class="tool-title">Automação n8n self-hosted</h3>
+                    <p class="tool-desc">Automação séria com mais controle, menor custo recorrente e melhor propriedade do que automações SaaS por tarefa.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">03</span>
-                    <h3 class="number-title">Proliferação de ferramentas sem dono</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Cinco ferramentas de integração
-                        diferentes adotadas por cinco equipes diferentes. Zapier, Make, um velho script em Python, um
-                        fluxo abandonado do MuleSoft e um webhook de fornecedor não configurado corretamente. Ninguém
-                        domina o cenário completo.</p>
+                <div class="tool-card">
+                    <h3 class="tool-title">AWS API Gateway + Lambda</h3>
+                    <p class="tool-desc">APIs serverless, webhooks, transformações e handoffs controlados para integrações leves e confiáveis.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">04</span>
-                    <h3 class="number-title">A integração que atrasou o contrato enterprise</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Seu comprador nos EUA perguntou
-                        como os dados trafegam entre seus sistemas internos. Sua equipe não tinha uma resposta clara.
-                        Negócios desaceleram quando a arquitetura corporativa é invisível.</p>
+                <div class="tool-card">
+                    <h3 class="tool-title">AWS Step Functions</h3>
+                    <p class="tool-desc">Orquestração para processos com múltiplas etapas, estado, retry, ramificações e auditoria.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">EventBridge e SQS</h3>
+                    <p class="tool-desc">Fluxos orientados a eventos e filas para resiliência, desacoplamento e processamento controlado.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Serviços Python e Java</h3>
+                    <p class="tool-desc">Código customizado quando ferramentas no-code não bastam para performance, segurança, regras de dados ou controle de ciclo de vida.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Arquitetura MuleSoft</h3>
+                    <p class="tool-desc">Conectividade API-led, governança, padrões de integração e arquitetura corporativa para ambientes MuleSoft.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Integrações de banco de dados</h3>
+                    <p class="tool-desc">PostgreSQL, MySQL, sincronização operacional, feeds de relatório, conciliação e movimentação controlada de dados.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Integrações com APIs de IA</h3>
+                    <p class="tool-desc">OpenAI, Anthropic e Gemini conectados a workflows reais com validação, logs, controle de custo e revisão humana.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Pipelines RAG</h3>
+                    <p class="tool-desc">Busca interna sobre documentos, políticas, manuais, contratos e conteúdo de suporte com padrões práticos de acesso.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Extração de documentos</h3>
+                    <p class="tool-desc">PDFs, notas, contratos, emails e formulários viram registros estruturados para revisão e roteamento.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Auditoria de integrações</h3>
+                    <p class="tool-desc">Mapeamos o que existe, pontos frágeis, ownership e o que deve ficar, migrar ou ser reconstruído.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. WHAT YOU GET -->
-    <section class="bg-cream section-padding">
+    <section class="bg-cream">
         <div class="container-narrow">
-            <span class="eyebrow">O Escopo</span>
-            <h2 class="section-title">Um arquiteto de integração do seu lado.</h2>
+            <span class="eyebrow">Workflows existentes</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Já usa Zapier ou Make?</h2>
+            <p style="font-size: 1.35rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2rem;">
+                Podemos auditar, estabilizar ou migrar workflows existentes. Se uma automação em Zapier ou Make é simples, de baixo volume e confiável, talvez ela possa continuar onde está.
+            </p>
+            <p style="font-size: 1.35rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 3rem;">
+                Para empresas em crescimento, normalmente recomendamos mover automações críticas para n8n ou integrações customizadas para reduzir custo por tarefa, aumentar controle e evitar workflows frágeis.
+            </p>
 
-            <div class="scope-grid">
-                <div class="scope-col">
-                    <h3>Arquiteto</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">Para quando você já tem quem vai implementar.</p>
-                    <ul class="scope-list">
-                        <li>Design de arquitetura de integração</li>
-                        <li>Seleção de tecnologia fundamentada</li>
-                        <li>Revisões pré-código e pós-código</li>
-                        <li>Registros de Decisão de Arquitetura (ADRs)</li>
-                        <li>Mapeamento do panorama de integrações</li>
-                        <li>Aconselhamento assíncrono (Slack ou email)</li>
-                    </ul>
-                </div>
-                <div class="scope-col">
-                    <h3>Construção</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">Para quando você precisa da solução completa entregue.</p>
-                    <ul class="scope-list">
-                        <li>Implementação de integrações greenfield</li>
-                        <li>AWS nativa: API Gateway, EventBridge, Step Functions</li>
-                        <li>Fluxos e APIs em MuleSoft</li>
-                        <li>Workflows de automação com n8n</li>
-                        <li>Serviços de integração em Python ou Java</li>
-                        <li>Dell Boomi ou qualquer iPaaS corporativo</li>
-                        <li>Migração de Zapier / Make para n8n ou AWS</li>
-                    </ul>
-                </div>
-                <div class="scope-col">
-                    <h3>Correção</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">Para quando um sistema já está quebrando.</p>
-                    <ul class="scope-list">
-                        <li>Diagnóstico de integrações falhas ou não documentadas</li>
-                        <li>Revisão de performance e confiabilidade</li>
-                        <li>Refatoração de código de integração legado</li>
-                        <li>Documentação técnica do que realmente existe</li>
-                        <li>Estabilização antes de construir algo novo</li>
-                    </ul>
-                </div>
+            <div class="pill-row">
+                <span class="pill">Auditoria Zapier</span>
+                <span class="pill">Estabilização Make</span>
+                <span class="pill">Migração para n8n</span>
+                <span class="pill">Reconstrução customizada</span>
+                <span class="pill">Documentação</span>
             </div>
         </div>
     </section>
 
-    <!-- 4. THE APPROACH -->
-    <section class="bg-ink section-padding">
+    <section class="bg-ink">
         <div class="container-narrow">
-            <span class="eyebrow accent">Agnóstico a Tecnologia</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">A ferramenta segue a arquitetura ditada em mesa. E
-                não o contrário.</h2>
+            <span class="eyebrow">Arquitetura</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">As partes invisíveis decidem se o workflow sobrevive em produção.</h2>
+            <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 2rem;">
+                Uma integração séria precisa lidar com autenticação, acesso, limites de API, mudanças de schema, retries, eventos duplicados, falhas parciais, observabilidade e handoff para quem vai operar.
+            </p>
+            <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 3rem;">
+                Essa é a diferença entre uma demo de workflow e um sistema em que a empresa pode confiar.
+            </p>
 
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Não vendo plataformas. Eu desenho a arquitetura. E quando o time precisa de alguém que também a construa, eu faço isso.</p>
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Às vezes isso significa usar recursos nativos da AWS: EventBridge, API Gateway, Step Functions. Às vezes é usar n8n para automação de workflows entre ferramentas SaaS. Às vezes é MuleSoft porque a complexidade corporativa justifica o custo. Outras vezes é um simples script em Python e uma fila.</p>
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6;">A decisão dita a ferramenta. Não o contrário.</p>
-
-            <div class="pill-container">
-                <span class="pill-tag">AWS EventBridge / API Gateway / Step Functions</span>
-                <span class="pill-tag">n8n</span>
-                <span class="pill-tag">MuleSoft</span>
-                <span class="pill-tag">Dell Boomi</span>
-                <span class="pill-tag">Python</span>
-                <span class="pill-tag">Java</span>
-                <span class="pill-tag">Migração n8n</span>
+            <div class="pill-row">
+                <span class="pill">Contratos de API</span>
+                <span class="pill">Retries</span>
+                <span class="pill">Validação</span>
+                <span class="pill">Filas</span>
+                <span class="pill">Logs</span>
+                <span class="pill">Segurança</span>
+                <span class="pill">Runbooks</span>
             </div>
         </div>
     </section>
 
-    <!-- 5. WHO THIS IS NOT FOR -->
-    <section class="bg-paper section-padding">
-        <div class="container-narrow">
-            <span class="eyebrow">Boas Adequações & Más Adequações</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">Isso é puramente trabalho consultivo estratégico.
-            </h2>
-
-            <div style="border-top: 1px solid var(--rule); padding-top: 2rem;">
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Se você precisa do design da arquitetura e também da implementação, eu faço isso — cobrando honorários de arquiteto, não como alocação de terceirizado. A diferença está no escopo.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Entrego projetos de construção de integrações com escopo e custo fixos. Não atuo em contratos abertos e cobrados por hora, sem uma entrega final definida.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Se você precisa que a integração
-                    esteja rodando até sexta-feira e já é quarta, eu não sou a escolha certa para esse prazo.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6;">Se você já decidiu por uma ferramenta específica e quer
-                    validação, não arquitetura — teremos um engajamento frustrante.</p>
-            </div>
+    <section class="bg-ink text-center">
+        <div class="container-narrow" style="text-align: center;">
+            <h2 class="section-title" style="font-style: italic;">Se seus sistemas não conversam,<br>sua equipe vira a camada de integração.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Vamos substituir isso por software.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada sobre integrações</a>
         </div>
     </section>
 
-    <!-- 6. ABOUT UGO -->
-    <section class="bg-cream section-padding">
-        <div class="container-narrow">
-            <div class="grid-split">
-                <div>
-                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli"
-                        style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo passou 15+ anos
-                        desenhando arquiteturas de integração para Deloitte, Ubisoft, Accenture e Alithya — por toda a
-                        LATAM, EUA e Canadá.</p>
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Como Gerente de Integração
-                        na Deloitte, ele entregou 15+ APIs de grau-empresarial para clientes em finanças e saúde. Na
-                        Ubisoft Montreal, ele reduziu os custos de infraestrutura em 66% através da refatoração da
-                        arquitetura.</p>
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Ele atua de forma agnóstica à
-                        tecnologia — MuleSoft quando o custo se justifica, AWS nativa quando ela é suficiente, e o que
-                        mais se ajustar ao problema quando não for nenhuma das duas.</p>
-
-                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank"
-                        style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Perfil
-                        no Linkedin</a>
-                </div>
-                <div>
-                    <div class="stat-grid">
-                        <div class="stat-card">
-                            <div class="stat-num">15+</div>
-                            <div class="stat-label">Anos de Experiência</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">8+</div>
-                            <div class="stat-label">Anos MuleSoft / AWS</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">15+</div>
-                            <div class="stat-label">APIs Corporativas</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">4</div>
-                            <div class="stat-label">Idiomas</div>
-                        </div>
-                    </div>
-
-                    <div class="pill-container" style="margin-top: 0; margin-bottom: 3rem;">
-                        <span class="pill-tag">Deloitte</span>
-                        <span class="pill-tag">Ubisoft</span>
-                        <span class="pill-tag">Accenture</span>
-                        <span class="pill-tag">Alithya</span>
-                    </div>
-
-                    <h3
-                        style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 1rem;">
-                        Certificações</h3>
-                    <ul class="cert-list">
-                        <li>MuleSoft Certified Platform Architect</li>
-                        <li>AWS Solutions Architect</li>
-                        <li>Azure Fundamentals</li>
-                        <li>MuleSoft Certified Developer</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. PRICING -->
-    <section class="bg-paper section-padding">
-        <div class="container-custom">
-            <span class="eyebrow" style="text-align: center; width: 100%;">Investimento</span>
-            <h2 class="section-title text-center" style="margin-bottom: 4rem;">Duas formas de atuar.</h2>
-
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <span class="label">Comece Aqui</span>
-                    <div class="price" style="font-size: 2rem;">Assessment de Integração</div>
-                    <div class="price" style="margin-top: 1.5rem;">$800–1.200 (USD) <span
-                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">pgto único</span></div>
-                    <div class="subtext">Entregue em 5–7 dias · Valor abatido de futuros projetos ou retainers</div>
-
-                    <ul class="price-features">
-                        <li><span>—</span> Revisão do panorama atual de integração</li>
-                        <li><span>—</span> Identificação de gaps — o que está quebrado, o que é manual ou o que corre risco</li>
-                        <li><span>—</span> Recomendação de arquitetura para os top 3 problemas logísticos</li>
-                        <li><span>—</span> Seleção de tecnologia com fundamentação teórica</li>
-                        <li><span>—</span> Roadmap priorizado pronto para execução tática imediata</li>
-                        <li><span>—</span> Reunião de debriefing de 1h longo direto com Ugo</li>
-                    </ul>
-
-                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
-                        style="width: 100%; margin-top: 2rem;">Agendar o Assessment</a>
-                </div>
-
-                <div class="price-card">
-                    <span class="label">Continuado</span>
-                    <div class="price" style="font-size: 2rem;">Advisory Retainer</div>
-                    <div class="price" style="margin-top: 1.5rem;">$800–1.200 (USD) <span
-                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">/ mensais</span></div>
-                    <div class="subtext">Faturamento mês-a-mês. Sem amarração.</div>
-
-                    <div class="italic-note">Grande parte inicia na fase de assessment.<br>A maioria fica pelo retainer.
-                    </div>
-
-                    <ul class="price-features">
-                        <li><span>—</span> Revisão técnica e tática mensal das integrações</li>
-                        <li><span>—</span> Q&A assíncrono para tomadas de decisão estruturais</li>
-                        <li><span>—</span> Revisões antes da equipe escrever código e validações pós deploy</li>
-                        <li><span>—</span> Gestão de Registros de Decisões de Arquitetura (ADRs)</li>
-                        <li><span>—</span> Manutenção do panorama ativo do ecossistema mapeado</li>
-                    </ul>
-
-                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
-                        style="width: 100%; margin-top: 2rem;">Agendar chamada</a>
-                </div>
-            </div>
-
-            <div style="border: 1px solid var(--rule); background-color: var(--paper); padding: 3rem; margin-bottom: 2rem;">
-                <span class="eyebrow">Fase de Construção</span>
-                <div class="grid-split" style="gap: 2rem;">
-                    <div>
-                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 0.5rem;">Projetos de Implementação</div>
-                        <p style="font-size: 1.125rem; margin-bottom: 1.5rem; color: var(--text-muted); font-family: 'Fraunces', serif; font-style: italic;">Arquitetura + construção, entregues de ponta a ponta.</p>
-                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 1.5rem;">a partir de $3.000 (USD) <span style="font-size: 1.125rem; font-family: 'Inter', sans-serif; color: var(--text-muted);">· dimensionado por escopo</span></div>
-                        <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Discutir um projeto</a>
-                    </div>
-                    <div>
-                        <ul class="price-features" style="margin-bottom: 0;">
-                            <li><span>—</span> Design de escopo fechado da arquitetura</li>
-                            <li><span>—</span> Implementação e desenvolvimento na íntegra</li>
-                            <li><span>—</span> AWS / MuleSoft / n8n / Python / Java</li>
-                            <li><span>—</span> Documentação e handoff completo</li>
-                            <li><span>—</span> Suporte de 30 dias na estabilização pós release</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 2rem;">Não tem certeza
-                qual de fato se aplica melhor? A chamada de discovery inicial é gratuita e sem vendas insistentes.</p>
-        </div>
-    </section>
-
-    <!-- 8. FAQ -->
-    <section class="bg-cream section-padding">
-        <div class="container-narrow">
-            <span class="eyebrow">Detalhes</span>
-            <h2 class="section-title">Respostas honestas e diretas.</h2>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-q">Você trabalha com qualquer ferramenta de integração ou foca apenas em MuleSoft?
-                    </h3>
-                    <p class="faq-a">Qualquer ferramenta que se adeque à arquitetura. MuleSoft quando a complexidade
-                        justificar o custo das licenças. AWS nativo quando a empresa já estiver na AWS e os padrões se
-                        encaixarem. N8n para automação de fluxos de trabalho através de ferramentas SaaS. A escolha da
-                        ferramenta ocorre apenas após o design da arquitetura, e não o inverso.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Nós já temos integrações rodando em produção que vivem quebrando. Você consegue
-                        ajudar?</h3>
-                    <p class="faq-a">Sim. Grande parte do Assessment envolve mapear exatamente o que já existe —
-                        incluindo fluxos não documentados e ecossistemas frágeis. Você recebe um diagnóstico exato e
-                        sincero dos riscos de quebra na fundação antes sequer de falarmos do que construir em seguida.
-                    </p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Qual a diferença real entre isso e simplesmente contratar um desenvolvedor de
-                        integrações?</h3>
-                    <p class="faq-a">Um programador foca em codar a conexão que você pedir. Um arquiteto decide o que de
-                        fato conectar e por quê. Se você já tem os desenvolvedores e infra time, muito provavelmente
-                        necessita dessa segunda peça para orientá-los. Se não tiver programador algum em campo ainda,
-                        priorize essa ponta — de nada adianta um excelente mapa de voo sem pilotos para voar e pousar o
-                        projeto no fim da semana. Eles são os implementadores que orientarei.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Você lida com lógicas que cruzam dados sensíveis ou requisitos de compliance?</h3>
-                    <p class="faq-a">No escopo do design de arquitetura técnica, sim — identifico perfeitamente onde
-                        PIIs ou LGPD correm risco de vazamento em fluxos de integração, onde credenciais se expõem
-                        indevidamente e onde trilhas de auditoria falham. Porém, execuções de auditorias formais
-                        corporativas e certificações de conformidade direta (como um selo SOC 2) ficam fora de escopo.
-                        Trata-se de um tipo de engajamento totalmente separado.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Você também constrói a integração ou apenas desenha a arquitetura?</h3>
-                    <p class="faq-a">Sim. Desenhar a arquitetura ou desenhar e também construir estão disponíveis. A diferença é escopo e preço — projetos de implementação são contratos de escopo fechado e preço fixo. Não cobro por horas em contratos indefinidos.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Temos uma integração quebrada que ninguém entende. Você conserta?</h3>
-                    <p class="faq-a">Esse é um dos pontos de partida mais comuns. Antes de construir algo novo, precisamos entender o que já existe. Um engajamento de correção começa com o diagnóstico — mapeando o que existe, o que está falhando e por que — e então estabilizando esse quadro.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Com que rapidez você consegue iniciar?</h3>
-                    <p class="faq-a">Geralmente em 7 dias. A prática é intencionalmente pequena para que cada cliente tenha verdadeira atenção e foco.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. FINAL CTA -->
-    <section class="bg-ink section-padding" style="text-align: center;">
-        <div class="container-narrow">
-            <h2 class="section-title" style="font-family: 'Fraunces', serif; font-style: italic;">Seus sistemas
-                definitivamente precisam se falar.</h2>
-            <p class="hero-lede" style="margin: 0 auto 3rem auto;">E eles provavelmente podem. A arquitetura debaixo
-                deles só precisa estar correta de antemão.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar chamada</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script>
-        window.resRoot = '../';
-    </script>
+    <script>window.resRoot = '../';</script>
     <script src="../assets/js/main.js"></script>
 </body>
 

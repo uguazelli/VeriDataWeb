@@ -4,10 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro — Integration Architecture</title>
-    <meta property="og:title" content="Veridata Pro — Integration Architecture">
-    <meta property="og:description"
-        content="Your systems don't talk to each other. I design the integration architecture that fixes it — technology agnostic. Fractional Integration Architect for companies that need the right design, not just more code.">
+    <title>Custom System Integrations &amp; Automation &ndash; Veridata Pro</title>
+    <meta name="description" content="Custom APIs, n8n automation, AWS Lambda, API Gateway, Step Functions, Python, Java, MuleSoft, and AI integration for companies with disconnected systems.">
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -16,361 +14,181 @@
         href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
 
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-
 </head>
 
 <body>
-    <!-- Top Navigation -->
     <div id="header-placeholder"></div>
 
+    <!-- TODO: Create pt/integrations.html and es/integrations.html mirrors after translation review. -->
+
     <!-- 1. HERO -->
-    <section class="bg-ink section-padding"
-        style="padding-top: 160px; display: flex; align-items: center; min-height: 80vh;">
-        <div class="container-narrow">
-            <span class="eyebrow accent">Integration Architecture</span>
-            <h1 class="hero-title">Your systems were never designed to work together. That's not a code problem. It's an
-                <i>architecture</i> problem.</h1>
-            <p class="hero-lede">I design, build, and fix integration architectures — using the right tool for the problem, not the one I'm paid to sell.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a call</a>
+    <section class="bg-ink" style="padding-top: 160px; min-height: 72vh; display: flex; align-items: center;">
+        <div class="container">
+            <span class="eyebrow">Custom Integrations &amp; Automation</span>
+            <h1 class="hero-title">Connect the systems your business depends on.</h1>
+            <p class="hero-lede">Custom APIs, n8n workflows, AWS-native integrations, Python/Java services, MuleSoft architecture, and AI pipelines for companies that need reliability beyond fragile no-code automations.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book an integration call</a>
         </div>
     </section>
 
-    <!-- 2. PROBLEM -->
-    <section class="bg-paper section-padding">
-        <div class="container-narrow">
-            <span class="eyebrow">The Symptoms</span>
-            <h2 class="section-title">What happens when integration is built by whoever was available.</h2>
+    <!-- 2. SERVICES -->
+    <section class="bg-paper">
+        <div class="container">
+            <span class="eyebrow">Integration Services</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">The work between the tools is where operations either scale or break.</h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
+                Veridata Pro designs and builds the connective tissue: APIs, event flows, workflow automation, data pipelines, AI services, and operational handoffs.
+            </p>
 
-            <div class="number-card-container">
-                <div class="number-card">
-                    <span class="number-tag">01</span>
-                    <h3 class="number-title">Manual data entry between systems</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Sales closes a deal in
-                        Salesforce. Someone copies it into the ERP manually. Two hours later the data is wrong and
-                        nobody knows which system to trust.</p>
+            <div class="grid-3">
+                <div class="tool-card">
+                    <h3 class="tool-title">Custom API integrations</h3>
+                    <p class="tool-desc">Connect CRMs, ERPs, SaaS platforms, vendor systems, ecommerce, databases, and internal applications with clear contracts.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">02</span>
-                    <h3 class="number-title">Integration built by whoever was available</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">A developer built the
-                        Shopify-to-warehouse sync in a weekend three years ago. Nobody documented it. It breaks every
-                        other month. The person who built it left.</p>
+                <div class="tool-card recommended">
+                    <span class="tool-tag">n8n-first</span>
+                    <h3 class="tool-title">n8n self-hosted automation</h3>
+                    <p class="tool-desc">Serious workflow automation with more control, lower recurring costs, and better ownership than per-task SaaS automations.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">03</span>
-                    <h3 class="number-title">Tool sprawl with no ownership</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Five different integration
-                        tools adopted by five different teams. Zapier, Make, a custom Python script, an old MuleSoft
-                        flow, and a vendor webhook nobody configured correctly. Nobody owns the full picture.</p>
+                <div class="tool-card">
+                    <h3 class="tool-title">AWS API Gateway + Lambda</h3>
+                    <p class="tool-desc">Serverless API and integration endpoints for lightweight services, webhooks, transformations, and controlled handoffs.</p>
                 </div>
-                <div class="number-card">
-                    <span class="number-tag">04</span>
-                    <h3 class="number-title">The integration that slowed the enterprise deal</h3>
-                    <p class="text-muted" style="font-size: 1.125rem; line-height: 1.6;">Your US buyer asked how data
-                        moves between your systems. You didn't have a clear answer. Deals slow down when architecture is
-                        invisible.</p>
+                <div class="tool-card">
+                    <h3 class="tool-title">AWS Step Functions</h3>
+                    <p class="tool-desc">Reliable workflow orchestration for multi-step processes that need state, retries, branching, and auditability.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">EventBridge and SQS</h3>
+                    <p class="tool-desc">Event-driven flows and queues for systems that need decoupling, resilience, and controlled downstream processing.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Python and Java services</h3>
+                    <p class="tool-desc">Custom integration services when no-code tools are not enough for performance, security, data rules, or lifecycle control.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">MuleSoft architecture</h3>
+                    <p class="tool-desc">API-led connectivity, governance, integration patterns, and enterprise architecture for organizations already using MuleSoft.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Database integrations</h3>
+                    <p class="tool-desc">PostgreSQL, MySQL, operational sync, reporting feeds, reconciliation flows, and controlled data movement between systems.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">AI API integrations</h3>
+                    <p class="tool-desc">OpenAI, Anthropic, and Gemini APIs connected to real workflows with validation, logs, cost controls, and human review.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">RAG pipelines</h3>
+                    <p class="tool-desc">Internal knowledge retrieval over documents, policies, manuals, contracts, and support content with practical access patterns.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Document extraction pipelines</h3>
+                    <p class="tool-desc">PDFs, invoices, contracts, emails, and forms turned into structured records that can be reviewed and routed.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Integration audits</h3>
+                    <p class="tool-desc">Map what exists, find hidden failure points, document ownership, and decide what should stay, move, or be rebuilt.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. WHAT YOU GET -->
-    <section class="bg-cream section-padding">
+    <!-- 3. EXISTING NO-CODE WORKFLOWS -->
+    <section class="bg-cream">
         <div class="container-narrow">
-            <span class="eyebrow">The Engagement</span>
-            <h2 class="section-title">An integration architect on your side.</h2>
+            <span class="eyebrow">Existing Workflows</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Already using Zapier or Make?</h2>
+            <p style="font-size: 1.35rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2rem;">
+                We can audit, stabilize, or migrate existing workflows. If a Zapier or Make automation is simple, low-volume, and reliable, it may be fine where it is.
+            </p>
+            <p style="font-size: 1.35rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 3rem;">
+                For growing companies, we usually recommend moving critical automations to n8n or custom integrations to reduce per-task costs, improve control, and avoid fragile no-code workflows.
+            </p>
 
-            <div class="scope-grid">
-                <div class="scope-col">
-                    <h3>Architect</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when you have a team ready to implement.</p>
-                    <ul class="scope-list">
-                        <li>Integration architecture design</li>
-                        <li>Technology selection with rationale</li>
-                        <li>Pre-build and post-build reviews</li>
-                        <li>Architecture Decision Records (ADRs)</li>
-                        <li>Integration landscape mapping</li>
-                        <li>Async advisory (Slack or email)</li>
-                    </ul>
-                </div>
-                <div class="scope-col">
-                    <h3>Build</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when you need the whole solution delivered.</p>
-                    <ul class="scope-list">
-                        <li>Greenfield integration implementation</li>
-                        <li>AWS native: API Gateway, EventBridge, Step Functions</li>
-                        <li>MuleSoft flows and APIs</li>
-                        <li>n8n automation workflows</li>
-                        <li>Python or Java integration services</li>
-                        <li>Dell Boomi, any enterprise iPaaS</li>
-                        <li>Migration from Zapier / Make to n8n or AWS</li>
-                    </ul>
-                </div>
-                <div class="scope-col">
-                    <h3>Fix</h3>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 2rem; margin-top: -1rem;">For when a system is already breaking down.</p>
-                    <ul class="scope-list">
-                        <li>Diagnosis of broken or undocumented integrations</li>
-                        <li>Performance and reliability review</li>
-                        <li>Refactoring legacy integration code</li>
-                        <li>Documentation of what actually exists</li>
-                        <li>Stabilization before a new build</li>
-                    </ul>
-                </div>
+            <div class="pill-row">
+                <span class="pill">Zapier audit</span>
+                <span class="pill">Make stabilization</span>
+                <span class="pill">n8n migration</span>
+                <span class="pill">Custom rebuilds</span>
+                <span class="pill">Workflow documentation</span>
             </div>
         </div>
     </section>
 
-    <!-- 4. THE APPROACH -->
-    <section class="bg-ink section-padding">
+    <!-- 4. ARCHITECTURE -->
+    <section class="bg-ink">
         <div class="container-narrow">
-            <span class="eyebrow accent">Technology Agnostic</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">The tool follows the architecture. Not the other way
-                around.</h2>
+            <span class="eyebrow">Architecture</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">The invisible parts decide whether the workflow survives production.</h2>
+            <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 2rem;">
+                A serious integration has to handle authentication, access control, rate limits, schema changes, retries, duplicate events, partial failures, observability, and handoff to the team that will operate it.
+            </p>
+            <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 3rem;">
+                That is the difference between a workflow demo and a system the business can depend on.
+            </p>
 
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">I don't sell a platform. I design the architecture. When the team needs someone to build it too, I can do that.</p>
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">Sometimes that's AWS native: EventBridge, API Gateway, Step Functions. Sometimes that's n8n for workflow automation across SaaS tools. Sometimes it's MuleSoft because the enterprise complexity justifies the cost. Sometimes it's a simple Python script and a queue.</p>
-            <p class="text-muted" style="font-size: 1.5rem; line-height: 1.6;">The decision follows the problem. Not the other way around.</p>
-
-            <div class="pill-container">
-                <span class="pill-tag">AWS EventBridge / API Gateway / Step Functions</span>
-                <span class="pill-tag">n8n</span>
-                <span class="pill-tag">MuleSoft</span>
-                <span class="pill-tag">Dell Boomi</span>
-                <span class="pill-tag">Python</span>
-                <span class="pill-tag">Java</span>
-                <span class="pill-tag">n8n migration</span>
+            <div class="pill-row">
+                <span class="pill">API contracts</span>
+                <span class="pill">Retries</span>
+                <span class="pill">Validation</span>
+                <span class="pill">Queues</span>
+                <span class="pill">Logging</span>
+                <span class="pill">Security</span>
+                <span class="pill">Documentation</span>
+                <span class="pill">Runbooks</span>
             </div>
         </div>
     </section>
 
-    <!-- 5. WHO THIS IS NOT FOR -->
-    <section class="bg-paper section-padding">
+    <!-- 5. USE CASES -->
+    <section class="bg-paper">
         <div class="container-narrow">
-            <span class="eyebrow">Good Fits & Bad Fits</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">This is purely advisory work.</h2>
+            <span class="eyebrow">Use Cases</span>
+            <h2 class="section-title">Where integration usually pays back in clarity.</h2>
 
-            <div style="border-top: 1px solid var(--rule); padding-top: 2rem;">
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">If you need both architecture design and implementation, that is available — at architect rates, not contractor rates. The distinction is scope.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">I deliver fixed-scope, fixed-price integration builds. I am not available for open-ended, time-and-materials contractor engagements with no defined end.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem;">If you need the integration running
-                    by Friday and it's Wednesday, I'm not the right call for that timeline.</p>
-                <p style="font-size: 1.5rem; line-height: 1.6;">If you've already decided on a specific tool and want
-                    validation, not architecture — we'll have a frustrating engagement.</p>
+            <div class="example-header">
+                <div>Workflow</div>
+                <div>What changes</div>
+            </div>
+
+            <div class="example-row">
+                <div class="example-what">Form or WhatsApp lead to CRM, Odoo, and sales owner.</div>
+                <div class="example-why">Sales handoff happens automatically, with status and ownership visible.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Ecommerce order to inventory, invoice, fulfillment, and reporting.</div>
+                <div class="example-why">Operations stop reconciling the same order across disconnected systems.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Invoice PDF to AI extraction, review queue, and finance workflow.</div>
+                <div class="example-why">Finance reviews exceptions instead of typing every field from scratch.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Vendor API to internal database and operational dashboard.</div>
+                <div class="example-why">Data arrives cleanly, failures are logged, and reporting no longer depends on manual exports.</div>
+            </div>
+            <div class="example-row" style="border-bottom: 1px solid var(--rule);">
+                <div class="example-what">Legacy scripts, old iPaaS flows, and undocumented webhooks mapped and stabilized.</div>
+                <div class="example-why">The company knows what exists, what is fragile, and what should be rebuilt.</div>
             </div>
         </div>
     </section>
 
-    <!-- 6. ABOUT UGO -->
-    <section class="bg-cream section-padding">
-        <div class="container-narrow">
-            <div class="grid-split">
-                <div>
-                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli"
-                        style="width: 100%; border-radius: 4px; margin-bottom: 2rem; mix-blend-mode: multiply; filter: grayscale(100%) contrast(120%);">
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">Ugo has spent 15+ years
-                        designing integration architectures for Deloitte, Ubisoft, Accenture, and Alithya — across
-                        LATAM, the US, and Canada.</p>
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem;">As Integration Manager at
-                        Deloitte he delivered 15+ enterprise-grade APIs for clients in finance and healthcare. At
-                        Ubisoft Montreal he reduced infrastructure costs by 66% through architecture refactoring.</p>
-                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">He works
-                        technology-agnostically — MuleSoft when it's justified, AWS native when it's sufficient, and
-                        whatever actually fits the problem when it's neither.</p>
-
-                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank"
-                        style="font-weight: 500; font-family: 'Inter', sans-serif; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;">Linkedin</a>
-                </div>
-                <div>
-                    <div class="stat-grid">
-                        <div class="stat-card">
-                            <div class="stat-num">15+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">8+</div>
-                            <div class="stat-label">Years MuleSoft / AWS</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">15+</div>
-                            <div class="stat-label">Enterprise APIs</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-num">4</div>
-                            <div class="stat-label">Languages</div>
-                        </div>
-                    </div>
-
-                    <div class="pill-container" style="margin-top: 0; margin-bottom: 3rem;">
-                        <span class="pill-tag">Deloitte</span>
-                        <span class="pill-tag">Ubisoft</span>
-                        <span class="pill-tag">Accenture</span>
-                        <span class="pill-tag">Alithya</span>
-                    </div>
-
-                    <h3
-                        style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 1rem;">
-                        Certifications</h3>
-                    <ul class="cert-list">
-                        <li>MuleSoft Certified Platform Architect</li>
-                        <li>AWS Solutions Architect</li>
-                        <li>Azure Fundamentals</li>
-                        <li>MuleSoft Certified Developer</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- 6. FINAL CTA -->
+    <section class="bg-ink text-center">
+        <div class="container-narrow" style="text-align: center;">
+            <h2 class="section-title" style="font-style: italic;">If your systems do not talk to each other,<br>your team becomes the integration layer.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Let's replace that with software.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book an integration call</a>
         </div>
     </section>
 
-    <!-- 7. PRICING -->
-    <section class="bg-paper section-padding">
-        <div class="container-custom">
-            <span class="eyebrow" style="text-align: center; width: 100%;">Pricing</span>
-            <h2 class="section-title text-center" style="margin-bottom: 4rem;">Two ways to engage.</h2>
-
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <span class="label">Start Here</span>
-                    <div class="price" style="font-size: 2rem;">Integration Assessment</div>
-                    <div class="price" style="margin-top: 1.5rem;">$800–1,200 (USD) <span
-                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">one-time</span></div>
-                    <div class="subtext">Delivered in 5–7 days · Fee credited to retainer or project</div>
-
-                    <ul class="price-features">
-                        <li><span>—</span> Review of current integration landscape</li>
-                        <li><span>—</span> Gap identification — what's broken, manual, or at risk</li>
-                        <li><span>—</span> Architecture recommendation for the top 3 problems</li>
-                        <li><span>—</span> Technology selection with rationale</li>
-                        <li><span>—</span> Prioritized roadmap your team can act on immediately</li>
-                        <li><span>—</span> 1h debrief call with Ugo</li>
-                    </ul>
-
-                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
-                        style="width: 100%; margin-top: 2rem;">Book the Assessment</a>
-                </div>
-
-                <div class="price-card">
-                    <span class="label">Ongoing</span>
-                    <div class="price" style="font-size: 2rem;">Advisory Retainer</div>
-                    <div class="price" style="margin-top: 1.5rem;">$800–1,200 (USD) <span
-                            style="font-size: 1.25rem; font-family: 'Inter', sans-serif;">/ month</span></div>
-                    <div class="subtext">Month-to-month. No lock-in.</div>
-
-                    <div class="italic-note">Most clients start with the assessment.<br>Most stay for the retainer.
-                    </div>
-
-                    <ul class="price-features">
-                        <li><span>—</span> Monthly integration review</li>
-                        <li><span>—</span> Async Q&A for integration decisions</li>
-                        <li><span>—</span> Pre-build and post-build reviews</li>
-                        <li><span>—</span> Architecture Decision Records</li>
-                        <li><span>—</span> Integration landscape maintenance</li>
-                    </ul>
-
-                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary"
-                        style="width: 100%; margin-top: 2rem;">Book a call</a>
-                </div>
-            </div>
-
-            <div style="border: 1px solid var(--rule); background-color: var(--paper); padding: 3rem; margin-bottom: 2rem;">
-                <span class="eyebrow">Build Phase</span>
-                <div class="grid-split" style="gap: 2rem;">
-                    <div>
-                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 0.5rem;">Implementation Projects</div>
-                        <p style="font-size: 1.125rem; margin-bottom: 1.5rem; color: var(--text-muted); font-family: 'Fraunces', serif; font-style: italic;">Architecture + build, delivered end to end.</p>
-                        <div style="font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 1.5rem;">from $3,000 (USD) <span style="font-size: 1.125rem; font-family: 'Inter', sans-serif; color: var(--text-muted);">· scoped per engagement</span></div>
-                        <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Discuss a project</a>
-                    </div>
-                    <div>
-                        <ul class="price-features" style="margin-bottom: 0;">
-                            <li><span>—</span> Scoped architecture design</li>
-                            <li><span>—</span> Full implementation</li>
-                            <li><span>—</span> AWS / MuleSoft / n8n / Python / Java</li>
-                            <li><span>—</span> Handoff documentation</li>
-                            <li><span>—</span> 30-day stabilization support</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-top: 2rem;">Not sure
-                which applies? The discovery call is free and there's no pitch.</p>
-        </div>
-    </section>
-
-    <!-- 8. FAQ -->
-    <section class="bg-cream section-padding">
-        <div class="container-narrow">
-            <span class="eyebrow">Details</span>
-            <h2 class="section-title">Honest answers.</h2>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-q">Do you work with any integration tool or just MuleSoft?</h3>
-                    <p class="faq-a">Any tool that fits the architecture. MuleSoft when the complexity justifies the
-                        licensing cost. AWS native when the company is already on AWS and the patterns fit. n8n for
-                        workflow automation across SaaS tools. The tool selection comes after the architecture design,
-                        not before.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">We already have integrations running in production that are broken. Can you help?
-                    </h3>
-                    <p class="faq-a">Yes. A large part of the assessment is mapping what already exists — including
-                        what's undocumented and fragile. You get an honest diagnosis of what's risky before we talk
-                        about what to build next.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">What's the difference between this and hiring an integration developer?</h3>
-                    <p class="faq-a">A developer builds what you tell them to build. An architect decides what to build
-                        and why. If you already have developers, you probably need the second thing more than the first.
-                        If you don't have developers, start there — the advice won't land without someone to implement
-                        it.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Do you handle integrations that involve sensitive data or compliance requirements?
-                    </h3>
-                    <p class="faq-a">Architecture design yes — I know where PII leaks in integration flows, where API
-                        keys get exposed, where audit trails break. Formal compliance certification is out of scope.
-                        That's a separate engagement.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">Can you build the integration, not just design it?</h3>
-                    <p class="faq-a">Yes. Architecture-only and architecture-plus-build are both available. The difference is scope and price — implementation projects are fixed-scope, fixed-price engagements. Not open-ended time-and-materials.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">We have a broken integration that nobody understands. Can you fix it?</h3>
-                    <p class="faq-a">That's one of the most common starting points. Before building anything new, it's worth understanding what actually exists. A fix engagement starts with diagnosis — mapping what's there, what's failing, and why — then stabilizes it.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-q">How quickly can you start?</h3>
-                    <p class="faq-a">Typically within 7 days. The practice is deliberately small so each client gets
-                        real attention.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. FINAL CTA -->
-    <section class="bg-ink section-padding" style="text-align: center;">
-        <div class="container-narrow">
-            <h2 class="section-title" style="font-family: 'Fraunces', serif; font-style: italic;">Your systems should
-                talk to each other.</h2>
-            <p class="hero-lede" style="margin: 0 auto 3rem auto;">They probably can. The architecture just needs to be
-                right first.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a call</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script>
-        window.resRoot = '../';
-    </script>
+    <script>window.resRoot = '../';</script>
     <script src="../assets/js/main.js"></script>
 </body>
 

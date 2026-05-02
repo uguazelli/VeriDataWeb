@@ -215,7 +215,10 @@ section { padding: 96px 0; }
 
 .header-nav { display: none; }
 @media (min-width: 768px) { 
-    .header-nav { display: flex; align-items: center; gap: 2.5rem; } 
+    .header-nav { display: flex; align-items: center; gap: 1.25rem; }
+}
+@media (min-width: 1024px) {
+    .header-nav { gap: 2.5rem; }
 }
 
 .nav-link { font-size: 0.875rem; font-weight: 400; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
