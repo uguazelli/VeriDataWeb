@@ -79,8 +79,6 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- TODO: Create pt/integrations.html and es/integrations.html mirrors after translation review. -->
-
     <!-- 1. HERO -->
     <section class="bg-ink" style="padding-top: 160px; min-height: 72vh; display: flex; align-items: center;">
         <div class="container">
@@ -91,8 +89,52 @@
         </div>
     </section>
 
-    <!-- 2. SERVICES -->
+    <!-- 2. WHO WE HELP -->
     <section class="bg-paper">
+        <div class="container">
+            <span class="eyebrow">Who We Help</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Who we usually help</h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
+                We usually work with companies and partners that already have useful systems, but too much manual work between them.
+            </p>
+
+            <div class="grid-3">
+                <div class="problem-card">
+                    <span class="problem-number">01</span>
+                    <h3 class="problem-title">Software agencies</h3>
+                    <p class="problem-desc">Agencies that need integration support behind websites, portals, CRMs, ecommerce, or custom applications.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">02</span>
+                    <h3 class="problem-title">Odoo partners</h3>
+                    <p class="problem-desc">Odoo partners that need help with external systems, APIs, data migration, AI document flows, or automation around Odoo.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">03</span>
+                    <h3 class="problem-title">Ecommerce companies</h3>
+                    <p class="problem-desc">Stores dealing with manual finance, inventory, fulfillment, CRM, support, or reporting workflows.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">04</span>
+                    <h3 class="problem-title">Professional services firms</h3>
+                    <p class="problem-desc">Teams operating from spreadsheets, email, CRMs, forms, and internal documents.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">05</span>
+                    <h3 class="problem-title">LATAM operations teams</h3>
+                    <p class="problem-desc">Companies connecting WhatsApp, CRM, ERP, finance, reporting, and internal tools without replacing everything at once.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">06</span>
+                    <h3 class="problem-title">Founders and operators</h3>
+                    <p class="problem-desc">Businesses where the owner or operations lead is tired of being the person who manually fixes the process every week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES -->
+    <section class="bg-cream">
         <div class="container">
             <span class="eyebrow">Integration Services</span>
             <h2 class="section-title" style="margin-bottom: 2rem;">The work between the tools is where operations either scale or break.</h2>
@@ -154,8 +196,8 @@
         </div>
     </section>
 
-    <!-- 3. EXISTING NO-CODE WORKFLOWS -->
-    <section class="bg-cream">
+    <!-- 4. EXISTING NO-CODE WORKFLOWS -->
+    <section class="bg-paper">
         <div class="container-narrow">
             <span class="eyebrow">Existing Workflows</span>
             <h2 class="section-title" style="margin-bottom: 2rem;">Already using Zapier or Make?</h2>
@@ -176,32 +218,33 @@
         </div>
     </section>
 
-    <!-- 4. ARCHITECTURE -->
+    <!-- 5. ARCHITECTURE -->
     <section class="bg-ink">
         <div class="container-narrow">
             <span class="eyebrow">Architecture</span>
             <h2 class="section-title" style="margin-bottom: 2rem;">The invisible parts decide whether the workflow survives production.</h2>
             <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 2rem;">
-                A serious integration has to handle authentication, access control, rate limits, schema changes, retries, duplicate events, partial failures, observability, and handoff to the team that will operate it.
+                A serious integration has to handle validation, retries, logs, alerts, idempotency, access control, error queues, data mapping, and handoff to the team that will operate it.
             </p>
             <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 3rem;">
                 That is the difference between a workflow demo and a system the business can depend on.
             </p>
 
             <div class="pill-row">
-                <span class="pill">API contracts</span>
-                <span class="pill">Retries</span>
                 <span class="pill">Validation</span>
-                <span class="pill">Queues</span>
-                <span class="pill">Logging</span>
-                <span class="pill">Security</span>
-                <span class="pill">Documentation</span>
-                <span class="pill">Runbooks</span>
+                <span class="pill">Retries</span>
+                <span class="pill">Logs</span>
+                <span class="pill">Alerts</span>
+                <span class="pill">Idempotency</span>
+                <span class="pill">Access control</span>
+                <span class="pill">Error queues</span>
+                <span class="pill">Data mapping</span>
+                <span class="pill">Ownership</span>
             </div>
         </div>
     </section>
 
-    <!-- 5. USE CASES -->
+    <!-- 6. USE CASES -->
     <section class="bg-paper">
         <div class="container-narrow">
             <span class="eyebrow">Use Cases</span>
@@ -235,7 +278,7 @@
         </div>
     </section>
 
-    <!-- 6. FINAL CTA -->
+    <!-- 7. FINAL CTA -->
     <section class="bg-ink text-center">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">If your systems do not talk to each other,<br>your team becomes the integration layer.</h2>

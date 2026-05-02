@@ -79,8 +79,6 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- TODO: Create pt/odoo.html and es/odoo.html mirrors after translation review. -->
-
     <!-- 1. HERO -->
     <section class="bg-ink" style="padding-top: 160px; min-height: 72vh; display: flex; align-items: center;">
         <div class="container">
@@ -136,7 +134,7 @@
     <section class="bg-cream">
         <div class="container">
             <span class="eyebrow">Odoo Services</span>
-            <h2 class="section-title" style="margin-bottom: 2rem;">An integration architect for the system behind the company.</h2>
+            <h2 class="section-title" style="margin-bottom: 2rem;">An integration architect who makes Odoo work with the rest of the company.</h2>
             <p style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
                 Veridata Pro does not treat Odoo as an isolated software install. We make Odoo work with the rest of the company.
             </p>
@@ -182,13 +180,46 @@
         </div>
     </section>
 
-    <!-- 4. ARCHITECTURE -->
+    <!-- 4. ODOO PARTNERS -->
+    <section class="bg-paper">
+        <div class="container">
+            <div class="grid-2" style="gap: 4rem; align-items: start;">
+                <div>
+                    <span class="eyebrow">For Odoo Partners</span>
+                    <h2 class="section-title" style="margin-bottom: 2rem;">Need integration capacity without hiring another full-time architect?</h2>
+                    <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Veridata Pro supports Odoo partners with API integrations, data migration, external system sync, automation workflows, and AI document processing around Odoo.
+                    </p>
+                    <p style="font-size: 1.35rem; line-height: 1.5; font-family: 'Fraunces', serif; margin-bottom: 2.5rem; color: var(--ink);">
+                        You keep the client relationship. We handle the integration layer.
+                    </p>
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book an Odoo partner call</a>
+                </div>
+
+                <div class="tool-card recommended">
+                    <span class="tool-tag">Partner delivery support</span>
+                    <h3 class="tool-title">Behind-the-scenes integration capacity</h3>
+                    <ul class="scope-list">
+                        <li>API integrations with external systems</li>
+                        <li>Data migration and cleanup</li>
+                        <li>Ecommerce, CRM, finance, inventory, and warehouse integrations</li>
+                        <li>n8n and custom workflow automation around Odoo</li>
+                        <li>AI document extraction connected to Odoo</li>
+                        <li>Error handling, logging, retries, and production support</li>
+                        <li>White-label or behind-the-scenes delivery when appropriate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ARCHITECTURE -->
     <section class="bg-ink">
         <div class="container-narrow">
             <span class="eyebrow">Architecture Matters</span>
             <h2 class="section-title" style="margin-bottom: 2rem;">Odoo integration needs more than a connector.</h2>
             <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 2rem;">
-                A working Odoo integration has to survive bad data, slow APIs, permission issues, duplicate records, partial failures, and process changes. That means the architecture matters before the first workflow is built.
+                A serious Odoo integration needs clean data mapping, validation, retry logic, error handling, access control, logging, and a clear owner when something fails. That is where integration architecture matters.
             </p>
             <p class="text-muted" style="font-size: 1.35rem; line-height: 1.7; margin-bottom: 3rem;">
                 We design the integration layer with error handling, retry logic, validation, logging, access control, and clean data mapping so Odoo can become a reliable part of the operating model.
@@ -201,12 +232,13 @@
                 <span class="pill">Logging</span>
                 <span class="pill">Access control</span>
                 <span class="pill">Data mapping</span>
+                <span class="pill">Ownership</span>
                 <span class="pill">Operational handoff</span>
             </div>
         </div>
     </section>
 
-    <!-- 5. FIT -->
+    <!-- 6. FIT -->
     <section class="bg-paper">
         <div class="container">
             <span class="eyebrow">Good Fit</span>
@@ -234,7 +266,7 @@
         </div>
     </section>
 
-    <!-- 6. FINAL CTA -->
+    <!-- 7. FINAL CTA -->
     <section class="bg-ink text-center">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">If Odoo is becoming another manual system,<br>let's fix the integration layer.</h2>

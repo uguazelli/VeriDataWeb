@@ -266,6 +266,8 @@ function translateUI(context) {
             'header.odoo': 'Odoo',
             'header.integrations': 'Integrações',
             'header.leadership': 'Liderança',
+            'header.book_call': 'Agendar chamada',
+            'header.language_select': 'Idioma',
             'footer.home': 'Início',
             'footer.navigation': 'Navegação',
             'footer.integrations': 'Integrações',
@@ -275,15 +277,19 @@ function translateUI(context) {
             'footer.services': 'Serviços',
             'footer.odoo_development': 'Desenvolvimento Odoo',
             'footer.odoo_integrations': 'Integrações Odoo',
-            'footer.workflow_automation': 'Automação de Workflows',
-            'footer.custom_apis': 'APIs Personalizadas',
-            'footer.ai_integration': 'Integração com IA'
+            'footer.workflow_automation': 'Automação de Processos',
+            'footer.custom_apis': 'APIs Sob Medida',
+            'footer.ai_integration': 'Integração com IA',
+            'footer.registered': 'Registrada em Wyoming, EUA · hello@veridatapro.com',
+            'footer.no_outsourcing': 'Todos os projetos são liderados por arquiteto. Sem terceirização. Sem alocação de mão de obra técnica.'
         },
         'es': {
             'header.home': 'Inicio',
             'header.odoo': 'Odoo',
             'header.integrations': 'Integraciones',
             'header.leadership': 'Liderazgo',
+            'header.book_call': 'Agendar llamada',
+            'header.language_select': 'Idioma',
             'footer.home': 'Inicio',
             'footer.navigation': 'Navegación',
             'footer.integrations': 'Integraciones',
@@ -293,9 +299,11 @@ function translateUI(context) {
             'footer.services': 'Servicios',
             'footer.odoo_development': 'Desarrollo Odoo',
             'footer.odoo_integrations': 'Integraciones Odoo',
-            'footer.workflow_automation': 'Automatización de Workflows',
-            'footer.custom_apis': 'APIs Personalizadas',
-            'footer.ai_integration': 'Integración con IA'
+            'footer.workflow_automation': 'Automatización de Procesos',
+            'footer.custom_apis': 'APIs a Medida',
+            'footer.ai_integration': 'Integración con IA',
+            'footer.registered': 'Registrada en Wyoming, EE. UU. · hello@veridatapro.com',
+            'footer.no_outsourcing': 'Todos los proyectos son liderados por un arquitecto. Sin tercerización. Sin venta de horas técnicas.'
         }
     };
 
