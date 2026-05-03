@@ -881,6 +881,12 @@ section[id] {
     gap: 2rem;
 }
 
+.signal-list {
+    display: grid;
+    gap: 1rem;
+    position: relative;
+}
+
 @media (max-width: 768px) {
 
     .grid-2,
@@ -919,6 +925,37 @@ section[id] {
     border-color: var(--rule-strong);
 }
 
+.signal-list .problem-card {
+    align-items: center;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(253, 251, 247, 0.96));
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 7rem) minmax(0, 1fr) 2rem;
+    grid-template-rows: auto auto;
+    min-height: 132px;
+    column-gap: 2rem;
+    row-gap: 0.75rem;
+    padding: 2rem 2.25rem;
+}
+
+.signal-list .problem-card::before {
+    background: linear-gradient(90deg, var(--accent-line), transparent 72%);
+    height: 2px;
+}
+
+.signal-list .problem-card::after {
+    align-self: center;
+    background-color: var(--accent-live);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--accent-soft), 0 0 20px var(--accent-glow);
+    content: "";
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    height: 9px;
+    justify-self: end;
+    width: 9px;
+}
+
 .problem-number,
 .number-tag {
     font-family: 'JetBrains Mono', monospace;
@@ -929,10 +966,29 @@ section[id] {
     font-weight: 400;
 }
 
+.signal-list .problem-number {
+    align-items: center;
+    align-self: stretch;
+    border-right: 1px solid var(--rule);
+    color: var(--accent);
+    display: flex;
+    font-size: 1.35rem;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    letter-spacing: 0;
+    margin: 0;
+}
+
 .problem-title,
 .number-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.signal-list .problem-title {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
 }
 
 .problem-desc,
@@ -940,6 +996,56 @@ section[id] {
     font-size: 1.125rem;
     line-height: 1.6;
     color: var(--text-muted);
+}
+
+.signal-list .problem-desc {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    max-width: 760px;
+}
+
+.legal-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.legal-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(253, 251, 247, 0.96));
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: var(--shadow-ambient);
+    padding: 2rem;
+    position: relative;
+}
+
+.legal-card::before {
+    background: linear-gradient(90deg, var(--accent-line), transparent 72%);
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.legal-heading {
+    align-items: center;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    margin: 0 0 1rem;
+}
+
+.legal-code {
+    border-right: 1px solid var(--rule);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.125rem;
+    letter-spacing: 0;
+    padding: 0.25rem 1rem 0.25rem 0;
+    text-transform: uppercase;
 }
 
 /* Tool Cards */
@@ -1115,7 +1221,11 @@ section[id] {
 /* Price Cards */
 .price-card,
 .pricing-card {
-    background-color: var(--surface);
+    background:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(253, 251, 247, 0.94));
+    background-size: 36px 36px, 36px 36px, auto;
     border: 1px solid var(--rule);
     border-radius: 8px;
     box-shadow: var(--shadow-ambient);
@@ -1241,11 +1351,28 @@ section[id] {
 
 /* Stats */
 .stat-card {
-    background-color: var(--surface);
+    background:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(253, 251, 247, 0.94));
+    background-size: 36px 36px, 36px 36px, auto;
     border: 1px solid var(--rule);
     border-radius: 8px;
     box-shadow: var(--shadow-ambient);
     padding: 1.25rem;
+    position: relative;
+}
+
+.stat-card::after {
+    background-color: var(--accent-live);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--accent-soft), 0 0 20px var(--accent-glow);
+    content: "";
+    height: 9px;
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+    width: 9px;
 }
 
 .stat-num {
@@ -2285,6 +2412,45 @@ section[id] {
 
     .workflow-diagram {
         padding: 1.25rem;
+    }
+
+    .signal-list .problem-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 1.5rem;
+        row-gap: 1rem;
+    }
+
+    .signal-list .problem-number,
+    .signal-list .problem-title,
+    .signal-list .problem-desc {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .signal-list .problem-number {
+        border-bottom: 1px solid var(--rule);
+        border-right: 0;
+        padding-bottom: 0.85rem;
+    }
+
+    .signal-list .problem-card::after {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .legal-heading {
+        align-items: start;
+        gap: 0.85rem;
+        grid-template-columns: 1fr;
+    }
+
+    .legal-code {
+        border-bottom: 1px solid var(--rule);
+        border-right: 0;
+        padding: 0 0 0.75rem;
+        width: 100%;
     }
 }
 
