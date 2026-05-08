@@ -285,42 +285,100 @@
     <section id="architecture" class="bg-paper">
         <div class="container">
             <span class="eyebrow text-center">Elección de arquitectura</span>
-            <h2 class="section-title text-center" style="margin-bottom: 2rem;">La herramienta sigue al riesgo.</h2>
-            <p class="text-center text-muted"
-                style="max-width: 760px; margin: 0 auto 4rem; font-size: 1.125rem; line-height: 1.6;">
-                No todo proceso necesita ingeniería a medida. No todo proceso debería vivir en una herramienta no-code.
-            </p>
+            <h2 class="section-title text-center" style="margin-bottom: 2rem;">La herramienta sigue el riesgo.</h2>
+            <p class="architecture-intro">No todo proceso necesita ingeniería a medida. No todo proceso debería vivir
+                completamente dentro de una herramienta no-code. Empezamos por el riesgo de negocio y después elegimos
+                la arquitectura más simple y confiable.</p>
 
-            <div class="grid-2" style="gap: 2rem;">
-                <div class="tool-card recommended">
-                    <span class="tool-tag">Automatización rápida</span>
-                    <h3 class="tool-title">Automatización con n8n</h3>
-                    <p class="tool-desc">Mejor para automatizaciones operativas rápidas.</p>
-                    <ul class="tool-use-list">
+            <div class="architecture-grid">
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L01</span>
+                        <span class="architecture-eyebrow">Automatización rápida</span>
+                    </div>
+                    <h3 class="architecture-title">Automatización solo con n8n</h3>
+                    <p class="architecture-desc">Mejor para flujos operativos simples, cuando la velocidad, la
+                        visibilidad y el bajo mantenimiento importan más que la ingeniería a medida.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">Formulario web</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">n8n</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">CRM</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Email / notificación</span>
+                    </div>
+                    <ul class="architecture-list">
                         <li>Asignación de leads</li>
                         <li>Actualizaciones en CRM y Odoo</li>
                         <li>Ingreso por formularios y WhatsApp</li>
-                        <li>Aprobaciones internas</li>
-                        <li>Reemplazo de hojas de cálculo</li>
+                        <li>Aprobaciones simples</li>
                         <li>Flujos de email y documentos</li>
                     </ul>
-                </div>
-                <div class="tool-card">
-                    <span class="tool-tag">Sistemas críticos</span>
-                    <h3 class="tool-title">AWS / Integración a medida</h3>
-                    <p class="tool-desc">Mejor para sistemas críticos.</p>
-                    <ul class="tool-use-list">
-                        <li>Procesos que no pueden fallar en silencio</li>
-                        <li>APIs seguras</li>
-                        <li>Procesamiento de alto volumen</li>
-                        <li>Reintentos y manejo de errores</li>
-                        <li>Auditoría y monitoreo</li>
-                        <li>Responsabilidad operativa de largo plazo</li>
+                    <p class="architecture-tag">Mejor cuando el flujo es simple y de bajo riesgo.</p>
+                </article>
+
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L02</span>
+                        <span class="architecture-eyebrow">Lógica a medida</span>
+                    </div>
+                    <h3 class="architecture-title">n8n + API a medida</h3>
+                    <p class="architecture-desc">Mejor cuando el flujo necesita reglas de negocio, validación, estado
+                        de sincronización, deduplicación o lógica de API detrás de la automatización visual.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">Ecommerce / formulario</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">n8n</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">API TypeScript</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">estado en SQL</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Odoo / CRM</span>
+                    </div>
+                    <ul class="architecture-list">
+                        <li>Sincronización entre Odoo y ecommerce</li>
+                        <li>Reglas de validación a medida</li>
+                        <li>Deduplicación</li>
+                        <li>Logs y estado de sincronización</li>
+                        <li>Manejo de reintentos</li>
                     </ul>
-                </div>
+                    <p class="architecture-tag">Mejor cuando n8n necesita un backend confiable.</p>
+                </article>
+
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L03</span>
+                        <span class="architecture-eyebrow">Sistemas críticos</span>
+                    </div>
+                    <h3 class="architecture-title">Stack de integración en AWS</h3>
+                    <p class="architecture-desc">Mejor para flujos que necesitan mayor confiabilidad, seguridad,
+                        reintentos, auditoría, monitoreo o control en la nube.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">API Gateway</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Lambda</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Step Functions</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Base de datos / APIs externas</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Monitoreo</span>
+                    </div>
+                    <ul class="architecture-list">
+                        <li>APIs seguras</li>
+                        <li>Flujos de múltiples pasos</li>
+                        <li>Reintentos y manejo de fallas</li>
+                        <li>Logs de auditoría</li>
+                        <li>Monitoreo y alertas</li>
+                    </ul>
+                    <p class="architecture-tag">Mejor cuando el flujo no puede fallar en silencio.</p>
+                </article>
             </div>
 
-            <p class="architecture-note">Empezamos por el riesgo de negocio y después elegimos la arquitectura.</p>
+            <p class="architecture-note">Empiece con un flujo. Si se vuelve crítico, mueva las partes sensibles a código
+                a medida o arquitectura nativa en AWS.</p>
         </div>
     </section>
 

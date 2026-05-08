@@ -285,41 +285,99 @@
         <div class="container">
             <span class="eyebrow text-center">Architecture Choice</span>
             <h2 class="section-title text-center" style="margin-bottom: 2rem;">The tool follows the risk.</h2>
-            <p class="text-center text-muted"
-                style="max-width: 760px; margin: 0 auto 4rem; font-size: 1.125rem; line-height: 1.6;">
-                Not every workflow needs custom engineering. Not every workflow should live in a no-code tool.
-            </p>
+            <p class="architecture-intro">Not every workflow needs custom engineering. Not every workflow should live
+                entirely inside a no-code tool. We start with the business risk, then choose the simplest reliable
+                architecture.</p>
 
-            <div class="grid-2" style="gap: 2rem;">
-                <div class="tool-card recommended">
-                    <span class="tool-tag">Fast automation</span>
-                    <h3 class="tool-title">n8n Automation</h3>
-                    <p class="tool-desc">Best for fast operational automation.</p>
-                    <ul class="tool-use-list">
+            <div class="architecture-grid">
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L01</span>
+                        <span class="architecture-eyebrow">Fast automation</span>
+                    </div>
+                    <h3 class="architecture-title">n8n-only automation</h3>
+                    <p class="architecture-desc">Best for simple operational workflows where speed, visibility, and low
+                        maintenance matter more than custom engineering.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">Website form</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">n8n</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">CRM</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Email / notification</span>
+                    </div>
+                    <ul class="architecture-list">
                         <li>Lead routing</li>
                         <li>CRM and Odoo updates</li>
                         <li>Form and WhatsApp intake</li>
-                        <li>Approval flows</li>
-                        <li>Spreadsheet replacement</li>
+                        <li>Simple approvals</li>
                         <li>Email and document workflows</li>
                     </ul>
-                </div>
-                <div class="tool-card">
-                    <span class="tool-tag">Critical systems</span>
-                    <h3 class="tool-title">AWS / Custom Integration</h3>
-                    <p class="tool-desc">Best for critical systems.</p>
-                    <ul class="tool-use-list">
-                        <li>Workflows that must not fail silently</li>
-                        <li>Secure APIs</li>
-                        <li>High-volume processing</li>
-                        <li>Retry logic and error handling</li>
-                        <li>Auditability and monitoring</li>
-                        <li>Long-term ownership</li>
+                    <p class="architecture-tag">Best when the workflow is simple and low-risk.</p>
+                </article>
+
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L02</span>
+                        <span class="architecture-eyebrow">Custom logic</span>
+                    </div>
+                    <h3 class="architecture-title">n8n + custom API</h3>
+                    <p class="architecture-desc">Best when the workflow needs business rules, validation, sync state,
+                        deduplication, or clean API logic behind the visual automation.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">Ecommerce / form</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">n8n</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">TypeScript API</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">SQL sync state</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Odoo / CRM</span>
+                    </div>
+                    <ul class="architecture-list">
+                        <li>Odoo and ecommerce sync</li>
+                        <li>Custom validation rules</li>
+                        <li>Deduplication</li>
+                        <li>Sync logs and status</li>
+                        <li>Retry handling</li>
                     </ul>
-                </div>
+                    <p class="architecture-tag">Best when n8n needs a reliable backend.</p>
+                </article>
+
+                <article class="architecture-card">
+                    <div class="architecture-card-head">
+                        <span class="architecture-label">L03</span>
+                        <span class="architecture-eyebrow">Critical systems</span>
+                    </div>
+                    <h3 class="architecture-title">AWS integration stack</h3>
+                    <p class="architecture-desc">Best for workflows that need stronger reliability, security, retries,
+                        auditability, monitoring, or cloud-native control.</p>
+                    <div class="architecture-diagram">
+                        <span class="diagram-node">API Gateway</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Lambda</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Step Functions</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Database / external APIs</span>
+                        <span class="diagram-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="diagram-node">Monitoring</span>
+                    </div>
+                    <ul class="architecture-list">
+                        <li>Secure APIs</li>
+                        <li>Multi-step workflows</li>
+                        <li>Retry and failure handling</li>
+                        <li>Audit logs</li>
+                        <li>Monitoring and alerts</li>
+                    </ul>
+                    <p class="architecture-tag">Best when the workflow must not fail silently.</p>
+                </article>
             </div>
 
-            <p class="architecture-note">We start with the business risk, then choose the architecture.</p>
+            <p class="architecture-note">Start with one workflow. If it becomes critical, move the reliable parts into
+                custom code or AWS-native architecture.</p>
         </div>
     </section>
 
