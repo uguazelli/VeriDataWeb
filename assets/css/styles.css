@@ -1,27 +1,33 @@
 :root {
-    --ink: #0E1823;
-    --ink-2: #162433;
-    --ink-3: #1F3147;
-    --cream: #F5F1EA;
-    --cream-2: #EDE6D9;
-    --paper: #FAF7F2;
+    --ink: #061B0E;
+    --ink-2: #1B3022;
+    --ink-3: #364C3C;
+    --cream: #FCF9F4;
+    --cream-2: #F6F3EE;
+    --paper: #FCF9F4;
     --surface: #FFFFFF;
-    --surface-2: #FDFBF7;
-    --rule: #D8D0BE;
-    --rule-strong: #BFB49F;
-    --rule-dark: rgba(245, 241, 234, 0.12);
-    --grid-line: rgba(14, 24, 35, 0.055);
-    --text: #1A1A1A;
-    --text-muted: #555;
-    --text-dim: #8B8378;
-    --accent: #2F5A3F;
-    --accent-live: #3F8A55;
-    --accent-2: #4A7A5A;
-    --accent-soft: rgba(63, 138, 85, 0.10);
-    --accent-line: rgba(63, 138, 85, 0.30);
-    --accent-glow: rgba(63, 138, 85, 0.34);
-    --warn: #B8541E;
-    --shadow-ambient: 0 24px 70px -48px rgba(14, 24, 35, 0.42);
+    --surface-2: #F6F3EE;
+    --surface-3: #F0EDE9;
+    --rule: #DCDAD5;
+    --rule-strong: #C3C8C1;
+    --rule-dark: rgba(252, 249, 244, 0.16);
+    --grid-line: rgba(67, 72, 67, 0.075);
+    --text: #1C1C19;
+    --text-muted: #434843;
+    --text-dim: #737973;
+    --accent: #061B0E;
+    --accent-live: #4D6453;
+    --accent-2: #819986;
+    --accent-soft: rgba(77, 100, 83, 0.10);
+    --accent-line: rgba(77, 100, 83, 0.30);
+    --accent-glow: rgba(77, 100, 83, 0.22);
+    --warn: #9F4125;
+    --terracotta: #9F4125;
+    --terracotta-strong: #732107;
+    --terracotta-soft: rgba(159, 65, 37, 0.10);
+    --blue: #00182F;
+    --blue-soft: rgba(0, 45, 81, 0.08);
+    --shadow-ambient: 0 4px 20px rgba(27, 48, 34, 0.08);
 }
 
 *,
@@ -219,9 +225,9 @@
 
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0) 360px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0) 360px),
         var(--paper);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
@@ -230,15 +236,15 @@ body {
     font-weight: 400;
 }
 
-/* Typography — headings always Fraunces 400 */
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
     margin: 0;
 }
 
@@ -255,11 +261,11 @@ p,
 li,
 button,
 a {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 400;
 }
 
-/* Eyebrow labels — JetBrains Mono */
+/* Eyebrow labels */
 .eyebrow,
 .label,
 .mono-label,
@@ -267,9 +273,9 @@ a {
 .tool-tag,
 .price-label,
 .stat-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--text-dim);
     font-size: 0.875rem;
     margin-bottom: 1.5rem;
@@ -285,9 +291,9 @@ a {
 }
 
 .eyebrow::before {
-    background-color: var(--accent-live);
+    background-color: var(--terracotta);
     border-radius: 999px;
-    box-shadow: 0 0 0 4px var(--accent-soft), 0 0 22px var(--accent-glow);
+    box-shadow: none;
     content: "";
     flex: 0 0 auto;
     height: 7px;
@@ -357,11 +363,11 @@ section {
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    background-color: var(--cream);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    border-radius: 4px;
+    background-color: var(--terracotta);
+    color: #fff;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
     border: 1px solid transparent;
     text-decoration: none;
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
@@ -369,13 +375,13 @@ section {
 
 .btn-primary:hover {
     opacity: 0.95;
-    box-shadow: 0 0 0 4px rgba(63, 138, 85, 0.08);
+    box-shadow: 0 0 0 4px var(--terracotta-soft);
 }
 
 .bg-cream .btn-primary,
 .bg-paper .btn-primary {
     background-color: var(--ink);
-    color: var(--cream);
+    color: #fff;
 }
 
 .btn-secondary {
@@ -386,7 +392,7 @@ section {
     background-color: transparent;
     color: var(--cream);
     border: 1px solid var(--rule-dark);
-    border-radius: 4px;
+    border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.2s;
     font-weight: 500;
@@ -447,15 +453,14 @@ section[id] {
 .hero-section {
     background-color: var(--paper);
     overflow: hidden;
-    padding: 144px 0 72px;
+    padding: 136px 0 80px;
     position: relative;
 }
 
 .hero-section::before {
     background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 52px 52px;
+        radial-gradient(circle, rgba(67, 72, 67, 0.13) 1px, transparent 1.5px);
+    background-size: 16px 16px;
     content: "";
     inset: 0;
     opacity: 0.72;
@@ -464,8 +469,8 @@ section[id] {
 }
 
 .hero-section::after {
-    background: linear-gradient(90deg, transparent, var(--accent-live), transparent);
-    box-shadow: 0 0 32px var(--accent-glow);
+    background: var(--rule);
+    box-shadow: none;
     content: "";
     height: 1px;
     position: absolute;
@@ -492,13 +497,13 @@ section[id] {
 }
 
 .hero-section .btn-primary {
-    background-color: var(--ink);
-    color: var(--cream);
+    background-color: var(--terracotta);
+    color: #fff;
 }
 
 .hero-section .btn-primary:hover {
-    background-color: var(--accent);
-    border-color: var(--accent-live);
+    background-color: var(--terracotta-strong);
+    border-color: var(--terracotta-strong);
     color: #fff;
 }
 
@@ -522,49 +527,48 @@ section[id] {
 }
 
 .hero-section.bg-ink {
-    background-color: var(--ink);
-    color: var(--cream);
+    background-color: var(--paper);
+    color: var(--text);
 }
 
 .hero-section.bg-ink::before {
     background-image:
-        linear-gradient(rgba(245, 241, 234, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245, 241, 234, 0.045) 1px, transparent 1px);
+        radial-gradient(circle, rgba(67, 72, 67, 0.13) 1px, transparent 1.5px);
 }
 
 .hero-section.bg-ink .hero-lede,
 .hero-section.bg-ink .hero-stack-note {
-    color: rgba(245, 241, 234, 0.76);
+    color: var(--text-muted);
 }
 
 .hero-section.bg-ink .btn-primary {
-    background-color: var(--cream);
-    color: var(--ink);
+    background-color: var(--terracotta);
+    color: #fff;
 }
 
 .hero-section.bg-ink .btn-primary:hover {
-    background-color: var(--accent-live);
-    border-color: var(--accent-live);
+    background-color: var(--terracotta-strong);
+    border-color: var(--terracotta-strong);
     color: #fff;
 }
 
 .hero-section.bg-ink .btn-secondary {
-    border-color: var(--rule-dark);
-    color: var(--cream);
+    border-color: var(--ink);
+    color: var(--ink);
 }
 
 .hero-section.bg-ink .btn-secondary:hover {
-    background-color: rgba(245, 241, 234, 0.06);
+    background-color: var(--surface-2);
 }
 
 .hero-section.bg-ink .hero-jump-links a {
-    border-bottom-color: rgba(245, 241, 234, 0.28);
-    color: rgba(245, 241, 234, 0.72);
+    border-bottom-color: rgba(6, 27, 14, 0.26);
+    color: var(--text-muted);
 }
 
 .hero-section.bg-ink .hero-jump-links a:hover {
-    border-bottom-color: var(--accent-live);
-    color: var(--cream);
+    border-bottom-color: var(--accent);
+    color: var(--accent);
 }
 
 .hero-section.bg-ink .hero-system-panel {
@@ -669,7 +673,7 @@ section[id] {
     border-bottom: 1px dashed var(--rule);
     color: var(--text-dim);
     display: flex;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     justify-content: space-between;
     letter-spacing: 0.08em;
@@ -728,7 +732,7 @@ section[id] {
 .node-kicker,
 .node-meta {
     color: var(--text-dim);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.68rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -736,7 +740,7 @@ section[id] {
 
 .node-title {
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.15;
@@ -787,7 +791,7 @@ section[id] {
     border-radius: 4px;
     color: var(--text-dim);
     display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.62rem;
     letter-spacing: 0.08em;
     padding: 3px 7px;
@@ -800,7 +804,7 @@ section[id] {
     color: var(--text-muted);
     display: flex;
     flex-wrap: wrap;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.78rem;
     gap: 0.75rem;
     margin-top: 20px;
@@ -895,7 +899,7 @@ section[id] {
     color: var(--accent);
     display: inline-flex;
     flex: 0 0 auto;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     height: 38px;
     justify-content: center;
@@ -968,7 +972,7 @@ section[id] {
 .blueprint-meta {
     color: var(--accent);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     margin-bottom: 0.9rem;
@@ -1006,7 +1010,7 @@ section[id] {
 .mock-message span {
     color: var(--text-dim);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.68rem;
     letter-spacing: 0.08em;
     margin-bottom: 0.45rem;
@@ -1072,7 +1076,7 @@ section[id] {
 
 .crm-record-line span {
     color: var(--text-dim);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1133,7 +1137,7 @@ section[id] {
     border-radius: 8px;
     color: var(--accent);
     display: inline-flex;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     height: 42px;
     justify-content: center;
@@ -1159,7 +1163,7 @@ section[id] {
     color: var(--text-dim);
     display: flex;
     flex-direction: column;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.68rem;
     justify-content: center;
     letter-spacing: 0.08em;
@@ -1346,7 +1350,7 @@ section[id] {
 
 .problem-number,
 .number-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.25rem;
     color: var(--warn);
     margin-bottom: 1rem;
@@ -1429,7 +1433,7 @@ section[id] {
 .legal-code {
     border-right: 1px solid var(--rule);
     color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.125rem;
     letter-spacing: 0;
     padding: 0.25rem 1rem 0.25rem 0;
@@ -1484,7 +1488,7 @@ section[id] {
 }
 
 .tool-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     color: var(--accent);
     text-transform: uppercase;
@@ -1509,7 +1513,7 @@ section[id] {
 .tool-use-label {
     color: var(--ink);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     margin-top: 1.5rem;
@@ -1605,7 +1609,7 @@ section[id] {
     border-radius: 8px;
     color: var(--ink);
     display: flex;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     justify-content: center;
     letter-spacing: 0.04em;
@@ -1630,7 +1634,7 @@ section[id] {
 .architecture-best-label {
     color: var(--ink);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     margin: 0 0 0.75rem;
@@ -1700,7 +1704,7 @@ section[id] {
 .architecture-label {
     border-right: 1px solid var(--rule);
     color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.82rem;
     letter-spacing: 0.08em;
     padding-right: 0.75rem;
@@ -1708,7 +1712,7 @@ section[id] {
 
 .architecture-eyebrow {
     color: var(--text-dim);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1745,7 +1749,7 @@ section[id] {
     border: 1px solid var(--rule-strong);
     border-radius: 6px;
     color: var(--ink);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.68rem;
     line-height: 1.35;
     overflow-wrap: anywhere;
@@ -1756,7 +1760,7 @@ section[id] {
 .diagram-arrow {
     color: var(--accent);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.78rem;
     line-height: 1;
     text-align: center;
@@ -1796,7 +1800,7 @@ section[id] {
     border: 1px solid var(--accent-line);
     border-radius: 6px;
     color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.68rem;
     letter-spacing: 0.02em;
     line-height: 1.45;
@@ -1856,7 +1860,7 @@ section[id] {
     border-right: 1px solid var(--rule);
     color: var(--accent);
     flex: 0 0 auto;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.08em;
     padding-right: 0.85rem;
@@ -1951,7 +1955,7 @@ section[id] {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     margin-bottom: 1.5rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -2046,7 +2050,7 @@ section[id] {
 
 .price-label,
 .pricing-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     color: var(--text-dim);
@@ -2058,7 +2062,7 @@ section[id] {
 
 .price-amount,
 .pricing-price {
-    font-family: 'Fraunces', serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: 400;
@@ -2149,7 +2153,7 @@ section[id] {
 
 .stat-num {
     font-size: 2.25rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin-bottom: 0.25rem;
     font-weight: 400;
 }
@@ -2196,7 +2200,7 @@ section[id] {
 .terminal-path,
 .terminal-status,
 .terminal-body {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .terminal-path {
@@ -2385,7 +2389,7 @@ section[id] {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     color: var(--text-dim);
     padding: 0 0.6rem;
@@ -2494,7 +2498,7 @@ section[id] {
 
 .mobile-nav-link {
     font-size: 1.25rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-decoration: none;
     color: var(--ink);
 }
@@ -2507,7 +2511,7 @@ section[id] {
 
 .mobile-lang-title,
 .footer-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     text-transform: uppercase;
     color: var(--text-dim);
@@ -2519,7 +2523,7 @@ section[id] {
 .mobile-lang-links {
     display: flex;
     gap: 1rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .mobile-lang-links a {
@@ -2656,7 +2660,7 @@ section[id] {
 }
 
 .workflow-col-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -2718,7 +2722,7 @@ section[id] {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     color: var(--text-dim);
     font-weight: 500;
@@ -2746,7 +2750,7 @@ section[id] {
     font-size: 0.875rem;
     color: var(--text-dim);
     margin-top: 1rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .assistant-flow-panel {
@@ -2800,7 +2804,7 @@ section[id] {
 .assistant-flow-step span {
     color: var(--accent);
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
@@ -2863,14 +2867,14 @@ section[id] {
     border-right: 1px dashed var(--rule);
     color: var(--accent);
     display: flex;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.35rem;
     justify-content: center;
 }
 
 .layer-body h3 {
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.15rem;
     font-weight: 500;
     line-height: 1.2;
@@ -2888,7 +2892,7 @@ section[id] {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.72rem;
     text-transform: uppercase;
 }
@@ -2927,7 +2931,7 @@ section[id] {
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 3px;
     color: rgb(0, 0, 0);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.62rem;
     left: 0.65rem;
     letter-spacing: 0.05em;
@@ -2979,7 +2983,7 @@ section[id] {
     margin-bottom: 2rem;
     flex-grow: 1;
     font-style: italic;
-    font-family: 'Fraunces', serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .testimonial-author {
@@ -2996,7 +3000,7 @@ section[id] {
 .testimonial-role {
     font-size: 0.8rem;
     color: var(--text-dim);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin-top: 0.25rem;
 }
 
@@ -3022,7 +3026,7 @@ section[id] {
 }
 
 .timeline-period {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     color: var(--text-dim);
     text-transform: uppercase;
@@ -3031,12 +3035,12 @@ section[id] {
 
 .timeline-role {
     font-size: 1.125rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin-bottom: 0.25rem;
 }
 
 .timeline-company {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.75rem;
     text-transform: uppercase;
     color: var(--text-dim);
@@ -3130,7 +3134,7 @@ section[id] {
     padding: 0.35rem 1rem;
     border-radius: 9999px;
     color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-transform: uppercase;
     font-size: 0.75rem;
     font-weight: 400;
@@ -3176,7 +3180,7 @@ section[id] {
 }
 
 .scope-col h3 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -3517,4 +3521,910 @@ section[id] {
     .tech-layers::before {
         display: none;
     }
+}
+
+/* Sturdy & Kind visual system */
+.container {
+    max-width: 1280px;
+}
+
+section {
+    padding: 88px 0;
+}
+
+.bg-cream,
+.bg-paper {
+    background-color: var(--paper);
+}
+
+.hero-title {
+    color: var(--ink);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.08;
+    max-width: 920px;
+}
+
+.section-title {
+    color: var(--ink);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.16;
+}
+
+.hero-lede,
+.section-lede,
+.architecture-intro {
+    color: var(--text-muted);
+}
+
+.btn-primary,
+.btn-small {
+    background-color: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn-primary:hover,
+.btn-small:hover {
+    background-color: var(--terracotta-strong);
+    border-color: var(--terracotta-strong);
+}
+
+.btn-secondary {
+    border-color: var(--ink);
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.btn-secondary:hover {
+    background-color: var(--surface-2);
+}
+
+.site-header {
+    background-color: rgba(252, 249, 244, 0.94);
+    border-bottom-color: var(--rule);
+}
+
+.header-container {
+    max-width: 1280px;
+}
+
+.header-nav {
+    background-color: var(--surface-container-lowest, #fff);
+    border-color: var(--rule);
+}
+
+.nav-link {
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--surface-2);
+    border-color: var(--rule-strong);
+    color: var(--ink);
+}
+
+.hero-section.bg-ink .hero-system-panel,
+.hero-system-panel,
+.workflow-diagram,
+.assistant-flow-panel,
+.conversation-gap-panel .gap-column,
+.gap-column,
+.gap-bridge,
+.blueprint-node,
+.architecture-card,
+.tool-card,
+.price-card,
+.pricing-card,
+.stat-card,
+.problem-card,
+.number-card,
+.legal-card,
+.warning-card,
+.layer-row,
+.testimonial-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(246, 243, 238, 0.94));
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: var(--shadow-ambient);
+}
+
+.hero-section.bg-ink .hero-system-panel::before,
+.hero-system-panel::before,
+.tool-card::before,
+.workflow-diagram::before {
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.52;
+}
+
+.tool-card,
+.price-card,
+.pricing-card,
+.architecture-card {
+    padding: 2rem;
+}
+
+.tool-card::after,
+.architecture-card::after,
+.stat-card::after,
+.signal-list .problem-card::after {
+    background-color: var(--accent-live);
+    box-shadow: none;
+}
+
+.tool-card.recommended,
+.price-card.accent {
+    border-color: var(--accent-line);
+    box-shadow: 0 4px 20px rgba(27, 48, 34, 0.10);
+}
+
+.tool-card.recommended::before,
+.price-card.accent::before,
+.architecture-card::before,
+.warning-card::before,
+.problem-card::before,
+.number-card::before,
+.legal-card::before,
+.layer-row::before,
+.assistant-flow-step::before,
+.blueprint-node.accent::before {
+    background: linear-gradient(90deg, var(--accent-live), transparent 70%);
+}
+
+.price-card.accent .price-amount,
+.price-card.accent .price-label,
+.tool-tag,
+.problem-number,
+.architecture-label,
+.blueprint-meta,
+.gap-label,
+.gap-status,
+.layer-num {
+    color: var(--accent);
+}
+
+.price-amount,
+.pricing-price,
+.stat-num {
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+}
+
+.tool-title,
+.problem-title,
+.number-title,
+.architecture-title,
+.faq-q,
+.timeline-role {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.tool-use-list li,
+.architecture-list li,
+.price-includes li,
+.price-features li,
+.scope-list li,
+.scope-row {
+    color: var(--text-muted);
+}
+
+.tool-use-list li::before,
+.architecture-list li::before,
+.cert-list li::before {
+    background-color: var(--terracotta);
+    box-shadow: none;
+}
+
+.system-panel-head,
+.system-panel-foot,
+.architecture-card-head,
+.legal-heading,
+.terminal-head,
+.testimonial-author {
+    border-color: var(--rule);
+}
+
+.hero-section.bg-ink .system-panel-head,
+.hero-section.bg-ink .system-panel-foot {
+    border-color: var(--rule);
+    color: var(--text-dim);
+}
+
+.hero-section.bg-ink .system-panel-title,
+.hero-section.bg-ink .node-title,
+.system-panel-title,
+.node-title {
+    color: var(--ink);
+}
+
+.hero-section.bg-ink .hero-node,
+.hero-node,
+.assistant-flow-step,
+.workflow-step,
+.mock-message {
+    background-color: var(--surface);
+    border-color: var(--rule);
+    border-radius: 8px;
+}
+
+.hero-section.bg-ink .hero-node-accent,
+.hero-node-accent,
+.gap-bridge,
+.assistant-flow-step:nth-child(even) {
+    background-color: var(--accent-soft);
+    border-color: var(--accent-line);
+    box-shadow: none;
+}
+
+.hero-section.bg-ink .node-kicker,
+.hero-section.bg-ink .node-meta,
+.node-kicker,
+.node-meta {
+    color: var(--text-dim);
+}
+
+.node-bar,
+.hero-section.bg-ink .node-bar,
+.signal-bar {
+    background-color: var(--surface-2);
+    border-color: var(--rule);
+}
+
+.node-fill-accent,
+.hero-section.bg-ink .node-fill-accent,
+.signal-bar-out i {
+    background-color: var(--accent-live);
+    box-shadow: none;
+}
+
+.hero-edge span,
+.hero-section.bg-ink .hero-edge span,
+.workflow-vs-inner {
+    background-color: var(--surface);
+    border-color: var(--rule);
+    color: var(--text-dim);
+}
+
+.hero-edge::before,
+.hero-edge::after,
+.hero-section.bg-ink .hero-edge::before,
+.hero-section.bg-ink .hero-edge::after,
+.blueprint-connector::before,
+.blueprint-connector::after,
+.maturity-flow span:not(:last-child)::after,
+.assistant-flow-step:not(:last-child)::after {
+    background: repeating-linear-gradient(90deg, var(--rule-strong) 0 5px, transparent 5px 9px);
+}
+
+.architecture-tag,
+.gap-status,
+.pill,
+.pill-tag {
+    background-color: var(--accent-soft);
+    border-color: var(--accent-line);
+    border-radius: 999px;
+    color: var(--accent);
+}
+
+.warning-card span {
+    color: var(--terracotta);
+}
+
+.section-cta,
+.architecture-note {
+    background-color: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 8px;
+}
+
+.terminal-controls span,
+.status-dot {
+    background-color: var(--rule-strong);
+    box-shadow: none;
+}
+
+.status-dot-accent,
+.terminal-status i {
+    background-color: var(--accent-live);
+    box-shadow: none;
+}
+
+.architect-terminal {
+    background-color: var(--ink);
+    background-image: none;
+    border-color: var(--ink-2);
+}
+
+.final-cta::before {
+    background: var(--rule);
+    box-shadow: none;
+}
+
+input,
+textarea,
+select {
+    background-color: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    background-color: var(--blue-soft);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 72px 0;
+    }
+
+    .container,
+    .container-narrow {
+        padding: 0 16px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.12;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+}
+
+/* Final Sturdy & Kind correction pass */
+.bg-ink {
+    background-color: var(--paper);
+    color: var(--text);
+}
+
+.bg-ink .eyebrow {
+    color: var(--text-dim);
+}
+
+.bg-ink .hero-title,
+.bg-ink .section-title {
+    color: var(--ink);
+}
+
+.bg-ink .hero-lede,
+.bg-ink .hero-stack-note,
+.bg-ink .text-muted {
+    color: var(--text-muted);
+}
+
+.bg-ink .btn-primary {
+    background-color: var(--terracotta);
+    border-color: var(--ink);
+    color: #fff;
+}
+
+.bg-ink .btn-secondary {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.hero-section,
+.hero-section.bg-ink {
+    background-color: var(--paper);
+    color: var(--text);
+}
+
+.hero-section::before,
+.hero-section.bg-ink::before {
+    background-image:
+        radial-gradient(circle, rgba(67, 72, 67, 0.16) 1px, transparent 1.5px);
+    background-size: 16px 16px;
+}
+
+.problem-card,
+.number-card,
+.legal-card,
+.tool-card,
+.price-card,
+.pricing-card,
+.architecture-card,
+.warning-card,
+.stat-card,
+.workflow-diagram,
+.assistant-flow-panel,
+.assistant-flow-step,
+.assistant-channel-card,
+.assistant-feature-card,
+.gap-column,
+.gap-bridge,
+.blueprint-node,
+.layer-row,
+.testimonial-card,
+.section-cta,
+.architecture-note,
+.hero-system-panel,
+.hero-node,
+.mock-message,
+.workflow-step {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 249, 244, 0.98));
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 10px 10px 0 var(--ink);
+}
+
+.signal-list .problem-card {
+    border-width: 3px;
+    box-shadow: 8px 8px 0 var(--ink);
+}
+
+.tool-card.recommended,
+.price-card.accent,
+.blueprint-node.accent,
+.hero-node-accent,
+.gap-bridge {
+    border-color: var(--ink);
+    box-shadow: 10px 10px 0 var(--ink);
+}
+
+.price-card.accent {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 249, 244, 0.98));
+}
+
+.problem-card::before,
+.number-card::before,
+.legal-card::before,
+.tool-card::before,
+.price-card::before,
+.pricing-card::before,
+.architecture-card::before,
+.warning-card::before,
+.stat-card::after {
+    display: none;
+}
+
+.tool-card::after,
+.architecture-card::after {
+    display: none;
+}
+
+.signal-list .problem-card::after {
+    background-color: var(--terracotta);
+    box-shadow: none;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-small {
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 6px 6px 0 var(--ink);
+    font-weight: 700;
+}
+
+.btn-primary,
+.btn-small {
+    background-color: var(--terracotta);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: var(--paper);
+    color: var(--ink);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-small:hover {
+    box-shadow: 4px 4px 0 var(--ink);
+    transform: translate(2px, 2px);
+}
+
+.site-header .btn-small {
+    border-width: 0;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.header-nav,
+.nav-link:hover,
+.nav-link.active {
+    border-color: var(--rule-strong);
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .problem-card,
+    .number-card,
+    .legal-card,
+    .tool-card,
+    .price-card,
+    .pricing-card,
+    .architecture-card,
+    .warning-card,
+    .stat-card,
+    .workflow-diagram,
+    .assistant-flow-panel,
+    .assistant-flow-step,
+    .gap-column,
+    .gap-bridge,
+    .blueprint-node,
+    .layer-row,
+    .testimonial-card,
+    .section-cta,
+    .architecture-note,
+    .hero-system-panel,
+    .hero-node {
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+}
+
+/* Shadowless Sturdy & Kind cards and buttons */
+.problem-card,
+.number-card,
+.legal-card,
+.tool-card,
+.price-card,
+.pricing-card,
+.architecture-card,
+.warning-card,
+.stat-card,
+.workflow-diagram,
+.assistant-flow-panel,
+.assistant-flow-step,
+.assistant-channel-card,
+.assistant-feature-card,
+.gap-column,
+.gap-bridge,
+.blueprint-node,
+.layer-row,
+.testimonial-card,
+.section-cta,
+.architecture-note,
+.hero-system-panel,
+.hero-node,
+.mock-message,
+.workflow-step {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 249, 244, 0.98));
+    border: 1px solid var(--rule-strong);
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+.hero-system-panel {
+    border-color: var(--rule);
+    border-radius: 14px;
+}
+
+.hero-node,
+.assistant-flow-step,
+.workflow-step {
+    border: 2px solid var(--rule-strong);
+}
+
+.tool-card.recommended,
+.price-card.accent,
+.blueprint-node.accent,
+.hero-node-accent,
+.gap-bridge {
+    border-color: var(--accent-line);
+    box-shadow: none;
+}
+
+.signal-list .problem-card {
+    border: 1px solid var(--rule-strong);
+    box-shadow: none;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-small,
+.bg-ink .btn-primary,
+.bg-ink .btn-secondary,
+.hero-section .btn-primary,
+.hero-section .btn-secondary,
+.hero-section.bg-ink .btn-primary,
+.hero-section.bg-ink .btn-secondary,
+.price-card.accent .btn-primary {
+    border-radius: 12px;
+    box-shadow: none;
+    font-weight: 700;
+    transform: none;
+}
+
+.btn-primary,
+.btn-small,
+.bg-ink .btn-primary,
+.hero-section .btn-primary,
+.hero-section.bg-ink .btn-primary,
+.price-card.accent .btn-primary {
+    background-color: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    color: #fff;
+}
+
+.btn-secondary,
+.bg-ink .btn-secondary,
+.hero-section .btn-secondary,
+.hero-section.bg-ink .btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-small:hover,
+.bg-ink .btn-primary:hover,
+.bg-ink .btn-secondary:hover,
+.hero-section .btn-primary:hover,
+.hero-section .btn-secondary:hover,
+.hero-section.bg-ink .btn-primary:hover,
+.hero-section.bg-ink .btn-secondary:hover,
+.price-card.accent .btn-primary:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-primary:hover,
+.btn-small:hover,
+.bg-ink .btn-primary:hover,
+.hero-section .btn-primary:hover,
+.hero-section.bg-ink .btn-primary:hover,
+.price-card.accent .btn-primary:hover {
+    background-color: var(--terracotta-strong);
+    border-color: var(--terracotta-strong);
+}
+
+.btn-secondary:hover,
+.bg-ink .btn-secondary:hover,
+.hero-section .btn-secondary:hover,
+.hero-section.bg-ink .btn-secondary:hover {
+    background-color: var(--surface-2);
+}
+
+@media (max-width: 768px) {
+    .problem-card,
+    .number-card,
+    .legal-card,
+    .tool-card,
+    .price-card,
+    .pricing-card,
+    .architecture-card,
+    .warning-card,
+    .stat-card,
+    .workflow-diagram,
+    .assistant-flow-panel,
+    .assistant-flow-step,
+    .gap-column,
+    .gap-bridge,
+    .blueprint-node,
+    .layer-row,
+    .testimonial-card,
+    .section-cta,
+    .architecture-note,
+    .hero-system-panel,
+    .hero-node {
+        box-shadow: none;
+    }
+}
+
+/* Absolute no-shadow rule inside cards and panels */
+.problem-card *,
+.problem-card *::before,
+.problem-card *::after,
+.number-card *,
+.number-card *::before,
+.number-card *::after,
+.legal-card *,
+.legal-card *::before,
+.legal-card *::after,
+.tool-card *,
+.tool-card *::before,
+.tool-card *::after,
+.price-card *,
+.price-card *::before,
+.price-card *::after,
+.pricing-card *,
+.pricing-card *::before,
+.pricing-card *::after,
+.architecture-card *,
+.architecture-card *::before,
+.architecture-card *::after,
+.warning-card *,
+.warning-card *::before,
+.warning-card *::after,
+.stat-card *,
+.stat-card *::before,
+.stat-card *::after,
+.workflow-diagram *,
+.workflow-diagram *::before,
+.workflow-diagram *::after,
+.assistant-flow-panel *,
+.assistant-flow-panel *::before,
+.assistant-flow-panel *::after,
+.assistant-flow-step *,
+.assistant-flow-step *::before,
+.assistant-flow-step *::after,
+.assistant-channel-card *,
+.assistant-channel-card *::before,
+.assistant-channel-card *::after,
+.assistant-feature-card *,
+.assistant-feature-card *::before,
+.assistant-feature-card *::after,
+.gap-column *,
+.gap-column *::before,
+.gap-column *::after,
+.gap-bridge *,
+.gap-bridge *::before,
+.gap-bridge *::after,
+.blueprint-node *,
+.blueprint-node *::before,
+.blueprint-node *::after,
+.layer-row *,
+.layer-row *::before,
+.layer-row *::after,
+.testimonial-card *,
+.testimonial-card *::before,
+.testimonial-card *::after,
+.section-cta *,
+.section-cta *::before,
+.section-cta *::after,
+.architecture-note *,
+.architecture-note *::before,
+.architecture-note *::after,
+.hero-system-panel *,
+.hero-system-panel *::before,
+.hero-system-panel *::after,
+.hero-node *,
+.hero-node *::before,
+.hero-node *::after,
+.mock-message *,
+.mock-message *::before,
+.mock-message *::after,
+.workflow-step *,
+.workflow-step *::before,
+.workflow-step *::after {
+    box-shadow: none !important;
+}
+
+.problem-card,
+.problem-card::before,
+.problem-card::after,
+.number-card,
+.number-card::before,
+.number-card::after,
+.legal-card,
+.legal-card::before,
+.legal-card::after,
+.tool-card,
+.tool-card::before,
+.tool-card::after,
+.price-card,
+.price-card::before,
+.price-card::after,
+.pricing-card,
+.pricing-card::before,
+.pricing-card::after,
+.architecture-card,
+.architecture-card::before,
+.architecture-card::after,
+.warning-card,
+.warning-card::before,
+.warning-card::after,
+.stat-card,
+.stat-card::before,
+.stat-card::after,
+.workflow-diagram,
+.workflow-diagram::before,
+.workflow-diagram::after,
+.assistant-flow-panel,
+.assistant-flow-panel::before,
+.assistant-flow-panel::after,
+.assistant-flow-step,
+.assistant-flow-step::before,
+.assistant-flow-step::after,
+.assistant-channel-card,
+.assistant-channel-card::before,
+.assistant-channel-card::after,
+.assistant-feature-card,
+.assistant-feature-card::before,
+.assistant-feature-card::after,
+.gap-column,
+.gap-column::before,
+.gap-column::after,
+.gap-bridge,
+.gap-bridge::before,
+.gap-bridge::after,
+.blueprint-node,
+.blueprint-node::before,
+.blueprint-node::after,
+.layer-row,
+.layer-row::before,
+.layer-row::after,
+.testimonial-card,
+.testimonial-card::before,
+.testimonial-card::after,
+.section-cta,
+.section-cta::before,
+.section-cta::after,
+.architecture-note,
+.architecture-note::before,
+.architecture-note::after,
+.hero-system-panel,
+.hero-system-panel::before,
+.hero-system-panel::after,
+.hero-node,
+.hero-node::before,
+.hero-node::after,
+.mock-message,
+.mock-message::before,
+.mock-message::after,
+.workflow-step,
+.workflow-step::before,
+.workflow-step::after {
+    box-shadow: none !important;
+}
+
+/* Price cards are the only card family with the sturdy offset shadow */
+.price-card,
+.pricing-card,
+.price-card.accent {
+    border: 4px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 12px 12px 0 var(--ink) !important;
+}
+
+.price-card *,
+.price-card *::before,
+.price-card *::after,
+.pricing-card *,
+.pricing-card *::before,
+.pricing-card *::after {
+    box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+    .price-card,
+    .pricing-card,
+    .price-card.accent {
+        box-shadow: 7px 7px 0 var(--ink) !important;
+    }
+}
+
+/* Service pages use the full content width */
+.bg-ink .container > .hero-title,
+.bg-paper .container > .section-title,
+.bg-cream .container > .section-title {
+    max-width: 1180px;
+}
+
+.bg-ink .container > .hero-lede,
+.bg-ink .container > .hero-stack-note,
+.bg-paper .container > .hero-lede,
+.bg-cream .container > .hero-lede,
+.bg-paper .container > .text-muted,
+.bg-cream .container > .text-muted {
+    max-width: 1040px;
 }

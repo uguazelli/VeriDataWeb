@@ -5,6 +5,45 @@ description: Use when creating, editing, or reviewing any visual or written cont
 
 # Veridata Pro Design System
 
+## Active Visual Direction: Sturdy & Kind
+
+The current Veridata Pro website direction is **Sturdy & Kind**. This supersedes older references in this file that describe a Fraunces/Inter editorial identity.
+
+Use this direction for all current website UI, marketing pages, cards, diagrams, pricing blocks, lists, and forms:
+
+- **Principle:** institutional stability with human approachability. The site should feel reliable, plainspoken, and built to last.
+- **Typography:** Public Sans only. Headlines use `700`, body uses `400`, labels use `600` with modest uppercase tracking. Do not use serif display typography for new website work.
+- **Palette:** warm stone/parchment surfaces, forest green structure, terracotta CTAs, grounded blue focus states. Avoid neon, purple, cyan, decorative blobs, heavy glow, and cold SaaS white/blue treatments.
+- **Layout:** 8px rhythm, 24px gutters, 1280px max-width, generous but contained spacing. Desktop should feel fixed-grid and secure; mobile should be single-column with 16px margins.
+- **Service pages:** Integrations, Odoo, Pricing, and Leadership should use the full `.container` width for sections. Reserve `.container-narrow` for legal/privacy or deliberately long-form reading pages.
+- **Cards:** white or soft-stone surfaces, 1px neutral border, 12px radius, no box shadow for standard cards or nested elements inside cards. Prefer card headers, thin dividers, and status rows over floating SaaS tiles.
+- **Pricing cards:** the only card family allowed to use the sturdy offset forest shadow.
+- **Buttons:** terracotta primary buttons and outlined secondary buttons use clean rounded rectangles with no shadow.
+- **Lists:** structured rows with labels such as `L01`, left rails, dividers, and calm status markers. Avoid loud badges or decorative numbering.
+- **Diagrams:** simple line-art and architectural workflow panels. Use clear data-flow from A to B with 1px to 2px rules, subdued grid texture, forest green accents, and terracotta emphasis only for priority actions.
+- **Forms:** white fields with 1px neutral border. Focus uses grounded blue border and very light blue background.
+
+Core CSS tokens currently map to:
+
+```css
+:root {
+  --ink: #061B0E;
+  --paper: #FCF9F4;
+  --surface: #FFFFFF;
+  --surface-2: #F6F3EE;
+  --rule: #DCDAD5;
+  --rule-strong: #C3C8C1;
+  --text: #1C1C19;
+  --text-muted: #434843;
+  --text-dim: #737973;
+  --accent: #061B0E;
+  --accent-live: #4D6453;
+  --terracotta: #9F4125;
+  --terracotta-strong: #732107;
+  --blue: #00182F;
+}
+```
+
 This skill encodes the visual and editorial identity of Veridata Pro. Apply it to any client-facing artifact — website pages, emails, proposals, social posts, slide decks.
 
 ## Core aesthetic direction
@@ -13,10 +52,10 @@ Veridata Pro is a **serious, editorial, technical professional-services** brand 
 
 The design is:
 
-- **Light-forward** — most body sections stay paper/cream, with the homepage hero allowed to remain deep ink
-- **Technically lit** — small green "system is on" accents, active dots, thin rules, and structured panels
+- **Light-forward** — body sections and heroes stay warm paper/cream unless a contained dark band is specifically justified
+- **Technically structured** — small green status accents, active dots, thin rules, row labels, and structured panels
 - **Restrained** — generous whitespace, minimal ornamentation, no spectacle
-- **Editorial** — serif display type, italic emphasis for voice, magazine-like composition
+- **Corporate-humanist** — Public Sans clarity, calm hierarchy, and businesslike structure
 - **Operational** — diagrams, layer tables, and cards should feel like integration architecture, not generic marketing blocks
 - **Honest** — no stock photos of people in headsets, no abstract cyber imagery, no fake badges
 
@@ -39,47 +78,47 @@ The homepage is a routing page, not a full service catalog. Keep it short: Hero,
 
 ## Typography
 
---serif: "Fraunces", Georgia, serif; /* Display: all h1, h2, h3 */
---sans: "Inter", -apple-system, sans-serif; /* Body, UI, small labels, eyebrows, tags */
---mono: "JetBrains Mono", ui-monospace, monospace; /* Technical labels, table metadata, chips */
+--sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
 **Rules:**
 
-- Headings are always Fraunces, weight 400, never bold (500)
-- Italic Fraunces is reserved for emphasis within headlines — never entire sentences, never in body
-- Body is Inter, weight 400 default, 500 for emphasis only
-- Labels, eyebrows, technical metadata, layer IDs, and chips may use JetBrains Mono when they reinforce the architecture/interface feel
-- Never use Inter for display type. Never use Fraunces for body text.
-- Font weights: 400, 500 only. No 300 (too light for some screens) or 600+ (too heavy).
+- Use Public Sans across headings, body, labels, and UI.
+- Headlines use 700 for clear hierarchy.
+- Body text uses 400 with generous line-height.
+- Labels, eyebrows, metadata, layer IDs, and chips use 600 with limited uppercase and modest tracking.
+- Do not use serif display typography for new website work.
+- Font weights: 400, 600, 700.
 - Hero type can be substantially larger than previous versions. Use responsive breakpoints, not viewport-scaled font formulas.
 
 ## Color palette
 
 ```css
 :root {
-	--ink: #0e1823; /* Deep ink blue — hero, footer, final CTA */
-	--ink-2: #162433; /* Slightly lighter ink for footer */
-	--ink-3: #1f3147; /* Button hover state */
-	--cream: #f5f1ea; /* Primary cream — on-dark text */
-	--cream-2: #ede6d9; /* Muted cream */
-	--paper: #faf7f2; /* Body section background */
+	--ink: #061b0e; /* Forest green — primary structure */
+	--ink-2: #1b3022; /* Deep green surface */
+	--ink-3: #364c3c; /* Green hover / supporting state */
+	--cream: #fcf9f4; /* Warm parchment */
+	--cream-2: #f6f3ee; /* Muted stone */
+	--paper: #fcf9f4; /* Body section background */
 	--surface: #ffffff; /* Raised cards and technical panels */
-	--surface-2: #fdfbf7; /* Soft card wash */
-	--rule: #d8d0be; /* Border / divider in light sections */
-	--rule-strong: #bfb49f; /* Stronger dividers for technical UI */
-	--rule-dark: rgba(245, 241, 234, 0.12); /* Borders in dark sections */
-	--grid-line: rgba(14, 24, 35, 0.055); /* Light technical grid lines */
-	--text: #1a1a1a; /* Primary body text on light */
-	--text-muted: #555; /* Secondary text on light */
-	--text-dim: #8b8378; /* Tertiary / mono labels */
-	--accent: #2f5a3f; /* Primary accent — forest green */
-	--accent-live: #3f8a55; /* Lit green accent for dots, meters, and active states */
-	--accent-2: #4a7a5a; /* Brighter accent for dark-mode visibility */
-	--accent-soft: rgba(63, 138, 85, 0.10); /* Soft green background */
-	--accent-line: rgba(63, 138, 85, 0.30); /* Green borders/rules */
-	--accent-glow: rgba(63, 138, 85, 0.34); /* Small "light on" glow */
-	--warn: #b8541e; /* Warning / problem numbering */
-	--shadow-ambient: 0 24px 70px -48px rgba(14, 24, 35, 0.42);
+	--surface-2: #f6f3ee; /* Soft card wash */
+	--rule: #dcdad5; /* Border / divider in light sections */
+	--rule-strong: #c3c8c1; /* Stronger dividers for technical UI */
+	--rule-dark: rgba(252, 249, 244, 0.16); /* Borders in dark sections */
+	--grid-line: rgba(67, 72, 67, 0.075); /* Light technical grid lines */
+	--text: #1c1c19; /* Primary body text on light */
+	--text-muted: #434843; /* Secondary text on light */
+	--text-dim: #737973; /* Tertiary labels */
+	--accent: #061b0e; /* Primary accent — forest green */
+	--accent-live: #4d6453; /* Status dots, meters, and active states */
+	--accent-2: #819986; /* Supporting green */
+	--accent-soft: rgba(77, 100, 83, 0.10); /* Soft green background */
+	--accent-line: rgba(77, 100, 83, 0.30); /* Green borders/rules */
+	--warn: #9f4125; /* Warning / problem numbering */
+	--terracotta: #9f4125; /* High-priority CTA */
+	--terracotta-strong: #732107; /* CTA hover */
+	--blue: #00182f; /* Focus states and secondary interaction */
+	--shadow-ambient: 0 4px 20px rgba(27, 48, 34, 0.08);
 }
 ```
 
@@ -87,18 +126,20 @@ The homepage is a routing page, not a full service catalog. Keep it short: Hero,
 
 - Never introduce a new color without updating this file first
 - The accent stays green. Do not adopt yellow/ember from references.
-- Use green as a live-system signal: small glowing dots, meter fills, top rules, active card borders, and dark-hero button hover states.
-- No purple, no cyan, no bright blues — this is the opposite of generic SaaS palette.
-- Dark sections use `--ink` as background, `--cream` as text. Light sections use `--paper` or `--cream` as background, `--text` as text.
+- Use green as a stability signal: small dots, meter fills, top rules, active card borders, and structural navigation.
+- Use terracotta for high-priority CTAs.
+- Use grounded blue for focus states and secondary interaction, not broad page color.
+- No purple, no cyan, no bright SaaS blues — this is the opposite of generic SaaS palette.
+- Most sections use `--paper` or `--cream` as background, `--text` as text.
 - Gradients are allowed only as subtle surface washes, thin light rules, or grid overlays. Never use gradient text, blobs, bokeh, or decorative orbs.
 - Shadows are allowed for raised technical cards and panels, but keep them ambient and soft. No heavy floating SaaS cards.
-- Glow is allowed only for small green "light on" accents, meter fills, and thin highlight rules.
+- Avoid glow except where a tiny status light genuinely helps the interface.
 
 ## Layout
 
 ```css
 .container {
-	max-width: 1180px;
+	max-width: 1280px;
 	padding: 0 32px;
 } /* Main content width */
 .container-narrow {
@@ -118,15 +159,15 @@ section {
 
 The site uses a small set of section types. Reuse them; don't invent new ones without reason.
 
-1. **Hero** (dark) — eyebrow + very large serif h1 + lede + supporting stack note + two CTAs + jump links + technical workflow panel
+1. **Hero** (light stone) — eyebrow + strong Public Sans h1 + lede + supporting stack note + two CTAs + jump links + technical workflow panel
 2. **Signal problem list** (paper) — section-label + title + row-based light panels using `L01`, `L02`, etc. in a left rail, a thin divider, and a small green "system on" dot at the right; use `.signal-list` with `.problem-card`
 3. **Timeline** (cream) — label + title + sub + two-column timeline (WHEN | WHAT) with tag metadata
 4. **Services grid** (paper/cream) — label + title + sub + equal `.tool-card` cards with title + description + outcome tag; cards use subtle technical grid background and small green status dot
-5. **Operating layers / technical rows** (paper) — row cards with `L01` style mono IDs, short Inter titles, one concrete operational outcome, and optional small green meter bars
+5. **Operating layers / technical rows** (paper) — row cards with `L01` style labels, short Public Sans titles, one concrete operational outcome, and optional small green meter bars
 6. **Fit section** (dark or paper depending on surrounding rhythm) — label + title + sub + two-column Right-fit / Wrong-fit list
 7. **Credentials split** (paper) — label + two-column: copy with pull-quote | `.stat-card` facts table; stat cards use subtle grid background and a green status dot
 8. **Pricing featured + entry + footnote** (cream/paper) — cards stay light with subtle grid background; the featured card uses green border/light, not a dark block
-9. **FAQ** (paper) — narrow container, simple Q/A rhythm, serif questions
+9. **FAQ** (paper) — narrow container, simple Q/A rhythm, clear Public Sans questions
 10. **Final CTA** (paper preferred) — big italic headline + sub + single prominent button
 11. **Footer** (paper or ink depending on page) — brand + meta, no fake trust links
 12. **Legal list** (paper) — privacy/legal sections use `.legal-list` and `.legal-card` with `L01` style labels; avoid visible `1.`, `2.`, `3.` legal headings
@@ -136,8 +177,8 @@ The site uses a small set of section types. Reuse them; don't invent new ones wi
 Use these to make the site feel more technical without becoming hostile to non-technical buyers:
 
 - **Raised cards**: 8px radius, thin border, white/surface background, soft ambient shadow, subtle grid overlay when the card is pricing, service, stat, or technical UI
-- **Hero system panel**: dark panel inside dark hero with dashed dividers, nodes, small meter bars, and green active states
-- **Signal rows**: row-based cards with `L01` style mono IDs, a left label rail, short serif title, concise Inter description, and one small green status dot; do not use bare `01`, `02`, or `1.` numbering for visible card labels
+- **Hero system panel**: light architectural panel with dashed dividers, nodes, small meter bars, and green active states
+- **Signal rows**: row-based cards with `L01` style labels, a left label rail, short Public Sans title, concise description, and one small green status dot; do not use bare `01`, `02`, or `1.` numbering for visible card labels
 - **Accent dots**: small green dots with restrained glow; never large blobs
 - **Technical grid backgrounds**: use only subtle `--grid-line` overlays, normally 36px or 44px grid spacing; keep cards light and readable
 - **Meters**: visual explanation only; avoid implying false measured results unless the metric is real
@@ -186,7 +227,7 @@ Several visual/copy patterns are **off-limits** for Veridata Pro and should be r
 - Emoji as UI decoration
 - Gradient text effects, neon glowing borders, particle backgrounds, decorative blobs/orbs
 - Purple/pink/cyan/yellow accents anywhere
-- Full dark-theme pages aimed at non-technical buyers; a dark hero is okay, but the body should return to light surfaces
+- Full dark-theme pages aimed at non-technical buyers; keep the current site light-forward unless a specific page has a strong reason for a contained dark band
 - Bold claims with no evidence ("Industry-leading", "#1 in LatAm", "Award-winning")
 - Top-level service sprawl: separate menu items for n8n, AWS, AI, MuleSoft, APIs, Python, Java, databases, Zapier, or Make
 - Copy that makes Veridata Pro sound like only an n8n freelancer, only an Odoo developer, only an AWS consultancy, or an AI chatbot agency
@@ -197,7 +238,7 @@ If the user explicitly requests any of these, push back with a brief explanation
 
 1. Start with which section type applies (from the list above)
 2. Use the defined CSS variables only — no new colors
-3. Match the font hierarchy (serif display, sans body, mono technical labels)
+3. Match the Public Sans hierarchy (700 headings, 400 body, 600 labels)
 4. Write copy that passes the "would a senior CTO roll their eyes?" test
 5. If creating something new that doesn't fit an existing pattern, first ask whether the pattern should be generalized and added to this skill
 
