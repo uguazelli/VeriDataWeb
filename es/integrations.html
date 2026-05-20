@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Integraciones de Sistemas &amp; Automatización &ndash; Veridata Pro</title>
-    <meta name="description" content="Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, AWS serverless para integraciones críticas, además de APIs, Odoo, IA, MuleSoft, Python y Java.">
+    <meta name="description" content="Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, AWS serverless para integraciones críticas, además de APIs, Odoo, migración de datos, ETL, IA, MuleSoft, Python y Java.">
     <link rel="canonical" href="https://veridatapro.com/es/integrations">
     <link rel="alternate" hreflang="en" href="https://veridatapro.com/en/integrations">
     <link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/integrations">
@@ -29,7 +29,7 @@
           "@type": "Service",
           "@id": "https://veridatapro.com/es/integrations#service",
           "name": "Integraciones de Sistemas y Automatización",
-          "description": "Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, arquitectura serverless en AWS para integraciones críticas, además de APIs, Odoo, IA, MuleSoft, Python, Java, bases de datos y flujos de documentos.",
+          "description": "Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, arquitectura serverless en AWS para integraciones críticas, además de APIs, Odoo, migración de datos, ETL, IA, MuleSoft, Python, Java, bases de datos y flujos de documentos.",
           "url": "https://veridatapro.com/es/integrations",
           "provider": {
             "@id": "https://veridatapro.com/#organization"
@@ -51,7 +51,7 @@
           "@id": "https://veridatapro.com/es/integrations#webpage",
           "url": "https://veridatapro.com/es/integrations",
           "name": "Integraciones de Sistemas y Automatización",
-          "description": "Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, arquitectura serverless en AWS para integraciones críticas, además de APIs, Odoo, IA, MuleSoft, Python, Java, bases de datos y flujos de documentos.",
+          "description": "Integración de sistemas liderada por arquitecto para empresas con sistemas desconectados. n8n para automatización rápida, arquitectura serverless en AWS para integraciones críticas, además de APIs, Odoo, migración de datos, ETL, IA, MuleSoft, Python, Java, bases de datos y flujos de documentos.",
           "inLanguage": "es",
           "about": {
             "@id": "https://veridatapro.com/es/integrations#service"
@@ -170,6 +170,10 @@
                     <p class="tool-desc">PostgreSQL, MySQL, sincronización operativa, feeds de reportes, conciliación y movimiento controlado de datos.</p>
                 </div>
                 <div class="tool-card">
+                    <h3 class="tool-title">Migración de datos y ETL</h3>
+                    <p class="tool-desc">Migraciones puntuales y flujos recurrentes de ETL usando pandas, SQL, APIs u orquestación de workflows con mapeo, validación y conciliación.</p>
+                </div>
+                <div class="tool-card">
                     <h3 class="tool-title">Integraciones con APIs de IA</h3>
                     <p class="tool-desc">OpenAI, Anthropic y Gemini conectados a procesos reales con validación, logs, control de costos y revisión humana.</p>
                 </div>
@@ -206,6 +210,52 @@
                 <span class="pill">Migración de flujos</span>
                 <span class="pill">Reconstrucción en AWS o a medida</span>
                 <span class="pill">Documentación</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-cream">
+        <div class="container">
+            <span class="eyebrow">Migración de datos y ETL</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Una migración es trabajo de integración con destino definido.</h2>
+            <p style="font-size: 1.25rem; line-height: 1.6; max-width: none; margin-bottom: 4rem; color: var(--text-muted);">
+                Tratamos la migración como un problema de integración, no como una carga masiva. El trabajo empieza con mapeo de orígenes y reglas de negocio, y luego pasa por limpieza, transformación, validación, carga y conciliación.
+            </p>
+
+            <div class="signal-list" style="margin-bottom: 4rem;">
+                <div class="problem-card">
+                    <span class="problem-number">L01</span>
+                    <h3 class="problem-title">Mapear origen y destino.</h3>
+                    <p class="problem-desc">Hojas de cálculo, bases legadas, CRMs antiguos, exportaciones de ecommerce, archivos de proveedores y módulos Odoo se mapean contra los campos y reglas de destino antes de cargar datos.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">L02</span>
+                    <h3 class="problem-title">Transformar con la herramienta correcta.</h3>
+                    <p class="problem-desc">Para migraciones puntuales, pandas y SQL suelen ser el camino más directo. Para feeds recurrentes, usamos jobs de ETL, APIs, n8n o flujos en AWS según volumen, riesgo y propiedad.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">L03</span>
+                    <h3 class="problem-title">Validar, cargar y conciliar.</h3>
+                    <p class="problem-desc">Revisamos duplicados, campos obligatorios, totales, filas fallidas y reportes de excepción para que el equipo confíe en los datos migrados sin revisar cada registro después.</p>
+                </div>
+            </div>
+
+            <div class="example-header">
+                <div>Ejemplo de migración</div>
+                <div>Cómo solemos manejarlo</div>
+            </div>
+
+            <div class="example-row">
+                <div class="example-what">Hojas de clientes, productos y facturas hacia Odoo o CRM.</div>
+                <div class="example-why">Limpieza con pandas o SQL, mapeo al modelo de destino, reportes de validación e importación en lotes controlados.</div>
+            </div>
+            <div class="example-row">
+                <div class="example-what">Historial de ecommerce hacia Odoo, finanzas, inventario o tablas de reporte.</div>
+                <div class="example-why">Normalizamos pedidos, clientes, SKUs, impuestos y estados antes de cargar para que operaciones y finanzas no concilien mal historial manualmente.</div>
+            </div>
+            <div class="example-row" style="border-bottom: 1px solid var(--rule);">
+                <div class="example-what">Flujos antiguos en Zapier, Make o scripts movidos a n8n, AWS o un servicio a medida.</div>
+                <div class="example-why">Documentamos el comportamiento actual, reconstruimos el camino crítico con logs y reintentos, y hacemos el cambio con plan de retorno.</div>
             </div>
         </div>
     </section>

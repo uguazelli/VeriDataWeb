@@ -174,6 +174,14 @@ function highlightActiveLink() {
         }
 
     });
+
+    document.querySelectorAll('.nav-menu').forEach(menu => {
+        const activeChild = menu.querySelector('.nav-submenu-link.active');
+        const trigger = menu.querySelector('.nav-menu-trigger');
+        if (activeChild && trigger) {
+            trigger.classList.add('active');
+        }
+    });
 }
 
 // Main initialization
@@ -263,11 +271,11 @@ function translateUI(context) {
     const translations = {
         'pt': {
             'header.home': 'Início',
+            'header.services': 'Serviços',
             'header.odoo': 'Integrações Odoo',
             'header.integrations': 'Integrações',
             'header.ai_whatsapp_crm': 'WhatsApp + CRM com IA',
             'header.pricing': 'Preços',
-            'header.leadership': 'Liderança',
             'header.book_call': 'Agendar revisão gratuita de integração',
             'header.language_select': 'Idioma',
             'footer.home': 'Início',
@@ -275,10 +283,9 @@ function translateUI(context) {
             'footer.integrations': 'Integrações',
             'footer.ai_whatsapp_crm': 'Assistente de WhatsApp + CRM com IA',
             'footer.pricing': 'Preços',
-            'footer.leadership': 'Liderança',
             'footer.privacy': 'Política de Privacidade',
             'footer.odoo': 'Integrações Odoo',
-            'footer.work': 'Trabalho',
+            'footer.services': 'Serviços',
             'footer.odoo_work': 'Integração e Automação com Odoo',
             'footer.integration_work': 'Integrações de Sistemas',
             'footer.ai_work': 'Assistente de WhatsApp + CRM com IA',
@@ -288,11 +295,11 @@ function translateUI(context) {
         },
         'es': {
             'header.home': 'Inicio',
+            'header.services': 'Servicios',
             'header.odoo': 'Integraciones Odoo',
             'header.integrations': 'Integraciones',
             'header.ai_whatsapp_crm': 'WhatsApp + CRM con IA',
             'header.pricing': 'Precios',
-            'header.leadership': 'Liderazgo',
             'header.book_call': 'Agendar revisión gratuita de integración',
             'header.language_select': 'Idioma',
             'footer.home': 'Inicio',
@@ -300,10 +307,9 @@ function translateUI(context) {
             'footer.integrations': 'Integraciones',
             'footer.ai_whatsapp_crm': 'Asistente de WhatsApp + CRM con IA',
             'footer.pricing': 'Precios',
-            'footer.leadership': 'Liderazgo',
             'footer.privacy': 'Política de Privacidad',
             'footer.odoo': 'Integraciones Odoo',
-            'footer.work': 'Trabajo',
+            'footer.services': 'Servicios',
             'footer.odoo_work': 'Integración y Automatización de Odoo',
             'footer.integration_work': 'Integraciones de Sistemas',
             'footer.ai_work': 'Asistente de WhatsApp + CRM con IA',
@@ -327,7 +333,11 @@ function translateUI(context) {
 
 if (!window.enableLanguageRedirect) {
     // Chatwoot Widget Initialization
-    window.chatwootSettings = { "position": "right", "type": "expanded_bubble", "launcherTitle": "Chat with us" };
+    const useCompactChatLauncher = window.matchMedia('(max-width: 640px)').matches;
+    window.chatwootSettings = { "position": "right", "launcherTitle": "Chat with us" };
+    if (!useCompactChatLauncher) {
+        window.chatwootSettings.type = "expanded_bubble";
+    }
     (function (d, t) {
         var BASE_URL = "https://chat.veridatapro.com";
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];

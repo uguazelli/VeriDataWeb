@@ -2162,6 +2162,80 @@ section[id] {
     font-size: 0.75rem;
 }
 
+.architect-profile-grid {
+    align-items: start;
+    gap: 4rem;
+}
+
+.architect-profile-photo {
+    border-radius: 8px;
+    display: block;
+    filter: grayscale(100%) contrast(118%);
+    margin-bottom: 1.5rem;
+    mix-blend-mode: multiply;
+    width: 100%;
+}
+
+.text-link {
+    border-bottom: 1px solid var(--ink);
+    color: var(--ink);
+    display: inline-flex;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+
+.architect-role {
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 0 0 2rem;
+    text-transform: uppercase;
+}
+
+.architect-lede {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+}
+
+.architect-copy {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    margin: 0 0 1.5rem;
+}
+
+.architect-subtitle {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+}
+
+.architect-detail-grid {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+    margin-top: 5rem;
+}
+
+.architect-facts {
+    align-content: start;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cert-panel {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+}
+
 /* Leadership terminal */
 .architect-terminal {
     background:
@@ -2379,6 +2453,83 @@ section[id] {
     color: var(--ink);
 }
 
+.nav-menu {
+    position: relative;
+}
+
+.nav-menu::after {
+    content: "";
+    display: block;
+    height: 0.65rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 0;
+}
+
+.nav-menu-trigger {
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-menu-trigger::after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    content: "";
+    display: inline-block;
+    margin-left: 0.45rem;
+    opacity: 0.56;
+    transform: translateY(1px);
+}
+
+.nav-submenu {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: var(--shadow-ambient);
+    display: grid;
+    gap: 0.25rem;
+    left: 0;
+    min-width: 232px;
+    opacity: 0;
+    padding: 0.45rem;
+    pointer-events: none;
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    transform: translateY(-4px);
+    transition: opacity 0.16s ease, transform 0.16s ease;
+    z-index: 2;
+}
+
+.nav-menu:hover .nav-submenu,
+.nav-menu:focus-within .nav-submenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.nav-submenu-link {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.25;
+    padding: 0.75rem 0.85rem;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-submenu-link:hover,
+.nav-submenu-link.active {
+    background: var(--surface-2);
+    border-color: var(--rule);
+    color: var(--ink);
+}
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -2496,11 +2647,30 @@ section[id] {
     margin-bottom: 3rem;
 }
 
+.mobile-nav-group {
+    border-left: 1px solid var(--rule);
+    display: grid;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.mobile-nav-label {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .mobile-nav-link {
     font-size: 1.25rem;
     font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-decoration: none;
     color: var(--ink);
+}
+
+.mobile-nav-sublink {
+    font-size: 1.05rem;
 }
 
 .mobile-lang-switch {
@@ -3072,6 +3242,12 @@ section[id] {
 
     .terminal-status {
         margin-left: auto;
+    }
+
+    .architect-profile-grid,
+    .architect-detail-grid,
+    .architect-facts {
+        grid-template-columns: 1fr;
     }
 
     .terminal-body {
@@ -3940,6 +4116,43 @@ select:focus {
     background-size: 16px 16px;
 }
 
+body > section {
+    border-top: 1px solid var(--rule);
+    position: relative;
+}
+
+body > section:first-of-type {
+    border-top: 0;
+}
+
+.bg-paper {
+    background-color: var(--paper);
+}
+
+.bg-cream {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0) 340px),
+        var(--surface-3);
+}
+
+.bg-white {
+    background-color: var(--surface);
+}
+
+.bg-ink:not(.hero-section) {
+    background:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(246, 243, 238, 0.98), rgba(240, 237, 233, 0.98));
+    background-size: 44px 44px, 44px 44px, auto;
+    color: var(--text);
+}
+
+.hero-section,
+.hero-section.bg-ink {
+    background-color: var(--paper);
+}
+
 .problem-card,
 .number-card,
 .legal-card,
@@ -4427,4 +4640,160 @@ select:focus {
 .bg-paper .container > .text-muted,
 .bg-cream .container > .text-muted {
     max-width: 1040px;
+}
+
+/* Non-hero bg-ink sections now use a light technical band, so pills need dark contrast */
+.bg-ink .pill,
+.bg-ink .pill-tag {
+    background-color: var(--accent-soft);
+    border-color: var(--accent-line);
+    color: var(--accent);
+}
+
+/* Principle callouts need to stand apart from ordinary cards */
+.architecture-note {
+    background: rgba(77, 100, 83, 0.12);
+    border: 1px solid var(--accent-line);
+    border-radius: 12px;
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    max-width: 1040px;
+    padding: 1.75rem 2rem;
+    position: relative;
+    text-align: left;
+}
+
+.architecture-note::before {
+    content: none;
+    display: none;
+}
+
+/* Signal workflow panels replace the old full-width row list */
+.signal-list {
+    align-items: stretch;
+    background:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(252, 249, 244, 0.88));
+    background-size: 44px 44px, 44px 44px, auto;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: hidden;
+    padding: 2rem;
+    position: relative;
+}
+
+.signal-list::before {
+    border-top: 1px dashed var(--rule-strong);
+    content: "";
+    left: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 1.25rem;
+}
+
+.signal-list::after {
+    border-bottom: 1px dashed var(--rule-strong);
+    bottom: 1.25rem;
+    content: "";
+    left: 2rem;
+    position: absolute;
+    right: 2rem;
+}
+
+.signal-list .problem-card {
+    align-items: flex-start;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78));
+    border: 2px solid var(--rule) !important;
+    border-radius: 10px;
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    padding: 1.7rem 1.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.signal-list .problem-card:nth-child(even) {
+    border-color: var(--accent-line) !important;
+}
+
+.signal-list .problem-card::before {
+    content: none;
+    display: none !important;
+}
+
+.signal-list .problem-card::after {
+    content: none;
+    display: none !important;
+}
+
+.signal-list .problem-number {
+    align-items: center;
+    align-self: flex-start;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    color: var(--text-dim);
+    display: inline-flex;
+    font-size: 0.78rem;
+    font-weight: 600;
+    grid-column: auto;
+    grid-row: auto;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    margin: 0 0 0.75rem;
+    min-height: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.signal-list .problem-title {
+    font-size: 1.45rem;
+    grid-column: auto;
+    grid-row: auto;
+    line-height: 1.25;
+    margin: 0 0 0.75rem;
+}
+
+.signal-list .problem-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    grid-column: auto;
+    grid-row: auto;
+    line-height: 1.6;
+    margin: 0;
+    max-width: none;
+}
+
+@media (max-width: 1080px) {
+    .signal-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .signal-list {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .signal-list::before,
+    .signal-list::after {
+        left: 1rem;
+        right: 1rem;
+    }
+
+    .signal-list .problem-card {
+        padding: 1.25rem;
+    }
+
 }
