@@ -16,11 +16,11 @@ Use this direction for all current website UI, marketing pages, cards, diagrams,
 - **Palette:** warm stone/parchment surfaces, forest green structure, terracotta CTAs, grounded blue focus states. Avoid neon, purple, cyan, decorative blobs, heavy glow, and cold SaaS white/blue treatments.
 - **Layout:** 8px rhythm, 24px gutters, 1280px max-width, generous but contained spacing. Desktop should feel fixed-grid and secure; mobile should be single-column with 16px margins.
 - **Service pages:** Integrations, Odoo, Pricing, and Leadership should use the full `.container` width for sections. Reserve `.container-narrow` for legal/privacy or deliberately long-form reading pages.
-- **Cards:** white or soft-stone surfaces, 1px neutral border, 12px radius, no box shadow for standard cards or nested elements inside cards. Prefer card headers, thin dividers, and status rows over floating SaaS tiles.
-- **Pricing cards:** the only card family allowed to use the sturdy offset forest shadow.
-- **Buttons:** terracotta primary buttons and outlined secondary buttons use clean rounded rectangles with no shadow.
-- **Lists:** structured rows with labels such as `L01`, left rails, dividers, and calm status markers. Avoid loud badges or decorative numbering.
-- **Diagrams:** simple line-art and architectural workflow panels. Use clear data-flow from A to B with 1px to 2px rules, subdued grid texture, forest green accents, and terracotta emphasis only for priority actions.
+- **Cards:** white or soft-stone surfaces, 1px neutral border, square 2px radius, no box shadow for standard cards or nested elements inside cards. Avoid outer wrapper boxes around card grids.
+- **Pricing cards:** flat white bordered cards. The recommended card uses terracotta border, subtle elevation, and a top-right terracotta ribbon. No offset forest shadows.
+- **Buttons:** terracotta primary buttons and outlined forest secondary buttons use square 2px geometry, no shadow, and strong Public Sans weight.
+- **Lists:** individual white cards with labels such as `L01`; keep the grid plain, without background frames, dashed rails, or decorative container boxes.
+- **Diagrams:** use approved image assets and simple line-art diagrams. Keep diagrams visible and uncropped; prefer `object-fit: contain` for diagram hero assets.
 - **Forms:** white fields with 1px neutral border. Focus uses grounded blue border and very light blue background.
 
 Core CSS tokens currently map to:
@@ -31,8 +31,10 @@ Core CSS tokens currently map to:
   --paper: #FCF9F4;
   --surface: #FFFFFF;
   --surface-2: #F6F3EE;
+  --surface-3: #F0EDE9;
   --rule: #DCDAD5;
   --rule-strong: #C3C8C1;
+  --grid-line: rgba(67, 72, 67, 0);
   --text: #1C1C19;
   --text-muted: #434843;
   --text-dim: #737973;
@@ -41,6 +43,7 @@ Core CSS tokens currently map to:
   --terracotta: #9F4125;
   --terracotta-strong: #732107;
   --blue: #00182F;
+  --button-radius: 2px;
 }
 ```
 
@@ -100,12 +103,13 @@ The homepage is a routing page, not a full service catalog. Keep it short: Hero,
 	--cream: #fcf9f4; /* Warm parchment */
 	--cream-2: #f6f3ee; /* Muted stone */
 	--paper: #fcf9f4; /* Body section background */
-	--surface: #ffffff; /* Raised cards and technical panels */
+	--surface: #ffffff; /* Flat cards and panels */
 	--surface-2: #f6f3ee; /* Soft card wash */
+	--surface-3: #f0ede9; /* Neutral inset/control fill */
 	--rule: #dcdad5; /* Border / divider in light sections */
 	--rule-strong: #c3c8c1; /* Stronger dividers for technical UI */
 	--rule-dark: rgba(252, 249, 244, 0.16); /* Borders in dark sections */
-	--grid-line: rgba(67, 72, 67, 0.075); /* Light technical grid lines */
+	--grid-line: rgba(67, 72, 67, 0); /* Grid backgrounds intentionally disabled */
 	--text: #1c1c19; /* Primary body text on light */
 	--text-muted: #434843; /* Secondary text on light */
 	--text-dim: #737973; /* Tertiary labels */
@@ -118,7 +122,8 @@ The homepage is a routing page, not a full service catalog. Keep it short: Hero,
 	--terracotta: #9f4125; /* High-priority CTA */
 	--terracotta-strong: #732107; /* CTA hover */
 	--blue: #00182f; /* Focus states and secondary interaction */
-	--shadow-ambient: 0 4px 20px rgba(27, 48, 34, 0.08);
+	--button-radius: 2px; /* Current button and control geometry */
+	--shadow-ambient: 0 4px 20px rgba(27, 48, 34, 0.08); /* Use sparingly */
 }
 ```
 
@@ -131,8 +136,8 @@ The homepage is a routing page, not a full service catalog. Keep it short: Hero,
 - Use grounded blue for focus states and secondary interaction, not broad page color.
 - No purple, no cyan, no bright SaaS blues — this is the opposite of generic SaaS palette.
 - Most sections use `--paper` or `--cream` as background, `--text` as text.
-- Gradients are allowed only as subtle surface washes, thin light rules, or grid overlays. Never use gradient text, blobs, bokeh, or decorative orbs.
-- Shadows are allowed for raised technical cards and panels, but keep them ambient and soft. No heavy floating SaaS cards.
+- Gradients are allowed only as subtle surface washes or thin light rules. Do not add page-wide cross-line/grid backgrounds.
+- Shadows are rare. Standard cards, buttons, and nested panels should be flat.
 - Avoid glow except where a tiny status light genuinely helps the interface.
 
 ## Layout
@@ -151,24 +156,36 @@ section {
 } /* Default vertical rhythm */
 ```
 
-- Hero uses `.hero-section.bg-ink` with extra top padding, very large display type, and an optional technical system panel
+- Heroes use `.hero-section.bg-ink` visually as a light paper hero. Current home/service heroes are balanced image heroes, not dark panels.
 - Body sections use `.container` with 96px vertical padding (72px on mobile)
 - Mobile breakpoint: 768px
+
+## Current UI Patterns
+
+These are the current live-site patterns and should override older references:
+
+- **Home hero:** `.home-hero` is a balanced 50/50 grid. Left side is eyebrow, compact h1, lede, and CTAs; right side is `assets/images/team_collaboration.png` in `.home-hero-media`.
+- **Service image heroes:** `.service-image-hero` is a balanced 50/50 grid for Integrations and Odoo. Use `assets/images/integrations.png` for integrations pages and `assets/images/odoo_integrations.png` for Odoo pages. Use `object-fit: contain` so square diagrams are never cropped.
+- **Buttons:** use the shared 2px square button geometry. Home/service hero buttons can be tighter than global CTA buttons to keep layout balanced.
+- **Tags and chips:** `.pill`, `.pill-tag`, `.architecture-tag`, `.gap-status`, `.assistant-channel-icon`, and `.assistant-feature-icon` are square forest-green blocks with cream text. Do not use rounded pills.
+- **Signal card grids:** `.signal-list` should be transparent with no border/background wrapper. Only the individual `.problem-card` elements get white surfaces and borders.
+- **Final CTAs:** end-of-page CTA sections use `.final-cta`: a contained dark forest-green panel on paper, cream text, and terracotta primary button.
+- **Leadership terminal:** the architect terminal is a dark colorized terminal with green/blue/terracotta accents.
 
 ## Section patterns
 
 The site uses a small set of section types. Reuse them; don't invent new ones without reason.
 
-1. **Hero** (light stone) — eyebrow + strong Public Sans h1 + lede + supporting stack note + two CTAs + jump links + technical workflow panel
-2. **Signal problem list** (paper) — section-label + title + row-based light panels using `L01`, `L02`, etc. in a left rail, a thin divider, and a small green "system on" dot at the right; use `.signal-list` with `.problem-card`
+1. **Hero** (light stone) — eyebrow + strong Public Sans h1 + lede + CTA(s) on the left, approved image/diagram on the right. Use `.home-hero` for homepage and `.service-image-hero` for Odoo/Integrations.
+2. **Signal problem list** (paper) — section-label + title + plain `.signal-list` grid with individual `.problem-card` cards using `L01`, `L02`, etc.; no outer wrapper background, box, or dashed rails.
 3. **Timeline** (cream) — label + title + sub + two-column timeline (WHEN | WHAT) with tag metadata
-4. **Services grid** (paper/cream) — label + title + sub + equal `.tool-card` cards with title + description + outcome tag; cards use subtle technical grid background and small green status dot
+4. **Services grid** (paper/cream) — label + title + sub + equal `.tool-card` cards with title + description + outcome tag; keep cards flat and square with restrained borders.
 5. **Operating layers / technical rows** (paper) — row cards with `L01` style labels, short Public Sans titles, one concrete operational outcome, and optional small green meter bars
 6. **Fit section** (dark or paper depending on surrounding rhythm) — label + title + sub + two-column Right-fit / Wrong-fit list
-7. **Credentials split** (paper) — label + two-column: copy with pull-quote | `.stat-card` facts table; stat cards use subtle grid background and a green status dot
-8. **Pricing featured + entry + footnote** (cream/paper) — cards stay light with subtle grid background; the featured card uses green border/light, not a dark block
+7. **Credentials split** (paper) — label + two-column: copy with pull-quote or dark terminal | `.stat-card` facts table.
+8. **Pricing featured + entry + footnote** (cream/paper) — flat white price cards; featured card uses terracotta border/ribbon and filled terracotta button, while standard cards use outlined buttons.
 9. **FAQ** (paper) — narrow container, simple Q/A rhythm, clear Public Sans questions
-10. **Final CTA** (paper preferred) — big italic headline + sub + single prominent button
+10. **Final CTA** (paper section with contained dark panel) — big cream headline + muted cream sub + terracotta button inside `.final-cta`.
 11. **Footer** (paper or ink depending on page) — brand + meta, no fake trust links
 12. **Legal list** (paper) — privacy/legal sections use `.legal-list` and `.legal-card` with `L01` style labels; avoid visible `1.`, `2.`, `3.` legal headings
 
@@ -176,11 +193,12 @@ The site uses a small set of section types. Reuse them; don't invent new ones wi
 
 Use these to make the site feel more technical without becoming hostile to non-technical buyers:
 
-- **Raised cards**: 8px radius, thin border, white/surface background, soft ambient shadow, subtle grid overlay when the card is pricing, service, stat, or technical UI
-- **Hero system panel**: light architectural panel with dashed dividers, nodes, small meter bars, and green active states
-- **Signal rows**: row-based cards with `L01` style labels, a left label rail, short Public Sans title, concise description, and one small green status dot; do not use bare `01`, `02`, or `1.` numbering for visible card labels
+- **Standard cards**: 2px radius, thin border, white/surface background, no box shadow, no nested card containers
+- **Hero media panels**: approved image assets in square/rectangular bordered frames; use photo `cover`, diagram `contain`
+- **Signal cards**: individual `L01` cards with short Public Sans title and concise description; no outer `.signal-list` frame
 - **Accent dots**: small green dots with restrained glow; never large blobs
-- **Technical grid backgrounds**: use only subtle `--grid-line` overlays, normally 36px or 44px grid spacing; keep cards light and readable
+- **Technical grid backgrounds**: do not add visible cross-line page backgrounds. `--grid-line` is currently transparent.
+- **Square tags**: use forest-green square tags for pills, architecture tags, assistant channel icons, and feature icons
 - **Meters**: visual explanation only; avoid implying false measured results unless the metric is real
 
 ## Copy voice
@@ -218,7 +236,7 @@ This is as important as the visual design. The voice is what differentiates Veri
 
 Several visual/copy patterns are **off-limits** for Veridata Pro and should be refused or redirected if a user asks for them:
 
-- Hero images of stock operators, headsets, abstract AI brains, generic cloud diagrams, or disconnected SaaS icon piles
+- Hero images of stock operators, headsets, abstract AI brains, generic cloud diagrams, or disconnected SaaS icon piles. Use only approved assets in `assets/images/` or brand-specific generated assets.
 - Big "Trusted by" logo bars with fake or unlicensed client logos
 - Fake testimonials with "Senior Manager at SaaS Company" generic attribution
 - "Free trial" language — this is not a SaaS product, it's an advisory engagement
@@ -226,6 +244,8 @@ Several visual/copy patterns are **off-limits** for Veridata Pro and should be r
 - Chatbot widgets on pages where a solo operator can't actually respond in real time
 - Emoji as UI decoration
 - Gradient text effects, neon glowing borders, particle backgrounds, decorative blobs/orbs
+- Rounded pill chips for technical tags; current tags are square green blocks
+- Outer background boxes around card grids; current card grids should stay plain
 - Purple/pink/cyan/yellow accents anywhere
 - Full dark-theme pages aimed at non-technical buyers; keep the current site light-forward unless a specific page has a strong reason for a contained dark band
 - Bold claims with no evidence ("Industry-leading", "#1 in LatAm", "Award-winning")
@@ -252,3 +272,4 @@ When working on the live site, treat these files as source of truth for decision
 - Pricing page/cards: `en/pricing.html`, mirrored in `pt/pricing.html` and `es/pricing.html`
 - Shared visual rules: `assets/css/styles.css`
 - Shared navigation/footer: `components/header.html`, `components/footer.html`, plus translations in `assets/js/main.js`
+- Approved hero assets: `assets/images/team_collaboration.png`, `assets/images/integrations.png`, `assets/images/odoo_integrations.png`

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Veridata Pro | Integrations Designed Not to Break Silently</title>
+    <title>Veridata Pro | Reliable Integrations for Growing Companies</title>
     <meta name="description"
-        content="Veridata Pro builds integration layers designed not to break silently. Odoo, CRMs, ecommerce, APIs, databases, data migrations, AWS, MuleSoft, and custom backend integrations.">
+        content="Veridata Pro connects Odoo, CRMs, ecommerce, finance tools, APIs, databases, spreadsheets, and internal systems so your team stops acting as the integration layer.">
     <link rel="canonical" href="https://veridatapro.com/en/">
     <link rel="alternate" hreflang="en" href="https://veridatapro.com/en/">
     <link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/">
@@ -23,7 +23,7 @@
           "url": "https://veridatapro.com/",
           "logo": "https://veridatapro.com/assets/images/logo.png",
           "email": "hello@veridatapro.com",
-          "description": "Veridata Pro handles the integration layer when Zapier, Make, or n8n are no longer enough. Architect-led work across Odoo, CRMs, ecommerce, finance tools, spreadsheets, APIs, databases, data migrations, AWS, MuleSoft, and custom backend integrations.",
+          "description": "Veridata Pro connects Odoo, CRMs, ecommerce, finance tools, APIs, databases, spreadsheets, and internal systems so your team stops acting as the integration layer.",
           "founder": {
             "@id": "https://veridatapro.com/#ugo-guazelli"
           },
@@ -39,7 +39,6 @@
           "knowsAbout": [
             "Odoo integration",
             "Workflow automation",
-            "n8n automation",
             "Custom API integrations",
             "AWS Lambda",
             "AWS API Gateway",
@@ -76,7 +75,7 @@
           "name": "Ugo Guazelli",
           "jobTitle": "Founder and Principal Architect",
           "description": "Founder and Principal Architect of Veridata Pro with 15+ years designing enterprise integrations across MuleSoft, AWS, APIs, Deloitte, Ubisoft, Accenture, Alithya, LATAM, the US, and Canada.",
-          "url": "https://veridatapro.com/en/#architect",
+          "url": "https://veridatapro.com/en/leadership",
           "image": "https://veridatapro.com/assets/images/ugo-guazelli.jpg",
           "sameAs": [
             "https://www.linkedin.com/in/uguazelli/"
@@ -99,8 +98,8 @@
           "@type": "WebPage",
           "@id": "https://veridatapro.com/en/#webpage",
           "url": "https://veridatapro.com/en/",
-          "name": "Veridata Pro",
-          "description": "Veridata Pro builds integration layers designed not to break silently. Odoo, CRMs, ecommerce, APIs, databases, data migrations, AWS, MuleSoft, and custom backend integrations.",
+          "name": "Veridata Pro | Reliable Integrations for Growing Companies",
+          "description": "Veridata Pro connects Odoo, CRMs, ecommerce, finance tools, APIs, databases, spreadsheets, and internal systems so your team stops acting as the integration layer.",
           "inLanguage": "en",
           "isPartOf": {
             "@id": "https://veridatapro.com/#website"
@@ -119,190 +118,59 @@
         rel="stylesheet" />
     <link href="../assets/css/styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <style>
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Section 1 - Hero -->
-    <section class="hero-section bg-ink">
+    <!-- Section 1 — Hero -->
+    <section class="hero-section bg-ink home-hero">
         <div class="container">
             <div class="hero-copy">
-                <span class="eyebrow">Architect-led Integration Layer</span>
-                <h1 class="hero-title">Integrations designed not to break silently when the business depends on them.
-                </h1>
-                <p class="hero-lede">Zapier, Make, and n8n are useful when the workflow is simple. Adding a spreadsheet
-                    row when an email arrives can stay there. When the process touches revenue, finance, inventory, or
-                    customer handoff, Veridata Pro builds the safer integration layer: validation, retries, logs, access
-                    control, and business context.</p>
-                <p class="hero-stack-note">
-                    We understand your business process first, not only your tech stack.
-                </p>
+                <span class="eyebrow">Integration Architecture</span>
+                <h1 class="hero-title">Reliable integrations for growing companies with disconnected systems.</h1>
+                <p class="hero-lede">Veridata Pro connects Odoo, CRMs, ecommerce, finance tools, APIs, databases,
+                    spreadsheets, and internal systems so your team stops acting as the integration layer.</p>
                 <div class="hero-actions">
-                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a free
-                        integration review</a>
-                    <a href="#paths" class="btn-secondary">See integration paths</a>
+                    <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a 30-minute
+                        workflow review</a>
+                    <a href="#services" class="btn-secondary">Explore services</a>
                 </div>
-                <nav class="hero-jump-links" aria-label="Homepage sections">
-                    <a href="#paths">Integration paths</a>
-                    <a href="#risk-signs">Warning signs</a>
-                    <a href="#services">Client notes</a>
-                </nav>
             </div>
 
-            <div class="hero-system-panel" aria-label="Example automated workflow">
-                <header class="system-panel-head">
-                    <span class="system-panel-title">Workflow map · input to operation</span>
-                    <span class="system-panel-legend"><i class="status-dot"></i> manual <i
-                            class="status-dot status-dot-accent"></i> controlled</span>
-                </header>
-                <div class="hero-flow-grid">
-                    <div class="hero-node">
-                        <span class="node-kicker">Input</span>
-                        <span class="node-title">Forms, WhatsApp, ecommerce</span>
-                        <div class="node-bar"><i class="node-fill" style="width: 100%;"></i></div>
-                        <span class="node-meta">Unstructured demand</span>
-                    </div>
-                    <div class="hero-edge"><span>capture</span></div>
-                    <div class="hero-node hero-node-accent">
-                        <span class="node-kicker">Validate</span>
-                        <span class="node-title">Rules, ownership, approvals</span>
-                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 72%;"></i></div>
-                        <span class="node-meta">Exceptions visible</span>
-                    </div>
-                    <div class="hero-edge"><span>check</span></div>
-                    <div class="hero-node">
-                        <span class="node-kicker">Sync</span>
-                        <span class="node-title">Odoo, CRM, finance, API</span>
-                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 86%;"></i></div>
-                        <span class="node-meta">Systems updated</span>
-                    </div>
-                    <div class="hero-edge"><span>operate</span></div>
-                    <div class="hero-node hero-node-accent">
-                        <span class="node-kicker">Monitor</span>
-                        <span class="node-title">Logs, alerts, handoff</span>
-                        <div class="node-bar"><i class="node-fill node-fill-accent" style="width: 64%;"></i></div>
-                        <span class="node-meta">Owned workflow</span>
-                    </div>
-                </div>
-                <footer class="system-panel-foot">
-                    <span>manual surface reduced</span>
-                    <span class="accent-text">exceptions visible</span>
-                    <span>systems stay owned</span>
-                </footer>
-            </div>
+            <figure class="home-hero-media">
+                <img src="../assets/images/team_collaboration.png"
+                    alt="Team reviewing an integration workflow around a conference table" width="512" height="341"
+                    loading="eager" decoding="async" fetchpriority="high">
+            </figure>
         </div>
     </section>
 
-    <!-- Section 2 - Integration paths -->
-    <section id="paths" class="bg-paper">
+    <!-- Section 2 — The Problem -->
+    <section id="problem" class="bg-paper">
         <div class="container">
-            <span class="eyebrow">Integration paths</span>
-            <h2 class="section-title compact-title">Automation tools are useful. Until the process becomes critical.
-            </h2>
-            <p class="section-lede">Zapier, Make, and n8n can be the right answer for simple automations: lead routing,
-                notifications, form handling, CRM updates, and lightweight internal workflows. The question is not
-                whether no-code is bad. The question is whether the workflow is low-risk enough to stay there, or
-                important enough to move into a proper integration layer with error handling, monitoring, retries, data
-                validation, and ownership.</p>
-
-            <div class="grid-3 compact-card-grid">
-                <div class="tool-card compact-card recommended">
-                    <span class="tool-tag">L01 · Entry level</span>
-                    <h3 class="tool-title">Good fit for n8n / Make / Zapier</h3>
-                    <ul class="tool-use-list">
-                        <li>Simple internal workflows</li>
-                        <li>Lead routing and notifications</li>
-                        <li>Form-to-CRM automations</li>
-                        <li>Low-risk approvals</li>
-                        <li>Quick MVPs and prototypes</li>
-                    </ul>
-                </div>
-                <div class="tool-card compact-card">
-                    <span class="tool-tag">L02 · Custom logic</span>
-                    <h3 class="tool-title">Needs custom integration</h3>
-                    <ul class="tool-use-list">
-                        <li>Complex business rules</li>
-                        <li>Data validation and deduplication</li>
-                        <li>Multiple systems with inconsistent data</li>
-                        <li>Custom API logic</li>
-                        <li>State tracking and sync status</li>
-                    </ul>
-                </div>
-                <div class="tool-card compact-card">
-                    <span class="tool-tag">L03 · Critical systems</span>
-                    <h3 class="tool-title">Needs cloud-grade architecture</h3>
-                    <ul class="tool-use-list">
-                        <li>Critical workflows</li>
-                        <li>High volume processing</li>
-                        <li>Audit logs and compliance</li>
-                        <li>Monitoring and alerting</li>
-                        <li>Retries, queues, and failure recovery</li>
-                    </ul>
-                </div>
-            </div>
-
-            <p class="architecture-note">We start with the simplest reliable architecture, not the most fashionable
-                tool.</p>
-        </div>
-    </section>
-
-    <!-- Section 3 - Start here -->
-    <section id="start" class="bg-cream">
-        <div class="container">
-            <span class="eyebrow">Start Here</span>
-            <h2 class="section-title" style="margin-bottom: 2rem;">What do you need connected?</h2>
-            <p
-                style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
-                Choose the path that matches your current problem.
-            </p>
-
-            <div class="grid-3" style="gap: 2rem;">
-                <div class="tool-card recommended">
-                    <span class="tool-tag">Odoo</span>
-                    <h3 class="tool-title">Need Odoo connected?</h3>
-                    <p class="tool-desc">Connect Odoo with your CRM, ecommerce, finance tools, spreadsheets, APIs,
-                        warehouse systems, and internal workflows — without turning your team into the integration
-                        layer.</p>
-                    <a href="odoo.html"
-                        style="font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Explore
-                        Odoo integrations</a>
-                </div>
-                <div class="tool-card">
-                    <span class="tool-tag">Integrations</span>
-                    <h3 class="tool-title">Need your systems connected?</h3>
-                    <p class="tool-desc">Connect CRMs, ERPs, databases, forms, emails, APIs, AI tools, and internal
-                        systems with reliable workflows.</p>
-                    <a href="integrations.html"
-                        style="font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Explore
-                        integrations</a>
-                </div>
-                <div class="tool-card">
-                    <span class="tool-tag">AI-assisted workflow</span>
-                    <h3 class="tool-title">AI WhatsApp + CRM Assistant</h3>
-                    <p class="tool-desc">Capture leads from WhatsApp, Telegram, and Chatwoot, answer basic questions
-                        with approved knowledge, summarize conversations, and sync everything with your CRM — with human
-                        handoff when needed.</p>
-                    <a href="ai-whatsapp-crm-assistant.html"
-                        style="font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Explore
-                        AI assistant workflow</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3 - Main problems -->
-    <section id="problems" class="bg-paper">
-        <div class="container">
-            <span class="eyebrow">Main Problems</span>
-            <h2 class="section-title" style="margin-bottom: 3rem;">Your team has become the integration layer.</h2>
+            <span class="eyebrow">The Problem</span>
+            <h2 class="section-title compact-title">When your team becomes the integration layer.</h2>
 
             <div class="signal-list">
                 <div class="problem-card">
                     <span class="problem-number">L01</span>
                     <h3 class="problem-title">Systems do not talk to each other.</h3>
-                    <p class="problem-desc">CRM, ERP, ecommerce, spreadsheets, email, and internal tools all work
-                        separately. People bridge the gaps manually.</p>
+                    <p class="problem-desc">CRM, ERP, ecommerce, spreadsheets, and internal tools all work separately.
+                        People bridge the gaps manually.</p>
                 </div>
                 <div class="problem-card">
                     <span class="problem-number">L02</span>
@@ -320,307 +188,138 @@
         </div>
     </section>
 
-    <!-- Section 4 - Client notes -->
+    <!-- Section 3 — Three Service Paths -->
     <section id="services" class="bg-cream">
         <div class="container">
-            <span class="eyebrow">Client notes</span>
-            <h2 class="section-title" style="margin-bottom: 2rem;">What changes when the integration layer is owned.
-            </h2>
-            <p
-                style="font-size: 1.25rem; line-height: 1.6; max-width: 820px; margin-bottom: 4rem; color: var(--text-muted);">
-                Representative client situations, written as field notes rather than attributed testimonials.
-            </p>
+            <span class="eyebrow">What We Do</span>
+            <h2 class="section-title" style="margin-bottom: 3rem;">Three ways we help.</h2>
 
             <div class="grid-3" style="gap: 2rem;">
                 <div class="tool-card recommended">
-                    <span class="tool-tag">Brazil · Odoo + ecommerce</span>
-                    <h3 class="tool-title">Before Veridata Pro, orders needed three checks.</h3>
-                    <p class="tool-desc">The team was comparing ecommerce orders, Odoo invoices, and inventory sheets by
-                        hand. Ugo helped map the sync points, validation rules, and exception path. The result was a
-                        workflow the finance and operations teams could trust without rechecking every line.</p>
+                    <span class="tool-tag">Odoo</span>
+                    <h3 class="tool-title">Odoo Integrations</h3>
+                    <p class="tool-desc">For companies using Odoo but still relying on spreadsheets, duplicate data
+                        entry, external tools, ecommerce platforms, CRMs, or manual finance operations.</p>
+                    <a href="odoo.html"
+                        style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Odoo
+                        integration details</a>
                 </div>
                 <div class="tool-card">
-                    <span class="tool-tag">Brazil · Services operation</span>
-                    <h3 class="tool-title">Leads were arriving. Follow-up was getting lost.</h3>
-                    <p class="tool-desc">The business had forms, WhatsApp, CRM notes, approvals, contracts, and invoices
-                        moving in separate places. Ugo helped turn the handoff into an owned workflow with clear steps.
-                        The result was less chasing, fewer missed updates, and a process the team could actually see.
-                    </p>
+                    <span class="tool-tag">Integrations</span>
+                    <h3 class="tool-title">Business System Integrations</h3>
+                    <p class="tool-desc">For companies that need CRMs, ERPs, ecommerce, finance tools, APIs, databases,
+                        spreadsheets, and internal systems connected reliably.</p>
+                    <a href="integrations.html"
+                        style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Integration
+                        details</a>
                 </div>
                 <div class="tool-card">
-                    <span class="tool-tag">Argentina · Software agency</span>
-                    <h3 class="tool-title">The interface was ready, but the client systems were not.</h3>
-                    <p class="tool-desc">The agency could ship the product, but the client still needed APIs, webhooks,
-                        retries, and documentation between internal tools. Ugo helped structure the integration layer
-                        behind the scenes. The result was a cleaner delivery with fewer production surprises.</p>
+                    <span class="tool-tag">AI WhatsApp + CRM</span>
+                    <h3 class="tool-title">AI WhatsApp + CRM Assistant</h3>
+                    <p class="tool-desc">For companies that want WhatsApp conversations, lead intake, qualification, CRM
+                        updates, follow-ups, and sales/support workflows automated with guardrails.</p>
+                    <a href="ai-whatsapp-crm-assistant.html"
+                        style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">AI
+                        assistant details</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5 - Architecture choice -->
-    <section id="architecture" class="bg-paper">
+    <!-- Section 4 — Why Reliable Integration Matters -->
+    <section id="why" class="bg-paper">
         <div class="container">
-            <span class="eyebrow text-center">Architecture Choice</span>
-            <h2 class="section-title text-center compact-title">The architecture follows the risk.</h2>
-            <p class="architecture-intro">Not every workflow deserves custom engineering. Not every workflow should live
-                forever inside a visual automation tool. We choose the architecture based on business risk, operational
-                impact, and maintenance needs.</p>
+            <span class="eyebrow">Why It Matters</span>
+            <h2 class="section-title compact-title">Most integrations look fine in the demo. The difference shows in
+                production.</h2>
+            <p class="section-lede">Validation fails. Data drifts. Retries are missing. Nobody gets alerted. Nobody owns
+                the fix. When a workflow touches revenue, finance, inventory, or customer handoff, the integration layer
+                needs more than a connector.</p>
 
-            <div class="maturity-flow" aria-label="Integration maturity ladder">
-                <span>Manual process</span>
-                <span>Simple automation</span>
-                <span>Custom API/backend</span>
-                <span>Cloud integration architecture</span>
-                <span>Enterprise integration platform</span>
+            <div style="margin-top: 2.5rem;">
+                <div class="pill-row">
+                    <span class="pill">Validation</span>
+                    <span class="pill">Retries</span>
+                    <span class="pill">Logs</span>
+                    <span class="pill">Alerts</span>
+                    <span class="pill">Ownership</span>
+                </div>
             </div>
-
-            <div class="architecture-grid">
-                <article class="architecture-card">
-                    <div class="architecture-card-head">
-                        <span class="architecture-label">L01</span>
-                        <span class="architecture-eyebrow">Fast automation</span>
-                    </div>
-                    <h3 class="architecture-title">Level 1 — Fast automation</h3>
-                    <p class="architecture-desc">n8n, Make, or Zapier for simple workflows.</p>
-                    <span class="architecture-best-label">Best for</span>
-                    <ul class="architecture-list">
-                        <li>Lead distribution</li>
-                        <li>CRM updates</li>
-                        <li>Form submissions</li>
-                        <li>Internal notifications</li>
-                        <li>Simple approvals</li>
-                    </ul>
-                    <p class="architecture-tag">Best when the workflow is simple and low-risk.</p>
-                </article>
-
-                <article class="architecture-card">
-                    <div class="architecture-card-head">
-                        <span class="architecture-label">L02</span>
-                        <span class="architecture-eyebrow">Custom backend</span>
-                    </div>
-                    <h3 class="architecture-title">Level 2 — Automation + custom backend</h3>
-                    <p class="architecture-desc">n8n or workflow tools connected to custom Python, Node.js, or Java
-                        services.</p>
-                    <span class="architecture-best-label">Best for</span>
-                    <ul class="architecture-list">
-                        <li>Business rules</li>
-                        <li>API orchestration</li>
-                        <li>Deduplication</li>
-                        <li>Data validation</li>
-                        <li>Sync status</li>
-                        <li>Controlled retries</li>
-                    </ul>
-                    <p class="architecture-tag">Best when n8n needs a reliable backend.</p>
-                </article>
-
-                <article class="architecture-card">
-                    <div class="architecture-card-head">
-                        <span class="architecture-label">L03</span>
-                        <span class="architecture-eyebrow">Critical architecture</span>
-                    </div>
-                    <h3 class="architecture-title">Level 3 — Critical integration architecture</h3>
-                    <p class="architecture-desc">AWS, APIs, queues, databases, monitoring, and enterprise integration
-                        patterns.</p>
-                    <span class="architecture-best-label">Best for</span>
-                    <ul class="architecture-list">
-                        <li>Workflows that cannot fail silently</li>
-                        <li>High-volume processing</li>
-                        <li>Auditability</li>
-                        <li>Security</li>
-                        <li>Long-term ownership</li>
-                        <li>Integration platforms like MuleSoft when appropriate</li>
-                    </ul>
-                    <p class="architecture-tag">Best when the workflow must not fail silently.</p>
-                </article>
-            </div>
-
-            <p class="architecture-note">When Zapier, Make, or n8n are no longer enough, we build the integration layer
-                properly.</p>
         </div>
     </section>
 
-    <!-- Section 6 - Outgrown automation -->
-    <section id="risk-signs" class="bg-cream">
+    <!-- Section 5 — Leadership / Trust -->
+    <section id="leadership" class="bg-cream">
         <div class="container">
-            <span class="eyebrow text-center">Warning signs</span>
-            <h2 class="section-title text-center compact-title">Signs you have outgrown no-code automation</h2>
+            <span class="eyebrow">Leadership</span>
+            <h2 class="section-title compact-title">Architect-led, not agency-scaled.</h2>
+            <p class="section-lede">Led by Ugo Guazelli, an integration architect with 15+ years of experience across
+                enterprise APIs, MuleSoft, AWS, cloud architecture, and business systems integration. Veridata Pro brings
+                enterprise-grade integration discipline to growing companies without unnecessary complexity.</p>
+            <p class="section-lede" style="margin-bottom: 1.5rem;">All engagements are delivered directly by the
+                architect. No outsourcing. No tech body shopping.</p>
 
-            <div class="warning-grid">
-                <div class="warning-card"><span>L01</span>Your first alert is usually a customer complaint</div>
-                <div class="warning-card"><span>L02</span>Nobody knows which automation changed the data</div>
-                <div class="warning-card"><span>L03</span>Failed workflows are discovered days later</div>
-                <div class="warning-card"><span>L04</span>Business rules are hidden inside fragile steps</div>
-                <div class="warning-card"><span>L05</span>Reports do not match across systems</div>
-                <div class="warning-card"><span>L06</span>The team is afraid to change the workflow</div>
+            <div class="pill-row">
+                <span class="pill">15+ years</span>
+                <span class="pill">MuleSoft Architect</span>
+                <span class="pill">AWS Solutions Architect</span>
+                <span class="pill">Deloitte</span>
+                <span class="pill">Ubisoft</span>
+                <span class="pill">Accenture</span>
             </div>
 
-            <div class="section-cta">
-                <p>If this sounds familiar, the problem is no longer automation. It is integration architecture.</p>
-                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book an
-                    integration review</a>
+            <div style="margin-top: 2rem;">
+                <a href="leadership.html"
+                    style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink);">Read
+                    more about leadership</a>
             </div>
         </div>
     </section>
 
-    <!-- Section 7 - Leadership profile -->
-    <section id="architect" class="bg-paper">
+    <!-- Section 6 — How We Work -->
+    <section id="process" class="bg-paper">
         <div class="container">
-            <div class="grid-2 architect-profile-grid">
-                <div>
-                    <img src="../assets/images/ugo-guazelli.jpg" alt="Ugo Guazelli" class="architect-profile-photo">
+            <span class="eyebrow">How We Work</span>
+            <h2 class="section-title compact-title">Review → Design → Build → Monitor</h2>
 
-                    <a href="https://www.linkedin.com/in/uguazelli/" target="_blank" class="text-link">Connect on
-                        LinkedIn</a>
+            <div class="process-grid">
+                <div class="tool-card compact-card">
+                    <span class="tool-tag">L01 · Review</span>
+                    <h3 class="tool-title">Map the current workflow.</h3>
+                    <p class="tool-desc">We identify what is working, what is manual, and where the risk lives before
+                        writing a line of code.</p>
                 </div>
-
-                <div>
-                    <span class="eyebrow">The Architect</span>
-                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Ugo Guazelli</h2>
-                    <p class="architect-role">Founder and Principal Architect</p>
-                    <p class="architect-lede">Ugo spent 15+ years inside large enterprise environments, including
-                        Deloitte, Ubisoft, Accenture, and Alithya, designing the integration layer that makes complex
-                        systems talk to each other.</p>
-                    <p class="architect-copy">At Deloitte he delivered 15+ enterprise APIs for clients in finance and
-                        healthcare. At Ubisoft Montreal he reduced infrastructure costs by 66% through integration
-                        architecture and refactoring.</p>
-                    <p class="architect-copy">He founded Veridata Pro to bring that same thinking to growing companies:
-                        teams copying data between systems by hand, operating Odoo beside disconnected tools, or relying
-                        on workflows that fail silently in production.</p>
-
-                    <div class="architect-terminal" aria-label="Architecture experience summary">
-                        <div class="terminal-head">
-                            <div class="terminal-controls" aria-hidden="true"><span></span><span></span><span></span>
-                            </div>
-                            <span class="terminal-path">~/veridata/home · architecture-profile</span>
-                            <span class="terminal-status"><i></i> architect-led</span>
-                        </div>
-                        <div class="terminal-body">
-                            <p class="terminal-command"><span class="terminal-prompt">$</span> integration-architect
-                                --profile ugo</p>
-                            <div class="terminal-rows">
-                                <div class="terminal-row">
-                                    <span class="terminal-arrow">▸</span>
-                                    <span class="terminal-action">load context</span>
-                                    <span class="terminal-detail">Deloitte · Ubisoft · Accenture · Alithya</span>
-                                </div>
-                                <div class="terminal-row">
-                                    <span class="terminal-arrow">▸</span>
-                                    <span class="terminal-action">design APIs</span>
-                                    <span class="terminal-detail">15+ enterprise APIs in finance and healthcare</span>
-                                </div>
-                                <div class="terminal-row">
-                                    <span class="terminal-arrow">▸</span>
-                                    <span class="terminal-action">reduce cost</span>
-                                    <span class="terminal-detail">66% infrastructure reduction at Ubisoft
-                                        Montreal</span>
-                                </div>
-                                <div class="terminal-row">
-                                    <span class="terminal-arrow">✓</span>
-                                    <span class="terminal-action">ready</span>
-                                    <span class="terminal-detail">Odoo · n8n · AWS · MuleSoft · AI · migrations</span>
-                                </div>
-                            </div>
-                            <p class="terminal-result"><span>→</span> practical projects, no outsourcing, no tech body
-                                shopping.</p>
-                        </div>
-                    </div>
-
-                    <h3 class="architect-subtitle">Previously at</h3>
-                    <div class="pill-row">
-                        <span class="pill">Deloitte</span>
-                        <span class="pill">Ubisoft</span>
-                        <span class="pill">Accenture</span>
-                        <span class="pill">Alithya</span>
-                    </div>
+                <div class="tool-card compact-card">
+                    <span class="tool-tag">L02 · Design</span>
+                    <h3 class="tool-title">Choose the right architecture.</h3>
+                    <p class="tool-desc">The tool follows the risk. Simple automations stay simple. Critical workflows
+                        get validation, retries, and ownership.</p>
                 </div>
-            </div>
-
-            <div class="architect-detail-grid">
-                <div>
-                    <span class="eyebrow">Experience</span>
-                    <ul class="timeline">
-                        <li class="timeline-item">
-                            <span class="timeline-period">2022 — Now</span>
-                            <div>
-                                <div class="timeline-role">Founder &amp; Principal Architect</div>
-                                <div class="timeline-company">Veridata Pro</div>
-                                <p class="timeline-detail">Odoo integration, workflow automation, custom APIs,
-                                    AWS-native workflows, MuleSoft architecture, AI integration, and data migration
-                                    support for growing companies.</p>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="timeline-period">2020 — Now</span>
-                            <div>
-                                <div class="timeline-role">MuleSoft Architect</div>
-                                <div class="timeline-company">CSL</div>
-                                <p class="timeline-detail">Enterprise integration architecture for a global
-                                    biopharmaceutical company. MuleSoft platform design, API governance, and integration
-                                    patterns.</p>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="timeline-period">2018 — 2020</span>
-                            <div>
-                                <div class="timeline-role">Integration Manager</div>
-                                <div class="timeline-company">Deloitte</div>
-                                <p class="timeline-detail">15+ enterprise APIs delivered for clients in finance and
-                                    healthcare. Architecture design, technology selection, and team leadership.</p>
-                            </div>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="timeline-period">Earlier</span>
-                            <div>
-                                <div class="timeline-role">Integration Architect / Senior Integration Engineer</div>
-                                <div class="timeline-company">Ubisoft · Accenture · Alithya</div>
-                                <p class="timeline-detail">AWS-native integration, infrastructure cost reduction, API
-                                    platforms, MuleSoft implementations, and system modernization across LATAM, the US,
-                                    and Canada.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="tool-card compact-card">
+                    <span class="tool-tag">L03 · Build</span>
+                    <h3 class="tool-title">Build the integration layer.</h3>
+                    <p class="tool-desc">APIs, workflows, sync logic, error handling, and documentation — delivered
+                        incrementally, not as a big-bang project.</p>
                 </div>
-                <div class="architect-facts">
-                    <div class="stat-card">
-                        <div class="stat-num">15+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">Odoo</div>
-                        <div class="stat-label">Business Systems</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">AWS</div>
-                        <div class="stat-label">Critical Integrations</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">MuleSoft</div>
-                        <div class="stat-label">Enterprise Architecture</div>
-                    </div>
-                    <div class="cert-panel">
-                        <span class="eyebrow">Credentials</span>
-                        <ul class="cert-list">
-                            <li>MuleSoft Certified Platform Architect</li>
-                            <li>MuleSoft Certified Developer</li>
-                            <li>AWS Solutions Architect</li>
-                            <li>Azure Fundamentals</li>
-                        </ul>
-                    </div>
+                <div class="tool-card compact-card">
+                    <span class="tool-tag">L04 · Monitor</span>
+                    <h3 class="tool-title">Run with visibility.</h3>
+                    <p class="tool-desc">Logs, alerts, and clear ownership so the team knows what is running, what
+                        changed, and who to call when something happens.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 8 - Final CTA -->
+    <!-- Section 7 — Final CTA -->
     <section class="bg-cream text-center final-cta">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">If your systems do not talk to each other,<br>your
                 team becomes the integration layer.</h2>
-            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Let's turn that manual process into a reliable
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Let's turn the manual handoff into a reliable
                 workflow.</p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a free
-                integration review</a>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Book a 30-minute
+                workflow review</a>
         </div>
     </section>
 
