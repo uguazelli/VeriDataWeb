@@ -238,49 +238,52 @@
     </section>
 
     <!-- Section 4 — Why Reliable Integration Matters -->
-    <section id="why" class="bg-paper">
-        <div class="container">
-            <span class="eyebrow">Why It Matters</span>
-            <h2 class="section-title compact-title">Most integrations look fine in the demo. The difference shows in
-                production.</h2>
-            <p class="section-lede">Validation fails. Data drifts. Retries are missing. Nobody gets alerted. Nobody owns
+    <section id="why" class="why-production-band">
+        <div class="container why-production-inner">
+            <span class="why-band-eyebrow">Why It Matters</span>
+            <h2 class="why-band-title">Most integrations look fine in the demo. The difference shows in production.</h2>
+            <p class="why-band-lede">Validation fails. Data drifts. Retries are missing. Nobody gets alerted. Nobody owns
                 the fix. When a workflow touches revenue, finance, inventory, or customer handoff, the integration layer
                 needs more than a connector.</p>
 
-            <div style="margin-top: 2.5rem;">
-                <p style="color: var(--text-muted); font-weight: 600; margin: 0 0 1.5rem 0;">What has to exist after
-                    go-live:</p>
-                <div class="example-header">
-                    <div>Production control</div>
-                    <div>What it means in practice</div>
-                </div>
-
-                <div class="example-row">
-                    <div class="example-what">Validation</div>
-                    <div class="example-why">Required fields, source rules, and formats are checked before bad data moves
-                        downstream.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Retries</div>
-                    <div class="example-why">Known temporary failures are retried automatically, with limits and
-                        visibility.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Logs</div>
-                    <div class="example-why">Each run leaves enough context to trace source, payload, status, and failure
-                        reason.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Alerts</div>
-                    <div class="example-why">The owner knows when a workflow breaks before the customer, finance team, or
-                        ops team finds it.</div>
-                </div>
-                <div class="example-row" style="border-bottom: 1px solid var(--rule);">
-                    <div class="example-what">Ownership</div>
-                    <div class="example-why">Someone is responsible for the workflow, the handoff rules, and the
-                        escalation path.</div>
-                </div>
+            <p class="why-control-kicker">What has to exist after go-live</p>
+            <div class="why-control-table-wrap">
+                <table class="why-control-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Production control</th>
+                            <th scope="col">What it means in practice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Validation</th>
+                            <td>Required fields, source rules, and formats are checked before bad data moves
+                                downstream.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Retries</th>
+                            <td>Known temporary failures are retried automatically, with limits and visibility.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Logs</th>
+                            <td>Each run leaves enough context to trace source, payload, status, and failure reason.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alerts</th>
+                            <td>The owner knows when a workflow breaks before the customer, finance team, or ops team
+                                finds it.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ownership</th>
+                            <td>Someone is responsible for the workflow, the handoff rules, and the escalation path.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary why-band-cta">Book a
+                workflow review</a>
         </div>
     </section>
 

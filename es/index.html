@@ -241,49 +241,55 @@
     </section>
 
     <!-- Section 4 — Why Reliable Integration Matters -->
-    <section id="why" class="bg-paper">
-        <div class="container">
-            <span class="eyebrow">Por Qué Importa</span>
-            <h2 class="section-title compact-title">La mayoría de las integraciones se ven bien en la demostración. La
-                diferencia aparece en producción.</h2>
-            <p class="section-lede">La validación falla. Los datos quedan inconsistentes. Los reintentos no existen.
+    <section id="why" class="why-production-band">
+        <div class="container why-production-inner">
+            <span class="why-band-eyebrow">Por Qué Importa</span>
+            <h2 class="why-band-title">La mayoría de las integraciones se ven bien en la demostración. La diferencia
+                aparece en producción.</h2>
+            <p class="why-band-lede">La validación falla. Los datos quedan inconsistentes. Los reintentos no existen.
                 Nadie recibe alertas. Nadie es responsable de la corrección. Cuando un flujo toca ingresos, finanzas,
                 inventario o traspaso al cliente, la capa de integración necesita más que un conector.</p>
 
-            <div style="margin-top: 2.5rem;">
-                <p style="color: var(--text-muted); font-weight: 600; margin: 0 0 1.5rem 0;">Qué debe existir después
-                    de pasar a producción:</p>
-                <div class="example-header">
-                    <div>Control en producción</div>
-                    <div>Qué significa en la práctica</div>
-                </div>
-
-                <div class="example-row">
-                    <div class="example-what">Validación</div>
-                    <div class="example-why">Campos obligatorios, reglas de origen y formatos se verifican antes de que
-                        datos incorrectos avancen.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Reintentos</div>
-                    <div class="example-why">Fallas temporales conocidas se reintentan de forma controlada, con límites y
-                        visibilidad.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Logs</div>
-                    <div class="example-why">Cada ejecución deja suficiente contexto para rastrear origen, payload,
-                        estado y motivo de falla.</div>
-                </div>
-                <div class="example-row">
-                    <div class="example-what">Alertas</div>
-                    <div class="example-why">El responsable sabe cuando un flujo falla antes de que lo encuentre el
-                        cliente, finanzas u operaciones.</div>
-                </div>
-                <div class="example-row" style="border-bottom: 1px solid var(--rule);">
-                    <div class="example-what">Responsable</div>
-                    <div class="example-why">Alguien responde por el workflow, las reglas de traspaso y el camino de
-                        escalamiento.</div>
-                </div>
+            <p class="why-control-kicker">Qué debe existir después de pasar a producción</p>
+            <div class="why-control-table-wrap">
+                <table class="why-control-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Control en producción</th>
+                            <th scope="col">Qué significa en la práctica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Validación</th>
+                            <td>Campos obligatorios, reglas de origen y formatos se verifican antes de que datos
+                                incorrectos avancen.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Reintentos</th>
+                            <td>Fallas temporales conocidas se reintentan de forma controlada, con límites y
+                                visibilidad.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Logs</th>
+                            <td>Cada ejecución deja suficiente contexto para rastrear origen, payload, estado y motivo de
+                                falla.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alertas</th>
+                            <td>El responsable sabe cuando un flujo falla antes de que lo encuentre el cliente, finanzas
+                                u operaciones.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Responsable</th>
+                            <td>Alguien responde por el workflow, las reglas de traspaso y el camino de escalamiento.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary why-band-cta">Agendar
+                revisión de flujo</a>
         </div>
     </section>
 
