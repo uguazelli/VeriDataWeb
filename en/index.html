@@ -248,12 +248,37 @@
                 needs more than a connector.</p>
 
             <div style="margin-top: 2.5rem;">
-                <div class="pill-row">
-                    <span class="pill">Validation</span>
-                    <span class="pill">Retries</span>
-                    <span class="pill">Logs</span>
-                    <span class="pill">Alerts</span>
-                    <span class="pill">Ownership</span>
+                <p style="color: var(--text-muted); font-weight: 600; margin: 0 0 1.5rem 0;">What has to exist after
+                    go-live:</p>
+                <div class="example-header">
+                    <div>Production control</div>
+                    <div>What it means in practice</div>
+                </div>
+
+                <div class="example-row">
+                    <div class="example-what">Validation</div>
+                    <div class="example-why">Required fields, source rules, and formats are checked before bad data moves
+                        downstream.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Retries</div>
+                    <div class="example-why">Known temporary failures are retried automatically, with limits and
+                        visibility.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Logs</div>
+                    <div class="example-why">Each run leaves enough context to trace source, payload, status, and failure
+                        reason.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Alerts</div>
+                    <div class="example-why">The owner knows when a workflow breaks before the customer, finance team, or
+                        ops team finds it.</div>
+                </div>
+                <div class="example-row" style="border-bottom: 1px solid var(--rule);">
+                    <div class="example-what">Ownership</div>
+                    <div class="example-why">Someone is responsible for the workflow, the handoff rules, and the
+                        escalation path.</div>
                 </div>
             </div>
         </div>

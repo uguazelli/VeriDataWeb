@@ -251,12 +251,37 @@
                 inventario o traspaso al cliente, la capa de integración necesita más que un conector.</p>
 
             <div style="margin-top: 2.5rem;">
-                <div class="pill-row">
-                    <span class="pill">Validación</span>
-                    <span class="pill">Reintentos</span>
-                    <span class="pill">Logs</span>
-                    <span class="pill">Alertas</span>
-                    <span class="pill">Responsable</span>
+                <p style="color: var(--text-muted); font-weight: 600; margin: 0 0 1.5rem 0;">Qué debe existir después
+                    de pasar a producción:</p>
+                <div class="example-header">
+                    <div>Control en producción</div>
+                    <div>Qué significa en la práctica</div>
+                </div>
+
+                <div class="example-row">
+                    <div class="example-what">Validación</div>
+                    <div class="example-why">Campos obligatorios, reglas de origen y formatos se verifican antes de que
+                        datos incorrectos avancen.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Reintentos</div>
+                    <div class="example-why">Fallas temporales conocidas se reintentan de forma controlada, con límites y
+                        visibilidad.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Logs</div>
+                    <div class="example-why">Cada ejecución deja suficiente contexto para rastrear origen, payload,
+                        estado y motivo de falla.</div>
+                </div>
+                <div class="example-row">
+                    <div class="example-what">Alertas</div>
+                    <div class="example-why">El responsable sabe cuando un flujo falla antes de que lo encuentre el
+                        cliente, finanzas u operaciones.</div>
+                </div>
+                <div class="example-row" style="border-bottom: 1px solid var(--rule);">
+                    <div class="example-what">Responsable</div>
+                    <div class="example-why">Alguien responde por el workflow, las reglas de traspaso y el camino de
+                        escalamiento.</div>
                 </div>
             </div>
         </div>
