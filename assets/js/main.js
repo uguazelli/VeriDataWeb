@@ -331,24 +331,24 @@ function translateUI(context) {
     });
 }
 
-if (!window.enableLanguageRedirect) {
-    // Chatwoot Widget Initialization
-    const useCompactChatLauncher = window.matchMedia('(max-width: 640px)').matches;
-    window.chatwootSettings = { "position": "right", "launcherTitle": "Chat with us" };
-    if (!useCompactChatLauncher) {
-        window.chatwootSettings.type = "expanded_bubble";
-    }
-    (function (d, t) {
-        var BASE_URL = "https://chat.veridatapro.com";
-        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        g.src = BASE_URL + "/packs/js/sdk.js";
-        g.async = true;
-        s.parentNode.insertBefore(g, s);
-        g.onload = function () {
-            window.chatwootSDK.run({
-                websiteToken: 'wCRs91qZ7z6igvX8xQnot3p6',
-                baseUrl: BASE_URL
-            })
-        }
-    })(document, "script");
-}
+// if (!window.enableLanguageRedirect) {
+//     // Chatwoot Widget Initialization
+//     const useCompactChatLauncher = window.matchMedia('(max-width: 640px)').matches;
+//     window.chatwootSettings = { "position": "right", "launcherTitle": "Chat with us" };
+//     if (!useCompactChatLauncher) {
+//         window.chatwootSettings.type = "expanded_bubble";
+//     }
+//     (function (d, t) {
+//         var BASE_URL = "https://chat.veridatapro.com";
+//         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+//         g.src = BASE_URL + "/packs/js/sdk.js";
+//         g.async = true;
+//         s.parentNode.insertBefore(g, s);
+//         g.onload = function () {
+//             window.chatwootSDK.run({
+//                 websiteToken: 'wCRs91qZ7z6igvX8xQnot3p6',
+//                 baseUrl: BASE_URL
+//             })
+//         }
+//     })(document, "script");
+// }

@@ -148,7 +148,15 @@
                 <div class="hero-actions">
                     <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar una
                         revisión de 30 minutos</a>
-                    <a href="#services" class="btn-secondary">Explorar servicios</a>
+                    <a href="#case-studies"
+                        style="align-self: center; color: var(--text-muted); display: inline-flex; flex-direction: column; font-size: 0.86rem; font-weight: 600; gap: 0.15rem; line-height: 1.3; max-width: 18rem; text-align: left; text-decoration: none; width: auto;">
+                        <span
+                            style="color: var(--text-dim); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;">¿Prefieres
+                            leer primero?</span>
+                        <span
+                            style="text-decoration: underline; text-decoration-color: var(--text-dim); text-decoration-thickness: 1px; text-underline-offset: 0.22em;">Mira
+                            cómo tomó forma un proyecto reciente ↓</span>
+                    </a>
                 </div>
             </div>
 
@@ -215,7 +223,10 @@
                         style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Detalles
                         de integraciones</a>
                 </div>
-                <div class="tool-card">
+                <div class="tool-card" style="background: var(--surface-2); border: 1px solid var(--rule); box-shadow: none;">
+                    <span
+                        style="color: var(--text-dim); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.75rem; text-transform: uppercase;">Oferta
+                        complementaria</span>
                     <span class="tool-tag">IA WhatsApp + CRM</span>
                     <h3 class="tool-title">Asistente de WhatsApp + CRM con IA</h3>
                     <p class="tool-desc">Para empresas que quieren automatizar conversaciones de WhatsApp, captación de
@@ -256,10 +267,10 @@
         <div class="container">
             <span class="eyebrow">Liderazgo</span>
             <h2 class="section-title compact-title">Liderado por arquitecto, no escalado como agencia.</h2>
-            <p class="section-lede">Liderada por Ugo Guazelli, arquitecto de integración con más de 15 años de
-                experiencia en APIs empresariales, MuleSoft, AWS, arquitectura en la nube e integración de sistemas de
-                negocio. Veridata Pro ofrece disciplina de integración de nivel empresarial a empresas en crecimiento,
-                sin complejidad innecesaria.</p>
+            <p class="section-lede">Liderada por Ugo Guazelli, Arquitecto MuleSoft y AWS Solutions Architect con más de
+                15 años en integraciones empresariales, APIs, arquitectura en la nube y sistemas de negocio. Veridata Pro
+                ofrece disciplina de integración de nivel empresarial a empresas en crecimiento, sin complejidad
+                innecesaria.</p>
             <p class="section-lede" style="margin-bottom: 1.5rem;">Todos los proyectos son entregados directamente por
                 el arquitecto. Sin tercerización. Sin venta de horas técnicas.</p>
 
@@ -271,6 +282,8 @@
                 <span class="pill">Ubisoft</span>
                 <span class="pill">Accenture</span>
             </div>
+            <p style="color: var(--text-dim); margin-top: 1rem;">Experiencias empresariales anteriores incluyen trabajo
+                en o con Deloitte, Accenture y Ubisoft.</p>
 
             <div style="margin-top: 2rem;">
                 <a href="leadership.html"
@@ -315,7 +328,49 @@
         </div>
     </section>
 
-    <!-- Section 7 — Final CTA -->
+    <!-- Section 7 — How It Works In Practice -->
+    <section id="case-studies" class="bg-paper">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 3rem;">Cómo funciona en la práctica</h2>
+
+            <div class="grid-3" style="gap: 2rem;">
+                <div class="tool-card"
+                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
+                    <h3 class="tool-title">Distribuidora ecommerce, Brasil</h3>
+                    <p class="tool-desc">Pedidos, facturas y actualizaciones de inventario se movían entre sistemas
+                        desconectados. Odoo tenía los datos, pero el equipo de operaciones todavía conciliaba
+                        manualmente entre plataformas. Conectamos la capa ecommerce, Odoo y el flujo de facturación en
+                        un único workflow monitoreado, con visibilidad de errores y seguimiento de estado.</p>
+                    <p class="tool-desc">El equipo de operaciones dejó de ser la capa de integración.</p>
+                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
+                        anonimizados</span>
+                </div>
+                <div class="tool-card"
+                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
+                    <h3 class="tool-title">Firma de servicios profesionales, Brasil</h3>
+                    <p class="tool-desc">Las hojas de cálculo cubrían el espacio entre la herramienta de facturación y
+                        los reportes financieros. Los datos llegaban tarde, con huecos que nadie podía rastrear hasta una
+                        fuente. Reemplazamos el paso manual por un flujo estructurado de datos financieros — validación,
+                        manejo de excepciones y etapas de revisión incorporadas.</p>
+                    <p class="tool-desc">El equipo financiero ganó visibilidad que antes no tenía.</p>
+                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
+                        anonimizados</span>
+                </div>
+                <div class="tool-card"
+                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
+                    <h3 class="tool-title">Empresa B2B de servicios, América Latina</h3>
+                    <p class="tool-desc">Los leads se perdían en el espacio entre conversaciones de WhatsApp y el CRM.
+                        Los seguimientos dependían de la memoria individual. Automatizamos el traspaso — los leads entran
+                        al CRM con responsable asignado, estado de seguimiento e historial de conversación intactos.</p>
+                    <p class="tool-desc">El equipo comercial trabaja desde una única fuente de verdad.</p>
+                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
+                        anonimizados</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8 — Final CTA -->
     <section class="bg-cream text-center final-cta">
         <div class="container-narrow" style="text-align: center;">
             <h2 class="section-title" style="font-style: italic;">Si sus sistemas no se comunican entre sí,<br>su equipo
