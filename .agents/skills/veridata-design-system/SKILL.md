@@ -165,7 +165,7 @@ section {
 These are the current live-site patterns and should override older references:
 
 - **Home hero:** `.home-hero` is a balanced 50/50 grid. Left side is eyebrow, compact h1, lede, and CTAs; right side is `assets/images/team_collaboration.png` in `.home-hero-media`.
-- **Service image heroes:** `.service-image-hero` is a balanced 50/50 grid for Integrations and Odoo. Use `assets/images/integrations.png` for integrations pages and `assets/images/odoo_integrations.png` for Odoo pages. Use `object-fit: contain` so square diagrams are never cropped.
+- **Service image heroes:** `.service-image-hero` is a balanced 50/50 grid for Integrations and Odoo. Use `assets/images/integrations.png` for integrations pages and `assets/images/odoo_integrations.jpg` for Odoo pages. Use `object-fit: contain` so square diagrams are never cropped.
 - **Buttons:** use the shared 2px square button geometry. Home/service hero buttons can be tighter than global CTA buttons to keep layout balanced.
 - **Tags and chips:** `.pill`, `.pill-tag`, `.architecture-tag`, `.gap-status`, `.assistant-channel-icon`, and `.assistant-feature-icon` are square forest-green blocks with cream text. Do not use rounded pills.
 - **Signal card grids:** `.signal-list` should be transparent with no border/background wrapper. Only the individual `.problem-card` elements get white surfaces and borders.
@@ -272,4 +272,4 @@ When working on the live site, treat these files as source of truth for decision
 - Pricing page/cards: `en/pricing.html`, mirrored in `pt/pricing.html` and `es/pricing.html`
 - Shared visual rules: `assets/css/styles.css`
 - Shared navigation/footer: `components/header.html`, `components/footer.html`, plus translations in `assets/js/main.js`
-- Approved hero assets: `assets/images/team_collaboration.png`, `assets/images/integrations.png`, `assets/images/odoo_integrations.png`
+- Approved hero assets: `assets/images/team_collaboration.png`, `assets/images/integrations.png`, `assets/images/odoo_integrations.jpg`
