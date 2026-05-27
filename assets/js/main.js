@@ -242,7 +242,7 @@ async function convertPricesToBRL() {
             const brlValue = brlFormatter.format(roundToNearest50(usdValue * rate)).replace(/\u00a0/g, ' ');
             const label = document.createElement('span');
             label.style.fontSize = '1rem';
-            label.style.fontFamily = "'Inter', sans-serif";
+            label.style.fontFamily = "'Public Sans', sans-serif";
             label.textContent = isMonthly ? '/ mês' : 'BRL';
 
             node.textContent = `${prefix ? prefix + ' ' : ''}${brlValue} `;
@@ -280,6 +280,7 @@ function translateUI(context) {
             'header.language_select': 'Idioma',
             'footer.home': 'Início',
             'footer.navigation': 'Navegação',
+            'footer.tools': 'Ferramentas',
             'footer.integrations': 'Integrações',
             'footer.ai_whatsapp_crm': 'Assistente de WhatsApp + CRM com IA',
             'footer.pricing': 'Preços',
@@ -304,6 +305,7 @@ function translateUI(context) {
             'header.language_select': 'Idioma',
             'footer.home': 'Inicio',
             'footer.navigation': 'Navegación',
+            'footer.tools': 'Herramientas',
             'footer.integrations': 'Integraciones',
             'footer.ai_whatsapp_crm': 'Asistente de WhatsApp + CRM con IA',
             'footer.pricing': 'Precios',
