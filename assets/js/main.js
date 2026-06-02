@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load components
     loadComponent('header-placeholder', root + 'components/header.html');
     loadComponent('footer-placeholder', root + 'components/footer.html');
-
     // Convert prices to BRL on Portuguese pages
     convertPricesToBRL();
 });
@@ -270,6 +269,29 @@ function translateUI(context) {
 
     const translations = {
         'pt': {
+            'retainer.eyebrow': 'Suporte Contínuo de Integração',
+            'retainer.heading': 'Mantenha o que está em produção monitorado, com dono e corrigido — antes que vire problema.',
+            'retainer.intro': 'Uma integração que movimenta receita, financeiro ou operações precisa de um responsável depois de entrar no ar. Monitoramos suas integrações em produção, identificamos falhas antes dos seus clientes ou do financeiro, e as adaptamos conforme APIs e fornecedores mudam.',
+            'retainer.per_month': 'USD/mês',
+            'retainer.essentials.label': 'Essentials',
+            'retainer.essentials.b1': 'Monitoramento das suas integrações em produção',
+            'retainer.essentials.b2': 'Correção de problemas em até 2 dias úteis',
+            'retainer.essentials.b3': 'Reunião mensal + relatório de saúde escrito',
+            'retainer.essentials.b4': 'Suporte assíncrono por e-mail ou WhatsApp',
+            'retainer.standard.label': 'Standard — A maioria dos clientes',
+            'retainer.standard.b1': 'Tudo do Essentials',
+            'retainer.standard.b2': 'Resposta no próximo dia útil, no mesmo dia em falhas críticas',
+            'retainer.standard.b3': 'Adaptações simples inclusas — mudanças de campos, versões de API, ajustes de fornecedor',
+            'retainer.standard.b4': 'Reunião mensal + relatório de saúde escrito',
+            'retainer.priority.label': 'Priority',
+            'retainer.priority.b1': 'Tudo do Standard',
+            'retainer.priority.b2': 'Resposta a incidente crítico com prazo definido',
+            'retainer.priority.b3': 'Todas as suas integrações cobertas',
+            'retainer.priority.b4': 'Bloco mensal de horas para pequenas melhorias (6–8 h)',
+            'retainer.priority.b5': 'Agendamento prioritário',
+            'retainer.scope_note': 'Cobre manter suas integrações em produção funcionando — monitoramento, correções e adaptações a mudanças de APIs e fornecedores. Novas construções e novas integrações são orçadas separadamente.',
+            'retainer.wa_cta': 'Falar pelo WhatsApp',
+            'retainer.wa_href': 'https://wa.me/17405208080?text=Oi%20Ugo%2C%20gostaria%20de%20conversar%20sobre%20uma%20integra%C3%A7%C3%A3o.',
             'header.home': 'Início',
             'header.services': 'Serviços',
             'header.odoo': 'Integrações Odoo',
@@ -295,6 +317,29 @@ function translateUI(context) {
             'footer.no_outsourcing': 'Todos os projetos são liderados por arquiteto. Sem terceirização. Sem alocação de mão de obra técnica.'
         },
         'es': {
+            'retainer.eyebrow': 'Soporte Continuo de Integración',
+            'retainer.heading': 'Mantén lo que está en producción con dueño, monitoreado y resuelto — antes de que te cueste caro.',
+            'retainer.intro': 'Una integración que mueve ingresos, finanzas u operaciones necesita un responsable después de salir a producción. Monitoreamos tus integraciones en vivo, detectamos fallas antes que tus clientes o el equipo financiero, y las adaptamos cuando cambian las APIs y los proveedores.',
+            'retainer.per_month': 'USD/mes',
+            'retainer.essentials.label': 'Essentials',
+            'retainer.essentials.b1': 'Monitoreo de tus integraciones en producción',
+            'retainer.essentials.b2': 'Corrección de errores en hasta 2 días hábiles',
+            'retainer.essentials.b3': 'Llamada mensual de revisión + informe escrito de salud',
+            'retainer.essentials.b4': 'Consultas asíncronas por email o WhatsApp',
+            'retainer.standard.label': 'Standard — La mayoría elige este',
+            'retainer.standard.b1': 'Todo lo del Essentials',
+            'retainer.standard.b2': 'Respuesta al siguiente día hábil, mismo día en fallas críticas',
+            'retainer.standard.b3': 'Adaptaciones menores incluidas — campos, versiones de API, ajustes de proveedores',
+            'retainer.standard.b4': 'Llamada mensual de revisión + informe escrito de salud',
+            'retainer.priority.label': 'Priority',
+            'retainer.priority.b1': 'Todo lo del Standard',
+            'retainer.priority.b2': 'Respuesta a incidentes críticos con tiempos definidos',
+            'retainer.priority.b3': 'Todas tus integraciones cubiertas',
+            'retainer.priority.b4': 'Bloque mensual de horas de cambio (6–8 h) para mejoras puntuales',
+            'retainer.priority.b5': 'Programación prioritaria',
+            'retainer.scope_note': 'Cubre mantener tus integraciones en producción funcionando — monitoreo, correcciones y adaptación a cambios de APIs y proveedores. Desarrollos nuevos e integraciones nuevas se cotizan por separado.',
+            'retainer.wa_cta': 'Hablar por WhatsApp',
+            'retainer.wa_href': 'https://wa.me/17405208080?text=Hola%20Ugo%2C%20quisiera%20hablar%20sobre%20una%20integraci%C3%B3n.',
             'header.home': 'Inicio',
             'header.services': 'Servicios',
             'header.odoo': 'Integraciones Odoo',
@@ -329,6 +374,15 @@ function translateUI(context) {
         const key = link.getAttribute('data-i18n');
         if (strings[key]) {
             link.textContent = strings[key];
+        }
+    });
+
+    // Handle href translations (e.g. localized WhatsApp links)
+    const hrefLinks = document.querySelectorAll('[data-i18n-href]');
+    hrefLinks.forEach(link => {
+        const key = link.getAttribute('data-i18n-href');
+        if (strings[key]) {
+            link.setAttribute('href', strings[key]);
         }
     });
 }

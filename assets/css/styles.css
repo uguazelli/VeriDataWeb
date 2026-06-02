@@ -3168,6 +3168,13 @@ section[id] {
     margin-top: 0.25rem;
 }
 
+.testimonial-stars {
+    color: var(--accent);
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+}
+
 /* Timeline */
 .timeline {
     list-style: none;
@@ -6422,6 +6429,78 @@ section {
     gap: 24px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 2rem;
+}
+
+/* Row-based tools list — replaces tools-grid on index + tools pages */
+.tools-list {
+    border-top: 1px solid var(--rule);
+    margin-top: 3rem;
+}
+
+.tool-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    align-items: start;
+}
+
+.tool-row:hover .tool-row-name {
+    color: var(--accent);
+}
+
+.tool-row-badge {
+    font-size: 0.68rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.tool-row-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    transition: color 0.15s;
+}
+
+.tool-row-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 0.6rem;
+}
+
+.tool-row-when {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin: 0 0 0.9rem;
+    font-style: italic;
+}
+
+.tool-row-cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    .tool-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    .tool-row-desc,
+    .tool-row-when {
+        margin-top: 0.5rem;
+    }
 }
 
 .tools-page-grid .tool-card {

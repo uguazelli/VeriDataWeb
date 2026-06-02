@@ -125,6 +125,7 @@
             gap: 2rem;
             margin-top: 2.5rem;
         }
+
         @media (max-width: 768px) {
             .process-grid {
                 grid-template-columns: 1fr;
@@ -141,7 +142,8 @@
         <div class="container">
             <div class="hero-copy">
                 <span class="eyebrow">Arquitectura de Integración</span>
-                <h1 class="hero-title">Deja de usar a tu equipo para conectar sistemas que deberían trabajar juntos.</h1>
+                <h1 class="hero-title">Deja de usar a tu equipo para conectar sistemas que deberían trabajar juntos.
+                </h1>
                 <p class="hero-lede">Veridata Pro conecta Odoo, CRMs y plataformas de ecommerce para que los datos
                     fluyan con confianza — sin copiar y pegar, retrabajo ni fallas silenciosas.</p>
                 <div class="hero-actions">
@@ -241,7 +243,8 @@
                         style="font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); width: fit-content;">Detalles
                         de integraciones</a>
                 </div>
-                <div class="tool-card" style="background: var(--surface-2); border: 1px solid var(--rule); box-shadow: none;">
+                <div class="tool-card"
+                    style="background: var(--surface-2); border: 1px solid var(--rule); box-shadow: none;">
                     <span
                         style="color: var(--text-dim); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.75rem; text-transform: uppercase;">Oferta
                         complementaria</span>
@@ -306,8 +309,8 @@
                 </table>
             </div>
 
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary why-band-cta">Agendar
-                revisión de flujo</a>
+            <a href="https://wa.me/17405208080?text=Hola%20Ugo%2C%20quisiera%20hablar%20sobre%20una%20integraci%C3%B3n."
+                class="btn-secondary why-band-cta" target="_blank" rel="noopener">Hablar por WhatsApp →</a>
         </div>
     </section>
 
@@ -319,7 +322,8 @@
             <p class="section-lede">Liderada por Ugo Guazelli, Arquitecto MuleSoft y AWS Solutions Architect con más de
                 15 años en integraciones empresariales, APIs, arquitectura en la nube y sistemas de negocio. En
                 Deloitte, entregó 15+ APIs empresariales para clientes de finanzas y salud. En Ubisoft Montreal, redujo
-                costos de infraestructura en 66% mediante arquitectura de integración. Veridata Pro trae esa disciplina a
+                costos de infraestructura en 66% mediante arquitectura de integración. Veridata Pro trae esa disciplina
+                a
                 empresas en crecimiento sin la complejidad.</p>
             <p class="section-lede" style="margin-bottom: 1.5rem;">Todos los proyectos son entregados directamente por
                 el arquitecto. Sin tercerización. Sin venta de horas técnicas.</p>
@@ -388,42 +392,57 @@
                     Sin registro.</p>
             </div>
 
-            <div class="tools-grid">
-                <article class="tool-card">
-                    <span class="tool-tag">5 MIN · SIN LOGIN</span>
-                    <h3 class="tool-title">Calculadora de Costo MuleSoft</h3>
-                    <p class="tool-desc">Estima el desperdicio de vCores e identifica oportunidades de optimización en
-                        tu entorno MuleSoft.</p>
-                    <a class="tool-link" href="https://tools.veridatapro.com/mulesoft-calculator/">Abrir herramienta →</a>
-                </article>
-                <article class="tool-card">
-                    <span class="tool-tag">10 MIN · SIN LOGIN</span>
-                    <h3 class="tool-title">Evaluación de Preparación de API</h3>
-                    <p class="tool-desc">Evalúa qué tan listos están tus sistemas para integración. Recibe un reporte
-                        con brechas priorizadas.</p>
-                    <a class="tool-link" href="https://tools.veridatapro.com/api-readiness-assessment/">Abrir herramienta →</a>
-                </article>
-                <article class="tool-card">
-                    <span class="tool-tag">INSTANTÁNEO · EN EL NAVEGADOR</span>
-                    <h3 class="tool-title">Validador de Archivos Planos</h3>
-                    <p class="tool-desc">Sube un archivo CSV, delimitado por pipe o de ancho fijo y obtén un reporte
-                        estructural y de calidad de datos.</p>
-                    <a class="tool-link" href="https://tools.veridatapro.com/file-validator/">Abrir herramienta →</a>
-                </article>
-                <article class="tool-card">
-                    <span class="tool-tag">DESCARGA GRATUITA</span>
-                    <h3 class="tool-title">Paquete de Auditoría de Integración</h3>
-                    <p class="tool-desc">Un kit descargable: checklists, plantillas de evaluación y guias de migración.</p>
-                    <a class="tool-link" href="https://tools.veridatapro.com/integration-audit-pack/">Abrir herramienta →</a>
-                </article>
-                <article class="tool-card">
-                    <span class="tool-tag">5 MIN · SIN LOGIN</span>
-                    <h3 class="tool-title">Mapeador de Complejidad de Integración Odoo</h3>
-                    <p class="tool-desc">Selecciona tus sistemas actuales y módulos de Odoo. Obtén un mapa visual de qué conexiones son sencillas, cuáles necesitan middleware y cuáles requieren una conversación sobre desarrollo a medida.</p>
-                    <p class="tool-when">Úsalo antes de comenzar un proyecto de Odoo — o cuando una implementación existente se sienta más manual de lo que debería.</p>
-                    <a class="tool-link" href="https://tools.veridatapro.com/odoo-integration-complexity-mapper/">Abrir herramienta →</a>
-                </article>
-
+            <div class="tools-list">
+                <a class="tool-row" href="https://tools.veridatapro.com/mulesoft-calculator/" target="_blank" rel="noopener">
+                    <div>
+                        <span class="tool-row-badge">5 min · Sin login</span>
+                        <span class="tool-row-name">Calculadora de Costo MuleSoft</span>
+                    </div>
+                    <div>
+                        <p class="tool-row-desc">Estima el desperdicio de vCores e identifica oportunidades de optimización en tu entorno MuleSoft.</p>
+                        <span class="tool-row-cta">Abrir herramienta →</span>
+                    </div>
+                </a>
+                <a class="tool-row" href="https://tools.veridatapro.com/api-readiness-assessment/" target="_blank" rel="noopener">
+                    <div>
+                        <span class="tool-row-badge">10 min · Sin login</span>
+                        <span class="tool-row-name">Evaluación de Preparación de API</span>
+                    </div>
+                    <div>
+                        <p class="tool-row-desc">Evalúa qué tan listos están tus sistemas para integración. Recibe un reporte con brechas priorizadas.</p>
+                        <span class="tool-row-cta">Abrir herramienta →</span>
+                    </div>
+                </a>
+                <a class="tool-row" href="https://tools.veridatapro.com/file-validator/" target="_blank" rel="noopener">
+                    <div>
+                        <span class="tool-row-badge">Instantáneo · En el navegador</span>
+                        <span class="tool-row-name">Validador de Archivos Planos</span>
+                    </div>
+                    <div>
+                        <p class="tool-row-desc">Sube un archivo CSV, delimitado por pipe o de ancho fijo y obtén un reporte estructural y de calidad de datos.</p>
+                        <span class="tool-row-cta">Abrir herramienta →</span>
+                    </div>
+                </a>
+                <a class="tool-row" href="https://tools.veridatapro.com/integration-audit-pack/" target="_blank" rel="noopener">
+                    <div>
+                        <span class="tool-row-badge">Descarga gratuita</span>
+                        <span class="tool-row-name">Paquete de Auditoría de Integración</span>
+                    </div>
+                    <div>
+                        <p class="tool-row-desc">Un kit descargable: checklists, plantillas de evaluación y guías de migración.</p>
+                        <span class="tool-row-cta">Abrir herramienta →</span>
+                    </div>
+                </a>
+                <a class="tool-row" href="https://tools.veridatapro.com/odoo-integration-complexity-mapper/" target="_blank" rel="noopener">
+                    <div>
+                        <span class="tool-row-badge">5 min · Sin login</span>
+                        <span class="tool-row-name">Mapeador de Complejidad de Integración Odoo</span>
+                    </div>
+                    <div>
+                        <p class="tool-row-desc">Selecciona tus sistemas actuales y módulos de Odoo. Obtén un mapa visual de qué conexiones son sencillas, cuáles necesitan middleware y cuáles requieren una conversación sobre desarrollo a medida.</p>
+                        <span class="tool-row-cta">Abrir herramienta →</span>
+                    </div>
+                </a>
             </div>
 
             <div class="section-actions">
@@ -437,42 +456,38 @@
         <div class="container">
             <h2 class="section-title" style="margin-bottom: 3rem;">Cómo funciona en la práctica</h2>
 
-            <div class="grid-3" style="gap: 2rem;">
-                <div class="tool-card"
-                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
-                    <h3 class="tool-title">Distribuidora ecommerce, Brasil</h3>
-                    <p class="tool-desc">Pedidos, facturas y actualizaciones de inventario se movían entre sistemas
-                        desconectados. Odoo tenía los datos, pero el equipo de operaciones todavía conciliaba
-                        manualmente entre plataformas. Conectamos la capa ecommerce, Odoo y el flujo de facturación en
-                        un único workflow monitoreado, con visibilidad de errores y seguimiento de estado.</p>
-                    <p class="tool-desc">El equipo de operaciones dejó de ser la capa de integración.</p>
-                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
-                        anonimizados</span>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                    <p class="testimonial-quote">"Se acabó la conciliación manual. Los sistemas ahora se hablan entre sí."</p>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem;">Pedidos, facturas y actualizaciones de inventario se movían entre sistemas desconectados. Odoo tenía los datos, pero el equipo de operaciones todavía conciliaba manualmente entre plataformas. Conectamos la capa ecommerce, Odoo y el flujo de facturación en un único workflow monitoreado, con visibilidad de errores y seguimiento de estado.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Detalles anonimizados</div>
+                        <div class="testimonial-role">Distribuidora ecommerce · Brasil</div>
+                    </div>
                 </div>
-                <div class="tool-card"
-                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
-                    <h3 class="tool-title">Firma de servicios profesionales, Brasil</h3>
-                    <p class="tool-desc">Las hojas de cálculo cubrían el espacio entre la herramienta de facturación y
-                        los reportes financieros. Los datos llegaban tarde, con huecos que nadie podía rastrear hasta una
-                        fuente. Reemplazamos el paso manual por un flujo estructurado de datos financieros — validación,
-                        manejo de excepciones y etapas de revisión incorporadas.</p>
-                    <p class="tool-desc">El equipo financiero ganó visibilidad que antes no tenía.</p>
-                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
-                        anonimizados</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                    <p class="testimonial-quote">"Por primera vez, pudimos rastrear cada número hasta su origen."</p>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem;">Las hojas de cálculo cubrían el espacio entre la herramienta de facturación y los reportes financieros. Los datos llegaban tarde, con huecos que nadie podía rastrear hasta una fuente. Reemplazamos el paso manual por un flujo estructurado de datos financieros — validación, manejo de excepciones y etapas de revisión incorporadas.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Corretora Rodriguez</div>
+                        <div class="testimonial-role">Firma de servicios profesionales · Brasil</div>
+                    </div>
                 </div>
-                <div class="tool-card"
-                    style="background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: none;">
-                    <h3 class="tool-title">Empresa B2B de servicios, América Latina</h3>
-                    <p class="tool-desc">Los leads se perdían en el espacio entre conversaciones de WhatsApp y el CRM.
-                        Los seguimientos dependían de la memoria individual. Automatizamos el traspaso — los leads entran
-                        al CRM con responsable asignado, estado de seguimiento e historial de conversación intactos.</p>
-                    <p class="tool-desc">El equipo comercial trabaja desde una única fuente de verdad.</p>
-                    <span style="color: var(--text-dim); font-size: 0.875rem; margin-top: auto;">Detalles
-                        anonimizados</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+                    <p class="testimonial-quote">"Los leads ya no se pierden en WhatsApp. El CRM ahora refleja lo que pasó de verdad."</p>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem;">Los leads se perdían en el espacio entre conversaciones de WhatsApp y el CRM. Los seguimientos dependían de la memoria individual. Automatizamos el traspaso — los leads entran al CRM con responsable asignado, estado de seguimiento e historial de conversación intactos.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Noprag Controle de pragas</div>
+                        <div class="testimonial-role">Empresa B2B de servicios · América Latina</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Section 9 — Final CTA -->
     <section class="bg-paper text-center final-cta">
@@ -481,8 +496,8 @@
                 se convierte en la capa de integración.</h2>
             <p class="hero-lede" style="margin: 0 auto 3rem auto;">Convirtamos el proceso manual en un flujo confiable.
             </p>
-            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar una revisión
-                de 30 minutos</a>
+            <a href="https://wa.me/17405208080?text=Hola%20Ugo%2C%20quisiera%20hablar%20sobre%20una%20integraci%C3%B3n."
+                class="btn-secondary" target="_blank" rel="noopener">Hablar por WhatsApp →</a>
         </div>
     </section>
 
