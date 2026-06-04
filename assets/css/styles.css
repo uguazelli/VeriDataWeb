@@ -6376,10 +6376,108 @@ section {
     min-width: 0;
 }
 
-.free-tools-section,
 .tools-page-hero,
 .tools-page-cta {
     background: var(--paper);
+}
+
+/* ── Free Tools — dark band ── */
+.free-tools-section {
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--ink) 96%, var(--accent)),
+            var(--ink) 60%);
+    color: var(--paper);
+    overflow: hidden;
+    position: relative;
+}
+
+.free-tools-section::before {
+    background-image:
+        radial-gradient(circle,
+            color-mix(in srgb, var(--paper) 7%, transparent) 1px,
+            transparent 1.5px);
+    background-size: 20px 20px;
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.free-tools-section::after {
+    background: linear-gradient(90deg, var(--accent-live), transparent 55%);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.free-tools-section .container {
+    position: relative;
+}
+
+.free-tools-section .eyebrow {
+    color: var(--accent-live);
+}
+
+.free-tools-section .section-title {
+    color: var(--paper);
+}
+
+.free-tools-section .tools-section-lede {
+    color: color-mix(in srgb, var(--paper) 60%, transparent);
+}
+
+.free-tools-section .tools-list {
+    border-top-color: color-mix(in srgb, var(--paper) 10%, transparent);
+    margin-top: 2.5rem;
+}
+
+.free-tools-section .tool-row {
+    border-bottom-color: color-mix(in srgb, var(--paper) 10%, transparent);
+    transition: background-color 0.15s;
+    border-radius: 2px;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.free-tools-section .tool-row:hover {
+    background-color: color-mix(in srgb, var(--paper) 4%, transparent);
+}
+
+.free-tools-section .tool-row-badge {
+    color: color-mix(in srgb, var(--paper) 38%, transparent);
+}
+
+.free-tools-section .tool-row-name {
+    color: var(--paper);
+    transition: color 0.15s;
+}
+
+.free-tools-section .tool-row:hover .tool-row-name {
+    color: var(--accent-live);
+}
+
+.free-tools-section .tool-row-desc {
+    color: color-mix(in srgb, var(--paper) 56%, transparent);
+}
+
+.free-tools-section .tool-row-cta {
+    color: var(--accent-live);
+    font-weight: 600;
+}
+
+.free-tools-section .section-actions .btn-secondary {
+    border-color: color-mix(in srgb, var(--paper) 20%, transparent);
+    color: var(--paper);
+}
+
+.free-tools-section .section-actions .btn-secondary:hover {
+    background-color: color-mix(in srgb, var(--paper) 6%, transparent);
+    border-color: color-mix(in srgb, var(--paper) 34%, transparent);
 }
 
 .tools-page-hero {
