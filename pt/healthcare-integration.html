@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Integração de Sistemas de Saúde, HL7/FHIR e PEP &ndash; Veridata Pro</title>
+    <meta name="description"
+        content="Integrações seguras em conformidade com a LGPD e HIPAA conectando prontuários eletrônicos (PEP/EMR/EHR) como Epic, Cerner e Athenahealth com aplicações customizadas usando HL7, FHIR e pipelines de dados de saúde na AWS.">
+    <link rel="canonical" href="https://veridatapro.com/pt/healthcare-integration">
+    <link rel="alternate" hreflang="en" href="https://veridatapro.com/en/healthcare-integration">
+    <link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/healthcare-integration">
+    <link rel="alternate" hreflang="es" href="https://veridatapro.com/es/healthcare-integration">
+    <link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/healthcare-integration">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://veridatapro.com/#organization",
+          "name": "Veridata Pro",
+          "url": "https://veridatapro.com/",
+          "logo": "https://veridatapro.com/assets/images/logo.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/veridatapro"
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://veridatapro.com/pt/healthcare-integration#service",
+          "name": "Integração de Sistemas de Saúde e Pipelines de Dados PEP",
+          "description": "Integrações de dados de saúde seguras e em conformidade com a LGPD/HIPAA conectando prontuários eletrônicos (PEP), HL7 v2/v3 e APIs FHIR com aplicações customizadas.",
+          "url": "https://veridatapro.com/pt/healthcare-integration",
+          "provider": {
+            "@id": "https://veridatapro.com/#organization"
+          },
+          "serviceType": "Integração de Sistemas de Saúde, Pipelines HL7/FHIR",
+          "areaServed": [
+            "Brazil",
+            "Latin America",
+            "United States",
+            "Canada"
+          ],
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Provedores de saúde, clínicas médicas, plataformas de telemedicina e healthtechs que necessitam de sincronização segura de prontuário eletrônico (PEP/EHR) ou tradução de dados clínicos."
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://veridatapro.com/pt/healthcare-integration#webpage",
+          "url": "https://veridatapro.com/pt/healthcare-integration",
+          "name": "Integração de Sistemas de Saúde e Pipelines de Dados PEP",
+          "description": "Integrações seguras em conformidade com a LGPD e HIPAA conectando prontuários eletrônicos (PEP/EMR/EHR) como Epic, Cerner e Athenahealth com aplicações customizadas usando HL7, FHIR e pipelines de dados de saúde na AWS.",
+          "inLanguage": "pt-BR",
+          "about": {
+            "@id": "https://veridatapro.com/pt/healthcare-integration#service"
+          },
+          "isPartOf": {
+            "@id": "https://veridatapro.com/#website"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="hero-section bg-ink service-image-hero">
+        <div class="container">
+            <div class="service-hero-copy">
+                <span class="eyebrow">Integração de Saúde</span>
+                <h1 class="hero-title">Pipelines de dados seguros construídos para o cuidado do paciente, não apenas transferências de arquivos.</h1>
+                <p class="hero-lede">Conectar prontuários eletrônicos (PEP) como Epic, Cerner, Athenahealth, laboratórios e portais médicos exige muito mais do que apenas repassar webhooks. A Veridata Pro constrói camadas de dados seguras com validação rigorosa de esquemas, criptografia de ponta a ponta e observabilidade total de mensagens em conformidade com a LGPD e HIPAA.</p>
+                <p class="hero-stack-note">Implementamos pipelines seguros e auditáveis utilizando HL7/FHIR, arquiteturas de nuvem seguras (AWS/Azure), Mirth Connect e integrações robustas por API.</p>
+                <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar revisão de integração gratuita</a>
+            </div>
+            <figure class="service-hero-media">
+                <img src="../assets/images/healthcare_integration.png"
+                    alt="Diagrama de arquitetura de integração de saúde mostrando prontuários eletrônicos, APIs FHIR, tratamento de HL7 e endpoints de nuvem seguros"
+                    width="1254" height="1254" loading="eager" decoding="async" fetchpriority="high">
+            </figure>
+        </div>
+    </section>
+
+    <section class="bg-paper">
+        <div class="container">
+            <span class="eyebrow">O Contexto Clínico Importa</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Uma mensagem perdida não é apenas um lead que sumiu — é um atraso no atendimento ao paciente.</h2>
+            <p
+                style="font-size: 1.25rem; line-height: 1.6; max-width: none; margin-bottom: 4rem; color: var(--text-muted);">
+                Integrações na área de saúde exigem arquiteturas resilientes e determinísticas. Quando dados do paciente, resultados de exames ou fluxos de faturamento falham, as correções manuais consomem tempo precioso da equipe de saúde e introduzem riscos.
+            </p>
+
+            <div class="signal-list">
+                <div class="problem-card">
+                    <span class="problem-number">L01</span>
+                    <h3 class="problem-title">Silos de dados em sistemas de prontuário (PEP).</h3>
+                    <p class="problem-desc">Profissionais de saúde e administrativo perdem horas digitando históricos, dados demográficos ou agendamentos manualmente entre portais desconectados.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">L02</span>
+                    <h3 class="problem-title">Fluxos de trabalho clínicos frágeis.</h3>
+                    <p class="problem-desc">Mensagens HL7 ADT perdidas ou falhas em consultas FHIR geram furos de agenda, cobranças incorretas e atritos operacionais entre clínicas e laboratórios.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="problem-number">L03</span>
+                    <h3 class="problem-title">Brechas de segurança e conformidade (LGPD).</h3>
+                    <p class="problem-desc">Integrações amadoras ou scripts simples falham em garantir criptografia de ponta a ponta, acordos de confidencialidade (BAA) ou os logs de auditoria detalhados exigidos por lei.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-cream">
+        <div class="container">
+            <span class="eyebrow">A Camada de Tecnologia em Saúde</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Desenvolvido para segurança de dados. Desenhado para confiabilidade clínica.</h2>
+            <p
+                style="font-size: 1.25rem; line-height: 1.6; max-width: none; margin-bottom: 4rem; color: var(--text-muted);">
+                Conectamos softwares hospitalares e de prontuário eletrônico a aplicações web modernas, garantindo que todo fluxo de dados seja verificado, seguro e auditável.
+            </p>
+
+            <div class="grid-3">
+                <div class="tool-card">
+                    <h3 class="tool-title">Sincronização de PEP/EMR/EHR</h3>
+                    <p class="tool-desc">Sincronização bidirecional de dados entre Epic, Cerner, Athenahealth e seus sistemas internos, CRMs ou portais operacionais.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Pipelines HL7 &amp; FHIR</h3>
+                    <p class="tool-desc">Mapeamento de dados clínicos em tempo real, conversão e validação de mensagens HL7 v2/v3 e recursos FHIR R4.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Arquiteturas em Nuvem (LGPD)</h3>
+                    <p class="tool-desc">Implementação de ambientes de nuvem seguros na AWS com criptografia em repouso e trânsito, controle rígido de acessos e logs de auditoria detalhados.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Motores de Integração &amp; Mirth Connect</h3>
+                    <p class="tool-desc">Configuração, otimização e monitoramento de servidores Mirth Connect / NextGen Connect para roteamento resiliente de mensagens clínicas.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Portais de Pacientes e Médicos</h3>
+                    <p class="tool-desc">Conexão de agendamento online, fluxos de faturamento e telemedicina diretamente com a base de dados clínicos central.</p>
+                </div>
+                <div class="tool-card">
+                    <h3 class="tool-title">Integração de Laboratórios</h3>
+                    <p class="tool-desc">Sincronização automática de pedidos de exames e envio de resultados para o prontuário eletrônico, eliminando o tráfego manual de PDFs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark-table-band">
+        <div class="container dark-table-inner">
+            <span class="dark-table-eyebrow">Padrões Técnicos</span>
+            <h2 class="dark-table-title">Uma ponte estável entre sistemas hospitalares legados e soluções modernas.</h2>
+
+            <div class="dark-table-wrap">
+                <table class="dark-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Necessidade</th>
+                            <th scope="col">O que a Veridata Pro entrega</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Você precisa conectar um aplicativo moderno ou CRM a um prontuário eletrônico legado (Epic, Cerner, Athenahealth).</th>
+                            <td>Integração via API sob medida, barramento de dados (middleware) ou configuração de motores de integração seguros para formatos clínicos.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mensagens clínicas (HL7/FHIR) precisam ser traduzidas e tratadas para endpoints JSON específicos.</th>
+                            <td>Fluxos de ETL confiáveis, conversão em tempo real (HL7 para FHIR ou API customizada) e validação estrita de esquemas.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Os sistemas precisam cumprir regulamentações de privacidade (LGPD/HIPAA), com criptografia total e logs de auditoria.</th>
+                            <td>Configuração de logs de auditoria invioláveis, ambientes AWS estruturados sob termos de conformidade, banco de dados criptografado e gestão segura de chaves.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Você precisa de suporte contínuo e monitoramento para fluxos críticos de dados de saúde.</th>
+                            <td>Monitoramento contínuo, alertas proativos e suporte a incidentes com SLA estruturado por meio do Suporte Crítico de Integração.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-cream">
+        <div class="container">
+            <span class="eyebrow">Preços</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">A maioria dos trabalhos começa com um projeto — e continua com suporte contínuo.</h2>
+            <p
+                style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 720px;">
+                Uma integração clínica em produção precisa de um responsável. O escopo do projeto é definido na primeira chamada. Uma vez no ar, o Suporte Crítico de Integração cuida da saúde e monitoramento do fluxo.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem;">
+                <div style="border: 1px solid var(--rule); border-radius: 2px; padding: 1.25rem 1.5rem;">
+                    <div
+                        style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); margin-bottom: 0.5rem;">
+                        Passo 1</div>
+                    <div style="font-weight: 700; margin-bottom: 0.25rem;">Auditoria e Escopo de Sistemas de Saúde</div>
+                    <div class="price-amount">a partir de $400 <span
+                            style="font-size: 1rem; font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">USD</span></div>
+                </div>
+                <div style="border: 1px solid var(--rule); border-radius: 2px; padding: 1.25rem 1.5rem;">
+                    <div
+                        style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); margin-bottom: 0.5rem;">
+                        Passo 2</div>
+                    <div style="font-weight: 700; margin-bottom: 0.25rem;">Sprint de Integração</div>
+                    <div class="price-amount">a partir de $1,200 <span
+                            style="font-size: 1rem; font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">USD</span></div>
+                </div>
+                <div
+                    style="border: 1px solid var(--accent); border-radius: 2px; padding: 1.25rem 1.5rem; background: var(--accent-soft);">
+                    <div
+                        style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 0.5rem;">
+                        Passo 3 · Recomendado após o go-live</div>
+                    <div style="font-weight: 700; margin-bottom: 0.25rem;">Suporte Crítico de Integração</div>
+                    <div class="price-amount">a partir de $200 <span
+                            style="font-size: 1rem; font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">USD / mês</span></div>
+                </div>
+            </div>
+            <a href="https://wa.me/17405208080?text=Oi%20Ugo%2C%20gostaria%20de%20conversar%20sobre%20uma%20integra%C3%A7%C3%A3o%20de%20saude."
+                class="btn-secondary" target="_blank" rel="noopener">Conversar pelo WhatsApp →</a>
+        </div>
+    </section>
+
+    <section class="bg-paper">
+        <div class="container" style="text-align: center; max-width: 720px;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Depois de entrar no ar, quem cuida?</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">Mantemos suas integrações em produção monitoradas e corrigidas antes que virem problema. <a href="pricing.html#critical-integration-support"
+                    style="color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent);">Suporte Crítico de Integração &rarr;</a></p>
+        </div>
+    </section>
+
+    <section class="bg-ink text-center final-cta">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Comece com um fluxo de trabalho clínico.</h2>
+            <p class="hero-lede" style="margin: 0 auto 3rem auto;">Vamos revisar o modelo de dados, mapear as restrições de APIs e desenhar a camada segura em que sua equipe clínica pode realmente confiar.</p>
+            <a href="https://calendly.com/veridata/discovery" target="_blank" class="btn-primary">Agendar revisão de integração gratuita</a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script>window.resRoot = '../';</script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
