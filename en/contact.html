@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us | Veridata Pro</title>
+    <meta name="description"
+        content="Get in touch with Veridata Pro. Submit your integration challenges, book a call, or contact us directly.">
+    <link rel="canonical" href="https://veridatapro.com/en/contact">
+    <link rel="alternate" hreflang="en" href="https://veridatapro.com/en/contact">
+    <link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/contact">
+    <link rel="alternate" hreflang="es" href="https://veridatapro.com/es/contact">
+    <link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/contact">
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-form-col {
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            padding: 2.5rem;
+            background-color: var(--surface);
+        }
+
+        .contact-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            border-left: 1px solid var(--rule);
+            padding-left: 4rem;
+            justify-content: flex-start;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .response-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 2px;
+            display: none;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+
+        .info-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .info-link {
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.25em;
+            width: fit-content;
+            font-size: 0.95rem;
+        }
+
+        .info-link:hover {
+            color: var(--accent);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid white;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .contact-info-col {
+                border-left: none;
+                border-top: 1px solid var(--rule);
+                padding-left: 0;
+                padding-top: 3rem;
+            }
+            .contact-form-col {
+                padding: 1.5rem;
+                border: none;
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <section style="padding: 100px 0 140px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="eyebrow">CONTACT</span>
+                <h1 class="hero-title" style="margin-bottom: 1.25rem;">Let's discuss your workflow.</h1>
+                <p class="hero-lede" style="max-width: 580px; margin: 0 auto;">Connect directly with Ugo (Founder & Principal Architect) or describe your systems to get started.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form-col">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Work Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company / Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Acme Corp">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell us about your systems and what you need to integrate *</label>
+                            <textarea id="message" name="message" required placeholder="Describe your data flow, pain points, or project timeline..."></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="lang" value="en">
+
+                        <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            <span id="btn-text">Send Message</span>
+                            <span id="btn-spinner" class="spinner" style="display: none;"></span>
+                        </button>
+                    </form>
+
+                    <div id="response-message" class="response-message"></div>
+                </div>
+
+                <div class="contact-info-col">
+                    <div class="info-block">
+                        <h2 class="info-title">Schedule a Call</h2>
+                        <p class="info-desc">Book a 30-minute discovery call directly on Calendly to map out your integration challenge and get immediate architect feedback.</p>
+                        <a href="https://calendly.com/veridata/discovery" target="_blank" rel="noopener" class="info-link">Book on Calendly &rarr;</a>
+                    </div>
+
+                    <div class="info-block">
+                        <h2 class="info-title">Quick Chat</h2>
+                        <p class="info-desc">Have a quick question or want to chat about a potential project? Connect directly via WhatsApp.</p>
+                        <a href="https://wa.me/17405208080?text=Hi%20Ugo%2C%20I%27d%20like%20to%20talk%20about%20an%20integration." target="_blank" rel="noopener" class="info-link">Chat on WhatsApp &rarr;</a>
+                    </div>
+
+                    <div class="info-block">
+                        <h2 class="info-title">Direct Email</h2>
+                        <p class="info-desc">Prefer sending a direct RFQ, security questionnaire, or detailed project scoping documents?</p>
+                        <a href="mailto:hello@veridatapro.com" class="info-link">hello@veridatapro.com &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>window.resRoot = '../';</script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const btn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const spinner = document.getElementById('btn-spinner');
+            const responseDiv = document.getElementById('response-message');
+            
+            // Set loading state
+            btn.disabled = true;
+            btnText.textContent = "Sending...";
+            spinner.style.display = "inline-block";
+            responseDiv.style.display = "none";
+            
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value,
+                lang: form.querySelector('input[name="lang"]').value
+            };
+            
+            try {
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    responseDiv.textContent = "Thank you! Your message has been sent successfully. We will get back to you shortly.";
+                    responseDiv.style.backgroundColor = "rgba(40, 167, 69, 0.1)";
+                    responseDiv.style.border = "1px solid rgb(40, 167, 69)";
+                    responseDiv.style.color = "rgb(40, 167, 69)";
+                    responseDiv.style.display = "block";
+                    form.reset();
+                } else {
+                    throw new Error(data.error || "An error occurred while sending your message.");
+                }
+            } catch (err) {
+                responseDiv.textContent = err.message || "Failed to send message. Please try again or email hello@veridatapro.com directly.";
+                responseDiv.style.backgroundColor = "rgba(220, 53, 69, 0.1)";
+                responseDiv.style.border = "1px solid rgb(220, 53, 69)";
+                responseDiv.style.color = "rgb(220, 53, 69)";
+                responseDiv.style.display = "block";
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "Send Message";
+                spinner.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

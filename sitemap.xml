@@ -168,5 +168,25 @@
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/leadership" />
         <xhtml:link rel="alternate" hreflang="es" href="https://veridatapro.com/es/leadership" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/leadership" />
+    <url>
+        <loc>https://veridatapro.com/en/contact</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://veridatapro.com/en/contact" />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/contact" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://veridatapro.com/es/contact" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/contact" />
+    </url>
+    <url>
+        <loc>https://veridatapro.com/pt/contact</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://veridatapro.com/en/contact" />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/contact" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://veridatapro.com/es/contact" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/contact" />
+    </url>
+    <url>
+        <loc>https://veridatapro.com/es/contact</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://veridatapro.com/en/contact" />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/contact" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://veridatapro.com/es/contact" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/contact" />
     </url>
 </urlset>
