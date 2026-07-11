@@ -7198,3 +7198,125 @@ section {
         font-size: 28px;
     }
 }
+
+/* Tools Grid Layout & Cards Redesign */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.tool-card-wrapper {
+    background-color: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.tool-card-wrapper:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.tool-card-wrapper .tool-row-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.tool-card-wrapper .tool-row-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+    transition: color 0.15s;
+}
+
+.tool-card-wrapper:hover .tool-row-name {
+    color: var(--accent);
+}
+
+.tool-card-wrapper .tool-row-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.tool-card-wrapper .tool-row-when {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.55;
+    margin: 0 0 1.5rem 0;
+}
+
+.tool-card-wrapper .tool-row-cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: auto;
+    display: inline-block;
+}
+
+/* Dark layout overrides for homepage tools section */
+.free-tools-section .tool-card-wrapper {
+    background-color: color-mix(in srgb, var(--paper) 4%, transparent);
+    border-color: color-mix(in srgb, var(--paper) 10%, transparent);
+}
+
+.free-tools-section .tool-card-wrapper:hover {
+    border-color: var(--accent-live);
+    background-color: color-mix(in srgb, var(--paper) 6%, transparent);
+}
+
+.free-tools-section .tool-card-wrapper .tool-row-badge {
+    color: color-mix(in srgb, var(--paper) 40%, transparent);
+}
+
+.free-tools-section .tool-card-wrapper .tool-row-name {
+    color: var(--paper);
+}
+
+.free-tools-section .tool-card-wrapper:hover .tool-row-name {
+    color: var(--accent-live);
+}
+
+.free-tools-section .tool-card-wrapper .tool-row-desc {
+    color: color-mix(in srgb, var(--paper) 60%, transparent);
+}
+
+.free-tools-section .tool-card-wrapper .tool-row-when {
+    color: color-mix(in srgb, var(--paper) 40%, transparent);
+}
+
+.free-tools-section .tool-card-wrapper .tool-row-cta {
+    color: var(--accent-live);
+}
+
+@media (max-width: 900px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
