@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Arquiteturas de Referencia y Estudios de Caso &ndash; Veridata Pro</title>
+    <meta name="description"
+        content="Arquitecturas de referencia empresarial y modelos de integración en la nube creadas por Veridata Pro. Diseñado por arquitectos, verificado en producción.">
+    <link rel="canonical" href="https://veridatapro.com/es/case-studies">
+    <link rel="alternate" hreflang="en" href="https://veridatapro.com/en/case-studies">
+    <link rel="alternate" hreflang="pt-BR" href="https://veridatapro.com/pt/case-studies">
+    <link rel="alternate" hreflang="es" href="https://veridatapro.com/es/case-studies">
+    <link rel="alternate" hreflang="x-default" href="https://veridatapro.com/en/case-studies">
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="tools-page-hero">
+        <div class="container">
+            <span class="eyebrow">Estudios de Caso &amp; Blueprints</span>
+            <h1 class="hero-title">Arquiteturas de Referencia Corporativas.</h1>
+            <p class="hero-lede">Descubra las decisiones de diseño detrás de integraciones reales, plataformas serverless y flujos de datos corporativos. Diseñado por arquitectos, verificado en producción.</p>
+        </div>
+    </section>
+
+    <!-- 1. Case Study Directory View -->
+    <section class="tools-page-grid-section" id="directoryView">
+        <div class="container">
+            <div class="tools-grid">
+                <!-- Case 1 -->
+                <div class="tool-card-wrapper" style="cursor: pointer;" onclick="showCaseStudyDetail('interior-logistics')">
+                    <span class="tool-row-badge">AWS Serverless</span>
+                    <h3 class="tool-row-name">ERP Serverless Personalizado para Logística de Diseño de Interiores</h3>
+                    <p class="tool-row-desc">Un sistema ERP serverless de nivel empresarial desarrollado para coordinar clientes, proveedores y equipos de operaciones internas en tiempo real.</p>
+                    <p class="tool-row-when">Presenta análisis detallado de trade-offs sobre inicios en frío serverless, pooling de conexiones y patrones de autorización de Cognito.</p>
+                    <span class="tool-row-cta">Ver Arquitectura de Referencia &rarr;</span>
+                </div>
+                <!-- Case 2 -->
+                <div class="tool-card-wrapper" style="cursor: pointer;" onclick="showCaseStudyDetail('chatwoot-crm')">
+                    <span class="tool-row-badge">Integración n8n</span>
+                    <h3 class="tool-row-name">Pipeline de Sincronización de Contactos CRM &amp; Chatwoot Multi-Tenant</h3>
+                    <p class="tool-row-desc">Sincronización dinámica multi-tenant de contactos y leads mapeando chats recibidos de clientes directamente a EspoCRM o HubSpot.</p>
+                    <p class="tool-row-when">Presenta lookups para deduplicación condicional de datos y rutas de autocorrección para mapeamientos obsoletos en el CRM.</p>
+                    <span class="tool-row-cta">Ver Arquitectura de Referencia &rarr;</span>
+                </div>
+                <!-- Case 3 -->
+                <div class="tool-card-wrapper" style="cursor: pointer;" onclick="showCaseStudyDetail('mulesoft-plasma')">
+                    <span class="tool-row-badge">MuleSoft 3-Tier</span>
+                    <h3 class="tool-row-name">Resolución de Identidad &amp; Integración de Donantes de Plasma en EE. UU.</h3>
+                    <p class="tool-row-desc">Una arquitectura MuleSoft de 3 niveles (3-tier API) orientada a la seguridad que orquesta el registro de donantes, la verificación y la sincronización de inaptitud médica.</p>
+                    <p class="tool-row-when">Presenta reglas de deduplicación de PII usando hashes parciales de SSN, listeners de eventos en tiempo real y conexiones con Salesforce Health Cloud.</p>
+                    <span class="tool-row-cta">Ver Arquitectura de Referencia &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Case Study Detailed View 1 (Interior Logistics) -->
+    <section class="bg-paper case-detail-container" id="detailView-interior-logistics" style="display: none; padding: 4rem 0;">
+        <div class="container">
+            <button type="button" class="btn-primary" onclick="showDirectory()" style="margin-bottom: 3rem; background: var(--surface-2); color: var(--ink); border: 1px solid var(--rule-strong); font-size: 0.9rem; padding: 0.6rem 1.2rem; cursor: pointer; border-radius: 8px;">
+                &larr; Volver a Estudios de Caso
+            </button>
+            
+            <span class="eyebrow">Estudio de Caso de Arquitectura en la Nube AWS</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">ERP Serverless Personalizado para Logística de Diseño de Interiores</h2>
+            <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">Un sistema ERP serverless de nivel empresarial desarrollado para coordinar clientes, proveedores y equipos de operaciones internas en tiempo real.</p>
+            
+            <!-- Diagram Section -->
+            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Esquema de Arquitectura</h3>
+                <div class="mermaid" style="width: 100%; max-width: 800px;">
+                  graph TD
+                      User[Users: Clients, Vendors, Operators] -->|HTTPS| Route53[Amazon Route 53]
+                      Route53 --> Amplify[AWS Amplify: React SPA]
+                      User -->|API Requests| APIGW[Amazon API Gateway]
+                      
+                      subgraph VPC [VPC - Private Subnet Isolation]
+                          APIGW -->|Authenticate| Cognito[Amazon Cognito: AuthN]
+                          APIGW -->|Route requests| LambdaCore[Core API Lambda: Hono]
+                          LambdaCore --> Secrets[AWS Secrets Manager]
+                          LambdaCore --> RDSProxy[RDS Proxy]
+                          RDSProxy --> Aurora[Amazon Aurora PostgreSQL Serverless v2]
+                          
+                          LambdaCore -->|Heavy Task Event| EventBridge[Amazon EventBridge]
+                          EventBridge --> SQS[Amazon SQS Queue]
+                          SQS --> LambdaWorker[Async Workers Lambda]
+                          LambdaWorker --> S3[Amazon S3: Catalogs & PDF Bills]
+                          LambdaWorker --> SNS[Amazon SNS]
+                          SNS --> Email[SES: Client/Vendor Notifications]
+                      end
+                </div>
+            </div>
+
+            <!-- Tradeoffs Section -->
+            <h3 class="section-title" style="margin-bottom: 2.5rem;">Dilemas Técnicos &amp; Soluciones</h3>
+            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+                <!-- Dilemma A -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. El Problema de Latencia Serverless (Hono vs. NestJS)</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> La especificación inicial proponía NestJS en AWS Lambda. Aunque NestJS proporciona una estructura organizativa corporativa limpia, su pesado contenedor de inyección de dependencias provoca latencias de inicio en frío (cold start) de 1.5 a 3 segundos. Para una interfaz ERP en tiempo real, este retraso arruina la experiencia del usuario.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Reemplazamos NestJS por Hono ejecutándose en Node.js. Hono es un framework ultra ligero y sin dependencias, diseñado específicamente para entornos serverless edge/lambda.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Los inicios en frío cayeron a menos de 150ms, ofreciendo una experiencia instantánea y fluida para los clientes que aprueban presupuestos.</p>
+                </div>
+                
+                <!-- Dilemma B -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. Identidad Rígida vs. Permisiones Dinámicas (Cognito vs. RBAC en Base de Datos)</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Administrar jerarquías complejas de clientes multi-tenant y permisos granulares basados en roles (RBAC) directamente dentro de los Grupos de Cognito es rígido, difícil de auditar e infla los payloads de los tokens JWT.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Utilizamos Amazon Cognito estrictamente para Autenticación (verificar identidad). Toda la Autorización (lógica de permisos) se gestiona por completo en las tablas de PostgreSQL.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Esto mantiene a Cognito limpio y seguro. Podemos actualizar límites de aprobación de clientes o permisos de proveedores instantáneamente en las tablas de la BD, sin modificar los esquemas de Cognito.</p>
+                </div>
+
+                <!-- Dilemma C -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Agotamiento de Conexiones de Base de Datos (RDS Proxy)</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> PostgreSQL opens a separate OS process for every single connection. In a serverless architecture, las funciones Lambda se escalan horizontalmente. Un aumento repentino de proveedores actualizando el stock iniciaría docenas de contenedores Lambda, agotando instantáneamente los límites de conexión de la base de datos.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Implementamos Amazon RDS Proxy entre las funciones Lambda y la base de datos Aurora.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> RDS Proxy mantiene un pool de conexiones persistente, multiplexando las solicitudes de conexión de las Lambdas activas para mantener estables las conexiones del motor.</p>
+                </div>
+
+                <!-- Dilemma D -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">D. Control de Costos para Bases de Datos con Escalado Automático (Aurora Serverless v2)</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Aunque Aurora Serverless v2 se escala automáticamente en función de las unidades de capacidad (ACUs), las consultas ineficientes o el polling excesivo del cliente activarán un escalado de alta capacidad, lo que resultará en facturas mensuales de AWS inesperadamente altas.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Definimos límites estrictos de mínimo/máximo en el escalado de ACU dentro de Terraform e implementamos capas de caché (React Query) en el frontend.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> La base de datos se escala de forma segura a su capacidad mínima (0.5 ACUs) fuera de las horas pico, reduciendo los costos operativos de la base de datos en más del 60%.</p>
+                </div>
+
+                <!-- Dilemma E -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">E. Cargas de Trabajo de Larga Duración (Lambda SQS vs. Futuro ECS)</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Generar catálogos de alta resolución con más de 200 páginas o procesar planillas masivas de Excel puede superar fácilmente el límite estricto de tiempo de ejecución de 15 minutos de AWS Lambda.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Utilizamos un enrutador EventBridge y una fila SQS para procesar tareas asíncronas estándar.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> El desacoplamiento de la fila significa que, si el tamaño de las importaciones aumenta, podemos migrar las Lambdas de procesamiento a contenedores AWS Fargate (ECS) persistentes en la Fase 2, sin reescribir la lógica de la API principal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Case Study Detailed View 2 (Chatwoot CRM Sync) -->
+    <section class="bg-paper case-detail-container" id="detailView-chatwoot-crm" style="display: none; padding: 4rem 0;">
+        <div class="container">
+            <button type="button" class="btn-primary" onclick="showDirectory()" style="margin-bottom: 3rem; background: var(--surface-2); color: var(--ink); border: 1px solid var(--rule-strong); font-size: 0.9rem; padding: 0.6rem 1.2rem; cursor: pointer; border-radius: 8px;">
+                &larr; Volver a Estudios de Caso
+            </button>
+            
+            <span class="eyebrow">Estudio de Caso de Integración &amp; Automatización n8n</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Pipeline de Sincronización de Contactos CRM &amp; Chatwoot Multi-Tenant</h2>
+            <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">Sincronización dinámica multi-tenant de contactos y leads mapeando chats recibidos de clientes directamente a EspoCRM o HubSpot.</p>
+            
+            <!-- Diagram Section -->
+            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Esquema de Integración (n8n Workflow)</h3>
+                <div class="mermaid" style="width: 100%; max-width: 800px;">
+                  graph TD
+                      Chatwoot[Chatwoot Webhook Trigger] --> Validate{Validate Webhook}
+                      Validate -->|True| MapChatwoot[Map Chatwoot Payload]
+                      MapChatwoot --> GetTenant[Fetch Tenant Settings]
+                      GetTenant --> MapCRM[Map CRM Settings]
+                      MapCRM --> CheckMap[Check Existing Contact Map]
+                      CheckMap --> SwitchCRM{Switch: CRM Vendor}
+                      
+                      SwitchCRM -->|HubSpot| HubSpotOps[HubSpot: No Operation]
+                      SwitchCRM -->|EspoCRM| MapEspo[Map EspoCRM Payload]
+                      
+                      MapEspo --> CheckLead{Check if Lead Exists}
+                      CheckLead -->|Yes| FetchContact[Get EspoCRM Contact]
+                      CheckLead -->|No| CreateLead[Create EspoCRM Lead]
+                      
+                      FetchContact --> CheckContact{Contact Exists?}
+                      CheckContact -->|Yes| UpdateContact[Update EspoCRM Contact]
+                      CheckContact -->|No| CreateContactMap[Create Contact & Map]
+                      
+                      CreateLead --> CreateContactMap
+                      CreateContactMap --> FetchLeadInfo[Get Lead Details]
+                      FetchLeadInfo --> LeadCondition{Is Info Valid?}
+                      LeadCondition -->|Yes| UpdateLead[Update Lead Profile]
+                      LeadCondition -->|No| DeleteMapping[Delete Stale Mapping]
+                </div>
+            </div>
+
+            <!-- Tradeoffs Section -->
+            <h3 class="section-title" style="margin-bottom: 2.5rem;">Dilemas Técnicos &amp; Soluções</h3>
+            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+                <!-- Dilemma A -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. Enrutamiento Dinámico Multi-Tenant</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Administrar flujos de trabajo de n8n separados para el CRM de cada cliente sería una pesadilla de mantenimiento a medida que la empresa escala.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Construimos un único flujo de trabajo parametrizado usando búsquedas dinámicas (Tenant Settings) y un nodo enrutador central para dirigir los datos según la configuración de cada cliente.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Un único flujo de n8n soporta múltiples CRM (EspoCRM, HubSpot) y docenas de clientes simultáneamente con costo cero de mantenimiento.</p>
+                </div>
+                
+                <!-- Dilemma B -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. Condiciones de Carrera &amp; Deduplicación de Contactos</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Los picos en los webhooks pueden generar contactos duplicados en el CRM si varios mensajes del mismo correo electrónico llegan antes de que el motor de base de datos complete la creación del primer contacto.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Implementamos una verificación de validación en varias etapas (Verificar si existe Lead -> Verificar si existe Contacto).</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Asegura que el pipeline actualice los registros del CRM existentes dinamicamente, manteniendo la integridad de los datos en un 100%.</p>
+                </div>
+
+                <!-- Dilemma C -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Recuperación de Mapeo de IDs Obsoletos</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Cuando un operador convierte manualmente un Lead en Contacto en el CRM, las referencias de ID obsoletas en la tabla de búsqueda de n8n causan errores de sincronización en futuros mensajes.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Agregamos una rama de verificación que valida el estado del registro en el CRM.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Si la referencia del mapeo es obsoleta, n8n ejecuta automáticamente la eliminación del mapeo antiguo, borrando referencias y reiniciando el flujo de sincronización de forma limpia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Case Study Detailed View 3 (MuleSoft Plasma) -->
+    <section class="bg-paper case-detail-container" id="detailView-mulesoft-plasma" style="display: none; padding: 4rem 0;">
+        <div class="container">
+            <button type="button" class="btn-primary" onclick="showDirectory()" style="margin-bottom: 3rem; background: var(--surface-2); color: var(--ink); border: 1px solid var(--rule-strong); font-size: 0.9rem; padding: 0.6rem 1.2rem; cursor: pointer; border-radius: 8px;">
+                &larr; Volver a Estudios de Caso
+            </button>
+            
+            <span class="eyebrow">Estudio de Caso de Integración MuleSoft de 3 Capas</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Resolución de Identidad &amp; Integración de Donantes de Plasma en EE. UU.</h2>
+            <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">Una arquitectura MuleSoft de 3 niveles (3-tier API) orientada a la seguridad que orquesta el registro de donantes, la verificación y la sincronización de inaptitud médica.</p>
+            
+            <!-- Diagram Section -->
+            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Esquema de Arquitectura</h3>
+                <div class="mermaid" style="width: 100%; max-width: 800px;">
+                  graph TD
+                      subgraph Experience Layer
+                          SFHC[Salesforce Health Cloud]
+                          MobileApp[Mobile App: DAPP]
+                          ExpAPI[Donor Mobile Experience API]
+                          SFHC --> ExpAPI
+                          MobileApp --> ExpAPI
+                      end
+                      
+                      subgraph Process Layer
+                          ProcAPI[Donor Process API]
+                          ExpAPI --> ProcAPI
+                      end
+                      
+                      subgraph System Layer
+                          SFHCSys[Salesforce Health Cloud System API]
+                          DMSSys[DMS Core Database System API]
+                          MobileSys[Mobile System API]
+                          EmailSys[External Provider Email SAPI]
+                          
+                          ProcAPI --> SFHCSys
+                          ProcAPI --> DMSSys
+                          ProcAPI --> MobileSys
+                          ProcAPI --> EmailSys
+                      end
+                      
+                      subgraph Data & Identity Engines
+                          SFHCSys --> SalesforceHC[(Salesforce Health Cloud Database)]
+                          DMSSys --> OracleDMS[(Oracle Database: Core Donor DMS)]
+                          OracleDMS --> Data360[Data360: Identity Resolution Engine]
+                          EmailSys --> AmazonSES[Amazon SES / Email System]
+                      end
+                </div>
+            </div>
+
+            <!-- Tradeoffs Section -->
+            <h3 class="section-title" style="margin-bottom: 2.5rem;">Dilemas Técnicos &amp; Soluciones</h3>
+            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+                <!-- Dilemma A -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. Cumplimiento Normativo en EE. UU. &amp; Resonancia de PII Protegida</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Las regulaciones estadounidenses exigen validar rigurosamente la identidad de los donantes frente a listas de inaptitud médica (deferral) para mitigar riesgos clínicos. Sin embargo, las leyes de privacidad prohíben almacenar números completos de Seguro Social (SSN) en el aplicativo móvil o en las capas de integración intermedias.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Diseñamos un motor de resolución de identidad a través de DMS System API y Data360. La búsqueda asocia Nombre, Apellido, Fecha de Nacimiento (DOB) y únicamente los últimos 4 o 5 dígitos del SSN (encriptados como hashes de una sola vía).</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Garantiza el 100% de cumplimiento con HIPAA, identificando duplicaciones y registros de exclusión de manera precisa, sin comprometer datos PII sensibles.</p>
+                </div>
+                
+                <!-- Dilemma B -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. Arquitectura de Conectividad MuleSoft de 3 Niveles</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Conectar de forma directa el core Salesforce Health Cloud con la base Oracle DMS y el cliente móvil acopla los sistemas fuertemente, haciendo que los cambios de base de datos sean lentos y arriesgados.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Implementamos el patrón de 3 capas de MuleSoft: APIs de Experiencia (para los canales de usuario), APIs de Proceso (para orquestación lógica) y APIs de Sistema (como adaptadores seguros de base de datos).</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Backend completamente desacoplado. Las migraciones estructurales en Oracle pueden ejecutarse bajo `dms-sys-api` sin interrumpir la operación del cliente móvil.</p>
+                </div>
+
+                <!-- Dilemma C -->
+                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Bloqueo de Mensajería en Tiempo Real ante Inaptitud</h4>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> Si un donante es diferido debido a una condición en el examen físico (DMS DB), las comunicaciones promocionales deben suspenderse de inmediato para evitar sanciones por cumplimiento. El uso de tareas programadas (batches) deja ventanas de exposición ilegal abiertas.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decisión:</strong> Desplegamos un receptor de eventos assíncronos (`Event Listener`). Al registrarse una inaptitud médica en la base Oracle, se emite un evento instantáneo en cola, procesado para actualizar síncronamente Salesforce Health Cloud y Marketing Cloud.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solución:</strong> Las campañas dirigidas al donante diferido se suspenden en menos de 1 segundo tras la inaptidão, mitigando cualquier riesgo legal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script>window.resRoot = '../';</script>
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Mermaid.js rendering engine script -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'neutral',
+            themeVariables: {
+                primaryColor: '#e0f2f1',
+                edgeLabelBackground: '#ffffff',
+                tertiaryColor: '#f5f5f5',
+                lineColor: '#0e5c5c',
+                textColor: '#0d1d26',
+                fontFamily: 'Public Sans'
+            }
+        });
+        window.renderMermaid = function() {
+            mermaid.run({ querySelector: '.mermaid' });
+        }
+    </script>
+    <script>
+        function showCaseStudyDetail(caseId) {
+            document.getElementById('directoryView').style.display = 'none';
+            
+            // Hide all detail containers first
+            document.querySelectorAll('.case-detail-container').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the selected container
+            const activeDetail = document.getElementById('detailView-' + caseId);
+            if (activeDetail) {
+                activeDetail.style.display = 'block';
+                if (window.renderMermaid) {
+                    window.renderMermaid();
+                }
+                activeDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        function showDirectory() {
+            // Hide all detail containers
+            document.querySelectorAll('.case-detail-container').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.getElementById('directoryView').style.display = 'block';
+            document.getElementById('directoryView').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+
+</html>
