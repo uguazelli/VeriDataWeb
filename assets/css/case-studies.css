@@ -1,0 +1,86 @@
+/* Custom styles for Case Studies reference architectures */
+.sticky-notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.sticky-note {
+    background: #fdf5c4; /* Soft yellow sticky note */
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    padding: 1.5rem;
+    position: relative;
+    border-left: 5px solid #e2cc3f;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sticky-note:hover {
+    transform: translateY(-4px) rotate(0.5deg);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.sticky-note-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8c7b13;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.sticky-note-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #403808;
+    margin-bottom: 1rem;
+}
+.sticky-note p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #5d520d;
+    margin-bottom: 0.75rem;
+}
+.sticky-note p strong {
+    color: #383105;
+}
+.sticky-note-solution {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0e5c5c; /* Accent teal for solution */
+    margin-top: 0.5rem;
+}
+
+/* Custom styles for Diagram Containers to match Miro/Figma light board */
+.diagram-wrap {
+    background: #f7f9fb !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 3rem 2rem !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+/* Subtle grid overlay for diagram wrap to look like a digital whiteboard */
+.whiteboard-bg {
+    background-size: 20px 20px !important;
+    background-image: linear-gradient(to right, #edf2f7 1px, transparent 1px),
+                      linear-gradient(to bottom, #edf2f7 1px, transparent 1px) !important;
+}
+
+/* Force all images inside Mermaid nodes to be scaled uniformly and centered */
+.mermaid svg img {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto 6px auto !important;
+}
+
+/* Add some padding to Mermaid node labels containing images */
+.mermaid .node label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 8px !important;
+}

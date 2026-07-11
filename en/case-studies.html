@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap"
         rel="stylesheet" />
     <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/case-studies.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
 
@@ -50,7 +51,7 @@
                     <span class="tool-row-badge">n8n Integration</span>
                     <h3 class="tool-row-name">Multi-Tenant Chatwoot CRM Contact Sync Pipeline</h3>
                     <p class="tool-row-desc">Dynamic multi-tenant contact and lead synchronization mapping incoming customer chats directly to EspoCRM or HubSpot.</p>
-                    <p class="tool-row-when">Features conditional data deduplication lookups and self-healing recovery routes for stale CRM mappings.</p>
+                    <p class="tool-row-when">Features conditional data de-duplication lookups and self-healing recovery routes for stale CRM mappings.</p>
                     <span class="tool-row-cta">View Reference Architecture &rarr;</span>
                 </div>
                 <!-- Case 3 -->
@@ -58,7 +59,7 @@
                     <span class="tool-row-badge">MuleSoft 3-Tier</span>
                     <h3 class="tool-row-name">Identity Resolution &amp; Registry Integration for US Plasma Donors</h3>
                     <p class="tool-row-desc">A high-security, 3-tier API-led MuleSoft architecture orchestrating donor registration, verification, and medical deferral synchronization.</p>
-                    <p class="tool-row-when">Features PII deduplication rules using partial SSN hashes, real-time event listeners, and Salesforce Health Cloud integrations.</p>
+                    <p class="tool-row-when">Features PII de-duplication rules using partial SSN hashes, real-time event listeners, and Salesforce Health Cloud integrations.</p>
                     <span class="tool-row-cta">View Reference Architecture &rarr;</span>
                 </div>
             </div>
@@ -77,72 +78,109 @@
             <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">An enterprise-grade serverless ERP system built to coordinate clients, vendors, and internal operations teams in real time.</p>
             
             <!-- Diagram Section -->
-            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+            <div class="diagram-wrap whiteboard-bg" style="overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
                 <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Architectural Blueprint</h3>
                 <div class="mermaid" style="width: 100%; max-width: 800px;">
                   graph TD
-                      User[Users: Clients, Vendors, Operators] -->|HTTPS| Route53[Amazon Route 53]
-                      Route53 --> Amplify[AWS Amplify: React SPA]
-                      User -->|API Requests| APIGW[Amazon API Gateway]
+                      %% Define classes
+                      classDef orange fill:#fff,stroke:#ff9900,stroke-width:2px;
+                      classDef blue fill:#fff,stroke:#00a1e0,stroke-width:2px;
+                      classDef purple fill:#fff,stroke:#9933ff,stroke-width:2px;
+                      classDef red fill:#fff,stroke:#ff3366,stroke-width:2px;
+                      classDef green fill:#fff,stroke:#24b07c,stroke-width:2px;
+                      classDef grey fill:#fff,stroke:#7f8c8d,stroke-width:2px;
+
+                      User["<img src='https://img.icons8.com/color/48/user.png' width='48' height='48'/><br/><b>Users</b>"]
+                      Route53["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/NetworkingContentDelivery/Route53.png' width='48' height='48'/><br/><b>Route 53</b>"]
+                      Amplify["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/FrontEndWebMobile/Amplify.png' width='48' height='48'/><br/><b>Amplify (React)</b>"]
+                      APIGW["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/NetworkingContentDelivery/APIGateway.png' width='48' height='48'/><br/><b>API Gateway</b>"]
+                      
+                      User -->|HTTPS| Route53
+                      Route53 --> Amplify
+                      User -->|API Requests| APIGW
                       
                       subgraph VPC [VPC - Private Subnet Isolation]
-                          APIGW -->|Authenticate| Cognito[Amazon Cognito: AuthN]
-                          APIGW -->|Route requests| LambdaCore[Core API Lambda: Hono]
-                          LambdaCore --> Secrets[AWS Secrets Manager]
-                          LambdaCore --> RDSProxy[RDS Proxy]
-                          RDSProxy --> Aurora[Amazon Aurora PostgreSQL Serverless v2]
+                          Cognito["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/SecurityIdentityCompliance/Cognito.png' width='48' height='48'/><br/><b>Cognito (AuthN)</b>"]
+                          LambdaCore["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/Compute/Lambda.png' width='48' height='48'/><br/><b>Core Lambda (Hono)</b>"]
+                          Secrets["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/SecurityIdentityCompliance/SecretsManager.png' width='48' height='48'/><br/><b>Secrets Manager</b>"]
+                          RDSProxy["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/Database/RDS.png' width='48' height='48'/><br/><b>RDS Proxy</b>"]
+                          Aurora["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/Database/Aurora.png' width='48' height='48'/><br/><b>Aurora Postgres v2</b>"]
                           
-                          LambdaCore -->|Heavy Task Event| EventBridge[Amazon EventBridge]
-                          EventBridge --> SQS[Amazon SQS Queue]
-                          SQS --> LambdaWorker[Async Workers Lambda]
-                          LambdaWorker --> S3[Amazon S3: Catalogs & PDF Bills]
-                          LambdaWorker --> SNS[Amazon SNS]
-                          SNS --> Email[SES: Client/Vendor Notifications]
+                          EventBridge["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/ApplicationIntegration/EventBridge.png' width='48' height='48'/><br/><b>EventBridge</b>"]
+                          SQS["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/ApplicationIntegration/SimpleQueueService.png' width='48' height='48'/><br/><b>SQS Queue</b>"]
+                          LambdaWorker["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/Compute/Lambda.png' width='48' height='48'/><br/><b>Worker Lambda</b>"]
+                          S3["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/Storage/SimpleStorageService.png' width='48' height='48'/><br/><b>S3 (PDF & Catalogs)</b>"]
+                          SNS["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/ApplicationIntegration/SimpleNotificationService.png' width='48' height='48'/><br/><b>SNS</b>"]
+                          SES["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/BusinessApplications/SimpleEmailService.png' width='48' height='48'/><br/><b>SES (Email)</b>"]
+                          
+                          APIGW -->|Authenticate| Cognito
+                          APIGW -->|Route| LambdaCore
+                          LambdaCore --> Secrets
+                          LambdaCore --> RDSProxy
+                          RDSProxy --> Aurora
+                          LambdaCore -->|Heavy Job Event| EventBridge
+                          EventBridge --> SQS
+                          SQS --> LambdaWorker
+                          LambdaWorker --> S3
+                          LambdaWorker --> SNS
+                          SNS --> SES
                       end
+
+                      %% Assign classes
+                      class Route53,Amplify,APIGW blue;
+                      class Cognito,Secrets,SES red;
+                      class LambdaCore,LambdaWorker orange;
+                      class RDSProxy,Aurora purple;
+                      class EventBridge,SQS,S3,SNS green;
                 </div>
             </div>
 
-            <!-- Tradeoffs Section -->
-            <h3 class="section-title" style="margin-bottom: 2.5rem;">Technical Dilemmas &amp; Solutions</h3>
-            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+            <!-- Tradeoffs Section (Miro Sticky Notes) -->
+            <h3 class="section-title" style="margin-top: 4rem; margin-bottom: 1.5rem;">Technical Dilemmas &amp; Solutions</h3>
+            <div class="sticky-notes-container">
                 <!-- Dilemma A -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. The Serverless Latency Problem (Hono vs. NestJS)</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilema:</strong> The initial spec proposed NestJS on AWS Lambda. While NestJS provides clean enterprise organization, its heavy dependency-injection container leads to cold start latencies of 1.5 to 3 seconds. For a real-time ERP interface, this lag ruins the user experience.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> We replaced NestJS with Hono running on Node.js. Hono is a zero-dependency, ultra-lightweight framework built specifically for serverless edge/lambda environments.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Cold starts dropped to under 150ms, offering an instantaneous, smooth experience for clients approving budgets.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma A</span>
+                    <h4 class="sticky-note-title">Serverless Latency (Hono vs. NestJS)</h4>
+                    <p><strong>Dilema:</strong> The initial spec proposed NestJS on AWS Lambda. While NestJS provides clean enterprise organization, its heavy DI container leads to cold start latencies of 1.5 to 3 seconds. For a real-time ERP interface, this lag ruins the user experience.</p>
+                    <p><strong>Decision:</strong> We replaced NestJS with Hono running on Node.js. Hono is a zero-dependency, ultra-lightweight framework built specifically for serverless edge/lambda environments.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Cold starts dropped to under 150ms, offering an instantaneous, smooth experience for clients.</div>
                 </div>
                 
                 <!-- Dilemma B -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. Rigid Identity vs. Dynamic Permissions (Cognito vs. DB-Level RBAC)</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> Managing complex multi-tenant client hierarchies and granular role-based permissions (RBAC) directly inside Cognito Groups is rigid, hard to audit, and bloats JWT token payloads.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> We use Amazon Cognito strictly for Authentication (verifying identity). All Authorization (permissions logic) is managed entirely within PostgreSQL tables.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> This keeps Cognito clean and secure. We can update client approval limits or vendor permissions instantly in DB tables without modifying Cognito schemas.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma B</span>
+                    <h4 class="sticky-note-title">Rigid Identity vs. Dynamic Permissions</h4>
+                    <p><strong>Dilema:</strong> Managing complex multi-tenant client hierarchies and granular role-based permissions (RBAC) directly inside Cognito Groups is rigid, hard to audit, and bloats JWT token payloads.</p>
+                    <p><strong>Decision:</strong> We use Amazon Cognito strictly for Authentication (verifying identity). All Authorization (permissions logic) is managed entirely within PostgreSQL tables.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> This keeps Cognito clean and secure. We can update client limits or vendor permissions instantly in DB tables without modifying Cognito schemas.</div>
                 </div>
 
                 <!-- Dilemma C -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Database Connection Starvation (RDS Proxy)</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> PostgreSQL opens a separate OS process for every single connection. In a serverless architecture, Lambda functions scale horizontally. A sudden surge of vendors updating stock would spin up dozens of Lambda containers, instantly exhausting database connection limits.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> We deployed Amazon RDS Proxy between the Lambda functions and the Aurora database.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> RDS Proxy maintains a persistent connection pool, multiplexing connection requests from active Lambdas to keep database connection counts stable.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma C</span>
+                    <h4 class="sticky-note-title">Database Connection Starvation</h4>
+                    <p><strong>Dilema:</strong> PostgreSQL opens a separate OS process for every connection. In serverless, Lambda functions scale horizontally. A surge of vendors updating stock would spin up dozens of Lambdas, instantly exhausting database connection limits.</p>
+                    <p><strong>Decision:</strong> We deployed Amazon RDS Proxy between the Lambda functions and the Aurora database.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> RDS Proxy maintains a persistent connection pool, multiplexing connection requests from active Lambdas to keep database connection counts stable.</div>
                 </div>
 
                 <!-- Dilemma D -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">D. Cost Control for Autoscaling Databases (Aurora Serverless v2)</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> While Aurora Serverless v2 scales automatically based on capacity units (ACUs), inefficient queries or excessive client polling will trigger high capacity scaling, leading to unexpectedly high monthly AWS bills.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> We set strict min/max limits on ACU scaling inside Terraform, and implemented React Query cache layers on the frontend.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> The database safely scales down to its minimum capacity (0.5 ACUs) during off-hours, cutting database operational costs by over 60%.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma D</span>
+                    <h4 class="sticky-note-title">Cost Control (Aurora Serverless v2)</h4>
+                    <p><strong>Dilema:</strong> While Aurora Serverless v2 scales automatically based on capacity units (ACUs), inefficient queries or excessive client polling will trigger high capacity scaling, leading to unexpectedly high monthly AWS bills.</p>
+                    <p><strong>Decision:</strong> We set strict min/max limits on ACU scaling inside Terraform, and implemented React Query cache layers on the frontend.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> The database safely scales down to its minimum capacity (0.5 ACUs) during off-hours, cutting database operational costs by over 60%.</div>
                 </div>
 
                 <!-- Dilemma E -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">E. Long-Running Workloads (Lambda SQS vs. Future ECS)</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> Generating 200+ page high-resolution catalogs or parsing massive Excel sheets can easily exceed AWS Lambda's strict 15-minute runtime execution limit.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> We used an EventBridge router and SQS queue to process standard async tasks.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Decoupling the queue means that if import sizes grow, we can migrate the worker Lambdas to persistent AWS Fargate (ECS) containers in Phase 2 without rewriting any of the core API logic.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma E</span>
+                    <h4 class="sticky-note-title">Long-Running Workloads</h4>
+                    <p><strong>Dilema:</strong> Generating 200+ page high-resolution catalogs or parsing massive Excel sheets can easily exceed AWS Lambda's strict 15-minute runtime execution limit.</p>
+                    <p><strong>Decision:</strong> We used an EventBridge router and SQS queue to process standard async tasks.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Decoupling the queue means that if import sizes grow, we can migrate the worker Lambdas to persistent AWS Fargate (ECS) containers in Phase 2 without rewriting core API logic.</div>
                 </div>
             </div>
         </div>
@@ -160,61 +198,103 @@
             <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">Dynamic multi-tenant contact and lead synchronization mapping incoming customer chats directly to EspoCRM or HubSpot.</p>
             
             <!-- Diagram Section -->
-            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+            <div class="diagram-wrap whiteboard-bg" style="overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
                 <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Integration Flow (n8n Workflow)</h3>
                 <div class="mermaid" style="width: 100%; max-width: 800px;">
                   graph TD
-                      Chatwoot[Chatwoot Webhook Trigger] --> Validate{Validate Webhook}
-                      Validate -->|True| MapChatwoot[Map Chatwoot Payload]
-                      MapChatwoot --> GetTenant[Fetch Tenant Settings]
-                      GetTenant --> MapCRM[Map CRM Settings]
-                      MapCRM --> CheckMap[Check Existing Contact Map]
-                      CheckMap --> SwitchCRM{Switch: CRM Vendor}
-                      
-                      SwitchCRM -->|HubSpot| HubSpotOps[HubSpot: No Operation]
-                      SwitchCRM -->|EspoCRM| MapEspo[Map EspoCRM Payload]
-                      
-                      MapEspo --> CheckLead{Check if Lead Exists}
-                      CheckLead -->|Yes| FetchContact[Get EspoCRM Contact]
-                      CheckLead -->|No| CreateLead[Create EspoCRM Lead]
-                      
-                      FetchContact --> CheckContact{Contact Exists?}
-                      CheckContact -->|Yes| UpdateContact[Update EspoCRM Contact]
-                      CheckContact -->|No| CreateContactMap[Create Contact & Map]
-                      
+                      classDef orange fill:#fff,stroke:#ff9900,stroke-width:2px;
+                      classDef blue fill:#fff,stroke:#00a1e0,stroke-width:2px;
+                      classDef purple fill:#fff,stroke:#9933ff,stroke-width:2px;
+                      classDef red fill:#fff,stroke:#ff3366,stroke-width:2px;
+                      classDef green fill:#fff,stroke:#24b07c,stroke-width:2px;
+                      classDef grey fill:#fff,stroke:#7f8c8d,stroke-width:2px;
+
+                      Chatwoot["<img src='https://img.icons8.com/color/48/chat.png' width='48' height='48'/><br/><b>Chatwoot Trigger</b>"]
+                      Validate["<img src='https://img.icons8.com/color/48/checked.png' width='48' height='48'/><br/><b>Validate Webhook</b>"]
+                      MapChatwoot["<img src='https://img.icons8.com/color/48/map.png' width='48' height='48'/><br/><b>Map Chatwoot</b>"]
+                      GetTenant["<img src='https://img.icons8.com/color/48/admin-settings-male.png' width='48' height='48'/><br/><b>Get Tenant Config</b>"]
+                      MapCRM["<img src='https://img.icons8.com/color/48/automatic.png' width='48' height='48'/><br/><b>Map CRM Settings</b>"]
+                      CheckMap["<img src='https://img.icons8.com/color/48/database.png' width='48' height='48'/><br/><b>Check Contact Map</b>"]
+                      SwitchCRM["<img src='https://img.icons8.com/color/48/split.png' width='48' height='48'/><br/><b>Switch: CRM Vendor</b>"]
+
+                      Chatwoot --> Validate
+                      Validate -->|Valid| MapChatwoot
+                      MapChatwoot --> GetTenant
+                      GetTenant --> MapCRM
+                      MapCRM --> CheckMap
+                      CheckMap --> SwitchCRM
+
+                      subgraph HubSpotFlow [HubSpot Branch]
+                          HubSpotOps["<img src='https://img.icons8.com/color/48/organization.png' width='48' height='48'/><br/><b>HubSpot: No Operation</b>"]
+                      end
+
+                      subgraph EspoFlow [EspoCRM Branch]
+                          MapEspo["<img src='https://img.icons8.com/color/48/data-configuration.png' width='48' height='48'/><br/><b>Map EspoCRM</b>"]
+                          CheckLead["<img src='https://img.icons8.com/color/48/search.png' width='48' height='48'/><br/><b>Check: Lead Exists?</b>"]
+                          FetchContact["<img src='https://img.icons8.com/color/48/find-user-male.png' width='48' height='48'/><br/><b>Get EspoCRM Contact</b>"]
+                          CreateLead["<img src='https://img.icons8.com/color/48/add-user-group-man-man.png' width='48' height='48'/><br/><b>Create EspoCRM Lead</b>"]
+                          CheckContact["<img src='https://img.icons8.com/color/48/question-mark.png' width='48' height='48'/><br/><b>Contact Exists?</b>"]
+                          UpdateContact["<img src='https://img.icons8.com/color/48/edit-user-male.png' width='48' height='48'/><br/><b>Update Contact</b>"]
+                          CreateContactMap["<img src='https://img.icons8.com/color/48/flow-chart.png' width='48' height='48'/><br/><b>Create Contact & Map</b>"]
+                          FetchLeadInfo["<img src='https://img.icons8.com/color/48/about.png' width='48' height='48'/><br/><b>Get Lead Info</b>"]
+                          LeadCondition["<img src='https://img.icons8.com/color/48/rules.png' width='48' height='48'/><br/><b>Is Lead Valid?</b>"]
+                          UpdateLead["<img src='https://img.icons8.com/color/48/edit-user-female.png' width='48' height='48'/><br/><b>Update Lead</b>"]
+                          DeleteMapping["<img src='https://img.icons8.com/color/48/delete-link.png' width='48' height='48'/><br/><b>Delete Old Map</b>"]
+                      end
+
+                      SwitchCRM -->|HubSpot| HubSpotOps
+                      SwitchCRM -->|EspoCRM| MapEspo
+
+                      MapEspo --> CheckLead
+                      CheckLead -->|Yes| FetchContact
+                      CheckLead -->|No| CreateLead
+
+                      FetchContact --> CheckContact
+                      CheckContact -->|Yes| UpdateContact
+                      CheckContact -->|No| CreateContactMap
+
                       CreateLead --> CreateContactMap
-                      CreateContactMap --> FetchLeadInfo[Get Lead Details]
-                      FetchLeadInfo --> LeadCondition{Is Info Valid?}
-                      LeadCondition -->|Yes| UpdateLead[Update Lead Profile]
-                      LeadCondition -->|No| DeleteMapping[Delete Stale Mapping]
+                      CreateContactMap --> FetchLeadInfo
+                      FetchLeadInfo --> LeadCondition
+                      LeadCondition -->|Yes| UpdateLead
+                      LeadCondition -->|No| DeleteMapping
+
+                      %% Classes
+                      class Chatwoot,Validate,MapChatwoot blue;
+                      class GetTenant,MapCRM,CheckMap,SwitchCRM orange;
+                      class HubSpotOps red;
+                      class MapEspo,CheckLead,FetchContact,CreateLead,CheckContact,UpdateContact,CreateContactMap,FetchLeadInfo,LeadCondition,UpdateLead,DeleteMapping green;
                 </div>
             </div>
 
-            <!-- Tradeoffs Section -->
-            <h3 class="section-title" style="margin-bottom: 2.5rem;">Technical Dilemmas &amp; Solutions</h3>
-            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+            <!-- Tradeoffs Section (Miro Sticky Notes) -->
+            <h3 class="section-title" style="margin-top: 4rem; margin-bottom: 1.5rem;">Technical Dilemmas &amp; Solutions</h3>
+            <div class="sticky-notes-container">
                 <!-- Dilemma A -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. Dynamic Multi-Tenant Routing</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> Managing separate n8n workflows for each tenant CRM would be a maintenance nightmare as client onboarding increases.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Built a single, parameterized workflow using dynamic lookups (GET: Tenant Settings) and a centralized SWITCH router node to direct payloads based on client CRM configurations.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> A single n8n template workflow supports multiple CRMs (EspoCRM, HubSpot) and dozens of tenants simultaneously with zero maintenance overhead.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilema A</span>
+                    <h4 class="sticky-note-title">Dynamic Multi-Tenant Routing</h4>
+                    <p><strong>Dilema:</strong> Managing separate n8n workflows for each tenant CRM would be a maintenance nightmare as client onboarding increases.</p>
+                    <p><strong>Decision:</strong> Built a single, parameterized workflow using dynamic lookups (GET: Tenant Settings) and a centralized SWITCH router node to direct payloads based on client CRM configurations.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> A single n8n template workflow supports multiple CRMs and dozens of tenants simultaneously with zero maintenance overhead.</div>
                 </div>
                 
                 <!-- Dilemma B -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. Race Conditions &amp; Deduplication</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> Webhook spikes can trigger duplicate contacts in the CRM if multiple chat messages arrive from the same email before the first contact creation database operation completes.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Implemented a multi-stage validation check (Check if Lead Exists -> Check if Contact Exists on match).</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Ensures the pipeline updates existing CRM records dynamically and keeps contact mapping tables clean, achieving 100% data integrity.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilema B</span>
+                    <h4 class="sticky-note-title">Race Conditions &amp; Deduplication</h4>
+                    <p><strong>Dilema:</strong> Webhook spikes can trigger duplicate contacts in the CRM if multiple chat messages arrive from the same email before the first contact creation database operation completes.</p>
+                    <p><strong>Decision:</strong> Implemented a multi-stage validation check (Check if Lead Exists -> Check if Contact Exists on match).</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Ensures the pipeline updates existing CRM records dynamically and keeps contact mapping tables clean, achieving 100% data integrity.</div>
                 </div>
 
                 <!-- Dilemma C -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Stale ID Mapping Recovery</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> When a sales operator converts a lead into a contact in the CRM manually, old ID references in n8n's lookup table cause sync errors on future messages.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Added a verification branch (LeadCondition) that checks the CRM record state.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> If a mapping reference is stale, n8n triggers the Delete old mapping endpoint automatically, clearing references and starting a clean sync flow on the next update.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma C</span>
+                    <h4 class="sticky-note-title">Stale ID Mapping Recovery</h4>
+                    <p><strong>Dilema:</strong> When a sales operator converts a lead into a contact in the CRM manually, old ID references in n8n's lookup table cause sync errors on future messages.</p>
+                    <p><strong>Decision:</strong> Added a verification branch (LeadCondition) that checks the CRM record state.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> If a mapping reference is stale, n8n triggers the Delete old mapping endpoint automatically, clearing references and starting a clean sync flow on the next update.</div>
                 </div>
             </div>
         </div>
@@ -232,28 +312,36 @@
             <p class="hero-lede" style="margin-bottom: 3rem; max-width: none; color: var(--text-muted);">A high-security, 3-tier API-led MuleSoft architecture orchestrating donor registration, verification, and medical deferral synchronization.</p>
             
             <!-- Diagram Section -->
-            <div class="diagram-wrap" style="background: var(--bg-cream, #f7f9f9); border: 1px solid var(--rule-light); border-radius: 12px; padding: 2rem; margin-bottom: 4rem; overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
+            <div class="diagram-wrap whiteboard-bg" style="overflow-x: auto; display: flex; flex-direction: column; align-items: center;">
                 <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem; align-self: flex-start; color: var(--ink);">Architectural Blueprint</h3>
                 <div class="mermaid" style="width: 100%; max-width: 800px;">
                   graph TD
+                      classDef orange fill:#fff,stroke:#ff9900,stroke-width:2px;
+                      classDef blue fill:#fff,stroke:#00a1e0,stroke-width:2px;
+                      classDef purple fill:#fff,stroke:#9933ff,stroke-width:2px;
+                      classDef red fill:#fff,stroke:#ff3366,stroke-width:2px;
+                      classDef green fill:#fff,stroke:#24b07c,stroke-width:2px;
+                      classDef grey fill:#fff,stroke:#7f8c8d,stroke-width:2px;
+
                       subgraph Experience Layer
-                          SFHC[Salesforce Health Cloud]
-                          MobileApp[Mobile App: DAPP]
-                          ExpAPI[Donor Mobile Experience API]
+                          SFHC["<img src='https://img.icons8.com/color/48/salesforce.png' width='36' height='36'/><br/><b>Salesforce Health Cloud</b>"]
+                          MobileApp["<img src='https://img.icons8.com/color/48/iphone.png' width='36' height='36'/><br/><b>Mobile App (DAPP)</b>"]
+                          ExpAPI["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>Donor Experience API</b>"]
+                          
                           SFHC --> ExpAPI
                           MobileApp --> ExpAPI
                       end
                       
                       subgraph Process Layer
-                          ProcAPI[Donor Process API]
+                          ProcAPI["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>Donor Process API</b>"]
                           ExpAPI --> ProcAPI
                       end
                       
                       subgraph System Layer
-                          SFHCSys[Salesforce Health Cloud System API]
-                          DMSSys[DMS Core Database System API]
-                          MobileSys[Mobile System API]
-                          EmailSys[External Provider Email SAPI]
+                          SFHCSys["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>SFHC System API</b>"]
+                          DMSSys["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>DMS Database SAPI</b>"]
+                          MobileSys["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>Mobile System API</b>"]
+                          EmailSys["<img src='https://img.icons8.com/color/48/flow-chart.png' width='36' height='36'/><br/><b>Email System API</b>"]
                           
                           ProcAPI --> SFHCSys
                           ProcAPI --> DMSSys
@@ -262,39 +350,53 @@
                       end
                       
                       subgraph Data & Identity Engines
-                          SFHCSys --> SalesforceHC[(Salesforce Health Cloud Database)]
-                          DMSSys --> OracleDMS[(Oracle Database: Core Donor DMS)]
-                          OracleDMS --> Data360[Data360: Identity Resolution Engine]
-                          EmailSys --> AmazonSES[Amazon SES / Email System]
+                          SalesforceHC[(Salesforce HC DB)]
+                          OracleDMS[(Oracle DB: Donor DMS)]
+                          Data36["<img src='https://img.icons8.com/color/48/fingerprint.png' width='36' height='36'/><br/><b>Data360 Identity Engine</b>"]
+                          AmazonSES["<img src='https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/main/dist/BusinessApplications/SimpleEmailService.png' width='36' height='36'/><br/><b>Amazon SES</b>"]
+                          
+                          SFHCSys --> SalesforceHC
+                          DMSSys --> OracleDMS
+                          OracleDMS --> Data36
+                          EmailSys --> AmazonSES
                       end
+
+                      %% Classes
+                      class SFHC,MobileApp,SalesforceHC blue;
+                      class ExpAPI,ProcAPI,SFHCSys,DMSSys,MobileSys,EmailSys orange;
+                      class OracleDMS,Data36 purple;
+                      class AmazonSES green;
                 </div>
             </div>
 
-            <!-- Tradeoffs Section -->
-            <h3 class="section-title" style="margin-bottom: 2.5rem;">Technical Dilemmas &amp; Solutions</h3>
-            <div class="signal-list" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem;">
+            <!-- Tradeoffs Section (Miro Sticky Notes) -->
+            <h3 class="section-title" style="margin-top: 4rem; margin-bottom: 1.5rem;">Technical Dilemmas &amp; Solutions</h3>
+            <div class="sticky-notes-container">
                 <!-- Dilemma A -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">A. US Compliance &amp; PII-Safe Identity Resolution</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> US regulations require verifying donor identity against national medical deferral registries to prevent ineligible donors. However, strict HIPAA and data security compliance prohibit storing full Social Security Numbers (SSN) within the Mobile App or intermediate integration layers.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Configured a secure identity resolution layer via the DMS System API and Data360. We query records using First Name, Last Name, Date of Birth (DOB), and *only* the last 4 or 5 digits of the SSN (processed and matched as one-way encrypted hashes).</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Achieved 100% compliance alignment, preventing profile duplication and ensuring medical deferral records match correctly without compromising sensitive PII.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma A</span>
+                    <h4 class="sticky-note-title">US Compliance &amp; PII-Safe Identity Resolution</h4>
+                    <p><strong>Dilemma:</strong> US regulations require verifying donor identity against national medical deferral registries. However, strict HIPAA compliance prohibits storing full Social Security Numbers (SSN) within Mobile App or intermediate integration layers.</p>
+                    <p><strong>Decision:</strong> Configured a secure identity resolution layer via the DMS System API and Data360. We query records using First/Last Name, DOB, and only the last 4 or 5 digits of the SSN (matched as one-way encrypted hashes).</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Achieved 100% compliance, preventing profile duplication and ensuring deferral records match correctly without storing sensitive PII payloads.</div>
                 </div>
                 
                 <!-- Dilemma B -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">B. 3-Tier API-Led Connectivity Architecture</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> Creating direct peer-to-peer data pipes between Salesforce Health Cloud, the mobile app, and the legacy Oracle DMS database creates high dependency coupling, making schema updates risky and slowing down releases.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Deployed MuleSoft's 3-tier API architecture: Experience APIs (channel-optimized interfaces), Process APIs (business logic orchestration), and System APIs (secure database adapters).</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Fully decoupled backend systems. We can optimize or upgrade the Oracle DB schema underneath `dms-sys-api` without impacting mobile app operations.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma B</span>
+                    <h4 class="sticky-note-title">3-Tier API-Led Connectivity</h4>
+                    <p><strong>Dilemma:</strong> Creating direct peer-to-peer data pipes between Salesforce Health Cloud, the mobile app, and the legacy Oracle DMS database creates high dependency coupling, making schema updates risky.</p>
+                    <p><strong>Decision:</strong> Deployed MuleSoft's 3-tier API architecture: Experience APIs (channel-optimized), Process APIs (business logic), and System APIs (secure adapters).</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Decouples backend systems. We can optimize or upgrade the Oracle DB schema underneath dms-sys-api without impacting mobile app operations.</div>
                 </div>
 
                 <!-- Dilemma C -->
-                <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem;">C. Event-Driven Deferral Auditing &amp; Marketing Blockers</h4>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Dilemma:</strong> If a donor is deferred due to a medical exam at a physical donation center, promotional emails/SMS must stop immediately. Synchronizing this status via daily batch runs leaves a compliance window open, exposing the company to audit penalties.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--text);"><strong>Decision:</strong> Implemented a real-time `Event Listener` system API. When a deferral is recorded in the Oracle DMS database, it fires an immediate message queue event, which the Process API routes to update Salesforce Health Cloud and Marketing Cloud.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--accent-hover);"><strong>Solution:</strong> Promotional messaging is suspended in under 1 second of deferral registration, eliminating compliance gaps.</p>
+                <div class="sticky-note">
+                    <span class="sticky-note-kicker">Dilemma C</span>
+                    <h4 class="sticky-note-title">Event-Driven Deferral Auditing</h4>
+                    <p><strong>Dilemma:</strong> If a donor is deferred due to a medical exam at a center, promotional emails must stop immediately. Synchronizing this via daily batch runs leaves a compliance window open, exposing the company to penalties.</p>
+                    <p><strong>Decision:</strong> Implemented a real-time Event Listener system API. When a deferral is recorded in DMS, it fires an immediate message queue event routed directly to update Salesforce Health Cloud and Marketing Cloud.</p>
+                    <div class="sticky-note-solution"><strong>Solution:</strong> Promotional messaging is suspended in under 1 second of deferral registration, eliminating compliance gaps.</div>
                 </div>
             </div>
         </div>
@@ -308,6 +410,7 @@
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
+            securityLevel: 'loose',
             startOnLoad: false,
             theme: 'neutral',
             themeVariables: {
@@ -319,8 +422,14 @@
                 fontFamily: 'Public Sans'
             }
         });
-        window.renderMermaid = function() {
-            mermaid.run({ querySelector: '.mermaid' });
+        window.renderMermaid = function(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                const mermaidEl = container.querySelector('.mermaid');
+                if (mermaidEl && !mermaidEl.getAttribute('data-processed')) {
+                    mermaid.run({ nodes: [mermaidEl] });
+                }
+            }
         }
     </script>
     <script>
@@ -337,7 +446,7 @@
             if (activeDetail) {
                 activeDetail.style.display = 'block';
                 if (window.renderMermaid) {
-                    window.renderMermaid();
+                    window.renderMermaid('detailView-' + caseId);
                 }
                 activeDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
