@@ -2434,7 +2434,7 @@ section[id] {
     }
 
     .header-nav > .nav-link:first-child {
-        display: none;
+        display: inline-flex;
     }
 }
 
@@ -8370,4 +8370,117 @@ body {
 
 .dark-editorial-band:not(.ai-dark-band) .trace-step strong {
     color: var(--text);
+}
+
+/* Homepage buying journey */
+.buyer-section {
+    scroll-margin-top: 5rem;
+}
+
+.buyer-situation-grid {
+    border-bottom: 1px solid var(--rule-strong);
+    border-top: 1px solid var(--rule-strong);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2.5rem;
+}
+
+.buyer-situation {
+    display: flex;
+    flex-direction: column;
+    min-height: 330px;
+    padding: 2.5rem clamp(1.5rem, 2.6vw, 2.5rem);
+}
+
+.buyer-situation + .buyer-situation {
+    border-left: 1px solid var(--rule);
+}
+
+.buyer-situation .entry-code {
+    color: var(--accent);
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.buyer-situation h3 {
+    color: var(--ink);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    letter-spacing: -0.025em;
+    line-height: 1.16;
+    margin: 0 0 1rem;
+}
+
+.buyer-situation p {
+    color: var(--text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin: 0 0 1.75rem;
+}
+
+.buyer-situation .text-link {
+    margin-top: auto;
+}
+
+.buyer-section-note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 2rem 0 0;
+}
+
+.buyer-section-note .text-link {
+    margin-left: 0.25rem;
+}
+
+.sales-path {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sales-path .trace-step {
+    padding-left: clamp(1.25rem, 2.5vw, 2.25rem);
+    padding-right: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.conversion-note {
+    color: var(--text-dim);
+    display: block;
+    font-size: 0.78rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+    .buyer-situation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buyer-situation {
+        min-height: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .buyer-situation + .buyer-situation {
+        border-left: 0;
+        border-top: 1px solid var(--rule);
+    }
+}
+
+@media (max-width: 768px) {
+    .sales-path {
+        grid-template-columns: 1fr;
+    }
+
+    .sales-path .trace-step,
+    .sales-path .trace-step:nth-child(3),
+    .sales-path .trace-step:nth-child(even) {
+        border-bottom: 1px solid rgba(164, 222, 213, 0.22);
+        border-right: 0;
+        min-height: auto;
+    }
+
+    .sales-path .trace-step:last-child {
+        border-bottom: 0;
+    }
 }
