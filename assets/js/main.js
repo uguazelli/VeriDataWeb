@@ -190,69 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const root = window.resRoot || '';
 
-    // Load components
+    // Load shared components.
     loadComponent('header-placeholder', root + 'components/header.html');
     loadComponent('footer-placeholder', root + 'components/footer.html');
-    // Convert prices to BRL on Portuguese pages
-    convertPricesToBRL();
 });
-
-/**
- * Fetches the current USD to BRL exchange rate and updates price blocks on Portuguese pages.
- * If the API fails, the original USD values remain in the DOM as fallback.
- */
-async function convertPricesToBRL() {
-    const currentLang = (document.documentElement.lang || '').toLowerCase();
-    const pathLang = window.location.pathname.split('/').find(part => part === 'pt');
-    const isPortuguesePage = currentLang.startsWith('pt') || pathLang === 'pt';
-    if (!isPortuguesePage) return;
-
-    const priceNodes = document.querySelectorAll('.price-amount, .pricing-price');
-    if (!priceNodes.length) return;
-
-    try {
-        const response = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
-        if (!response.ok) return;
-        const data = await response.json();
-        const rate = Number(data?.rates?.BRL);
-        if (!Number.isFinite(rate) || rate <= 0) return;
-
-        const brlFormatter = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-            maximumFractionDigits: 0
-        });
-
-        const parseUsdValue = value => Number(value.replace(/[.,]/g, ''));
-        const roundToNearest50 = value => Math.round(value / 50) * 50;
-
-        priceNodes.forEach(node => {
-            if (node.dataset.currencyConverted === 'BRL') return;
-
-            const originalText = node.textContent.replace(/\s+/g, ' ').trim();
-            const match = originalText.match(/\$\s*([\d.,]+)/);
-            if (!match) return;
-
-            const usdValue = parseUsdValue(match[1]);
-            if (!Number.isFinite(usdValue)) return;
-
-            const prefix = originalText.slice(0, match.index).trim();
-            const isMonthly = /\/\s*m[eê]s/i.test(originalText);
-            const brlValue = brlFormatter.format(roundToNearest50(usdValue * rate)).replace(/\u00a0/g, ' ');
-            const label = document.createElement('span');
-            label.style.fontSize = '1rem';
-            label.style.fontFamily = "'Public Sans', sans-serif";
-            label.textContent = isMonthly ? '/ mês' : 'BRL';
-
-            node.textContent = `${prefix ? prefix + ' ' : ''}${brlValue} `;
-            node.appendChild(label);
-            node.dataset.currencyConverted = 'BRL';
-        });
-
-    } catch (error) {
-        console.warn('Failed to convert USD prices to BRL. Keeping USD fallback.', error);
-    }
-}
 
 /**
  * Translates UI elements based on the current language folder.
@@ -269,110 +210,70 @@ function translateUI(context) {
 
     const translations = {
         'pt': {
-            'retainer.eyebrow': 'Suporte Contínuo de Integração',
-            'retainer.heading': 'Mantenha o que está em produção monitorado, com dono e corrigido — antes que vire problema.',
-            'retainer.intro': 'Uma integração que movimenta receita, financeiro ou operações precisa de um responsável depois de entrar no ar. Monitoramos suas integrações em produção, identificamos falhas antes dos seus clientes ou do financeiro, e as adaptamos conforme APIs e fornecedores mudam.',
-            'retainer.per_month': 'USD/mês',
-            'retainer.essentials.label': 'Essentials',
-            'retainer.essentials.b1': 'Monitoramento das suas integrações em produção',
-            'retainer.essentials.b2': 'Correção de problemas em até 2 dias úteis',
-            'retainer.essentials.b3': 'Reunião mensal + relatório de saúde escrito',
-            'retainer.essentials.b4': 'Suporte assíncrono por e-mail ou WhatsApp',
-            'retainer.standard.label': 'Standard — A maioria dos clientes',
-            'retainer.standard.b1': 'Tudo do Essentials',
-            'retainer.standard.b2': 'Resposta no próximo dia útil, no mesmo dia em falhas críticas',
-            'retainer.standard.b3': 'Adaptações simples inclusas — mudanças de campos, versões de API, ajustes de fornecedor',
-            'retainer.standard.b4': 'Reunião mensal + relatório de saúde escrito',
-            'retainer.priority.label': 'Priority',
-            'retainer.priority.b1': 'Tudo do Standard',
-            'retainer.priority.b2': 'Resposta a incidente crítico com prazo definido',
-            'retainer.priority.b3': 'Todas as suas integrações cobertas',
-            'retainer.priority.b4': 'Bloco mensal de horas para pequenas melhorias (6–8 h)',
-            'retainer.priority.b5': 'Agendamento prioritário',
-            'retainer.scope_note': 'Cobre manter suas integrações em produção funcionando — monitoramento, correções e adaptações a mudanças de APIs e fornecedores. Novas construções e novas integrações são orçadas separadamente.',
-            'retainer.wa_cta': 'Falar pelo WhatsApp',
-            'retainer.wa_href': 'https://wa.me/17405208080?text=Oi%20Ugo%2C%20gostaria%20de%20conversar%20sobre%20uma%20integra%C3%A7%C3%A3o.',
             'header.home': 'Início',
-            'header.services': 'Serviços',
-            'header.odoo': 'Integrações Odoo',
-            'header.integrations': 'Integrações',
-            'header.healthcare_integration': 'Integrações de Saúde',
+            'header.what_we_do': 'O que fazemos',
+            'header.solutions': 'Soluções',
+            'header.ai_deployment': 'Implementação de IA',
+            'header.fde': 'Engenharia Forward-Deployed',
+            'header.odoo': 'Odoo',
+            'header.integrations': 'Engenharia de Integração',
+            'header.healthcare': 'Sistemas de Saúde',
             'header.ai_whatsapp_crm': 'WhatsApp + CRM com IA',
-            'header.case_studies': 'Casos de Estudo',
-            'header.pricing': 'Preços',
+            'header.case_studies': 'Trabalhos',
+            'header.how_we_work': 'Como trabalhamos',
+            'header.about': 'Sobre',
             'header.contact': 'Fale Conosco',
-            'header.book_call': 'Agendar revisão gratuita de integração',
+            'header.bring_problem': 'Traga um problema',
             'header.language_select': 'Idioma',
             'footer.home': 'Início',
             'footer.navigation': 'Navegação',
             'footer.tools': 'Ferramentas',
-            'footer.integrations': 'Integrações',
+            'footer.how_we_work': 'Como trabalhamos',
             'footer.ai_whatsapp_crm': 'Assistente de WhatsApp + CRM com IA',
-            'footer.pricing': 'Preços',
             'footer.contact': 'Fale Conosco',
             'footer.privacy': 'Política de Privacidade',
-            'footer.odoo': 'Integrações Odoo',
             'footer.services': 'Serviços',
-            'footer.odoo_work': 'Integração e Automação com Odoo',
-            'footer.integration_work': 'Integrações de Sistemas',
-            'footer.healthcare_work': 'Integração de Sistemas de Saúde',
+            'footer.ai_deployment': 'Implementação de IA',
+            'footer.fde': 'Engenharia Forward-Deployed',
+            'footer.odoo_work': 'Odoo',
+            'footer.integration_work': 'Engenharia de Integração',
+            'footer.healthcare_work': 'Sistemas de Saúde',
             'footer.ai_work': 'Assistente de WhatsApp + CRM com IA',
-            'footer.pricing_work': 'Preços e Pontos de Entrada',
             'footer.registered': 'Registrada em Wyoming, EUA · hello@veridatapro.com',
-            'footer.no_outsourcing': 'Todos os projetos são liderados por arquiteto. Sem terceirização. Sem alocação de mão de obra técnica.'
+            'footer.senior_led': 'Entrega liderada por profissionais seniores, com responsabilidade técnica direta.'
         },
         'es': {
-            'retainer.eyebrow': 'Soporte Continuo de Integración',
-            'retainer.heading': 'Mantén lo que está en producción con dueño, monitoreado y resuelto — antes de que te cueste caro.',
-            'retainer.intro': 'Una integración que mueve ingresos, finanzas u operaciones necesita un responsable después de salir a producción. Monitoreamos tus integraciones en vivo, detectamos fallas antes que tus clientes o el equipo financiero, y las adaptamos cuando cambian las APIs y los proveedores.',
-            'retainer.per_month': 'USD/mes',
-            'retainer.essentials.label': 'Essentials',
-            'retainer.essentials.b1': 'Monitoreo de tus integraciones en producción',
-            'retainer.essentials.b2': 'Corrección de errores en hasta 2 días hábiles',
-            'retainer.essentials.b3': 'Llamada mensual de revisión + informe escrito de salud',
-            'retainer.essentials.b4': 'Consultas asíncronas por email o WhatsApp',
-            'retainer.standard.label': 'Standard — La mayoría elige este',
-            'retainer.standard.b1': 'Todo lo del Essentials',
-            'retainer.standard.b2': 'Respuesta al siguiente día hábil, mismo día en fallas críticas',
-            'retainer.standard.b3': 'Adaptaciones menores incluidas — campos, versiones de API, ajustes de proveedores',
-            'retainer.standard.b4': 'Llamada mensual de revisión + informe escrito de salud',
-            'retainer.priority.label': 'Priority',
-            'retainer.priority.b1': 'Todo lo del Standard',
-            'retainer.priority.b2': 'Respuesta a incidentes críticos con tiempos definidos',
-            'retainer.priority.b3': 'Todas tus integraciones cubiertas',
-            'retainer.priority.b4': 'Bloque mensual de horas de cambio (6–8 h) para mejoras puntuales',
-            'retainer.priority.b5': 'Programación prioritaria',
-            'retainer.scope_note': 'Cubre mantener tus integraciones en producción funcionando — monitoreo, correcciones y adaptación a cambios de APIs y proveedores. Desarrollos nuevos e integraciones nuevas se cotizan por separado.',
-            'retainer.wa_cta': 'Hablar por WhatsApp',
-            'retainer.wa_href': 'https://wa.me/17405208080?text=Hola%20Ugo%2C%20quisiera%20hablar%20sobre%20una%20integraci%C3%B3n.',
             'header.home': 'Inicio',
-            'header.services': 'Servicios',
-            'header.odoo': 'Integraciones Odoo',
-            'header.integrations': 'Integraciones',
-            'header.healthcare_integration': 'Integraciones de Salud',
+            'header.what_we_do': 'Qué hacemos',
+            'header.solutions': 'Soluciones',
+            'header.ai_deployment': 'Implementación de IA',
+            'header.fde': 'Ingeniería Forward-Deployed',
+            'header.odoo': 'Odoo',
+            'header.integrations': 'Ingeniería de Integración',
+            'header.healthcare': 'Sistemas de Salud',
             'header.ai_whatsapp_crm': 'WhatsApp + CRM con IA',
-            'header.case_studies': 'Casos de Estudio',
-            'header.pricing': 'Precios',
+            'header.case_studies': 'Trabajo',
+            'header.how_we_work': 'Cómo trabajamos',
+            'header.about': 'Sobre nosotros',
             'header.contact': 'Contacto',
-            'header.book_call': 'Agendar revisión gratuita de integración',
+            'header.bring_problem': 'Tráenos un problema',
             'header.language_select': 'Idioma',
             'footer.home': 'Inicio',
             'footer.navigation': 'Navegación',
             'footer.tools': 'Herramientas',
-            'footer.integrations': 'Integraciones',
+            'footer.how_we_work': 'Cómo trabajamos',
             'footer.ai_whatsapp_crm': 'Asistente de WhatsApp + CRM con IA',
-            'footer.pricing': 'Precios',
             'footer.contact': 'Contacto',
             'footer.privacy': 'Política de Privacidad',
-            'footer.odoo': 'Integraciones Odoo',
             'footer.services': 'Servicios',
-            'footer.odoo_work': 'Integración y Automatización de Odoo',
-            'footer.integration_work': 'Integraciones de Sistemas',
-            'footer.healthcare_work': 'Integración de Sistemas de Salud',
+            'footer.ai_deployment': 'Implementación de IA',
+            'footer.fde': 'Ingeniería Forward-Deployed',
+            'footer.odoo_work': 'Odoo',
+            'footer.integration_work': 'Ingeniería de Integración',
+            'footer.healthcare_work': 'Sistemas de Salud',
             'footer.ai_work': 'Asistente de WhatsApp + CRM con IA',
-            'footer.pricing_work': 'Precios y Puntos de Entrada',
             'footer.registered': 'Registrada en Wyoming, EE. UU. · hello@veridatapro.com',
-            'footer.no_outsourcing': 'Todos los proyectos son liderados por un arquitecto. Sin tercerización. Sin venta de horas técnicas.'
+            'footer.senior_led': 'Entrega liderada por profesionales sénior, con responsabilidad técnica directa.'
         }
     };
 
