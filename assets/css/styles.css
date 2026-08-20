@@ -6,7 +6,7 @@
     --ink: #101820;
     --text: #242D32;
     --text-muted: #566068;
-    --text-dim: #767E7D;
+    --text-dim: #626B6C;
     --rule: #DDD7CC;
     --rule-strong: #C8C0B4;
     --accent: #39756F;
@@ -7816,7 +7816,7 @@ body {
 
 .hero-section.bg-ink {
     --text-muted: #566068;
-    --text-dim: #767E7D;
+    --text-dim: #626B6C;
     --rule: #DDD7CC;
     --rule-strong: #C8C0B4;
     background-color: var(--paper);
@@ -8208,4 +8208,166 @@ body {
         display: inline;
         font-size: 0.95rem;
     }
+}
+
+/* Compact homepage close: credibility and conversion in one section */
+.conversation-section {
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule);
+    padding: clamp(4.5rem, 7vw, 6rem) 0;
+}
+
+.conversation-grid {
+    align-items: center;
+    display: grid;
+    gap: clamp(3rem, 7vw, 6rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.founder-proof {
+    align-items: start;
+    border-right: 1px solid var(--rule-strong);
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 92px minmax(0, 1fr);
+    padding-right: clamp(2.5rem, 5vw, 5rem);
+}
+
+.founder-proof img {
+    aspect-ratio: 1;
+    border: 1px solid var(--rule-strong);
+    height: 92px;
+    object-fit: cover;
+    width: 92px;
+}
+
+.founder-proof .eyebrow {
+    font-size: 0.68rem;
+    margin-bottom: 0.85rem;
+}
+
+.founder-proof h3 {
+    color: var(--ink);
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.founder-proof p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0 0 1rem;
+}
+
+.founder-proof .text-link {
+    font-size: 0.88rem;
+}
+
+.conversation-action h2 {
+    color: var(--ink);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    letter-spacing: -0.04em;
+    line-height: 1.03;
+    margin-bottom: 1.25rem;
+    max-width: 12ch;
+}
+
+.conversation-action p {
+    color: var(--text-muted);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.65;
+    margin: 0 0 2rem;
+    max-width: 580px;
+}
+
+@media (max-width: 900px) {
+    .conversation-grid {
+        gap: 3rem;
+        grid-template-columns: 1fr;
+    }
+
+    .founder-proof {
+        border-bottom: 1px solid var(--rule-strong);
+        border-right: 0;
+        max-width: 680px;
+        padding-bottom: 3rem;
+        padding-right: 0;
+    }
+
+    .conversation-action h2 {
+        max-width: 15ch;
+    }
+}
+
+@media (max-width: 520px) {
+    .founder-proof {
+        grid-template-columns: 68px minmax(0, 1fr);
+    }
+
+    .founder-proof img {
+        height: 68px;
+        width: 68px;
+    }
+
+    .conversation-action .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Palette roles: teal explains, orange converts, navy is the exception. */
+.site-header .nav-link.active {
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.entry-panel .entry-code,
+.ruled-list-code,
+.proof-item .proof-label {
+    color: var(--accent);
+}
+
+.decision-record-node::before,
+.final-cta > .container::before,
+.final-cta > .container-narrow::before {
+    background: var(--accent);
+}
+
+.dark-editorial-band {
+    border-top-color: var(--accent-live);
+}
+
+.dark-editorial-band:not(.ai-dark-band) {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule-strong);
+    color: var(--text);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .section-title,
+.dark-editorial-band:not(.ai-dark-band) .dark-table-title {
+    color: var(--ink);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .section-lede {
+    color: var(--text-muted);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .eyebrow,
+.dark-editorial-band:not(.ai-dark-band) .trace-step span {
+    color: var(--accent);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .trace-grid {
+    border-bottom-color: var(--rule-strong);
+    border-top-color: var(--rule-strong);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .trace-step {
+    border-right-color: var(--rule-strong);
+}
+
+.dark-editorial-band:not(.ai-dark-band) .trace-step strong {
+    color: var(--text);
 }
